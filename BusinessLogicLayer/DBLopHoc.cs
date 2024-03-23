@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -34,30 +35,30 @@ namespace BusinessLogicLayer
 
         public DataSet TimLopHoc(string malh)
         {
-            return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new SqlParameter("@malop", malh));
+            return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new MySqlParameter("@malop", malh));
         }
 
         public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string Phong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
         {
             return db.MyExecuteNonQuery("Re_ThemLopHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", MaLopHoc),
-                new SqlParameter("@MaMHDT", MaMHDT),
-                new SqlParameter("@MaGV", MaGV),
-                new SqlParameter("@GioiHan", GioiHan),
-                new SqlParameter("@Phong", Phong),
-                new SqlParameter("@Thu", Thu),
-                new SqlParameter("@TietBatDau", TietBatDau),
-                new SqlParameter("@TietKetThuc", TietKetThuc),
-                new SqlParameter("@ThoiGianBatDau", ThoiGianBatDau),
-                new SqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
-                new SqlParameter("@HocKy", HocKy),
-                new SqlParameter("@Nam", Nam));
+                ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
+                new MySqlParameter("@MaMHDT", MaMHDT),
+                new MySqlParameter("@MaGV", MaGV),
+                new MySqlParameter("@GioiHan", GioiHan),
+                new MySqlParameter("@Phong", Phong),
+                new MySqlParameter("@Thu", Thu),
+                new MySqlParameter("@TietBatDau", TietBatDau),
+                new MySqlParameter("@TietKetThuc", TietKetThuc),
+                new MySqlParameter("@ThoiGianBatDau", ThoiGianBatDau),
+                new MySqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
+                new MySqlParameter("@HocKy", HocKy),
+                new MySqlParameter("@Nam", Nam));
         }
 
         public bool XoaLopHoc(ref string err, string malh)
         {
             return db.MyExecuteNonQuery("Re_XoaLopHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", malh));
+                ref err, new MySqlParameter("@MaLopHoc", malh));
         }
 
         public DataSet TimKiemLopHocTheoMH(String mamh)

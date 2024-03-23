@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using System.Data;
 using MySqlConnector;
-
 
 
 namespace DataAccessLayer
@@ -51,7 +49,6 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds;
         }
-
         public DataSet ExecuteQueryDataSetParam(string strSQL, CommandType ct, params MySqlParameter[] param)
         {
             if (cnn.State == ConnectionState.Open)

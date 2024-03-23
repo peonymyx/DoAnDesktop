@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using DataAccessLayer;
+using MySqlConnector;
 
 
 namespace BusinessLogicLayer
@@ -48,29 +49,29 @@ namespace BusinessLogicLayer
         public bool ThemSV(ref string err, string TenDangNhap, string MatKhau, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop)
         {
             return db.MyExecuteNonQuery("Re_ThemSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@TenDangNhap", TenDangNhap),
-                new SqlParameter("@MatKhau", MatKhau),
-                new SqlParameter("@HoTenSV", HoTenSV),
-                new SqlParameter("@GioiTinh", GioiTinh),
-                new SqlParameter("@NgaySinh", NgaySinh),
-                new SqlParameter("@MaLop ", MaLop));
+                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
+                new MySqlParameter("@MatKhau", MatKhau),
+                new MySqlParameter("@HoTenSV", HoTenSV),
+                new MySqlParameter("@GioiTinh", GioiTinh),
+                new MySqlParameter("@NgaySinh", NgaySinh),
+                new MySqlParameter("@MaLop ", MaLop));
         }
 
         public bool XoaSV(ref string err, string mssv)
         {
             return db.MyExecuteNonQuery("Re_XoaSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@mssv", mssv));
+                ref err, new MySqlParameter("@mssv", mssv));
         }
 
         public bool CapNhatSV(ref string err, string TenDangNhap, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop, string Tinhtrang)
         {
             return db.MyExecuteNonQuery("Re_CapNhatSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@TenDangNhap", TenDangNhap),
-                new SqlParameter("@HoTenSV", HoTenSV),
-                new SqlParameter("@GioiTinh", GioiTinh),
-                new SqlParameter("@NgaySinh", NgaySinh),
-                new SqlParameter("@MaLop ", MaLop),
-                new SqlParameter("@Tinhtrang", Tinhtrang));
+                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
+                new MySqlParameter("@HoTenSV", HoTenSV),
+                new MySqlParameter("@GioiTinh", GioiTinh),
+                new MySqlParameter("@NgaySinh", NgaySinh),
+                new MySqlParameter("@MaLop ", MaLop),
+                new MySqlParameter("@Tinhtrang", Tinhtrang));
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DataAccessLayer;
+using MySqlConnector;
+using System.Collections;
 
 
 namespace BusinessLogicLayer
@@ -12,7 +14,8 @@ namespace BusinessLogicLayer
 
     public class DBTaiKhoan
     {
-        DAL db = null;
+
+        private DAL db;
         public DBTaiKhoan()
         {
             db = new DAL();
@@ -31,7 +34,7 @@ namespace BusinessLogicLayer
         //Thực hiện đăng nhập
         public int DangNhap(string Mssv, string MatKhau)
         {
-            DataSet tk = db.ExecuteQueryDataSet($"SELECT * From dbo.RTO_DangNhap('{Mssv}', '{MatKhau}')", CommandType.Text);
+            DataSet tk = db.ExecuteQueryDataSet($"Call RTO_DangNhap('{Mssv}', '{MatKhau}')", CommandType.Text);
             if (tk.Tables[0].Rows.Count == 0)
                 return 0; // Sai
             else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")
@@ -48,8 +51,8 @@ namespace BusinessLogicLayer
         public bool DoiMatKhau(ref string err, string Mssv, string MatKhau)
         {
             return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MatKhau", MatKhau),
-                new SqlParameter("@TenDangNhap", Mssv));
+                ref err, new MySqlParameter("@MatKhau", MatKhau),
+                new MySqlParameter("@TenDangNhap", Mssv));
         }
 
     }

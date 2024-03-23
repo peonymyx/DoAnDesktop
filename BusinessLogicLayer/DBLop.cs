@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -40,16 +41,16 @@ namespace BusinessLogicLayer
         public bool ThemLop(ref string err, string MaLop, string TenLop, string MaNganh, string MaCTDT)
         {
             return db.MyExecuteNonQuery("Re_ThemLop", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLop", MaLop),
-                new SqlParameter("@TenLop", TenLop),
-                new SqlParameter("@MaNganh", MaNganh),
-                new SqlParameter("@MaCTDT", MaCTDT));
+                ref err, new MySqlParameter("@MaLop", MaLop),
+                new MySqlParameter("@TenLop", TenLop),
+                new MySqlParameter("@MaNganh", MaNganh),
+                new MySqlParameter("@MaCTDT", MaCTDT));
         }
 
         public bool XoaLop(ref string err, string MaLop)
         {
             return db.MyExecuteNonQuery("Re_XoaLop", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLop", MaLop));
+                ref err, new MySqlParameter("@MaLop", MaLop));
         }
 
 
