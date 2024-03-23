@@ -29,7 +29,7 @@ namespace BusinessLogicLayer
         //Hiển thị thông tin sinh viên
         public DataSet ThongTin(string maso)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinQL('{maso}')", CommandType.Text);
+            return db.ExecuteQueryDataSet($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
         }
 
     }

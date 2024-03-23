@@ -7,6 +7,7 @@ using System.Data;
 using DataAccessLayer;
 using MySqlConnector;
 using System.Collections;
+using System.Security.Cryptography;
 
 
 namespace BusinessLogicLayer
@@ -30,11 +31,27 @@ namespace BusinessLogicLayer
         {
             db.changeStrConnectToGiangVien();
         }
+        static string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Mã hóa mật khẩu thành một mảng byte
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
 
+                // Chuyển đổi mảng byte thành một chuỗi hexa
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
         //Thực hiện đăng nhập
         public int DangNhap(string Mssv, string MatKhau)
         {
-            DataSet tk = db.ExecuteQueryDataSet($"Call RTO_DangNhap('{Mssv}', '{MatKhau}')", CommandType.Text);
+            string newPassWord = HashPassword(MatKhau);
+            DataSet tk = db.ExecuteQueryDataSet($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
             if (tk.Tables[0].Rows.Count == 0)
                 return 0; // Sai
             else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")
@@ -50,9 +67,10 @@ namespace BusinessLogicLayer
         //Đổi mật khẩu
         public bool DoiMatKhau(ref string err, string Mssv, string MatKhau)
         {
+            string newPassWord = HashPassword(MatKhau);
             return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MatKhau", MatKhau),
-                new MySqlParameter("@TenDangNhap", Mssv));
+                ref err, new MySqlParameter("p_MatKhau", newPassWord),
+                new MySqlParameter("p_TenDangNhap", Mssv));
         }
 
     }

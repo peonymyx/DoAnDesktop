@@ -97,7 +97,7 @@ namespace DangKyHocPhanSV
                 usr.MaSo = txt_dangnhap.Text.Trim();
                 usr.ShowDialog();
                 txt_dangnhap.ResetText();
-                txt_dangnhap.ResetText();
+                txt_matkhau.ResetText();
                 this.Hide();
                 this.Show();
             }
@@ -107,7 +107,7 @@ namespace DangKyHocPhanSV
                 usr.MaSo = txt_dangnhap.Text.Trim();
                 usr.ShowDialog();
                 txt_dangnhap.ResetText();
-                txt_dangnhap.ResetText();
+                txt_matkhau.ResetText();
                 this.Hide();
                 this.Show();
             }
