@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using BusinessLogicLayer;
+using MySqlX.XDevAPI.Common;
 
 namespace DangKyHocPhanSV
 {
@@ -54,7 +55,7 @@ namespace DangKyHocPhanSV
                     MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (SqlException error)
+            catch (Exception error)
             {
                 MessageBox.Show(error.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

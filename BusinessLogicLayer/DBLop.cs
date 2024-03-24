@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBLop
     {
-        DAL db = null;
+        private DAL db;
         public DBLop()
         {
             db = new DAL();
@@ -20,37 +20,79 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSLop()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachLop", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSet("NonP_DanhSachLop", CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DSSinhVienLop(String ms)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinSVLop(N'{ms}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSVLop(N'{ms}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemLop(ref string err, string MaLop, string TenLop, string MaNganh, string MaCTDT)
-        {
-            return db.MyExecuteNonQuery("Re_ThemLop", CommandType.StoredProcedure,
+        {       
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemLop", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaLop", MaLop),
                 new MySqlParameter("@TenLop", TenLop),
                 new MySqlParameter("@MaNganh", MaNganh),
                 new MySqlParameter("@MaCTDT", MaCTDT));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaLop(ref string err, string MaLop)
         {
-            return db.MyExecuteNonQuery("Re_XoaLop", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaLop", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaLop", MaLop));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

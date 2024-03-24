@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBMonHoc_DaoTao
     {
-        DAL db = null;
+        private DAL db;
         public DBMonHoc_DaoTao()
         {
             db = new DAL();
@@ -20,37 +20,79 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSMHDT()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachMHDT", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSet("NonP_DanhSachMHDT", CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet TimKiemMHDT(String mamhdt)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_TimKiemMHDT(N'{mamhdt}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemMHDT(N'{mamhdt}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemMHDT(ref string err, string MaMHDT , string MaMH, string MaCTDT, string MaNganh )
         {
-            return db.MyExecuteNonQuery("Re_ThemMHDT", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemMHDT", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaMHDT", MaMHDT),
                 new MySqlParameter("@MaMH", MaMH),
                 new MySqlParameter("@MaCTDT", MaCTDT),
                 new MySqlParameter("@MaNganh", MaNganh));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaMHDT(ref string err, string MaMHDT)
         {
-            return db.MyExecuteNonQuery("Re_XoaMHDT", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaMHDT", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaMHDT", MaMHDT));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

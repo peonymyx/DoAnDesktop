@@ -15,7 +15,7 @@ namespace BusinessLogicLayer
 
     public class DBSinhVien
     {
-        DAL db = null;
+        private DAL db;
         public DBSinhVien()
         {
             db = new DAL();
@@ -23,28 +23,63 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         //Hiển thị thông tin sinh viên
         public DataSet ThongTin(string Mssv)
         {
-            return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSV('{Mssv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSV('{Mssv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet HocPhanCTDTSV(string Mssv)
         {
-            return db.ExecuteQueryDataSet($"CALL RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DSSinhVienDKMH()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachDKMH", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSet("NonP_DanhSachDKMH", CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         static string HashPassword(string password)
         {
@@ -62,33 +97,53 @@ namespace BusinessLogicLayer
                 return builder.ToString();
             }
         }
-
         public bool ThemSV(ref string err, string TenDangNhap, string MatKhau, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop)
         {
-            return db.MyExecuteNonQuery("Re_ThemSinhVien", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemSinhVien", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
                 new MySqlParameter("@MatKhau", HashPassword(MatKhau)),
                 new MySqlParameter("@HoTenSV", HoTenSV),
                 new MySqlParameter("@GioiTinh", GioiTinh),
                 new MySqlParameter("@NgaySinh", NgaySinh),
                 new MySqlParameter("@MaLop ", MaLop));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaSV(ref string err, string mssv)
         {
-            return db.MyExecuteNonQuery("Re_XoaSinhVien", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaSinhVien", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@mssv", mssv));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool CapNhatSV(ref string err, string TenDangNhap, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop, string Tinhtrang)
-        {
-            return db.MyExecuteNonQuery("Re_CapNhatSinhVien", CommandType.StoredProcedure,
+        {        
+            try
+            {
+                return db.MyExecuteNonQuery("Re_CapNhatSinhVien", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
                 new MySqlParameter("@HoTenSV", HoTenSV),
                 new MySqlParameter("@GioiTinh", GioiTinh),
                 new MySqlParameter("@NgaySinh", NgaySinh),
                 new MySqlParameter("@MaLop ", MaLop),
                 new MySqlParameter("@Tinhtrang", Tinhtrang));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

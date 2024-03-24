@@ -7,12 +7,13 @@ using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
 using MySqlConnector;
+using System.Net.NetworkInformation;
 
 namespace BusinessLogicLayer
 {
     public class DBLopHoc
     {
-        DAL db = null;
+        private DAL db;
         public DBLopHoc()
         {
             db = new DAL();
@@ -20,27 +21,57 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSLopHoc()
-        {
-            return db.ExecuteQueryDataSet("NonP_DanhSachLopHoc", CommandType.StoredProcedure);
+        {    
+            try
+            {
+                return db.ExecuteQueryDataSet("NonP_DanhSachLopHoc", CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet TimLopHoc(string malh)
         {
-            return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new MySqlParameter("@malop", malh));
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new MySqlParameter("@malop", malh));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string Phong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
         {
-            return db.MyExecuteNonQuery("Re_ThemLopHoc", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemLopHoc", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
                 new MySqlParameter("@MaMHDT", MaMHDT),
                 new MySqlParameter("@MaGV", MaGV),
@@ -53,47 +84,108 @@ namespace BusinessLogicLayer
                 new MySqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
                 new MySqlParameter("@HocKy", HocKy),
                 new MySqlParameter("@Nam", Nam));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaLopHoc(ref string err, string malh)
         {
-            return db.MyExecuteNonQuery("Re_XoaLopHoc", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaLopHoc", malh));
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaLopHoc", CommandType.StoredProcedure,
+               ref err, new MySqlParameter("@MaLopHoc", malh));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet TimKiemLopHocTheoMH(String mamh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_TimKiemLopHocTheoMon(N'{mamh}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_TimKiemLopHocTheoMon(N'{mamh}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet ThoiKhoaBieuSV(String masv)
-        {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_XemTKB(N'{masv}')", CommandType.Text);
+        {           
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKB(N'{masv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet ThoiKhoaBieuGV(String magv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_XemTKBGV(N'{magv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKBGV(N'{magv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet ChiTietLopHocGV(String magv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_ChiTietLHGV(N'{magv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_ChiTietLHGV(N'{magv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DanhSachSVLH(String malh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_DanhSachSVLopHoc(N'{malh}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachSVLopHoc(N'{malh}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int TongSVLopHoc(String malh)
         {
-            return db.MyExecuteScalarFunction($"SELECT dbo.RNO_TongSVLopHoc(N'{malh}')");
+            try
+            {
+                return db.MyExecuteScalarFunction($"CALL RNO_TongSVLopHoc(N'{malh}')");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DanhSachLH(String malh, String masv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_TimKiemLHDK(N'{malh}', N'{masv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_TimKiemLHDK(N'{malh}', N'{masv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

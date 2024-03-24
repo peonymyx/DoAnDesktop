@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBNganh
     {
-        DAL db = null;
+        private DAL db;
         public DBNganh()
         {
             db = new DAL();
@@ -20,46 +20,102 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public int TongSVNganh(String nganh)
         {
-            return db.MyExecuteScalarFunction($"SELECT dbo.RNO_TongSVNganh(N'{nganh}')");
+            try
+            {
+                return db.MyExecuteScalarFunction($"CALL dbo.RNO_TongSVNganh(N'{nganh}')");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DanhSachSVNganh(String nganh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_DSSVNganh(N'{nganh}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTM_DSSVNganh(N'{nganh}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet TimKiemNganh(String nganh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_TimKiemNganh(N'{nganh}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemNganh(N'{nganh}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DanhSachNganh()
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_DanhSachNganh()", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachNganh()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemNganh(ref string err, string MaNganh, string TenNganh, string MaKhoa)
         {
-            return db.MyExecuteNonQuery("Re_ThemNganh", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemNganh", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaNganh", MaNganh),
                 new MySqlParameter("@TenNganh", TenNganh),
                 new MySqlParameter("@MaKhoa", MaKhoa));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaNganh(ref string err, string MaNganh)
-        {
-            return db.MyExecuteNonQuery("Re_XoaNganh", CommandType.StoredProcedure,
+        {   
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaNganh", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaNganh", MaNganh));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

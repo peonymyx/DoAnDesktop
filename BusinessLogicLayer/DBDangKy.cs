@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBDangKy
     {
-        DAL db = null;
+        private DAL db;
         public DBDangKy()
         {
             db = new DAL();
@@ -20,26 +20,66 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        //kiểm tra email tính năng quên mật khẩu
+        public DataSet KiemTraEmail(string Email)
+        {
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSV('{Email}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool DangKyLH(ref string err, string MaLopHoc, string MaSV)
         {
-            return db.MyExecuteNonQuery("Re_DangKyLH", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_DangKyLH", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
                 new MySqlParameter("@MaSV", MaSV));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaDangKyLH(ref string err, string MaLopHoc, string MaSV)
         {
-            return db.MyExecuteNonQuery("Re_XoaDangKyLH", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaDangKyLH", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
                 new MySqlParameter("@MaSV", MaSV));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

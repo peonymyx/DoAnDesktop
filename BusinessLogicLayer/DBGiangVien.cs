@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBGiangVien
     {
-        DAL db = null;
+        private DAL db;
         public DBGiangVien()
         {
             db = new DAL();
@@ -20,37 +20,80 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSGiangVien()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachGV", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSet("NonP_DanhSachGV", CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet ThongTinGV(string magv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinGV('{magv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinGV('{magv}')", CommandType.Text);
+            } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemGV(ref string err, string TenDangNhap, string MatKhau, string HoTenGV, string MaKhoa)
         {
-            return db.MyExecuteNonQuery("Re_ThemGiangVien", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_ThemGiangVien", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
                 new MySqlParameter("@MatKhau", MatKhau),
                 new MySqlParameter("@HoTenGV", HoTenGV),
                 new MySqlParameter("@MaKhoa", MaKhoa));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaGV(ref string err, string magv)
         {
-            return db.MyExecuteNonQuery("Re_XoaGiangVien", CommandType.StoredProcedure,
+            try
+            {
+                return db.MyExecuteNonQuery("Re_XoaGiangVien", CommandType.StoredProcedure,
                 ref err, new MySqlParameter("@magv", magv));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
