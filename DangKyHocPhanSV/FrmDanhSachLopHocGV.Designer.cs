@@ -39,11 +39,10 @@ namespace DangKyHocPhanSV
             this.btn_quaylai = new System.Windows.Forms.Button();
             this.lbl_dslophoc = new System.Windows.Forms.Label();
             this.pn_lophoc = new System.Windows.Forms.Panel();
-            this.dgv_lophoc = new System.Windows.Forms.DataGridView();
+            this.flpn_dslophoc = new System.Windows.Forms.FlowLayoutPanel();
             this.pn_timkiem.SuspendLayout();
             this.pn_header.SuspendLayout();
             this.pn_lophoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_lophoc)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_timkiem
@@ -149,23 +148,22 @@ namespace DangKyHocPhanSV
             // pn_lophoc
             // 
             this.pn_lophoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_lophoc.Controls.Add(this.dgv_lophoc);
+            this.pn_lophoc.Controls.Add(this.flpn_dslophoc);
             this.pn_lophoc.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pn_lophoc.Location = new System.Drawing.Point(0, 123);
             this.pn_lophoc.Name = "pn_lophoc";
             this.pn_lophoc.Size = new System.Drawing.Size(993, 562);
             this.pn_lophoc.TabIndex = 4;
             // 
-            // dgv_lophoc
+            // flpn_dslophoc
             // 
-            this.dgv_lophoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_lophoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_lophoc.Location = new System.Drawing.Point(0, 0);
-            this.dgv_lophoc.Name = "dgv_lophoc";
-            this.dgv_lophoc.RowHeadersWidth = 51;
-            this.dgv_lophoc.RowTemplate.Height = 24;
-            this.dgv_lophoc.Size = new System.Drawing.Size(991, 560);
-            this.dgv_lophoc.TabIndex = 0;
+            this.flpn_dslophoc.AutoScroll = true;
+            this.flpn_dslophoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpn_dslophoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpn_dslophoc.Location = new System.Drawing.Point(0, 0);
+            this.flpn_dslophoc.Name = "flpn_dslophoc";
+            this.flpn_dslophoc.Size = new System.Drawing.Size(991, 560);
+            this.flpn_dslophoc.TabIndex = 7;
             // 
             // FrmDanhSachLopHocGV
             // 
@@ -185,7 +183,6 @@ namespace DangKyHocPhanSV
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
             this.pn_lophoc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_lophoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,8 +197,8 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Label lbl_dslophoc;
         private System.Windows.Forms.Panel pn_lophoc;
-        private System.Windows.Forms.DataGridView dgv_lophoc;
         private System.Windows.Forms.Label lbl_tongsinhvien;
         private System.Windows.Forms.TextBox txt_tongsinhvien;
+        private System.Windows.Forms.FlowLayoutPanel flpn_dslophoc;
     }
 }
