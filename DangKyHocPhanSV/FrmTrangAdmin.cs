@@ -50,7 +50,6 @@ namespace DangKyHocPhanSV
             dgv_dssinhvien.Columns[0].HeaderText = "Mã Sinh Viên";
             dgv_dssinhvien.Columns[1].HeaderText = "Tên Sinh Viên";
             dgv_dssinhvien.Columns[2].HeaderText = "Tên Ngành";
-            dgv_dssinhvien.Columns[3].HeaderText = "Tình trạng vi phạm";
             dgv_dssinhvien.Columns[0].Width = 150;
             dgv_dssinhvien.Columns[1].Width = 200;
             dgv_dssinhvien.Columns[2].Width = 200;

@@ -70,11 +70,14 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemGiangVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
-                new MySqlParameter("@MatKhau", MatKhau),
-                new MySqlParameter("@HoTenGV", HoTenGV),
-                new MySqlParameter("@MaKhoa", MaKhoa));
+                MySqlParameter[] parameters =
+                {
+                    new MySqlParameter("@TenDangNhap", TenDangNhap),
+                    new MySqlParameter("@MatKhau", MatKhau),
+                    new MySqlParameter("@HoTenGV", HoTenGV),
+                    new MySqlParameter("@MaKhoa", MaKhoa)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -87,7 +90,7 @@ namespace BusinessLogicLayer
             try
             {
                 return db.MyExecuteNonQuery("Re_XoaGiangVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@magv", magv));
+                ref err, new MySqlParameter("p_MaGV", magv));
             }
             catch (Exception ex)
             {

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using System.Data.SqlClient;
+using PagedList;
+using DangKyHocPhanSV.DTO;
+using MySqlConnector;
+using DangKyHocPhanSV.Pagination;
 
 namespace DangKyHocPhanSV
 {
@@ -18,15 +22,17 @@ namespace DangKyHocPhanSV
         DBGiangVien gv = new DBGiangVien();
         private Form _parent;
         private Panel _panel;
+        private SinhVienPagination sinhVienPagination;
 
         public FrmGiangVien(Form parent, Panel panel)
         {
             InitializeComponent();
             _parent = parent;
             _panel = panel;
+            sinhVienPagination = new SinhVienPagination();
         }
 
-        public void loadGiangVien()
+        /*public void loadGiangVien()
         {
             dgv_giangvien.DataSource =  gv.DSGiangVien().Tables[0];
             dgv_giangvien.Columns[0].HeaderText = "Mã giảng viên";
@@ -36,6 +42,27 @@ namespace DangKyHocPhanSV
             dgv_giangvien.Columns[0].Width = 50;
             dgv_giangvien.Columns[1].Width = 70;
             dgv_giangvien.Columns[2].Width = 250;
+        }*/
+        private async void FrmGiangVien_Load(object sender, EventArgs e)
+        {
+            loadDSKhoa();
+            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
+        }
+
+        private async void FrmGiangVien_Load()
+        {
+            loadDSKhoa();
+            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
+        }
+
+        private async void btnPrevious_Click(object sender, EventArgs e)
+        {
+            await sinhVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
+        }
+
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            await sinhVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
         }
 
         public void loadDSKhoa()
@@ -43,11 +70,6 @@ namespace DangKyHocPhanSV
             cbb_khoa.DataSource = khoa.DanhSachKhoa().Tables[0];
             cbb_khoa.DisplayMember = "TenKhoa";
             cbb_khoa.ValueMember = "MaKhoa";
-        }
-        private void FrmGiangVien_Load(object sender, EventArgs e)
-        {
-            loadGiangVien();
-            loadDSKhoa();
         }
 
         private void btn_quaylai_Click(object sender, EventArgs e)
@@ -65,7 +87,8 @@ namespace DangKyHocPhanSV
                 kq = gv.XoaGV(ref err, txt_magv.Text);
                 if (kq)
                 {
-                    loadGiangVien();
+                    //loadGiangVien();
+                    FrmGiangVien_Load();
                     MessageBox.Show("Đã xóa thành công!");
                 }
 
@@ -86,7 +109,8 @@ namespace DangKyHocPhanSV
                 kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString());
                 if (kq)
                 {
-                    loadGiangVien();
+                    //loadGiangVien();
+                    FrmGiangVien_Load();
                     MessageBox.Show("Đã thêm thành công!");
                 }
 
@@ -109,5 +133,7 @@ namespace DangKyHocPhanSV
             dgv_giangvien.Columns[1].Width = 70;
             dgv_giangvien.Columns[2].Width = 250;
         }
+
+        
     }
 }
