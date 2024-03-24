@@ -74,6 +74,7 @@ namespace DangKyHocPhanSV
             FrmDanhSachLopHocGV ds = new FrmDanhSachLopHocGV(this, pn_header);
             ds.MaSo = maso;
             OpenChildForm(ds, pn_container);
+            pn_header.Hide();
         }
     }
 }

@@ -48,6 +48,7 @@ namespace DangKyHocPhanSV
             // 
             // pn_timkiem
             // 
+            this.pn_timkiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_timkiem.Controls.Add(this.lbl_tongsinhvien);
             this.pn_timkiem.Controls.Add(this.txt_tongsinhvien);
             this.pn_timkiem.Controls.Add(this.btn_timkiem);
@@ -114,6 +115,7 @@ namespace DangKyHocPhanSV
             // 
             // pn_header
             // 
+            this.pn_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_header.Controls.Add(this.btn_quaylai);
             this.pn_header.Controls.Add(this.lbl_dslophoc);
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Top;
