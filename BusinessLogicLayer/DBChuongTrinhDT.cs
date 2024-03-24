@@ -28,7 +28,14 @@ namespace BusinessLogicLayer
 
         public DataSet DanhSachCTDT()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachCTDT", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachCTDT()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using DataAccessLayer;
+using MySqlConnector;
 
 
 namespace BusinessLogicLayer
@@ -32,45 +33,99 @@ namespace BusinessLogicLayer
         //Hiển thị thông tin sinh viên
         public DataSet ThongTin(string Mssv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinSV('{Mssv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinSV('{Mssv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         public DataSet HocPhanCTDTSV(string Mssv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
+
 
         public DataSet DSSinhVienDKMH()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachDKMH", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachDKMH()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         public bool ThemSV(ref string err, string TenDangNhap, string MatKhau, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop)
         {
-            return db.MyExecuteNonQuery("Re_ThemSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@TenDangNhap", TenDangNhap),
-                new SqlParameter("@MatKhau", MatKhau),
-                new SqlParameter("@HoTenSV", HoTenSV),
-                new SqlParameter("@GioiTinh", GioiTinh),
-                new SqlParameter("@NgaySinh", NgaySinh),
-                new SqlParameter("@MaLop ", MaLop));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@TenDangNhap", TenDangNhap),
+                    new MySqlParameter("@MatKhau", MatKhau),
+                    new MySqlParameter("@HoTenSV", HoTenSV),
+                    new MySqlParameter("@GioiTinh", GioiTinh),
+                    new MySqlParameter("@NgaySinh", NgaySinh),
+                    new MySqlParameter("@MaLop", MaLop)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemSinhVien('{TenDangNhap}','{MatKhau}','{HoTenSV}','{GioiTinh}','{NgaySinh}','{MaLop}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaSV(ref string err, string mssv)
         {
-            return db.MyExecuteNonQuery("Re_XoaSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@mssv", mssv));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@mssv", mssv)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaSinhVien('{mssv}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         public bool CapNhatSV(ref string err, string TenDangNhap, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop, string Tinhtrang)
         {
-            return db.MyExecuteNonQuery("Re_CapNhatSinhVien", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@TenDangNhap", TenDangNhap),
-                new SqlParameter("@HoTenSV", HoTenSV),
-                new SqlParameter("@GioiTinh", GioiTinh),
-                new SqlParameter("@NgaySinh", NgaySinh),
-                new SqlParameter("@MaLop ", MaLop),
-                new SqlParameter("@Tinhtrang", Tinhtrang));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@TenDangNhap", TenDangNhap),
+                    new MySqlParameter("@HoTenSV", HoTenSV),
+                    new MySqlParameter("@GioiTinh", GioiTinh),
+                    new MySqlParameter("@NgaySinh", NgaySinh),
+                    new MySqlParameter("@MaLop", MaLop),
+                    new MySqlParameter("@Tinhtrang", Tinhtrang)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatSinhVien('{TenDangNhap}','{HoTenSV}','{GioiTinh}','{NgaySinh}','{MaLop}','{Tinhtrang}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

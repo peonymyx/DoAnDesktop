@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -29,29 +30,60 @@ namespace BusinessLogicLayer
 
         public DataSet DSLop()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachLop", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachLop()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet DSSinhVienLop(String ms)
+        public DataSet DSSinhVienLop(string malop)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinSVLop(N'{ms}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinSVLop('{malop}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemLop(ref string err, string MaLop, string TenLop, string MaNganh, string MaCTDT)
         {
-            return db.MyExecuteNonQuery("Re_ThemLop", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLop", MaLop),
-                new SqlParameter("@TenLop", TenLop),
-                new SqlParameter("@MaNganh", MaNganh),
-                new SqlParameter("@MaCTDT", MaCTDT));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLop", MaLop),
+                    new MySqlParameter("@TenLop", TenLop),
+                    new MySqlParameter("@MaNganh", MaNganh),
+                    new MySqlParameter("@MaCTDT", MaCTDT)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemLop('{MaLop}','{TenLop}','{MaNganh}','{MaCTDT}')", CommandType.Text, ref err, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaLop(ref string err, string MaLop)
         {
-            return db.MyExecuteNonQuery("Re_XoaLop", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLop", MaLop));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLop", MaLop)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaLop('{MaLop}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
-
     }
 }

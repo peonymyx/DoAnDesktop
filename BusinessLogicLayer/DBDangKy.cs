@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -29,16 +30,35 @@ namespace BusinessLogicLayer
 
         public bool DangKyLH(ref string err, string MaLopHoc, string MaSV)
         {
-            return db.MyExecuteNonQuery("Re_DangKyLH", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", MaLopHoc),
-                new SqlParameter("@MaSV", MaSV));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLopHoc", MaLopHoc),
+                    new MySqlParameter("@MaSV", MaSV)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_DangKyLH('{MaLopHoc}','{MaSV}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaDangKyLH(ref string err, string MaLopHoc, string MaSV)
         {
-            return db.MyExecuteNonQuery("Re_XoaDangKyLH", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", MaLopHoc),
-                new SqlParameter("@MaSV", MaSV));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLopHoc", MaLopHoc),
+                    new MySqlParameter("@MaSV", MaSV)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaDangKyLH('{MaLopHoc}','{MaSV}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

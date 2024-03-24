@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -29,26 +30,64 @@ namespace BusinessLogicLayer
 
         public DataSet DSMonHoc()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachMonHoc", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachMonHoc()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet TimKiemMH(String mamh)
+        public DataSet TimKiemMH(string mamh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_TimKiemMonHoc(N'{mamh}')", CommandType.Text);
+            try
+            {
+                //MySqlParameter parameter = new MySqlParameter("@MaMH", mamh);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemMonHoc('{mamh}')", CommandType.Text);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         public bool ThemMonHoc(ref string err, string MaMH, string TenMH, int SoTinChi)
         {
-            return db.MyExecuteNonQuery("Re_ThemMonHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaMH", MaMH),
-                new SqlParameter("@TenMH", TenMH),
-                new SqlParameter("@SoTinChi", SoTinChi));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaMH", MaMH),
+                    new MySqlParameter("@TenMH", TenMH),
+                    new MySqlParameter("@SoTinChi", SoTinChi)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemMonHoc('{MaMH}','{TenMH}','{SoTinChi}')", CommandType.Text, ref err, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         public bool XoaMonHoc(ref string err, string MaMH)
         {
-            return db.MyExecuteNonQuery("Re_XoaMonHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaMH", MaMH));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaMH", MaMH)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaMonHoc('{MaMH}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

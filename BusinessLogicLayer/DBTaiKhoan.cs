@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DataAccessLayer;
+using MySqlConnector;
 
 
 namespace BusinessLogicLayer
@@ -28,10 +29,10 @@ namespace BusinessLogicLayer
             db.changeStrConnectToGiangVien();
         }
 
-        //Thực hiện đăng nhập
+        //Thực hiện đăng nhập 
         public int DangNhap(string Mssv, string MatKhau)
         {
-            DataSet tk = db.ExecuteQueryDataSet($"SELECT * From dbo.RTO_DangNhap('{Mssv}', '{MatKhau}')", CommandType.Text);
+            DataSet tk = db.ExecuteQueryDataSetParam($"Call RTO_DangNhap('{Mssv}', '{MatKhau}')", CommandType.Text);
             if (tk.Tables[0].Rows.Count == 0)
                 return 0; // Sai
             else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")
@@ -47,10 +48,21 @@ namespace BusinessLogicLayer
         //Đổi mật khẩu
         public bool DoiMatKhau(ref string err, string Mssv, string MatKhau)
         {
-            return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MatKhau", MatKhau),
-                new SqlParameter("@TenDangNhap", Mssv));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MatKhau", MatKhau),
+                    new MySqlParameter("@TenDangNhap", Mssv)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_DoiMatKhau('{MatKhau}','{Mssv}')", CommandType.Text, ref err, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
     }
 }

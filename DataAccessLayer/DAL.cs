@@ -38,7 +38,7 @@ namespace DataAccessLayer
             cmd = cnn.CreateCommand();
         }
 
-        public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct)
+        public DataSet ExecuteQueryDataSet( string strSQL, CommandType ct, MySqlParameter parameter)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();
@@ -93,7 +93,7 @@ namespace DataAccessLayer
             }
             return f;
         }
-        public int MyExecuteScalarFunction(string strSQL)
+        public int MyExecuteScalarFunction(string strSQL, CommandType storedProcedure, MySqlParameter parameter)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();

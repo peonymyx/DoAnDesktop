@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -29,70 +30,171 @@ namespace BusinessLogicLayer
 
         public DataSet DSLopHoc()
         {
-            return db.ExecuteQueryDataSet("NonP_DanhSachLopHoc", CommandType.StoredProcedure);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachLopHoc()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet TimLopHoc(string malh)
         {
-            return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new SqlParameter("@malop", malh));
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL HasP_TimKiemLop('{malh}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string Phong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
         {
-            return db.MyExecuteNonQuery("Re_ThemLopHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", MaLopHoc),
-                new SqlParameter("@MaMHDT", MaMHDT),
-                new SqlParameter("@MaGV", MaGV),
-                new SqlParameter("@GioiHan", GioiHan),
-                new SqlParameter("@Phong", Phong),
-                new SqlParameter("@Thu", Thu),
-                new SqlParameter("@TietBatDau", TietBatDau),
-                new SqlParameter("@TietKetThuc", TietKetThuc),
-                new SqlParameter("@ThoiGianBatDau", ThoiGianBatDau),
-                new SqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
-                new SqlParameter("@HocKy", HocKy),
-                new SqlParameter("@Nam", Nam));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLopHoc", MaLopHoc),
+                    new MySqlParameter("@MaMHDT", MaMHDT),
+                    new MySqlParameter("@MaGV", MaGV),
+                    new MySqlParameter("@GioiHan", GioiHan),
+                    new MySqlParameter("@Phong", Phong),
+                    new MySqlParameter("@Thu", Thu),
+                    new MySqlParameter("@TietBatDau", TietBatDau),
+                    new MySqlParameter("@TietKetThuc", TietKetThuc),
+                    new MySqlParameter("@ThoiGianBatDau", ThoiGianBatDau),
+                    new MySqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
+                    new MySqlParameter("@HocKy", HocKy),
+                    new MySqlParameter("@Nam", Nam)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{Phong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaLopHoc(ref string err, string malh)
         {
-            return db.MyExecuteNonQuery("Re_XoaLopHoc", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaLopHoc", malh));
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MaLopHoc", malh)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaLopHoc('{malh}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet TimKiemLopHocTheoMH(String mamh)
+        public DataSet TimKiemLopHocTheoMH(string mamh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_TimKiemLopHocTheoMon(N'{mamh}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameters = new MySqlParameter("@mamh", mamh);
+                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLopHocTheoMon('{mamh}')", CommandType.Text);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet ThoiKhoaBieuSV(String masv)
+
+
+        public DataSet ThoiKhoaBieuSV(string masv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_XemTKB(N'{masv}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@masv", masv);
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKB('{masv}')", CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet ThoiKhoaBieuGV(String magv)
+        public DataSet ThoiKhoaBieuGV(string magv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_XemTKBGV(N'{magv}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@magv", magv);
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKBGV('{magv}')", CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet ChiTietLopHocGV(String magv)
+
+        public DataSet ChiTietLopHocGV(string magv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_ChiTietLHGV(N'{magv}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@magv", magv);
+                return db.ExecuteQueryDataSet($"CALL RTM_ChiTietLHGV('{magv}')", CommandType.Text, parameter);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet DanhSachSVLH(String malh)
+
+        public DataSet DanhSachSVLH(string malh)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_DanhSachSVLopHoc(N'{malh}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@malh", malh);
+                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachSVLopHoc('{malh}')", CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public int TongSVLopHoc(String malh)
+
+        public int TongSVLopHoc(string malh)
         {
-            return db.MyExecuteScalarFunction($"SELECT dbo.RNO_TongSVLopHoc(N'{malh}')");
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@malh", malh);
+                string query = $"SELECT RNO_TongSVLopHoc('{malh}')";
+                return db.MyExecuteScalarFunction(query, CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet DanhSachLH(String malh, String masv)
+        public DataSet DanhSachLH(string malh, string masv)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_TimKiemLHDK(N'{malh}', N'{masv}')", CommandType.Text);
+            try
+            {
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@malh", malh),
+                    new MySqlParameter("@masv", masv)
+                };
+                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLHDK('{malh}','{masv}')", CommandType.Text, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

@@ -6,6 +6,8 @@ using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using MySqlConnector;
+using System.Security.Cryptography;
 
 namespace BusinessLogicLayer
 {
@@ -27,37 +29,87 @@ namespace BusinessLogicLayer
             db.changeStrConnectToGiangVien();
         }
 
-        public int TongSVKhoa(String khoa)
+        public int TongSVKhoa(string tenkhoa)
         {
-            return db.MyExecuteScalarFunction($"SELECT dbo.RNO_TongSVKhoa(N'{khoa}')");
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@khoa", tenkhoa);
+                string query = $"SELECT RNO_TongSVKhoa('{tenkhoa}')";
+                return db.MyExecuteScalarFunction(query, CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet DanhSachSVKhoa(String khoa)
+        public DataSet DanhSachSVKhoa(string khoa)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTM_DSSVKhoa(N'{khoa}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@khoa", khoa);
+                return db.ExecuteQueryDataSet($"CALL RTM_DSSVKhoa('{khoa}')", CommandType.Text, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DataSet DanhSachKhoa()
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_DanhSachKhoa()", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL RTO_DanhSachKhoa()", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public DataSet TimKiemKhoa(String khoa)
+        public DataSet TimKiemKhoa(string khoa)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_TimKiemKhoa(N'{khoa}')", CommandType.Text);
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@khoa", khoa);
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemKhoa('{khoa}')", CommandType.Text, parameter);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool ThemKhoa(ref string err, string MaKhoa, string TenKhoa)
         {
-            return db.MyExecuteNonQuery("Re_ThemKhoa", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaKhoa", MaKhoa),
-                new SqlParameter("@TenKhoa", TenKhoa));
+            try
+            {
+                MySqlParameter[] parameters = 
+                {
+                    new MySqlParameter("@MaKhoa", MaKhoa),
+                    new MySqlParameter("@TenKhoa", TenKhoa)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemKhoa('{MaKhoa}','{TenKhoa}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool XoaKhoa(ref string err, string MaKhoa)
         {
-            return db.MyExecuteNonQuery("Re_XoaKhoa", CommandType.StoredProcedure,
-                ref err, new SqlParameter("@MaKhoa", MaKhoa));
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("@MaKhoa", MaKhoa);
+                return db.MyExecuteNonQuery($"CALL Re_XoaKhoa('{MaKhoa}')", CommandType.Text, ref err, parameter);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DataAccessLayer;
+using System.Data.SqlClient;
+using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
@@ -29,8 +31,17 @@ namespace BusinessLogicLayer
         //Hiển thị thông tin sinh viên
         public DataSet ThongTin(string maso)
         {
-            return db.ExecuteQueryDataSet($"SELECT * FROM dbo.RTO_ThongTinQL('{maso}')", CommandType.Text);
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+
 
     }
 }
