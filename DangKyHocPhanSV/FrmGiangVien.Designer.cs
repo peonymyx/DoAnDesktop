@@ -48,6 +48,9 @@ namespace DangKyHocPhanSV
             this.lbl_matkhau = new System.Windows.Forms.Label();
             this.lbl_tendangnhap = new System.Windows.Forms.Label();
             this.pn_giangvien = new System.Windows.Forms.Panel();
+            this.lblPageNumber = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
             this.dgv_giangvien = new System.Windows.Forms.DataGridView();
             this.pn_header.SuspendLayout();
             this.pn_timkiemxoa.SuspendLayout();
@@ -266,6 +269,9 @@ namespace DangKyHocPhanSV
             // pn_giangvien
             // 
             this.pn_giangvien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_giangvien.Controls.Add(this.lblPageNumber);
+            this.pn_giangvien.Controls.Add(this.btnNext);
+            this.pn_giangvien.Controls.Add(this.btnPrevious);
             this.pn_giangvien.Controls.Add(this.dgv_giangvien);
             this.pn_giangvien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_giangvien.Location = new System.Drawing.Point(0, 262);
@@ -273,15 +279,44 @@ namespace DangKyHocPhanSV
             this.pn_giangvien.Size = new System.Drawing.Size(993, 423);
             this.pn_giangvien.TabIndex = 3;
             // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(461, 308);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(64, 25);
+            this.lblPageNumber.TabIndex = 3;
+            this.lblPageNumber.Text = "label1";
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(675, 300);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(159, 46);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(150, 300);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(159, 46);
+            this.btnPrevious.TabIndex = 1;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
             // dgv_giangvien
             // 
             this.dgv_giangvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_giangvien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_giangvien.Location = new System.Drawing.Point(0, 0);
+            this.dgv_giangvien.Location = new System.Drawing.Point(150, 16);
             this.dgv_giangvien.Name = "dgv_giangvien";
             this.dgv_giangvien.RowHeadersWidth = 51;
             this.dgv_giangvien.RowTemplate.Height = 24;
-            this.dgv_giangvien.Size = new System.Drawing.Size(991, 421);
+            this.dgv_giangvien.Size = new System.Drawing.Size(684, 255);
             this.dgv_giangvien.TabIndex = 0;
             // 
             // FrmGiangVien
@@ -304,6 +339,7 @@ namespace DangKyHocPhanSV
             this.pn_themgiangvien.ResumeLayout(false);
             this.pn_themgiangvien.PerformLayout();
             this.pn_giangvien.ResumeLayout(false);
+            this.pn_giangvien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_giangvien)).EndInit();
             this.ResumeLayout(false);
 
@@ -331,5 +367,8 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Label lbl_quanlysinhvien;
         private System.Windows.Forms.DataGridView dgv_giangvien;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Label lblPageNumber;
+        private System.Windows.Forms.Button btnNext;
     }
 }
