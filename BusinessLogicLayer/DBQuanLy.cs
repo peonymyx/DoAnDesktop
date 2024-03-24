@@ -5,14 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using DataAccessLayer;
-using System.Data.SqlClient;
-using MySqlConnector;
 
 namespace BusinessLogicLayer
 {
     public class DBQuanLy
     {
-        DAL db = null;
+        private DAL db;
         public DBQuanLy()
         {
             db = new DAL();
@@ -20,12 +18,26 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         //Hiển thị thông tin sinh viên
@@ -33,15 +45,13 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-
 
     }
 }

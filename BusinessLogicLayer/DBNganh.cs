@@ -7,13 +7,12 @@ using DataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
 using MySqlConnector;
-using System.Security.Cryptography;
 
 namespace BusinessLogicLayer
 {
     public class DBNganh
     {
-        DAL db = null;
+        private DAL db;
         public DBNganh()
         {
             db = new DAL();
@@ -21,21 +20,33 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        public int TongSVNganh(string nganh)
+        public int TongSVNganh(String nganh)
         {
             try
             {
-                MySqlParameter parameter = new MySqlParameter("@nganh", nganh);
-                string query = $"SELECT RNO_TongSVNganh('{nganh}')";
-                return db.MyExecuteScalarFunction(query, CommandType.Text, parameter);
+                return db.MyExecuteScalarFunction($"SELECT RNO_TongSVNganh(N'{nganh}')");
             }
             catch (Exception ex)
             {
@@ -43,11 +54,11 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet DanhSachSVNganh(string nganh)
+        public DataSet DanhSachSVNganh(String nganh)
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL RTM_DSSVNganh('{nganh}')", CommandType.Text);
+                return db.ExecuteQueryDataSet($"CALL RTM_DSSVNganh(N'{nganh}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -55,44 +66,38 @@ namespace BusinessLogicLayer
             }
         }
 
-
-        public DataSet TimKiemNganh(string nganh)
+        public DataSet TimKiemNganh(String nganh)
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemNganh('{nganh}')", CommandType.Text);
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemNganh(N'{nganh}')", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         public DataSet DanhSachNganh()
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL RTO_DanhSachNganh()", CommandType.Text);
+                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachNganh()", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         public bool ThemNganh(ref string err, string MaNganh, string TenNganh, string MaKhoa)
         {
             try
             {
-                MySqlParameter[] parameters =
-                {
-                    new MySqlParameter("@MaNganh", MaNganh),
-                    new MySqlParameter("@TenNganh", TenNganh),
-                    new MySqlParameter("@MaKhoa",MaKhoa)
-                };
-                return db.MyExecuteNonQuery($"CALL Re_ThemNganh('{MaNganh}','{TenNganh}','{MaKhoa}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery("Re_ThemNganh", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@MaNganh", MaNganh),
+                new MySqlParameter("@TenNganh", TenNganh),
+                new MySqlParameter("@MaKhoa", MaKhoa));
             }
             catch (Exception ex)
             {
@@ -100,15 +105,12 @@ namespace BusinessLogicLayer
             }
         }
 
-
         public bool XoaNganh(ref string err, string MaNganh)
-        {
+        {   
             try
             {
-                MySqlParameter[] parameters = {
-                    new MySqlParameter("@MaNganh", MaNganh)
-                };
-                return db.MyExecuteNonQuery($"CALL Re_XoaNganh('{MaNganh}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery("Re_XoaNganh", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@MaNganh", MaNganh));
             }
             catch (Exception ex)
             {

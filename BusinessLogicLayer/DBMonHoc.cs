@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBMonHoc
     {
-        DAL db = null;
+        private DAL db;
         public DBMonHoc()
         {
             db = new DAL();
@@ -20,19 +20,33 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSMonHoc()
-        {
+        { 
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachMonHoc()", CommandType.Text);
+                return db.ExecuteQueryDataSet("NonP_DanhSachMonHoc", CommandType.StoredProcedure);
             }
             catch (Exception ex)
             {
@@ -40,54 +54,44 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet TimKiemMH(string mamh)
+        public DataSet TimKiemMH(String mamh)
         {
             try
             {
-                //MySqlParameter parameter = new MySqlParameter("@MaMH", mamh);
-                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemMonHoc('{mamh}')", CommandType.Text);
-
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemMonHoc(N'{mamh}')", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         public bool ThemMonHoc(ref string err, string MaMH, string TenMH, int SoTinChi)
         {
             try
             {
-                MySqlParameter[] parameters = {
-                    new MySqlParameter("@MaMH", MaMH),
-                    new MySqlParameter("@TenMH", TenMH),
-                    new MySqlParameter("@SoTinChi", SoTinChi)
-                };
-                return db.MyExecuteNonQuery($"CALL Re_ThemMonHoc('{MaMH}','{TenMH}','{SoTinChi}')", CommandType.Text, ref err, parameters);
-
+                return db.MyExecuteNonQuery("Re_ThemMonHoc", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@MaMH", MaMH),
+                new MySqlParameter("@TenMH", TenMH),
+                new MySqlParameter("@SoTinChi", SoTinChi));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         public bool XoaMonHoc(ref string err, string MaMH)
         {
             try
             {
-                MySqlParameter[] parameters = {
-                    new MySqlParameter("@MaMH", MaMH)
-                };
-                return db.MyExecuteNonQuery($"CALL Re_XoaMonHoc('{MaMH}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery("Re_XoaMonHoc", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@MaMH", MaMH));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
     }
 }

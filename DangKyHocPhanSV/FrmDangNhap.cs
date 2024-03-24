@@ -66,14 +66,7 @@ namespace DangKyHocPhanSV
 
         private void rdbtnShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            if (rad_showmatkhau.Checked)
-            {
-                txt_matkhau.PasswordChar = (char)0;
-            }
-            else
-            {
-                txt_matkhau.PasswordChar = '*';
-            }
+
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
@@ -125,6 +118,18 @@ namespace DangKyHocPhanSV
             DialogResult dg = MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dg == DialogResult.Yes)
                 Application.Exit();
+        }
+
+        private void chb_showmatkhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_showmatkhau.Checked)
+            {
+                txt_matkhau.PasswordChar = (char)0;
+            }
+            else
+            {
+                txt_matkhau.PasswordChar = '*';
+            }
         }
 
     }

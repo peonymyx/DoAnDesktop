@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class DBGiangVien
     {
-        DAL db = null;
+        private DAL db;
         public DBGiangVien()
         {
             db = new DAL();
@@ -20,26 +20,33 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DSGiangVien()
         {
-            return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachGV()", CommandType.Text);
-
-        }
-
-        public DataSet ThongTinGV(string magv)
-        {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinGV('{magv}')", CommandType.Text);
-
+                return db.ExecuteQueryDataSet("NonP_DanhSachGV", CommandType.StoredProcedure);
             }
             catch (Exception ex)
             {
@@ -47,19 +54,27 @@ namespace BusinessLogicLayer
             }
         }
 
+        public DataSet ThongTinGV(string magv)
+        {
+            try
+            {
+                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinGV('{magv}')", CommandType.Text);
+            } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public bool ThemGV(ref string err, string TenDangNhap, string MatKhau, string HoTenGV, string MaKhoa)
         {
             try
             {
-                MySqlParameter[] parameters =
-                {
-                    new MySqlParameter("@TenDangNhap", TenDangNhap),
-                    new MySqlParameter("@MatKhau", MatKhau),
-                    new MySqlParameter("@HoTenGV", HoTenGV),
-                    new MySqlParameter("@MaKhoa", MaKhoa)
-                };
-                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery("Re_ThemGiangVien", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
+                new MySqlParameter("@MatKhau", MatKhau),
+                new MySqlParameter("@HoTenGV", HoTenGV),
+                new MySqlParameter("@MaKhoa", MaKhoa));
             }
             catch (Exception ex)
             {
@@ -71,14 +86,14 @@ namespace BusinessLogicLayer
         {
             try
             {
-                MySqlParameter parameter = new MySqlParameter("@magv", magv);
-                return db.MyExecuteNonQuery($"CALL Re_XoaGiangVien('{magv}')", CommandType.Text, ref err, parameter);
+                return db.MyExecuteNonQuery("Re_XoaGiangVien", CommandType.StoredProcedure,
+                ref err, new MySqlParameter("@magv", magv));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
 
+        }
     }
 }

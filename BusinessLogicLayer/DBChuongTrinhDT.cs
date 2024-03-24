@@ -10,7 +10,7 @@ namespace BusinessLogicLayer
 {
     public class DBChuongTrinhDT
     {
-        DAL db = null;
+        private DAL db;
         public DBChuongTrinhDT()
         {
             db = new DAL();
@@ -18,19 +18,33 @@ namespace BusinessLogicLayer
 
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public DataSet DanhSachCTDT()
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachCTDT()", CommandType.Text);
+                return db.ExecuteQueryDataSet("NonP_DanhSachCTDT", CommandType.StoredProcedure);
             }
             catch (Exception ex)
             {

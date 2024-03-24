@@ -32,29 +32,30 @@ namespace DangKyHocPhanSV
             this.components = new System.ComponentModel.Container();
             this.lbl_tendangnhap = new System.Windows.Forms.Label();
             this.lbl_makhau = new System.Windows.Forms.Label();
-            this.rad_showmatkhau = new System.Windows.Forms.RadioButton();
             this.lblThongBao = new System.Windows.Forms.Label();
             this.pn_dangnhap = new System.Windows.Forms.Panel();
+            this.chb_showmatkhau = new System.Windows.Forms.CheckBox();
             this.btn_exit = new System.Windows.Forms.Button();
             this.btn_dangnhap = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txt_matkhau = new System.Windows.Forms.TextBox();
+            this.pic_matkhau = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_dangnhap = new System.Windows.Forms.TextBox();
-            this.pn_slideanh = new System.Windows.Forms.Panel();
-            this.pic_slideanh = new System.Windows.Forms.PictureBox();
-            this.pic_matkhau = new System.Windows.Forms.PictureBox();
             this.pic_taikhoan = new System.Windows.Forms.PictureBox();
             this.pic_UEH = new System.Windows.Forms.PictureBox();
+            this.pn_slideanh = new System.Windows.Forms.Panel();
+            this.pic_slideanh = new System.Windows.Forms.PictureBox();
             this.timer_slideanh = new System.Windows.Forms.Timer(this.components);
+            this.linklbl_quenmatkhau = new System.Windows.Forms.LinkLabel();
             this.pn_dangnhap.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pn_slideanh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_slideanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_matkhau)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_taikhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_UEH)).BeginInit();
+            this.pn_slideanh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_slideanh)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tendangnhap
@@ -79,26 +80,11 @@ namespace DangKyHocPhanSV
             this.lbl_makhau.TabIndex = 31;
             this.lbl_makhau.Text = "Mật khẩu:";
             // 
-            // rad_showmatkhau
-            // 
-            this.rad_showmatkhau.AutoSize = true;
-            this.rad_showmatkhau.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rad_showmatkhau.ForeColor = System.Drawing.SystemColors.Control;
-            this.rad_showmatkhau.Location = new System.Drawing.Point(57, 420);
-            this.rad_showmatkhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rad_showmatkhau.Name = "rad_showmatkhau";
-            this.rad_showmatkhau.Size = new System.Drawing.Size(201, 32);
-            this.rad_showmatkhau.TabIndex = 38;
-            this.rad_showmatkhau.TabStop = true;
-            this.rad_showmatkhau.Text = "Hiển thị Mật Khẩu";
-            this.rad_showmatkhau.UseVisualStyleBackColor = true;
-            this.rad_showmatkhau.CheckedChanged += new System.EventHandler(this.rdbtnShowPass_CheckedChanged);
-            // 
             // lblThongBao
             // 
             this.lblThongBao.Font = new System.Drawing.Font("Calibri", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThongBao.ForeColor = System.Drawing.Color.White;
-            this.lblThongBao.Location = new System.Drawing.Point(35, 529);
+            this.lblThongBao.Location = new System.Drawing.Point(35, 544);
             this.lblThongBao.Name = "lblThongBao";
             this.lblThongBao.Size = new System.Drawing.Size(380, 30);
             this.lblThongBao.TabIndex = 39;
@@ -107,9 +93,10 @@ namespace DangKyHocPhanSV
             // pn_dangnhap
             // 
             this.pn_dangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(95)))), ((int)(((byte)(105)))));
+            this.pn_dangnhap.Controls.Add(this.linklbl_quenmatkhau);
+            this.pn_dangnhap.Controls.Add(this.chb_showmatkhau);
             this.pn_dangnhap.Controls.Add(this.btn_exit);
             this.pn_dangnhap.Controls.Add(this.btn_dangnhap);
-            this.pn_dangnhap.Controls.Add(this.rad_showmatkhau);
             this.pn_dangnhap.Controls.Add(this.lblThongBao);
             this.pn_dangnhap.Controls.Add(this.lbl_tendangnhap);
             this.pn_dangnhap.Controls.Add(this.lbl_makhau);
@@ -121,6 +108,19 @@ namespace DangKyHocPhanSV
             this.pn_dangnhap.Name = "pn_dangnhap";
             this.pn_dangnhap.Size = new System.Drawing.Size(448, 685);
             this.pn_dangnhap.TabIndex = 40;
+            // 
+            // chb_showmatkhau
+            // 
+            this.chb_showmatkhau.AutoSize = true;
+            this.chb_showmatkhau.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_showmatkhau.ForeColor = System.Drawing.SystemColors.Control;
+            this.chb_showmatkhau.Location = new System.Drawing.Point(48, 439);
+            this.chb_showmatkhau.Name = "chb_showmatkhau";
+            this.chb_showmatkhau.Size = new System.Drawing.Size(182, 28);
+            this.chb_showmatkhau.TabIndex = 41;
+            this.chb_showmatkhau.Text = "Hiển thị mật khẩu";
+            this.chb_showmatkhau.UseVisualStyleBackColor = true;
+            this.chb_showmatkhau.CheckedChanged += new System.EventHandler(this.chb_showmatkhau_CheckedChanged);
             // 
             // btn_exit
             // 
@@ -136,7 +136,7 @@ namespace DangKyHocPhanSV
             // btn_dangnhap
             // 
             this.btn_dangnhap.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dangnhap.Location = new System.Drawing.Point(35, 459);
+            this.btn_dangnhap.Location = new System.Drawing.Point(35, 474);
             this.btn_dangnhap.Name = "btn_dangnhap";
             this.btn_dangnhap.Size = new System.Drawing.Size(380, 53);
             this.btn_dangnhap.TabIndex = 24;
@@ -165,6 +165,16 @@ namespace DangKyHocPhanSV
             this.txt_matkhau.Size = new System.Drawing.Size(338, 35);
             this.txt_matkhau.TabIndex = 0;
             // 
+            // pic_matkhau
+            // 
+            this.pic_matkhau.Image = global::DangKyHocPhanSV.Properties.Resources.thanhdangnhap__2_;
+            this.pic_matkhau.Location = new System.Drawing.Point(0, 0);
+            this.pic_matkhau.Name = "pic_matkhau";
+            this.pic_matkhau.Size = new System.Drawing.Size(380, 73);
+            this.pic_matkhau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_matkhau.TabIndex = 10;
+            this.pic_matkhau.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txt_dangnhap);
@@ -184,35 +194,6 @@ namespace DangKyHocPhanSV
             this.txt_dangnhap.Name = "txt_dangnhap";
             this.txt_dangnhap.Size = new System.Drawing.Size(338, 35);
             this.txt_dangnhap.TabIndex = 0;
-            // 
-            // pn_slideanh
-            // 
-            this.pn_slideanh.Controls.Add(this.pic_slideanh);
-            this.pn_slideanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_slideanh.Location = new System.Drawing.Point(0, 0);
-            this.pn_slideanh.Name = "pn_slideanh";
-            this.pn_slideanh.Size = new System.Drawing.Size(832, 685);
-            this.pn_slideanh.TabIndex = 41;
-            // 
-            // pic_slideanh
-            // 
-            this.pic_slideanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_slideanh.Location = new System.Drawing.Point(0, 0);
-            this.pic_slideanh.Name = "pic_slideanh";
-            this.pic_slideanh.Size = new System.Drawing.Size(832, 685);
-            this.pic_slideanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pic_slideanh.TabIndex = 0;
-            this.pic_slideanh.TabStop = false;
-            // 
-            // pic_matkhau
-            // 
-            this.pic_matkhau.Image = global::DangKyHocPhanSV.Properties.Resources.thanhdangnhap__2_;
-            this.pic_matkhau.Location = new System.Drawing.Point(0, 0);
-            this.pic_matkhau.Name = "pic_matkhau";
-            this.pic_matkhau.Size = new System.Drawing.Size(380, 73);
-            this.pic_matkhau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_matkhau.TabIndex = 10;
-            this.pic_matkhau.TabStop = false;
             // 
             // pic_taikhoan
             // 
@@ -235,9 +216,41 @@ namespace DangKyHocPhanSV
             this.pic_UEH.TabIndex = 20;
             this.pic_UEH.TabStop = false;
             // 
+            // pn_slideanh
+            // 
+            this.pn_slideanh.Controls.Add(this.pic_slideanh);
+            this.pn_slideanh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_slideanh.Location = new System.Drawing.Point(0, 0);
+            this.pn_slideanh.Name = "pn_slideanh";
+            this.pn_slideanh.Size = new System.Drawing.Size(832, 685);
+            this.pn_slideanh.TabIndex = 41;
+            // 
+            // pic_slideanh
+            // 
+            this.pic_slideanh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_slideanh.Location = new System.Drawing.Point(0, 0);
+            this.pic_slideanh.Name = "pic_slideanh";
+            this.pic_slideanh.Size = new System.Drawing.Size(832, 685);
+            this.pic_slideanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pic_slideanh.TabIndex = 0;
+            this.pic_slideanh.TabStop = false;
+            // 
             // timer_slideanh
             // 
             this.timer_slideanh.Tick += new System.EventHandler(this.timer_slideanh_Tick);
+            // 
+            // linklbl_quenmatkhau
+            // 
+            this.linklbl_quenmatkhau.ActiveLinkColor = System.Drawing.Color.White;
+            this.linklbl_quenmatkhau.AutoSize = true;
+            this.linklbl_quenmatkhau.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_quenmatkhau.LinkColor = System.Drawing.SystemColors.Control;
+            this.linklbl_quenmatkhau.Location = new System.Drawing.Point(259, 441);
+            this.linklbl_quenmatkhau.Name = "linklbl_quenmatkhau";
+            this.linklbl_quenmatkhau.Size = new System.Drawing.Size(148, 24);
+            this.linklbl_quenmatkhau.TabIndex = 44;
+            this.linklbl_quenmatkhau.TabStop = true;
+            this.linklbl_quenmatkhau.Text = "Quên mật khẩu?";
             // 
             // FrmDangNhap
             // 
@@ -253,14 +266,14 @@ namespace DangKyHocPhanSV
             this.pn_dangnhap.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_matkhau)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_taikhoan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_UEH)).EndInit();
             this.pn_slideanh.ResumeLayout(false);
             this.pn_slideanh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_slideanh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_matkhau)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_taikhoan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_UEH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,7 +282,6 @@ namespace DangKyHocPhanSV
 
         private System.Windows.Forms.Label lbl_tendangnhap;
         private System.Windows.Forms.Label lbl_makhau;
-        private System.Windows.Forms.RadioButton rad_showmatkhau;
         private System.Windows.Forms.Label lblThongBao;
         private System.Windows.Forms.Panel pn_dangnhap;
         private System.Windows.Forms.Button btn_dangnhap;
@@ -284,6 +296,8 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_slideanh;
         private System.Windows.Forms.PictureBox pic_slideanh;
         private System.Windows.Forms.Timer timer_slideanh;
+        private System.Windows.Forms.CheckBox chb_showmatkhau;
+        private System.Windows.Forms.LinkLabel linklbl_quenmatkhau;
     }
 }
 

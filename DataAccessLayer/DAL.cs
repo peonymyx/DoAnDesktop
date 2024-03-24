@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using System.Data;
 using MySqlConnector;
-
 
 
 namespace DataAccessLayer
@@ -38,7 +36,7 @@ namespace DataAccessLayer
             cmd = cnn.CreateCommand();
         }
 
-        public DataSet ExecuteQueryDataSet( string strSQL, CommandType ct, MySqlParameter parameter)
+        public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();
@@ -51,7 +49,6 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds;
         }
-
         public DataSet ExecuteQueryDataSetParam(string strSQL, CommandType ct, params MySqlParameter[] param)
         {
             if (cnn.State == ConnectionState.Open)
@@ -66,7 +63,7 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds;
         }
-
+        
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error, params MySqlParameter[] param)
         {
             bool f = false;
@@ -93,7 +90,7 @@ namespace DataAccessLayer
             }
             return f;
         }
-        public int MyExecuteScalarFunction(string strSQL, CommandType storedProcedure, MySqlParameter parameter)
+        public int MyExecuteScalarFunction(string strSQL)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();
