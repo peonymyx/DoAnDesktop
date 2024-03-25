@@ -68,20 +68,19 @@ namespace BusinessLogicLayer
         }
 
 
-        public bool ThemGV(ref string err, string TenDangNhap, string MatKhau, string HoTenGV, string MaKhoa)
+        public bool ThemGV(ref string err, string TenDangNhap, string MatKhau, string HoTenGV, string MaKhoa, string Email)
         {
             try
             {
-                String email = "abc";
                 MySqlParameter[] parameters =
                 {
                     new MySqlParameter("p_TenDangNhap", TenDangNhap),
                     new MySqlParameter("p_MatKhau", MatKhau),
                     new MySqlParameter("p_HoTenGV", HoTenGV),
                     new MySqlParameter("p_MaKhoa", MaKhoa),
-                    new MySqlParameter("p_Email", email)
+                    new MySqlParameter("p_Email", Email)
                 };
-                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}','{email}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}','{Email}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

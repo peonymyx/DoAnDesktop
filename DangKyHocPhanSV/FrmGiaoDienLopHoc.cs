@@ -13,6 +13,7 @@ namespace DangKyHocPhanSV
     public partial class FrmGiaoDienLopHoc : Form
     {
         private Panel _panel;
+        FrmLopHocGV lhgv;
         public FrmGiaoDienLopHoc(/*string tenmonhoc, */string malophoc, string tenphong, string thu, string tietbd, string tietkt, string sosinhvien, Panel panel)
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace DangKyHocPhanSV
             lbl_tenphongInfo.Text = tenphong;
             lbl_thuInfo.Text = thu;
             _panel = panel;
+            lhgv = new FrmLopHocGV(malophoc);
         }
 
         public Button GetButton()

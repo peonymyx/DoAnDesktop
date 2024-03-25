@@ -79,7 +79,6 @@ namespace DangKyHocPhanSV
             loadcbbMonHoc();
             loadcbbNganh();
             loadcbbCTDT();
-
         }
 
         private void btn_timkiemmonhoc_Click(object sender, EventArgs e)

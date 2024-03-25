@@ -106,7 +106,7 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString());
+                kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString(), txt_email.Text);
                 if (kq)
                 {
                     //loadGiangVien();

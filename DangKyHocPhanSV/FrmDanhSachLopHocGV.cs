@@ -19,6 +19,7 @@ namespace DangKyHocPhanSV
         private Form _parent;
         private Panel _panel;
         private int numClass;
+        private string MaLH;
         private Form currentFormChild;
         private void OpenChildForm(Form childForm, Panel panel)
         {
@@ -64,7 +65,7 @@ namespace DangKyHocPhanSV
                 string tietkt = dataTable.Rows[i].Field<int>("TietKetThuc").ToString();
                 string malophoc = dataTable.Rows[i].Field<string>("MaLopHoc").ToString();
                 string sosinhvien = dataTable.Rows[i].Field<int>("soluong").ToString();
-
+                MaLH = malophoc;
                 frmGiaoDienLopHoc = new FrmGiaoDienLopHoc(malophoc, tenphong, thu, tietbd, tietkt, sosinhvien, _panel);
 
                 // Set form's parent to the panel
@@ -85,7 +86,7 @@ namespace DangKyHocPhanSV
 
         private void btn_vaohoc_Click(object sender, EventArgs e)
         {
-            ((FrmTrangGiangVien)this.ParentForm).OpenChildForm(new FrmLopHocGV(), _panel);
+            ((FrmTrangGiangVien)this.ParentForm).OpenChildForm(new FrmLopHocGV(MaLH), _panel);
         }
 
         private void FrmDanhSachLopHocGV_Load(object sender, EventArgs e)

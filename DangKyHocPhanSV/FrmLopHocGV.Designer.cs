@@ -35,30 +35,34 @@
             this.menuS_chinhsuabaihoc = new System.Windows.Forms.MenuStrip();
             this.chỉnhSửaBàiTậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_chitietbaihoc = new System.Windows.Forms.Panel();
+            this.pn_setup = new System.Windows.Forms.Panel();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_upload = new System.Windows.Forms.Button();
+            this.txt_file = new System.Windows.Forms.TextBox();
             this.pn_list = new System.Windows.Forms.Panel();
             this.dgv_listbaihoc = new System.Windows.Forms.DataGridView();
-            this.pn_setup = new System.Windows.Forms.Panel();
-            this.txt_file = new System.Windows.Forms.TextBox();
-            this.btn_upload = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             this.pn_lophoc = new System.Windows.Forms.Panel();
             this.pn_listtuan = new System.Windows.Forms.Panel();
-            this.treev_baihoc = new System.Windows.Forms.TreeView();
-            this.pn_chuong = new System.Windows.Forms.Panel();
             this.pn_chinhsuachuong = new System.Windows.Forms.Panel();
-            this.dgv_chuong = new System.Windows.Forms.DataGridView();
+            this.btn_capnhat = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
             this.txt_themchuong = new System.Windows.Forms.TextBox();
-            this.btn_ = new System.Windows.Forms.Button();
+            this.pn_chuong = new System.Windows.Forms.Panel();
+            this.dgv_chuong = new System.Windows.Forms.DataGridView();
+            this.treev_baihoc = new System.Windows.Forms.TreeView();
+            this.txt_maCH = new System.Windows.Forms.TextBox();
+            this.lbl_maCH = new System.Windows.Forms.Label();
+            this.lbl_noidungCH = new System.Windows.Forms.Label();
             this.pn_header.SuspendLayout();
             this.menuS_chinhsuabaihoc.SuspendLayout();
             this.pn_chitietbaihoc.SuspendLayout();
+            this.pn_setup.SuspendLayout();
             this.pn_list.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listbaihoc)).BeginInit();
-            this.pn_setup.SuspendLayout();
             this.pn_lophoc.SuspendLayout();
             this.pn_listtuan.SuspendLayout();
-            this.pn_chuong.SuspendLayout();
             this.pn_chinhsuachuong.SuspendLayout();
+            this.pn_chuong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chuong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +132,47 @@
             this.pn_chitietbaihoc.Size = new System.Drawing.Size(585, 597);
             this.pn_chitietbaihoc.TabIndex = 6;
             // 
+            // pn_setup
+            // 
+            this.pn_setup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_setup.Controls.Add(this.btn_delete);
+            this.pn_setup.Controls.Add(this.btn_upload);
+            this.pn_setup.Controls.Add(this.txt_file);
+            this.pn_setup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_setup.Location = new System.Drawing.Point(0, 469);
+            this.pn_setup.Name = "pn_setup";
+            this.pn_setup.Size = new System.Drawing.Size(585, 128);
+            this.pn_setup.TabIndex = 1;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Font = new System.Drawing.Font("Calibri", 13.8F);
+            this.btn_delete.Location = new System.Drawing.Point(408, 69);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(113, 40);
+            this.btn_delete.TabIndex = 2;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_upload
+            // 
+            this.btn_upload.Font = new System.Drawing.Font("Calibri", 13.8F);
+            this.btn_upload.Location = new System.Drawing.Point(71, 69);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Size = new System.Drawing.Size(113, 40);
+            this.btn_upload.TabIndex = 1;
+            this.btn_upload.Text = "Upload";
+            this.btn_upload.UseVisualStyleBackColor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
+            // 
+            // txt_file
+            // 
+            this.txt_file.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_file.Location = new System.Drawing.Point(71, 14);
+            this.txt_file.Name = "txt_file";
+            this.txt_file.Size = new System.Drawing.Size(450, 36);
+            this.txt_file.TabIndex = 0;
+            // 
             // pn_list
             // 
             this.pn_list.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -148,48 +193,6 @@
             this.dgv_listbaihoc.RowTemplate.Height = 24;
             this.dgv_listbaihoc.Size = new System.Drawing.Size(583, 467);
             this.dgv_listbaihoc.TabIndex = 0;
-            // 
-            // pn_setup
-            // 
-            this.pn_setup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_setup.Controls.Add(this.btn_delete);
-            this.pn_setup.Controls.Add(this.btn_upload);
-            this.pn_setup.Controls.Add(this.txt_file);
-            this.pn_setup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_setup.Location = new System.Drawing.Point(0, 469);
-            this.pn_setup.Name = "pn_setup";
-            this.pn_setup.Size = new System.Drawing.Size(585, 128);
-            this.pn_setup.TabIndex = 1;
-            // 
-            // txt_file
-            // 
-            this.txt_file.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_file.Location = new System.Drawing.Point(71, 14);
-            this.txt_file.Name = "txt_file";
-            this.txt_file.ReadOnly = true;
-            this.txt_file.Size = new System.Drawing.Size(450, 36);
-            this.txt_file.TabIndex = 0;
-            // 
-            // btn_upload
-            // 
-            this.btn_upload.Font = new System.Drawing.Font("Calibri", 13.8F);
-            this.btn_upload.Location = new System.Drawing.Point(71, 69);
-            this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(113, 40);
-            this.btn_upload.TabIndex = 1;
-            this.btn_upload.Text = "Upload";
-            this.btn_upload.UseVisualStyleBackColor = true;
-            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Font = new System.Drawing.Font("Calibri", 13.8F);
-            this.btn_delete.Location = new System.Drawing.Point(201, 69);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(113, 40);
-            this.btn_delete.TabIndex = 2;
-            this.btn_delete.Text = "Xóa";
-            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // pn_lophoc
             // 
@@ -213,13 +216,50 @@
             this.pn_listtuan.Size = new System.Drawing.Size(408, 597);
             this.pn_listtuan.TabIndex = 5;
             // 
-            // treev_baihoc
+            // pn_chinhsuachuong
             // 
-            this.treev_baihoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treev_baihoc.Location = new System.Drawing.Point(0, 0);
-            this.treev_baihoc.Name = "treev_baihoc";
-            this.treev_baihoc.Size = new System.Drawing.Size(408, 597);
-            this.treev_baihoc.TabIndex = 0;
+            this.pn_chinhsuachuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_chinhsuachuong.Controls.Add(this.lbl_noidungCH);
+            this.pn_chinhsuachuong.Controls.Add(this.lbl_maCH);
+            this.pn_chinhsuachuong.Controls.Add(this.txt_maCH);
+            this.pn_chinhsuachuong.Controls.Add(this.btn_capnhat);
+            this.pn_chinhsuachuong.Controls.Add(this.btn_them);
+            this.pn_chinhsuachuong.Controls.Add(this.txt_themchuong);
+            this.pn_chinhsuachuong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_chinhsuachuong.Location = new System.Drawing.Point(0, 469);
+            this.pn_chinhsuachuong.Name = "pn_chinhsuachuong";
+            this.pn_chinhsuachuong.Size = new System.Drawing.Size(408, 128);
+            this.pn_chinhsuachuong.TabIndex = 2;
+            // 
+            // btn_capnhat
+            // 
+            this.btn_capnhat.Font = new System.Drawing.Font("Calibri", 13.8F);
+            this.btn_capnhat.Location = new System.Drawing.Point(266, 94);
+            this.btn_capnhat.Name = "btn_capnhat";
+            this.btn_capnhat.Size = new System.Drawing.Size(95, 29);
+            this.btn_capnhat.TabIndex = 3;
+            this.btn_capnhat.Text = "Cập Nhật";
+            this.btn_capnhat.UseVisualStyleBackColor = true;
+            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
+            // 
+            // btn_them
+            // 
+            this.btn_them.Font = new System.Drawing.Font("Calibri", 13.8F);
+            this.btn_them.Location = new System.Drawing.Point(37, 94);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(85, 29);
+            this.btn_them.TabIndex = 2;
+            this.btn_them.Text = "Thêm";
+            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
+            // 
+            // txt_themchuong
+            // 
+            this.txt_themchuong.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_themchuong.Location = new System.Drawing.Point(159, 52);
+            this.txt_themchuong.Name = "txt_themchuong";
+            this.txt_themchuong.Size = new System.Drawing.Size(242, 36);
+            this.txt_themchuong.TabIndex = 1;
             // 
             // pn_chuong
             // 
@@ -229,17 +269,6 @@
             this.pn_chuong.Name = "pn_chuong";
             this.pn_chuong.Size = new System.Drawing.Size(408, 469);
             this.pn_chuong.TabIndex = 1;
-            // 
-            // pn_chinhsuachuong
-            // 
-            this.pn_chinhsuachuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_chinhsuachuong.Controls.Add(this.btn_);
-            this.pn_chinhsuachuong.Controls.Add(this.txt_themchuong);
-            this.pn_chinhsuachuong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_chinhsuachuong.Location = new System.Drawing.Point(0, 469);
-            this.pn_chinhsuachuong.Name = "pn_chinhsuachuong";
-            this.pn_chinhsuachuong.Size = new System.Drawing.Size(408, 128);
-            this.pn_chinhsuachuong.TabIndex = 2;
             // 
             // dgv_chuong
             // 
@@ -252,24 +281,39 @@
             this.dgv_chuong.Size = new System.Drawing.Size(408, 469);
             this.dgv_chuong.TabIndex = 0;
             // 
-            // txt_themchuong
+            // treev_baihoc
             // 
-            this.txt_themchuong.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themchuong.Location = new System.Drawing.Point(30, 14);
-            this.txt_themchuong.Name = "txt_themchuong";
-            this.txt_themchuong.ReadOnly = true;
-            this.txt_themchuong.Size = new System.Drawing.Size(351, 36);
-            this.txt_themchuong.TabIndex = 1;
+            this.treev_baihoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treev_baihoc.Location = new System.Drawing.Point(0, 0);
+            this.treev_baihoc.Name = "treev_baihoc";
+            this.treev_baihoc.Size = new System.Drawing.Size(408, 597);
+            this.treev_baihoc.TabIndex = 0;
             // 
-            // btn_
+            // txt_maCH
             // 
-            this.btn_.Font = new System.Drawing.Font("Calibri", 13.8F);
-            this.btn_.Location = new System.Drawing.Point(30, 69);
-            this.btn_.Name = "btn_";
-            this.btn_.Size = new System.Drawing.Size(101, 40);
-            this.btn_.TabIndex = 2;
-            this.btn_.Text = "Thêm";
-            this.btn_.UseVisualStyleBackColor = true;
+            this.txt_maCH.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maCH.Location = new System.Drawing.Point(51, 52);
+            this.txt_maCH.Name = "txt_maCH";
+            this.txt_maCH.Size = new System.Drawing.Size(71, 36);
+            this.txt_maCH.TabIndex = 4;
+            // 
+            // lbl_maCH
+            // 
+            this.lbl_maCH.AutoSize = true;
+            this.lbl_maCH.Location = new System.Drawing.Point(50, 16);
+            this.lbl_maCH.Name = "lbl_maCH";
+            this.lbl_maCH.Size = new System.Drawing.Size(48, 16);
+            this.lbl_maCH.TabIndex = 5;
+            this.lbl_maCH.Text = "Mã CH";
+            // 
+            // lbl_noidungCH
+            // 
+            this.lbl_noidungCH.AutoSize = true;
+            this.lbl_noidungCH.Location = new System.Drawing.Point(166, 19);
+            this.lbl_noidungCH.Name = "lbl_noidungCH";
+            this.lbl_noidungCH.Size = new System.Drawing.Size(83, 16);
+            this.lbl_noidungCH.TabIndex = 6;
+            this.lbl_noidungCH.Text = "Nội dung CH";
             // 
             // FrmLopHocGV
             // 
@@ -280,21 +324,22 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLopHocGV";
             this.Text = "FrmLopHocGV";
+            this.Load += new System.EventHandler(this.FrmLopHocGV_Load);
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
             this.menuS_chinhsuabaihoc.ResumeLayout(false);
             this.menuS_chinhsuabaihoc.PerformLayout();
             this.pn_chitietbaihoc.ResumeLayout(false);
-            this.pn_list.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_listbaihoc)).EndInit();
             this.pn_setup.ResumeLayout(false);
             this.pn_setup.PerformLayout();
+            this.pn_list.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_listbaihoc)).EndInit();
             this.pn_lophoc.ResumeLayout(false);
             this.pn_lophoc.PerformLayout();
             this.pn_listtuan.ResumeLayout(false);
-            this.pn_chuong.ResumeLayout(false);
             this.pn_chinhsuachuong.ResumeLayout(false);
             this.pn_chinhsuachuong.PerformLayout();
+            this.pn_chuong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_chuong)).EndInit();
             this.ResumeLayout(false);
 
@@ -319,9 +364,13 @@
         private System.Windows.Forms.Panel pn_listtuan;
         private System.Windows.Forms.TreeView treev_baihoc;
         private System.Windows.Forms.Panel pn_chinhsuachuong;
-        private System.Windows.Forms.Button btn_;
+        private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.TextBox txt_themchuong;
         private System.Windows.Forms.Panel pn_chuong;
         private System.Windows.Forms.DataGridView dgv_chuong;
+        private System.Windows.Forms.Button btn_capnhat;
+        private System.Windows.Forms.Label lbl_noidungCH;
+        private System.Windows.Forms.Label lbl_maCH;
+        private System.Windows.Forms.TextBox txt_maCH;
     }
 }

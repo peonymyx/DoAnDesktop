@@ -38,7 +38,7 @@ namespace DangKyHocPhanSV
             this.txt_magv = new System.Windows.Forms.TextBox();
             this.lbl_magv = new System.Windows.Forms.Label();
             this.pn_themgiangvien = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
             this.lbl_email = new System.Windows.Forms.Label();
             this.cbb_khoa = new System.Windows.Forms.ComboBox();
             this.btn_them = new System.Windows.Forms.Button();
@@ -157,7 +157,7 @@ namespace DangKyHocPhanSV
             // pn_themgiangvien
             // 
             this.pn_themgiangvien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_themgiangvien.Controls.Add(this.textBox1);
+            this.pn_themgiangvien.Controls.Add(this.txt_email);
             this.pn_themgiangvien.Controls.Add(this.lbl_email);
             this.pn_themgiangvien.Controls.Add(this.cbb_khoa);
             this.pn_themgiangvien.Controls.Add(this.btn_them);
@@ -174,15 +174,15 @@ namespace DangKyHocPhanSV
             this.pn_themgiangvien.Size = new System.Drawing.Size(993, 138);
             this.pn_themgiangvien.TabIndex = 2;
             // 
-            // textBox1
+            // txt_email
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(235, 95);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 28);
-            this.textBox1.TabIndex = 117;
+            this.txt_email.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_email.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Location = new System.Drawing.Point(235, 95);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(241, 28);
+            this.txt_email.TabIndex = 117;
             // 
             // lbl_email
             // 
@@ -395,7 +395,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblPageNumber;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label lbl_email;
     }
 }
