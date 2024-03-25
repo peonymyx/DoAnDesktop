@@ -12,7 +12,8 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmGiaoDienLopHoc : Form
     {
-        public FrmGiaoDienLopHoc(/*string tenmonhoc, */string malophoc, string tenphong, string thu, string tietbd, string tietkt, string sosinhvien)
+        private Panel _panel;
+        public FrmGiaoDienLopHoc(/*string tenmonhoc, */string malophoc, string tenphong, string thu, string tietbd, string tietkt, string sosinhvien, Panel panel)
         {
             InitializeComponent();
             /*lbl_tenlophoc.Text = tenmonhoc;*/
@@ -22,6 +23,17 @@ namespace DangKyHocPhanSV
             lbl_tietktInfo.Text = tietkt;
             lbl_tenphongInfo.Text = tenphong;
             lbl_thuInfo.Text = thu;
+            _panel = panel;
+        }
+
+        public Button GetButton()
+        {
+            return this.btn_vaohoc;
+        }
+
+        private void btn_vaohoc_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

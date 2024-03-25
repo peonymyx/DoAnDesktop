@@ -61,6 +61,7 @@
             this.btn_vaohoc.TabIndex = 9;
             this.btn_vaohoc.Text = "VÀO HỌC";
             this.btn_vaohoc.UseVisualStyleBackColor = true;
+            this.btn_vaohoc.Click += new System.EventHandler(this.btn_vaohoc_Click);
             // 
             // pn_sosinhvien
             // 

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace DangKyHocPhanSV
 {
-    public partial class FrmLopHoc : Form
+    public partial class FrmChinhSuaBaiTapGV : Form
     {
         private string uploadedFilePath;
-        public FrmLopHoc()
+        public FrmChinhSuaBaiTapGV()
         {
             InitializeComponent();
         }
@@ -34,6 +34,16 @@ namespace DangKyHocPhanSV
                 Properties.Resources.WordIcon :
                 Properties.Resources.PowerPointIcon;*/
             }
+        }
+
+        private void btn_quaylai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_taobaitap_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -108,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\GiangVien.cs" />
+    <Compile Include="FrmDanhSachLopHocSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDanhSachLopHocSV.Designer.cs">
+      <DependentUpon>FrmDanhSachLopHocSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDanhSachSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,11 +174,23 @@
     <Compile Include="FrmGiaoDienLopHoc.Designer.cs">
       <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLopHoc.cs">
+    <Compile Include="FrmChinhSuaBaiTapGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLopHoc.Designer.cs">
-      <DependentUpon>FrmLopHoc.cs</DependentUpon>
+    <Compile Include="FrmChinhSuaBaiTapGV.Designer.cs">
+      <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLopHocGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLopHocGV.Designer.cs">
+      <DependentUpon>FrmLopHocGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLopHocSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLopHocSV.Designer.cs">
+      <DependentUpon>FrmLopHocSV.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLopSV.cs">
       <SubType>Form</SubType>
@@ -243,6 +261,9 @@
     <Compile Include="FrmTraCuuMonHoc.designer.cs">
       <DependentUpon>FrmTraCuuMonHoc.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmDanhSachLopHocSV.resx">
+      <DependentUpon>FrmDanhSachLopHocSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDanhSachSinhVien.resx">
       <DependentUpon>FrmDanhSachSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,8 +294,14 @@
     <EmbeddedResource Include="FrmGiaoDienLopHoc.resx">
       <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLopHoc.resx">
-      <DependentUpon>FrmLopHoc.cs</DependentUpon>
+    <EmbeddedResource Include="FrmChinhSuaBaiTapGV.resx">
+      <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLopHocGV.resx">
+      <DependentUpon>FrmLopHocGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLopHocSV.resx">
+      <DependentUpon>FrmLopHocSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLopSV.resx">
       <DependentUpon>FrmLopSV.cs</DependentUpon>

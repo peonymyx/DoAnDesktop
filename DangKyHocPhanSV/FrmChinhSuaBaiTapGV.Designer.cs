@@ -1,6 +1,6 @@
 ﻿namespace DangKyHocPhanSV
 {
-    partial class FrmLopHoc
+    partial class FrmChinhSuaBaiTapGV
     {
         /// <summary>
         /// Required designer variable.
@@ -30,30 +30,26 @@
         {
             this.saveFD_savefile = new System.Windows.Forms.SaveFileDialog();
             this.openFD_openfile = new System.Windows.Forms.OpenFileDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pn_content = new System.Windows.Forms.Panel();
             this.pn_uploadfile = new System.Windows.Forms.Panel();
             this.grbox_upload = new System.Windows.Forms.GroupBox();
+            this.btn_quaylai = new System.Windows.Forms.Button();
+            this.btn_taobaitap = new System.Windows.Forms.Button();
             this.pic_type = new System.Windows.Forms.PictureBox();
             this.txt_link = new System.Windows.Forms.TextBox();
             this.btn_upload = new System.Windows.Forms.Button();
             this.pn_thongtinchung = new System.Windows.Forms.Panel();
             this.grbox_noidung = new System.Windows.Forms.GroupBox();
             this.pn_setting = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_noidung = new System.Windows.Forms.TextBox();
-            this.lbl_baitap = new System.Windows.Forms.Label();
-            this.btn_quaylai = new System.Windows.Forms.Button();
-            this.pn_header = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btn_taobaitap = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
             this.pn_content.SuspendLayout();
             this.pn_uploadfile.SuspendLayout();
             this.grbox_upload.SuspendLayout();
@@ -61,32 +57,22 @@
             this.pn_thongtinchung.SuspendLayout();
             this.grbox_noidung.SuspendLayout();
             this.pn_setting.SuspendLayout();
-            this.pn_header.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFD_openfile
             // 
             this.openFD_openfile.FileName = "openFileDialog1";
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pn_content);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(993, 685);
-            this.panel2.TabIndex = 9;
-            // 
             // pn_content
             // 
             this.pn_content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_content.Controls.Add(this.pn_uploadfile);
             this.pn_content.Controls.Add(this.pn_thongtinchung);
-            this.pn_content.Location = new System.Drawing.Point(0, 53);
+            this.pn_content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_content.Location = new System.Drawing.Point(0, 0);
             this.pn_content.Name = "pn_content";
-            this.pn_content.Size = new System.Drawing.Size(991, 631);
-            this.pn_content.TabIndex = 11;
+            this.pn_content.Size = new System.Drawing.Size(993, 625);
+            this.pn_content.TabIndex = 12;
             // 
             // pn_uploadfile
             // 
@@ -95,22 +81,43 @@
             this.pn_uploadfile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_uploadfile.Location = new System.Drawing.Point(492, 0);
             this.pn_uploadfile.Name = "pn_uploadfile";
-            this.pn_uploadfile.Size = new System.Drawing.Size(497, 629);
+            this.pn_uploadfile.Size = new System.Drawing.Size(499, 623);
             this.pn_uploadfile.TabIndex = 1;
             // 
             // grbox_upload
             // 
+            this.grbox_upload.Controls.Add(this.btn_quaylai);
             this.grbox_upload.Controls.Add(this.btn_taobaitap);
             this.grbox_upload.Controls.Add(this.pic_type);
             this.grbox_upload.Controls.Add(this.txt_link);
             this.grbox_upload.Controls.Add(this.btn_upload);
+            this.grbox_upload.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbox_upload.Font = new System.Drawing.Font("Calibri", 12F);
-            this.grbox_upload.Location = new System.Drawing.Point(5, 3);
+            this.grbox_upload.Location = new System.Drawing.Point(0, 0);
             this.grbox_upload.Name = "grbox_upload";
-            this.grbox_upload.Size = new System.Drawing.Size(487, 614);
+            this.grbox_upload.Size = new System.Drawing.Size(497, 621);
             this.grbox_upload.TabIndex = 0;
             this.grbox_upload.TabStop = false;
             this.grbox_upload.Text = "Đăng tải tệp tin";
+            // 
+            // btn_quaylai
+            // 
+            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quaylai.Location = new System.Drawing.Point(176, 536);
+            this.btn_quaylai.Name = "btn_quaylai";
+            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
+            this.btn_quaylai.TabIndex = 11;
+            this.btn_quaylai.Text = "Quay lại";
+            this.btn_quaylai.UseVisualStyleBackColor = true;
+            // 
+            // btn_taobaitap
+            // 
+            this.btn_taobaitap.Location = new System.Drawing.Point(323, 532);
+            this.btn_taobaitap.Name = "btn_taobaitap";
+            this.btn_taobaitap.Size = new System.Drawing.Size(158, 48);
+            this.btn_taobaitap.TabIndex = 14;
+            this.btn_taobaitap.Text = "Tạo bài tập";
+            this.btn_taobaitap.UseVisualStyleBackColor = true;
             // 
             // pic_type
             // 
@@ -136,7 +143,6 @@
             this.btn_upload.TabIndex = 0;
             this.btn_upload.Text = "Upload";
             this.btn_upload.UseVisualStyleBackColor = true;
-            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
             // pn_thongtinchung
             // 
@@ -145,17 +151,18 @@
             this.pn_thongtinchung.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_thongtinchung.Location = new System.Drawing.Point(0, 0);
             this.pn_thongtinchung.Name = "pn_thongtinchung";
-            this.pn_thongtinchung.Size = new System.Drawing.Size(492, 629);
+            this.pn_thongtinchung.Size = new System.Drawing.Size(492, 623);
             this.pn_thongtinchung.TabIndex = 0;
             // 
             // grbox_noidung
             // 
             this.grbox_noidung.Controls.Add(this.pn_setting);
             this.grbox_noidung.Controls.Add(this.txt_noidung);
+            this.grbox_noidung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbox_noidung.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbox_noidung.Location = new System.Drawing.Point(3, 3);
+            this.grbox_noidung.Location = new System.Drawing.Point(0, 0);
             this.grbox_noidung.Name = "grbox_noidung";
-            this.grbox_noidung.Size = new System.Drawing.Size(482, 614);
+            this.grbox_noidung.Size = new System.Drawing.Size(490, 621);
             this.grbox_noidung.TabIndex = 0;
             this.grbox_noidung.TabStop = false;
             this.grbox_noidung.Text = "Tên bài tập";
@@ -173,8 +180,40 @@
             this.pn_setting.Controls.Add(this.label13);
             this.pn_setting.Location = new System.Drawing.Point(6, 282);
             this.pn_setting.Name = "pn_setting";
-            this.pn_setting.Size = new System.Drawing.Size(470, 326);
+            this.pn_setting.Size = new System.Drawing.Size(470, 302);
             this.pn_setting.TabIndex = 12;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(160, 163);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(278, 36);
+            this.textBox4.TabIndex = 12;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(160, 113);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(278, 36);
+            this.textBox3.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(159, 64);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(279, 36);
+            this.textBox2.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(160, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(278, 36);
+            this.textBox1.TabIndex = 9;
             // 
             // label3
             // 
@@ -225,90 +264,14 @@
             this.txt_noidung.Size = new System.Drawing.Size(470, 250);
             this.txt_noidung.TabIndex = 0;
             // 
-            // lbl_baitap
-            // 
-            this.lbl_baitap.AutoSize = true;
-            this.lbl_baitap.Font = new System.Drawing.Font("Calibri", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_baitap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_baitap.Location = new System.Drawing.Point(61, 7);
-            this.lbl_baitap.Name = "lbl_baitap";
-            this.lbl_baitap.Size = new System.Drawing.Size(112, 40);
-            this.lbl_baitap.TabIndex = 10;
-            this.lbl_baitap.Text = "Bài tập";
-            // 
-            // btn_quaylai
-            // 
-            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quaylai.Location = new System.Drawing.Point(811, 6);
-            this.btn_quaylai.Name = "btn_quaylai";
-            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
-            this.btn_quaylai.TabIndex = 11;
-            this.btn_quaylai.Text = "Quay lại";
-            this.btn_quaylai.UseVisualStyleBackColor = true;
-            // 
-            // pn_header
-            // 
-            this.pn_header.BackColor = System.Drawing.SystemColors.Control;
-            this.pn_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_header.Controls.Add(this.btn_quaylai);
-            this.pn_header.Controls.Add(this.lbl_baitap);
-            this.pn_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn_header.Location = new System.Drawing.Point(0, 0);
-            this.pn_header.Name = "pn_header";
-            this.pn_header.Size = new System.Drawing.Size(993, 53);
-            this.pn_header.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(160, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 36);
-            this.textBox1.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(159, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 36);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(160, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(278, 36);
-            this.textBox3.TabIndex = 11;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(160, 163);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(278, 36);
-            this.textBox4.TabIndex = 12;
-            // 
-            // btn_taobaitap
-            // 
-            this.btn_taobaitap.Location = new System.Drawing.Point(323, 560);
-            this.btn_taobaitap.Name = "btn_taobaitap";
-            this.btn_taobaitap.Size = new System.Drawing.Size(158, 48);
-            this.btn_taobaitap.TabIndex = 14;
-            this.btn_taobaitap.Text = "Tạo bài tập";
-            this.btn_taobaitap.UseVisualStyleBackColor = true;
-            // 
-            // FrmLopHoc
+            // FrmChinhSuaBaiTapGV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(993, 685);
-            this.Controls.Add(this.pn_header);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(993, 625);
+            this.Controls.Add(this.pn_content);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmLopHoc";
+            this.Name = "FrmChinhSuaBaiTapGV";
             this.Text = "FrmLopHoc";
-            this.panel2.ResumeLayout(false);
             this.pn_content.ResumeLayout(false);
             this.pn_uploadfile.ResumeLayout(false);
             this.grbox_upload.ResumeLayout(false);
@@ -319,8 +282,6 @@
             this.grbox_noidung.PerformLayout();
             this.pn_setting.ResumeLayout(false);
             this.pn_setting.PerformLayout();
-            this.pn_header.ResumeLayout(false);
-            this.pn_header.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -329,28 +290,25 @@
 
         private System.Windows.Forms.SaveFileDialog saveFD_savefile;
         private System.Windows.Forms.OpenFileDialog openFD_openfile;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pn_content;
         private System.Windows.Forms.Panel pn_uploadfile;
         private System.Windows.Forms.GroupBox grbox_upload;
+        private System.Windows.Forms.Button btn_quaylai;
+        private System.Windows.Forms.Button btn_taobaitap;
         private System.Windows.Forms.PictureBox pic_type;
         private System.Windows.Forms.TextBox txt_link;
         private System.Windows.Forms.Button btn_upload;
         private System.Windows.Forms.Panel pn_thongtinchung;
         private System.Windows.Forms.GroupBox grbox_noidung;
         private System.Windows.Forms.Panel pn_setting;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_noidung;
-        private System.Windows.Forms.Label lbl_baitap;
-        private System.Windows.Forms.Button btn_quaylai;
-        private System.Windows.Forms.Panel pn_header;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btn_taobaitap;
     }
 }
