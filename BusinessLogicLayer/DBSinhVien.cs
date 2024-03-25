@@ -12,7 +12,6 @@ using System.Security.Cryptography;
 
 namespace BusinessLogicLayer
 {
-
     public class DBSinhVien
     {
         private DAL db;

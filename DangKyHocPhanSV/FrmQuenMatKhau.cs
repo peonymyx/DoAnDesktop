@@ -24,23 +24,23 @@ namespace DangKyHocPhanSV
             {
                 DataSet ds = dk.KiemTraEmail(txt_email.Text);
                 string Ma = "";
-                if(ds!=null && ds.Tables[0].Rows.Count != 0)
+                if (ds != null && ds.Tables[0].Rows.Count != 0)
                 {
                     Ma = ds.Tables[0].Rows[0]["Ma"].ToString();
                     FrmDoiMatKhauSV frmDoiMatKhauSV = new FrmDoiMatKhauSV(Ma);
                     frmDoiMatKhauSV.ShowDialog();
                     this.Close();
-                } 
+                }
                 else
                 {
-                    MessageBox.Show("Email không hợp lệ","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            this.Hide();
+            //this.Hide();
         }
         private void btn_exit_Click(object sender, EventArgs e)
         {

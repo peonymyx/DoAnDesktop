@@ -29,10 +29,11 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_header = new System.Windows.Forms.Label();
             this.pn_content = new System.Windows.Forms.Panel();
+            this.dgv_thoikhoabieu = new System.Windows.Forms.DataGridView();
             this.pn_container = new System.Windows.Forms.Panel();
             this.pn_header = new System.Windows.Forms.Panel();
             this.btn_exit = new System.Windows.Forms.Button();
@@ -48,8 +49,8 @@ namespace DangKyHocPhanSV
             this.pic_menu = new System.Windows.Forms.PictureBox();
             this.pn_menu = new System.Windows.Forms.Panel();
             this.pn_mainmenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgv_thoikhoabieu = new System.Windows.Forms.DataGridView();
             this.pn_content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_thoikhoabieu)).BeginInit();
             this.pn_container.SuspendLayout();
             this.pn_header.SuspendLayout();
             this.pn_exit.SuspendLayout();
@@ -58,7 +59,6 @@ namespace DangKyHocPhanSV
             ((System.ComponentModel.ISupportInitialize)(this.pic_menu)).BeginInit();
             this.pn_menu.SuspendLayout();
             this.pn_mainmenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_thoikhoabieu)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -81,6 +81,38 @@ namespace DangKyHocPhanSV
             this.pn_content.Name = "pn_content";
             this.pn_content.Size = new System.Drawing.Size(993, 622);
             this.pn_content.TabIndex = 1;
+            // 
+            // dgv_thoikhoabieu
+            // 
+            this.dgv_thoikhoabieu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_thoikhoabieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_thoikhoabieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_thoikhoabieu.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_thoikhoabieu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_thoikhoabieu.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_thoikhoabieu.Location = new System.Drawing.Point(0, 0);
+            this.dgv_thoikhoabieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_thoikhoabieu.Name = "dgv_thoikhoabieu";
+            this.dgv_thoikhoabieu.ReadOnly = true;
+            this.dgv_thoikhoabieu.RowHeadersVisible = false;
+            this.dgv_thoikhoabieu.RowHeadersWidth = 51;
+            this.dgv_thoikhoabieu.RowTemplate.Height = 24;
+            this.dgv_thoikhoabieu.Size = new System.Drawing.Size(991, 620);
+            this.dgv_thoikhoabieu.TabIndex = 22;
             // 
             // pn_container
             // 
@@ -271,38 +303,6 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.Size = new System.Drawing.Size(287, 685);
             this.pn_mainmenu.TabIndex = 4;
             // 
-            // dgv_thoikhoabieu
-            // 
-            this.dgv_thoikhoabieu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_thoikhoabieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_thoikhoabieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_thoikhoabieu.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_thoikhoabieu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_thoikhoabieu.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_thoikhoabieu.Location = new System.Drawing.Point(0, 0);
-            this.dgv_thoikhoabieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_thoikhoabieu.Name = "dgv_thoikhoabieu";
-            this.dgv_thoikhoabieu.ReadOnly = true;
-            this.dgv_thoikhoabieu.RowHeadersVisible = false;
-            this.dgv_thoikhoabieu.RowHeadersWidth = 51;
-            this.dgv_thoikhoabieu.RowTemplate.Height = 24;
-            this.dgv_thoikhoabieu.Size = new System.Drawing.Size(991, 620);
-            this.dgv_thoikhoabieu.TabIndex = 22;
-            // 
             // FrmTrangGiangVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -316,6 +316,7 @@ namespace DangKyHocPhanSV
             this.Text = "FrmTrangGiangVien";
             this.Load += new System.EventHandler(this.FrmTrangGiangVien_Load);
             this.pn_content.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_thoikhoabieu)).EndInit();
             this.pn_container.ResumeLayout(false);
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
@@ -327,7 +328,6 @@ namespace DangKyHocPhanSV
             this.pn_menu.ResumeLayout(false);
             this.pn_menu.PerformLayout();
             this.pn_mainmenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_thoikhoabieu)).EndInit();
             this.ResumeLayout(false);
 
         }

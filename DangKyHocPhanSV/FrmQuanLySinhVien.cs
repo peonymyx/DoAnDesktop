@@ -30,7 +30,7 @@ namespace DangKyHocPhanSV
             txt_tongsinhvien.Enabled = false;
         }
 
-        private void btn_quaylai_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             _panel.Show();
@@ -68,7 +68,6 @@ namespace DangKyHocPhanSV
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
             dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
             dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
-
             dgv_sinhvien.Columns[0].Width = 150;
             dgv_sinhvien.Columns[1].Width = 200;
             dgv_sinhvien.Columns[2].Width = 100;

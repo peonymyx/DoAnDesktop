@@ -33,7 +33,7 @@ namespace DangKyHocPhanSV
 
         private void btn_vaohoc_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

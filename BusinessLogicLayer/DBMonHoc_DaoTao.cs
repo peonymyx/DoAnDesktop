@@ -67,7 +67,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public bool ThemMHDT(ref string err, string MaMHDT , string MaMH, string MaCTDT, string MaNganh )
+        public bool ThemMHDT(ref string err, string MaMHDT, string MaMH, string MaCTDT, string MaNganh)
         {
             try
             {

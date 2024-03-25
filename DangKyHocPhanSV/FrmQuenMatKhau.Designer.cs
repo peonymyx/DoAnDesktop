@@ -110,6 +110,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Panel pn_email;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btn_tieptheo;

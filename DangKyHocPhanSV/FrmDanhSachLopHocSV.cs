@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,7 +67,14 @@ namespace DangKyHocPhanSV
                 frmGiaoDienLopHoc.Show();
 
                 flpn_dslophoc.Controls.Add(panel);
+
+                frmGiaoDienLopHoc.GetButton().Click += btn_vaohoc_Click;
             }
+        }
+
+        private void btn_vaohoc_Click(object sender, EventArgs e)
+        {
+            ((FrmTrangSinhVien)this.ParentForm).OpenChildForm(new FrmLopHocSV(), _panel);
         }
 
         private void FrmDanhSachLopHocSV_Load(object sender, EventArgs e)

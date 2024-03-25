@@ -63,7 +63,7 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds;
         }
-        
+
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error, params MySqlParameter[] param)
         {
             bool f = false;

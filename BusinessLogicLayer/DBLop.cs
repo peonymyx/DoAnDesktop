@@ -99,7 +99,5 @@ namespace BusinessLogicLayer
                 throw ex;
             }
         }
-
-
     }
 }

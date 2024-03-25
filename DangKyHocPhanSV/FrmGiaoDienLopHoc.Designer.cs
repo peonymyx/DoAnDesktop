@@ -262,7 +262,7 @@
             // pic_vaohoc
             // 
             this.pic_vaohoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pic_vaohoc.Image = global::DangKyHocPhanSV.Properties.Resources.image2;
+            this.pic_vaohoc.Image = global::DangKyHocPhanSV.Properties.Resources.hoat_dong_chao_mung_ueh_3;
             this.pic_vaohoc.Location = new System.Drawing.Point(0, 0);
             this.pic_vaohoc.Name = "pic_vaohoc";
             this.pic_vaohoc.Size = new System.Drawing.Size(224, 86);
@@ -289,9 +289,11 @@
             this.pn_tenlophoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_vaohoc)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
+
         private System.Windows.Forms.Button btn_vaohoc;
         private System.Windows.Forms.Panel pn_sosinhvien;
         private System.Windows.Forms.Label lbl_sosinhvien;

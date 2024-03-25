@@ -75,6 +75,8 @@ namespace DangKyHocPhanSV
             this.lbl_quanlysinhvien = new System.Windows.Forms.Label();
             this.pn_quanlylop = new System.Windows.Forms.Panel();
             this.lbl_quanlylop = new System.Windows.Forms.Label();
+            this.txt_thememail = new System.Windows.Forms.TextBox();
+            this.lbl_email = new System.Windows.Forms.Label();
             this.pn_them.SuspendLayout();
             this.pn_themsv.SuspendLayout();
             this.pn_themlop.SuspendLayout();
@@ -95,13 +97,15 @@ namespace DangKyHocPhanSV
             this.pn_them.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_them.Location = new System.Drawing.Point(0, 0);
             this.pn_them.Name = "pn_them";
-            this.pn_them.Size = new System.Drawing.Size(991, 198);
+            this.pn_them.Size = new System.Drawing.Size(991, 232);
             this.pn_them.TabIndex = 0;
             // 
             // pn_themsv
             // 
             this.pn_themsv.BackColor = System.Drawing.SystemColors.Control;
             this.pn_themsv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_themsv.Controls.Add(this.txt_thememail);
+            this.pn_themsv.Controls.Add(this.lbl_email);
             this.pn_themsv.Controls.Add(this.btn_capnhat);
             this.pn_themsv.Controls.Add(this.txt_themhoten);
             this.pn_themsv.Controls.Add(this.lbl_themhoten);
@@ -121,14 +125,14 @@ namespace DangKyHocPhanSV
             this.pn_themsv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_themsv.Location = new System.Drawing.Point(494, 0);
             this.pn_themsv.Name = "pn_themsv";
-            this.pn_themsv.Size = new System.Drawing.Size(497, 198);
+            this.pn_themsv.Size = new System.Drawing.Size(497, 232);
             this.pn_themsv.TabIndex = 1;
             // 
             // btn_capnhat
             // 
             this.btn_capnhat.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btn_capnhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_capnhat.Location = new System.Drawing.Point(258, 128);
+            this.btn_capnhat.Location = new System.Drawing.Point(258, 165);
             this.btn_capnhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_capnhat.Name = "btn_capnhat";
             this.btn_capnhat.Size = new System.Drawing.Size(120, 54);
@@ -140,7 +144,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themhoten.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themhoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themhoten.Location = new System.Drawing.Point(105, 71);
+            this.txt_themhoten.Location = new System.Drawing.Point(105, 108);
             this.txt_themhoten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themhoten.Name = "txt_themhoten";
             this.txt_themhoten.Size = new System.Drawing.Size(130, 30);
@@ -151,7 +155,7 @@ namespace DangKyHocPhanSV
             this.lbl_themhoten.AutoSize = true;
             this.lbl_themhoten.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themhoten.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themhoten.Location = new System.Drawing.Point(9, 74);
+            this.lbl_themhoten.Location = new System.Drawing.Point(9, 111);
             this.lbl_themhoten.Name = "lbl_themhoten";
             this.lbl_themhoten.Size = new System.Drawing.Size(71, 24);
             this.lbl_themhoten.TabIndex = 134;
@@ -161,7 +165,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themtinhtrang.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themtinhtrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themtinhtrang.Location = new System.Drawing.Point(115, 152);
+            this.txt_themtinhtrang.Location = new System.Drawing.Point(115, 189);
             this.txt_themtinhtrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themtinhtrang.Name = "txt_themtinhtrang";
             this.txt_themtinhtrang.Size = new System.Drawing.Size(119, 30);
@@ -172,7 +176,7 @@ namespace DangKyHocPhanSV
             this.lbl_themtinhtrang.AutoSize = true;
             this.lbl_themtinhtrang.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themtinhtrang.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themtinhtrang.Location = new System.Drawing.Point(8, 152);
+            this.lbl_themtinhtrang.Location = new System.Drawing.Point(8, 189);
             this.lbl_themtinhtrang.Name = "lbl_themtinhtrang";
             this.lbl_themtinhtrang.Size = new System.Drawing.Size(101, 24);
             this.lbl_themtinhtrang.TabIndex = 132;
@@ -182,7 +186,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themgioitinh.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themgioitinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themgioitinh.Location = new System.Drawing.Point(361, 71);
+            this.txt_themgioitinh.Location = new System.Drawing.Point(361, 108);
             this.txt_themgioitinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themgioitinh.Name = "txt_themgioitinh";
             this.txt_themgioitinh.Size = new System.Drawing.Size(118, 30);
@@ -193,7 +197,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themngaysinh.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themngaysinh.Location = new System.Drawing.Point(116, 108);
+            this.txt_themngaysinh.Location = new System.Drawing.Point(116, 145);
             this.txt_themngaysinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themngaysinh.Name = "txt_themngaysinh";
             this.txt_themngaysinh.Size = new System.Drawing.Size(119, 30);
@@ -204,7 +208,7 @@ namespace DangKyHocPhanSV
             this.lbl_themmalophoc.AutoSize = true;
             this.lbl_themmalophoc.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themmalophoc.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themmalophoc.Location = new System.Drawing.Point(254, 39);
+            this.lbl_themmalophoc.Location = new System.Drawing.Point(254, 76);
             this.lbl_themmalophoc.Name = "lbl_themmalophoc";
             this.lbl_themmalophoc.Size = new System.Drawing.Size(75, 24);
             this.lbl_themmalophoc.TabIndex = 128;
@@ -215,7 +219,7 @@ namespace DangKyHocPhanSV
             this.lbl_themngaysinh.AutoSize = true;
             this.lbl_themngaysinh.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themngaysinh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themngaysinh.Location = new System.Drawing.Point(9, 112);
+            this.lbl_themngaysinh.Location = new System.Drawing.Point(9, 149);
             this.lbl_themngaysinh.Name = "lbl_themngaysinh";
             this.lbl_themngaysinh.Size = new System.Drawing.Size(96, 24);
             this.lbl_themngaysinh.TabIndex = 127;
@@ -226,7 +230,7 @@ namespace DangKyHocPhanSV
             this.lbl_themgioitinh.AutoSize = true;
             this.lbl_themgioitinh.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themgioitinh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themgioitinh.Location = new System.Drawing.Point(254, 74);
+            this.lbl_themgioitinh.Location = new System.Drawing.Point(254, 111);
             this.lbl_themgioitinh.Name = "lbl_themgioitinh";
             this.lbl_themgioitinh.Size = new System.Drawing.Size(88, 24);
             this.lbl_themgioitinh.TabIndex = 126;
@@ -236,7 +240,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themmalophoc.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themmalophoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themmalophoc.Location = new System.Drawing.Point(361, 36);
+            this.txt_themmalophoc.Location = new System.Drawing.Point(361, 73);
             this.txt_themmalophoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themmalophoc.Name = "txt_themmalophoc";
             this.txt_themmalophoc.Size = new System.Drawing.Size(118, 30);
@@ -246,7 +250,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themmk.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themmk.Location = new System.Drawing.Point(105, 36);
+            this.txt_themmk.Location = new System.Drawing.Point(105, 73);
             this.txt_themmk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themmk.Name = "txt_themmk";
             this.txt_themmk.Size = new System.Drawing.Size(130, 30);
@@ -257,7 +261,7 @@ namespace DangKyHocPhanSV
             this.lbl_themmk.AutoSize = true;
             this.lbl_themmk.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_themmk.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themmk.Location = new System.Drawing.Point(9, 39);
+            this.lbl_themmk.Location = new System.Drawing.Point(9, 76);
             this.lbl_themmk.Name = "lbl_themmk";
             this.lbl_themmk.Size = new System.Drawing.Size(95, 24);
             this.lbl_themmk.TabIndex = 123;
@@ -288,7 +292,7 @@ namespace DangKyHocPhanSV
             // 
             this.btn_themqlsinhvien.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btn_themqlsinhvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_themqlsinhvien.Location = new System.Drawing.Point(384, 128);
+            this.btn_themqlsinhvien.Location = new System.Drawing.Point(384, 165);
             this.btn_themqlsinhvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_themqlsinhvien.Name = "btn_themqlsinhvien";
             this.btn_themqlsinhvien.Size = new System.Drawing.Size(95, 54);
@@ -311,7 +315,7 @@ namespace DangKyHocPhanSV
             this.pn_themlop.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_themlop.Location = new System.Drawing.Point(0, 0);
             this.pn_themlop.Name = "pn_themlop";
-            this.pn_themlop.Size = new System.Drawing.Size(494, 198);
+            this.pn_themlop.Size = new System.Drawing.Size(494, 232);
             this.pn_themlop.TabIndex = 0;
             // 
             // txt_themtenlop
@@ -415,11 +419,11 @@ namespace DangKyHocPhanSV
             // 
             this.dgv_danhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_danhsach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_danhsach.Location = new System.Drawing.Point(0, 198);
+            this.dgv_danhsach.Location = new System.Drawing.Point(0, 232);
             this.dgv_danhsach.Name = "dgv_danhsach";
             this.dgv_danhsach.RowHeadersWidth = 51;
             this.dgv_danhsach.RowTemplate.Height = 24;
-            this.dgv_danhsach.Size = new System.Drawing.Size(991, 374);
+            this.dgv_danhsach.Size = new System.Drawing.Size(991, 340);
             this.dgv_danhsach.TabIndex = 1;
             // 
             // pn_container
@@ -613,6 +617,27 @@ namespace DangKyHocPhanSV
             this.lbl_quanlylop.TabIndex = 9;
             this.lbl_quanlylop.Text = "Quản lý lớp";
             // 
+            // txt_thememail
+            // 
+            this.txt_thememail.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_thememail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_thememail.Location = new System.Drawing.Point(76, 38);
+            this.txt_thememail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_thememail.Name = "txt_thememail";
+            this.txt_thememail.Size = new System.Drawing.Size(403, 30);
+            this.txt_thememail.TabIndex = 138;
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_email.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Location = new System.Drawing.Point(9, 39);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(61, 24);
+            this.lbl_email.TabIndex = 137;
+            this.lbl_email.Text = "Email:";
+            // 
             // FrmLopSV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -694,5 +719,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_quanlylop;
         private System.Windows.Forms.Label lbl_quanlylop;
         private System.Windows.Forms.Button btn_capnhat;
+        private System.Windows.Forms.TextBox txt_thememail;
+        private System.Windows.Forms.Label lbl_email;
     }
 }

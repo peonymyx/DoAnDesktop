@@ -13,7 +13,6 @@ using Mysqlx;
 
 namespace BusinessLogicLayer
 {
-
     public class DBTaiKhoan
     {
 
@@ -64,7 +63,7 @@ namespace BusinessLogicLayer
         }
         //Thực hiện đăng nhập
         public int DangNhap(string Mssv, string MatKhau)
-        {         
+        {
             try
             {
                 string newPassWord = HashPassword(MatKhau);
@@ -119,7 +118,8 @@ namespace BusinessLogicLayer
                 return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
                     ref err, new MySqlParameter("p_MatKhau", newPassWord),
                     new MySqlParameter("p_TenDangNhap", Mssv));
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

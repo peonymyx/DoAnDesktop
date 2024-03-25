@@ -82,7 +82,7 @@ namespace DangKyHocPhanSV
             this.btn_quaylai.TabIndex = 63;
             this.btn_quaylai.Text = "Quay lại";
             this.btn_quaylai.UseVisualStyleBackColor = false;
-            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
+            this.btn_quaylai.Click += new System.EventHandler(this.button1_Click);
             // 
             // pn_sinhvien
             // 
@@ -138,11 +138,12 @@ namespace DangKyHocPhanSV
             // dgv_sinhvien
             // 
             this.dgv_sinhvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_sinhvien.Location = new System.Drawing.Point(0, 16);
+            this.dgv_sinhvien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_sinhvien.Location = new System.Drawing.Point(0, 0);
             this.dgv_sinhvien.Name = "dgv_sinhvien";
             this.dgv_sinhvien.RowHeadersWidth = 51;
             this.dgv_sinhvien.RowTemplate.Height = 24;
-            this.dgv_sinhvien.Size = new System.Drawing.Size(991, 471);
+            this.dgv_sinhvien.Size = new System.Drawing.Size(991, 487);
             this.dgv_sinhvien.TabIndex = 0;
             this.dgv_sinhvien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sinhvien_CellContentClick);
             // 

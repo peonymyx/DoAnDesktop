@@ -52,6 +52,5 @@ namespace BusinessLogicLayer
                 throw ex;
             }
         }
-
     }
 }

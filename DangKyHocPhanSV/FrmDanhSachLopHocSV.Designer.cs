@@ -154,9 +154,11 @@
             this.pn_header.PerformLayout();
             this.pn_lophoc.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion
+
         private System.Windows.Forms.Panel pn_timkiem;
         private System.Windows.Forms.Button btn_timkiem;
         private System.Windows.Forms.TextBox txt_timkiem;
