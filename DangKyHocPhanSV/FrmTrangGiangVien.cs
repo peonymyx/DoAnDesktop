@@ -17,7 +17,7 @@ namespace DangKyHocPhanSV
         DBLopHoc lh = new DBLopHoc();
         DBGiangVien gv = new DBGiangVien();
         private Form currentFormChild;
-        private void OpenChildForm(Form childForm, Panel panel)
+        public void OpenChildForm(Form childForm, Panel panel)
         {
             if (currentFormChild != null)
             {
@@ -71,9 +71,10 @@ namespace DangKyHocPhanSV
 
         private void btn_dslophoc_Click(object sender, EventArgs e)
         {
-            FrmDanhSachLopHocGV ds = new FrmDanhSachLopHocGV(this, pn_header);
+            FrmDanhSachLopHocGV ds = new FrmDanhSachLopHocGV(this, pn_container);
             ds.MaSo = maso;
             OpenChildForm(ds, pn_container);
+            pn_header.Hide();
         }
     }
 }

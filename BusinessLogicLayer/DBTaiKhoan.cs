@@ -68,7 +68,7 @@ namespace BusinessLogicLayer
             try
             {
                 string newPassWord = HashPassword(MatKhau);
-                DataSet tk = db.ExecuteQueryDataSet($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
+                DataSet tk = db.ExecuteQueryDataSetParam($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
                 if (tk.Tables[0].Rows.Count == 0)
                     return 0; // Sai
                 else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")

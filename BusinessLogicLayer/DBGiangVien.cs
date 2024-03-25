@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachGV", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachGV()", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -58,26 +58,30 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinGV('{magv}')", CommandType.Text);
-            } 
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinGV('{magv}')", CommandType.Text);
+
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
 
+
         public bool ThemGV(ref string err, string TenDangNhap, string MatKhau, string HoTenGV, string MaKhoa)
         {
             try
             {
+                String email = "abc";
                 MySqlParameter[] parameters =
                 {
-                    new MySqlParameter("@TenDangNhap", TenDangNhap),
-                    new MySqlParameter("@MatKhau", MatKhau),
-                    new MySqlParameter("@HoTenGV", HoTenGV),
-                    new MySqlParameter("@MaKhoa", MaKhoa)
+                    new MySqlParameter("p_TenDangNhap", TenDangNhap),
+                    new MySqlParameter("p_MatKhau", MatKhau),
+                    new MySqlParameter("p_HoTenGV", HoTenGV),
+                    new MySqlParameter("p_MaKhoa", MaKhoa),
+                    new MySqlParameter("p_Email", email)
                 };
-                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_ThemGiangVien('{TenDangNhap}','{MatKhau}','{HoTenGV}','{MaKhoa}','{email}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -89,14 +93,13 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaGiangVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("p_MaGV", magv));
+                MySqlParameter parameter = new MySqlParameter("p_MaGV", magv);
+                return db.MyExecuteNonQuery($"CALL Re_XoaGiangVien('{magv}')", CommandType.Text, ref err, parameter);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
     }
 }

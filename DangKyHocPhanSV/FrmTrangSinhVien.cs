@@ -98,5 +98,11 @@ namespace DangKyHocPhanSV
         {
 
         }
+
+        private void btn_lophoc_Click(object sender, EventArgs e)
+        {
+            FrmDanhSachLopHocSV ds = new FrmDanhSachLopHocSV(this, pn_header);
+            OpenChildForm(ds, pn_container);
+        }
     }
 }

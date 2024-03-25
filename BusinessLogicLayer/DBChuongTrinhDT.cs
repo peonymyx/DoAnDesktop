@@ -44,7 +44,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachCTDT", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachCTDT()", CommandType.Text);
             }
             catch (Exception ex)
             {

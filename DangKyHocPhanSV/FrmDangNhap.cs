@@ -132,5 +132,10 @@ namespace DangKyHocPhanSV
             }
         }
 
+        private void linklbl_quenmatkhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmQuenMatKhau frmQuenMatKhau = new FrmQuenMatKhau();
+            frmQuenMatKhau.ShowDialog();
+        }
     }
 }

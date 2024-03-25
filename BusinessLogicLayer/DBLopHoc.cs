@@ -44,10 +44,10 @@ namespace BusinessLogicLayer
         }
 
         public DataSet DSLopHoc()
-        {    
+        {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachLopHoc", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachLopHoc()", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"HasP_TimKiemLop", CommandType.StoredProcedure, new MySqlParameter("@malop", malh));
+                return db.ExecuteQueryDataSetParam($"CALL HasP_TimKiemLop('{malh}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -71,19 +71,22 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemLopHoc", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
-                new MySqlParameter("@MaMHDT", MaMHDT),
-                new MySqlParameter("@MaGV", MaGV),
-                new MySqlParameter("@GioiHan", GioiHan),
-                new MySqlParameter("@Phong", Phong),
-                new MySqlParameter("@Thu", Thu),
-                new MySqlParameter("@TietBatDau", TietBatDau),
-                new MySqlParameter("@TietKetThuc", TietKetThuc),
-                new MySqlParameter("@ThoiGianBatDau", ThoiGianBatDau),
-                new MySqlParameter("@ThoiGianKetThuc", ThoiGianKetThuc),
-                new MySqlParameter("@HocKy", HocKy),
-                new MySqlParameter("@Nam", Nam));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaLopHoc", MaLopHoc),
+                    new MySqlParameter("p_MaMHDT", MaMHDT),
+                    new MySqlParameter("p_MaGV", MaGV),
+                    new MySqlParameter("p_GioiHan", GioiHan),
+                    new MySqlParameter("p_Phong", Phong),
+                    new MySqlParameter("p_Thu", Thu),
+                    new MySqlParameter("p_TietBatDau", TietBatDau),
+                    new MySqlParameter("p_TietKetThuc", TietKetThuc),
+                    new MySqlParameter("p_ThoiGianBatDau", ThoiGianBatDau),
+                    new MySqlParameter("p_ThoiGianKetThuc", ThoiGianKetThuc),
+                    new MySqlParameter("p_HocKy", HocKy),
+                    new MySqlParameter("p_Nam", Nam)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{Phong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
+
             }
             catch (Exception ex)
             {
@@ -95,8 +98,10 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaLopHoc", CommandType.StoredProcedure,
-               ref err, new MySqlParameter("@MaLopHoc", malh));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaLopHoc", malh)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaLopHoc('{malh}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -104,11 +109,13 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet TimKiemLopHocTheoMH(String mamh)
+        public DataSet TimKiemLopHocTheoMH(string mamh)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_TimKiemLopHocTheoMon(N'{mamh}')", CommandType.Text);
+                MySqlParameter parameters = new MySqlParameter("p_mamh", mamh);
+                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLopHocTheoMon('{mamh}')", CommandType.Text);
+
             }
             catch (Exception ex)
             {
@@ -116,23 +123,12 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet ThoiKhoaBieuSV(String masv)
-        {           
-            try
-            {
-                return db.ExecuteQueryDataSet($"CALL RTM_XemTKB(N'{masv}')", CommandType.Text);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public DataSet ThoiKhoaBieuGV(String magv)
+        public DataSet ThoiKhoaBieuSV(string masv)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_XemTKBGV(N'{magv}')", CommandType.Text);
+                MySqlParameter parameter = new MySqlParameter("p_masv", masv);
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKB('{masv}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -140,11 +136,12 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet ChiTietLopHocGV(String magv)
+        public DataSet ThoiKhoaBieuGV(string magv)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_ChiTietLHGV(N'{magv}')", CommandType.Text);
+                MySqlParameter parameter = new MySqlParameter("p_magv", magv);
+                return db.ExecuteQueryDataSet($"CALL RTM_XemTKBGV('{magv}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -152,11 +149,26 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet DanhSachSVLH(String malh)
+        public DataSet ChiTietLopHocGV(string magv)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachSVLopHoc(N'{malh}')", CommandType.Text);
+                MySqlParameter parameter = new MySqlParameter("p_magv", magv);
+                return db.ExecuteQueryDataSet($"CALL RTM_ChiTietLHGV('{magv}')", CommandType.Text, parameter);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet DanhSachSVLH(string malh)
+        {
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("p_malh", malh);
+                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachSVLopHoc('{malh}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -168,7 +180,9 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteScalarFunction($"CALL RNO_TongSVLopHoc(N'{malh}')");
+                MySqlParameter parameter = new MySqlParameter("p_malh", malh);
+                string query = $"SELECT RNO_TongSVLopHoc('{malh}')";
+                return db.MyExecuteScalarFunction(query, CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -176,11 +190,15 @@ namespace BusinessLogicLayer
             }
         }
 
-        public DataSet DanhSachLH(String malh, String masv)
+        public DataSet DanhSachLH(string malh, string masv)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_TimKiemLHDK(N'{malh}', N'{masv}')", CommandType.Text);
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_malh", malh),
+                    new MySqlParameter("p_masv", masv)
+                };
+                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLHDK('{malh}','{masv}')", CommandType.Text, parameters);
             }
             catch (Exception ex)
             {

@@ -43,10 +43,10 @@ namespace BusinessLogicLayer
         }
 
         public DataSet DSMonHoc()
-        { 
+        {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachMonHoc", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachMonHoc()", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -58,7 +58,9 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemMonHoc(N'{mamh}')", CommandType.Text);
+                //MySqlParameter parameter = new MySqlParameter("@MaMH", mamh);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemMonHoc('{mamh}')", CommandType.Text);
+
             }
             catch (Exception ex)
             {
@@ -70,10 +72,13 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemMonHoc", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaMH", MaMH),
-                new MySqlParameter("@TenMH", TenMH),
-                new MySqlParameter("@SoTinChi", SoTinChi));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaMH", MaMH),
+                    new MySqlParameter("p_TenMH", TenMH),
+                    new MySqlParameter("p_SoTinChi", SoTinChi)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemMonHoc('{MaMH}','{TenMH}','{SoTinChi}')", CommandType.Text, ref err, parameters);
+
             }
             catch (Exception ex)
             {
@@ -85,8 +90,10 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaMonHoc", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaMH", MaMH));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaMH", MaMH)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaMonHoc('{MaMH}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

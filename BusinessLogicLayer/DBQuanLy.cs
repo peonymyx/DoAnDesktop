@@ -45,7 +45,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
             }
             catch (Exception ex)
             {

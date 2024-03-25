@@ -107,7 +107,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmChinhSuaBaiTapGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChinhSuaBaiTapGV.Designer.cs">
+      <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\GiangVien.cs" />
+    <Compile Include="FrmDanhSachLopHocSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDanhSachLopHocSV.Designer.cs">
+      <DependentUpon>FrmDanhSachLopHocSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDoiMatKhauAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,12 @@
     <Compile Include="FrmGiangVien.Designer.cs">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGiaoDienLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGiaoDienLopHoc.Designer.cs">
+      <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLopSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +203,12 @@
     </Compile>
     <Compile Include="FrmQuanLySinhVien.Designer.cs">
       <DependentUpon>FrmQuanLySinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuenMatKhau.Designer.cs">
+      <DependentUpon>FrmQuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmThoiKhoaBieuSV.cs">
       <SubType>Form</SubType>
@@ -219,6 +243,9 @@
     <Compile Include="FrmTraCuuMonHoc.designer.cs">
       <DependentUpon>FrmTraCuuMonHoc.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmChinhSuaBaiTapGV.resx">
+      <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDoiMatKhauAdmin.resx">
       <DependentUpon>FrmDoiMatKhauAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +270,9 @@
     <EmbeddedResource Include="FrmGiangVien.resx">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGiaoDienLopHoc.resx">
+      <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLopSV.resx">
       <DependentUpon>FrmLopSV.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLySinhVien.resx">
       <DependentUpon>FrmQuanLySinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuenMatKhau.resx">
+      <DependentUpon>FrmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmThoiKhoaBieuSV.resx">
       <DependentUpon>FrmThoiKhoaBieuSV.cs</DependentUpon>
@@ -350,6 +383,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monhoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hoat_dong_chao_mung_ueh_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

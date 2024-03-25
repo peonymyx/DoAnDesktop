@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSV('{Email}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL Re_ThongTinByEmail('{Email}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -58,9 +58,11 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_DangKyLH", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
-                new MySqlParameter("@MaSV", MaSV));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaLopHoc", MaLopHoc),
+                    new MySqlParameter("p_MaSV", MaSV)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_DangKyLH('{MaLopHoc}','{MaSV}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -72,9 +74,11 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaDangKyLH", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaLopHoc", MaLopHoc),
-                new MySqlParameter("@MaSV", MaSV));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaLopHoc", MaLopHoc),
+                    new MySqlParameter("p_MaSV", MaSV)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaDangKyLH('{MaLopHoc}','{MaSV}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

@@ -16,6 +16,7 @@ namespace DangKyHocPhanSV
     public partial class FrmDoiMatKhauSV : Form
     {
         private string maso;
+        private string MaSV;
         DBTaiKhoan tk = new DBTaiKhoan();
 
         public string MaSo
@@ -28,9 +29,16 @@ namespace DangKyHocPhanSV
             InitializeComponent();
             tk.SinhVienConnect();
         }
+        public FrmDoiMatKhauSV(string Ma)
+        {
+            InitializeComponent();
+            tk.SinhVienConnect();
+            maso = Ma;
+        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
