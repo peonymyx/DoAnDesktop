@@ -16,7 +16,7 @@ namespace DangKyHocPhanSV
         private string maso;
         DBSinhVien sv = new DBSinhVien();
         private Form currentFormChild;
-        private void OpenChildForm(Form childForm, Panel panel)
+        public void OpenChildForm(Form childForm, Panel panel)
         {
             if (currentFormChild != null)
             {

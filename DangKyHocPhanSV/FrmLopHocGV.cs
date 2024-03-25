@@ -50,8 +50,14 @@ namespace DangKyHocPhanSV
 
         private void chỉnhSửaBàiTậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV();
+            FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(pn_listtuan);
             OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
+            pn_listtuan.Hide();
+        }
+
+        private void btn_quaylai_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

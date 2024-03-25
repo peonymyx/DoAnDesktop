@@ -109,6 +109,7 @@
             this.btn_quaylai.TabIndex = 11;
             this.btn_quaylai.Text = "Quay lại";
             this.btn_quaylai.UseVisualStyleBackColor = true;
+            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click_1);
             // 
             // btn_taobaitap
             // 
@@ -118,6 +119,7 @@
             this.btn_taobaitap.TabIndex = 14;
             this.btn_taobaitap.Text = "Tạo bài tập";
             this.btn_taobaitap.UseVisualStyleBackColor = true;
+            this.btn_taobaitap.Click += new System.EventHandler(this.btn_taobaitap_Click_1);
             // 
             // pic_type
             // 

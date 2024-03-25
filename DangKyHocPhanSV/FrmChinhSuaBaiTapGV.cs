@@ -12,10 +12,12 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmChinhSuaBaiTapGV : Form
     {
+        private Panel _panel;
         private string uploadedFilePath;
-        public FrmChinhSuaBaiTapGV()
+        public FrmChinhSuaBaiTapGV(Panel panel)
         {
             InitializeComponent();
+            _panel = panel;
         }
 
         private void btn_upload_Click(object sender, EventArgs e)
@@ -42,6 +44,17 @@ namespace DangKyHocPhanSV
         }
 
         private void btn_taobaitap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_quaylai_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            _panel.Show();
+        }
+
+        private void btn_taobaitap_Click_1(object sender, EventArgs e)
         {
 
         }
