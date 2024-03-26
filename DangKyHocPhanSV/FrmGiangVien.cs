@@ -46,23 +46,13 @@ namespace DangKyHocPhanSV
         private async void FrmGiangVien_Load(object sender, EventArgs e)
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
+            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         private async void FrmGiangVien_Load()
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
-        }
-
-        private async void btnPrevious_Click(object sender, EventArgs e)
-        {
-            await sinhVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
-        }
-
-        private async void btnNext_Click(object sender, EventArgs e)
-        {
-            await sinhVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, btnPrevious, btnNext);
+            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         public void loadDSKhoa()
@@ -106,7 +96,7 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString());
+                kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString(), txt_email.Text);
                 if (kq)
                 {
                     //loadGiangVien();
@@ -134,6 +124,14 @@ namespace DangKyHocPhanSV
             dgv_giangvien.Columns[2].Width = 250;
         }
 
-        
+        private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+        }
+
+        private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+        }
     }
 }

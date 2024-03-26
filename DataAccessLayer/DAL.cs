@@ -36,7 +36,7 @@ namespace DataAccessLayer
             cmd = cnn.CreateCommand();
         }
 
-        public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct)
+        public DataSet ExecuteQueryDataSet(string strSQL, CommandType ct, MySqlParameter parameter)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();
@@ -63,7 +63,7 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds;
         }
-        
+
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error, params MySqlParameter[] param)
         {
             bool f = false;
@@ -90,7 +90,8 @@ namespace DataAccessLayer
             }
             return f;
         }
-        public int MyExecuteScalarFunction(string strSQL)
+        //đã sửa
+        public int MyExecuteScalarFunction(string strSQL, CommandType storedProcedure, MySqlParameter parameter)
         {
             if (cnn.State == ConnectionState.Open)
                 cnn.Close();
@@ -117,6 +118,60 @@ namespace DataAccessLayer
             DataSet ds = new DataSet();
             adp.Fill(ds);
             return ds.GetXml();
+        }
+        public DataTable GetChartDataSLSV_Khoa()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVMoiKhoa;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_Lop()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVLop;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_Nganh()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVMoiNganh;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_NopBai()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_ThongKeBaiTapCuaCacSV;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLTC_DangKy()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_TongSoChi;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLGVday_Lop()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongLopGVDaNhan;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
         }
     }
 }

@@ -12,7 +12,6 @@ using System.Security.Cryptography;
 
 namespace BusinessLogicLayer
 {
-
     public class DBSinhVien
     {
         private DAL db;
@@ -50,7 +49,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_ThongTinSV('{Mssv}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinSV('{Mssv}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -62,7 +61,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTM_HocPhanCTDTSV('{Mssv}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -74,7 +73,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachDKMH", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachDKMH()", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -101,13 +100,15 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemSinhVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
-                new MySqlParameter("@MatKhau", HashPassword(MatKhau)),
-                new MySqlParameter("@HoTenSV", HoTenSV),
-                new MySqlParameter("@GioiTinh", GioiTinh),
-                new MySqlParameter("@NgaySinh", NgaySinh),
-                new MySqlParameter("@MaLop ", MaLop));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_TenDangNhap", TenDangNhap),
+                    new MySqlParameter("p_MatKhau", HashPassword(MatKhau)),
+                    new MySqlParameter("p_HoTenSV", HoTenSV),
+                    new MySqlParameter("p_GioiTinh", GioiTinh),
+                    new MySqlParameter("p_NgaySinh", NgaySinh),
+                    new MySqlParameter("p_MaLop", MaLop)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemSinhVien('{TenDangNhap}','{MatKhau}','{HoTenSV}','{GioiTinh}','{NgaySinh}','{MaLop}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -119,8 +120,10 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaSinhVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@mssv", mssv));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_mssv", mssv)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaSinhVien('{mssv}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -129,16 +132,18 @@ namespace BusinessLogicLayer
         }
 
         public bool CapNhatSV(ref string err, string TenDangNhap, string HoTenSV, string GioiTinh, string NgaySinh, string MaLop, string Tinhtrang)
-        {        
+        {
             try
             {
-                return db.MyExecuteNonQuery("Re_CapNhatSinhVien", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@TenDangNhap", TenDangNhap),
-                new MySqlParameter("@HoTenSV", HoTenSV),
-                new MySqlParameter("@GioiTinh", GioiTinh),
-                new MySqlParameter("@NgaySinh", NgaySinh),
-                new MySqlParameter("@MaLop ", MaLop),
-                new MySqlParameter("@Tinhtrang", Tinhtrang));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_TenDangNhap", TenDangNhap),
+                    new MySqlParameter("p_HoTenSV", HoTenSV),
+                    new MySqlParameter("p_GioiTinh", GioiTinh),
+                    new MySqlParameter("p_NgaySinh", NgaySinh),
+                    new MySqlParameter("p_MaLop", MaLop),
+                    new MySqlParameter("p_Tinhtrang", Tinhtrang)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatSinhVien('{TenDangNhap}','{HoTenSV}','{GioiTinh}','{NgaySinh}','{MaLop}','{Tinhtrang}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

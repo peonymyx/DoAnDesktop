@@ -13,7 +13,6 @@ using Mysqlx;
 
 namespace BusinessLogicLayer
 {
-
     public class DBTaiKhoan
     {
 
@@ -64,11 +63,11 @@ namespace BusinessLogicLayer
         }
         //Thực hiện đăng nhập
         public int DangNhap(string Mssv, string MatKhau)
-        {         
+        {
             try
             {
                 string newPassWord = HashPassword(MatKhau);
-                DataSet tk = db.ExecuteQueryDataSet($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
+                DataSet tk = db.ExecuteQueryDataSetParam($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
                 if (tk.Tables[0].Rows.Count == 0)
                     return 0; // Sai
                 else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")
@@ -119,7 +118,8 @@ namespace BusinessLogicLayer
                 return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
                     ref err, new MySqlParameter("p_MatKhau", newPassWord),
                     new MySqlParameter("p_TenDangNhap", Mssv));
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

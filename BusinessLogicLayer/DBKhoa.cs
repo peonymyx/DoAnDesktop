@@ -42,11 +42,13 @@ namespace BusinessLogicLayer
             }
         }
 
-        public int TongSVKhoa(String khoa)
+        public int TongSVKhoa(string tenkhoa)
         {
             try
             {
-                return db.MyExecuteScalarFunction($"SELECT RNO_TongSVKhoa(N'{khoa}')");
+                MySqlParameter parameter = new MySqlParameter("p_khoa", tenkhoa);
+                string query = $"SELECT RNO_TongSVKhoa('{tenkhoa}')";
+                return db.MyExecuteScalarFunction(query, CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -54,11 +56,13 @@ namespace BusinessLogicLayer
             }
         }
 
+
         public DataSet DanhSachSVKhoa(String khoa)
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTM_DSSVKhoa(N'{khoa}')", CommandType.Text);
+                MySqlParameter parameter = new MySqlParameter("p_khoa", khoa);
+                return db.ExecuteQueryDataSet($"CALL RTM_DSSVKhoa('{khoa}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -67,10 +71,10 @@ namespace BusinessLogicLayer
         }
 
         public DataSet DanhSachKhoa()
-        {  
+        {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_DanhSachKhoa()", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_DanhSachKhoa()", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -82,7 +86,9 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemKhoa(N'{khoa}')",CommandType.Text);
+                MySqlParameter parameter = new MySqlParameter("p_khoa", khoa);
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemKhoa('{khoa}')", CommandType.Text, parameter);
+
             }
             catch (Exception ex)
             {
@@ -94,9 +100,12 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemKhoa", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaKhoa", MaKhoa),
-                new MySqlParameter("@TenKhoa", TenKhoa));
+                MySqlParameter[] parameters =
+                {
+                    new MySqlParameter("p_MaKhoa", MaKhoa),
+                    new MySqlParameter("p_TenKhoa", TenKhoa)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemKhoa('{MaKhoa}','{TenKhoa}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -108,8 +117,8 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaKhoa", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaKhoa", MaKhoa));
+                MySqlParameter parameter = new MySqlParameter("p_MaKhoa", MaKhoa);
+                return db.MyExecuteNonQuery($"CALL Re_XoaKhoa('{MaKhoa}')", CommandType.Text, ref err, parameter);
             }
             catch (Exception ex)
             {

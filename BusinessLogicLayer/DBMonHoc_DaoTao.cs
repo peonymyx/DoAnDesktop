@@ -46,7 +46,8 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet("NonP_DanhSachMHDT", CommandType.StoredProcedure);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachMHDT()", CommandType.Text);
+
             }
             catch (Exception ex)
             {
@@ -58,7 +59,7 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemMHDT(N'{mamhdt}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemMHDT('{mamhdt}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -66,15 +67,17 @@ namespace BusinessLogicLayer
             }
         }
 
-        public bool ThemMHDT(ref string err, string MaMHDT , string MaMH, string MaCTDT, string MaNganh )
+        public bool ThemMHDT(ref string err, string MaMHDT, string MaMH, string MaCTDT, string MaNganh)
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_ThemMHDT", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaMHDT", MaMHDT),
-                new MySqlParameter("@MaMH", MaMH),
-                new MySqlParameter("@MaCTDT", MaCTDT),
-                new MySqlParameter("@MaNganh", MaNganh));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaMHDT", MaMHDT),
+                    new MySqlParameter("p_MaMH", MaMH),
+                    new MySqlParameter("p_MaCTDT", MaCTDT),
+                    new MySqlParameter("p_MaNganh", MaNganh)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_ThemMHDT('{MaMHDT}','{MaMH}','{MaCTDT}','{MaNganh}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
@@ -86,8 +89,10 @@ namespace BusinessLogicLayer
         {
             try
             {
-                return db.MyExecuteNonQuery("Re_XoaMHDT", CommandType.StoredProcedure,
-                ref err, new MySqlParameter("@MaMHDT", MaMHDT));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("p_MaMHDT", MaMHDT)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_XoaMHDT('{MaMHDT}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

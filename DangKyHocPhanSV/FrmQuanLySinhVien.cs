@@ -17,6 +17,22 @@ namespace DangKyHocPhanSV
         DBNganh nganh = new DBNganh();
         private Panel _panel;
         private Form _parent;
+        private Form currentFormChild;
+        public void OpenChildForm(Form childForm, Panel panel)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel.Controls.Add(childForm);
+            panel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         public FrmQuanLySinhVien(Form parent, Panel panel)
         {
             InitializeComponent();
@@ -48,7 +64,6 @@ namespace DangKyHocPhanSV
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
             dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
             dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
-            dgv_sinhvien.Columns[5].HeaderText = "Tình trạng vi phạm";
 
             dgv_sinhvien.Columns[0].Width = 150;
             dgv_sinhvien.Columns[1].Width = 200;
@@ -69,8 +84,6 @@ namespace DangKyHocPhanSV
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
             dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
             dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
-            dgv_sinhvien.Columns[5].HeaderText = "Tình trạng vi phạm";
-
             dgv_sinhvien.Columns[0].Width = 150;
             dgv_sinhvien.Columns[1].Width = 200;
             dgv_sinhvien.Columns[2].Width = 100;
@@ -85,8 +98,9 @@ namespace DangKyHocPhanSV
 
         private void tooltripmenu_quanlylopsinhvien_Click(object sender, EventArgs e)
         {
-            FrmLopSV lopsv = new FrmLopSV();
-            lopsv.Show();
+            FrmLopSV lopsv = new FrmLopSV(menustrip_quanlylopsinhvien);
+            OpenChildForm(lopsv, pn_container);
+            menustrip_quanlylopsinhvien.Hide();
         }
     }
 }

@@ -18,6 +18,24 @@ namespace DangKyHocPhanSV
         DBGiangVien gv = new DBGiangVien();
         private Form _parent;
         private Panel _panel;
+        private int numClass;
+        private string MaLH;
+        private Form currentFormChild;
+        private void OpenChildForm(Form childForm, Panel panel)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel.Controls.Add(childForm);
+            panel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         public string MaSo
         {
             get { return maso; }
@@ -34,18 +52,41 @@ namespace DangKyHocPhanSV
 
         public void loadChiTiet()
         {
-            dgv_lophoc.DataSource = lh.ChiTietLopHocGV(maso).Tables[0];
-            dgv_lophoc.Columns[0].HeaderText = "Mã Lớp Học";
-            dgv_lophoc.Columns[1].HeaderText = "Tên Môn Học";
-            dgv_lophoc.Columns[2].HeaderText = "Tên Phòng";
-            dgv_lophoc.Columns[3].HeaderText = "Thứ";
-            dgv_lophoc.Columns[4].HeaderText = "Tiết Bắt Đầu";
-            dgv_lophoc.Columns[5].HeaderText = "Tiết Kết Thúc";
-            dgv_lophoc.Columns[6].HeaderText = "Số Lượng Sinh Viên";
+            DataTable dataTable = lh.ChiTietLopHocGV(maso).Tables[0];
+            numClass = dataTable.Rows.Count;
+            for (int i = 0; i < numClass; i++)
+            {
+                Panel panel = new Panel();
+                FrmGiaoDienLopHoc frmGiaoDienLopHoc;
 
-            dgv_lophoc.Columns[1].Width = 150;
-            dgv_lophoc.Columns[6].Width = 150;
+                string thu = dataTable.Rows[i].Field<string>("Thu").ToString();
+                string tenphong = dataTable.Rows[i].Field<string>("TenPhong").ToString();
+                string tietbd = dataTable.Rows[i].Field<int>("TietBatDau").ToString();
+                string tietkt = dataTable.Rows[i].Field<int>("TietKetThuc").ToString();
+                string malophoc = dataTable.Rows[i].Field<string>("MaLopHoc").ToString();
+                string sosinhvien = dataTable.Rows[i].Field<int>("soluong").ToString();
+                MaLH = malophoc;
+                frmGiaoDienLopHoc = new FrmGiaoDienLopHoc(malophoc, tenphong, thu, tietbd, tietkt, sosinhvien, _panel);
 
+                // Set form's parent to the panel
+                frmGiaoDienLopHoc.TopLevel = false;
+                panel.Controls.Add(frmGiaoDienLopHoc);
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                panel.Size = new System.Drawing.Size(224, 290);
+                panel.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+
+                // Show form
+                frmGiaoDienLopHoc.Show();
+
+                flpn_dslophoc.Controls.Add(panel);
+
+                frmGiaoDienLopHoc.GetButton().Click += btn_vaohoc_Click;
+            }
+        }
+
+        private void btn_vaohoc_Click(object sender, EventArgs e)
+        {
+            ((FrmTrangGiangVien)this.ParentForm).OpenChildForm(new FrmLopHocGV(MaLH), _panel);
         }
 
         private void FrmDanhSachLopHocGV_Load(object sender, EventArgs e)
@@ -56,15 +97,9 @@ namespace DangKyHocPhanSV
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
             txt_tongsinhvien.Text = lh.TongSVLopHoc(txt_timkiem.Text).ToString();
-
-            dgv_lophoc.DataSource = lh.DanhSachSVLH(txt_timkiem.Text).Tables[0];
-            dgv_lophoc.Columns[0].HeaderText = "Mã Sinh Viên";
-            dgv_lophoc.Columns[1].HeaderText = "Họ và tên Sinh Viên";
-            dgv_lophoc.Columns[2].HeaderText = "Giới Tính";
-            dgv_lophoc.Columns[3].HeaderText = "Ngày Sinh";
-            dgv_lophoc.Columns[4].HeaderText = "Mã Lớp";
-
-            dgv_lophoc.Columns[1].Width = 150;
+            DataTable dataTable = lh.DanhSachSVLH(txt_timkiem.Text).Tables[0];
+            FrmDanhSachSinhVien frmDanhSachSinhVien = new FrmDanhSachSinhVien(dataTable, txt_tongsinhvien.Text);
+            OpenChildForm(frmDanhSachSinhVien, pn_lophoc);
         }
 
         private void btn_quaylai_Click(object sender, EventArgs e)

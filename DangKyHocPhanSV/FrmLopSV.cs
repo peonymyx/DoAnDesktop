@@ -14,12 +14,14 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmLopSV : Form
     {
+        MenuStrip menuStrip;
         DBLop lop = new DBLop();
         DBSinhVien sv = new DBSinhVien();
         DBChuongTrinhDT ctdt = new DBChuongTrinhDT();
-        public FrmLopSV()
+        public FrmLopSV(MenuStrip menuStrip)
         {
             InitializeComponent();
+            this.menuStrip = menuStrip;
         }
 
         public void LoadComboBoxCTDT()
@@ -277,6 +279,12 @@ namespace DangKyHocPhanSV
             dgv_danhsach.Columns[1].Width = 200;
             dgv_danhsach.Columns[2].Width = 200;
             dgv_danhsach.Columns[3].Width = 150;
+        }
+
+        private void btn_quaylai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.menuStrip.Show();
         }
     }
 }

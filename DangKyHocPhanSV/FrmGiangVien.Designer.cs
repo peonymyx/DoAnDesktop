@@ -29,15 +29,19 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_header = new System.Windows.Forms.Panel();
-            this.btn_quaylai = new System.Windows.Forms.Button();
             this.lbl_quanlysinhvien = new System.Windows.Forms.Label();
+            this.btn_quaylai = new System.Windows.Forms.Button();
             this.pn_timkiemxoa = new System.Windows.Forms.Panel();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_timkiem = new System.Windows.Forms.Button();
             this.txt_magv = new System.Windows.Forms.TextBox();
             this.lbl_magv = new System.Windows.Forms.Label();
             this.pn_themgiangvien = new System.Windows.Forms.Panel();
+            this.txt_email = new System.Windows.Forms.TextBox();
+            this.lbl_email = new System.Windows.Forms.Label();
             this.cbb_khoa = new System.Windows.Forms.ComboBox();
             this.btn_them = new System.Windows.Forms.Button();
             this.lbl_khoa = new System.Windows.Forms.Label();
@@ -48,9 +52,9 @@ namespace DangKyHocPhanSV
             this.lbl_matkhau = new System.Windows.Forms.Label();
             this.lbl_tendangnhap = new System.Windows.Forms.Label();
             this.pn_giangvien = new System.Windows.Forms.Panel();
+            this.linklbl_next = new System.Windows.Forms.LinkLabel();
+            this.linklbl_back = new System.Windows.Forms.LinkLabel();
             this.lblPageNumber = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.dgv_giangvien = new System.Windows.Forms.DataGridView();
             this.pn_header.SuspendLayout();
             this.pn_timkiemxoa.SuspendLayout();
@@ -62,24 +66,12 @@ namespace DangKyHocPhanSV
             // pn_header
             // 
             this.pn_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_header.Controls.Add(this.btn_quaylai);
             this.pn_header.Controls.Add(this.lbl_quanlysinhvien);
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_header.Location = new System.Drawing.Point(0, 0);
             this.pn_header.Name = "pn_header";
             this.pn_header.Size = new System.Drawing.Size(993, 60);
             this.pn_header.TabIndex = 0;
-            // 
-            // btn_quaylai
-            // 
-            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quaylai.Location = new System.Drawing.Point(796, 10);
-            this.btn_quaylai.Name = "btn_quaylai";
-            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
-            this.btn_quaylai.TabIndex = 4;
-            this.btn_quaylai.Text = "Quay lại";
-            this.btn_quaylai.UseVisualStyleBackColor = true;
-            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
             // 
             // lbl_quanlysinhvien
             // 
@@ -91,6 +83,17 @@ namespace DangKyHocPhanSV
             this.lbl_quanlysinhvien.Size = new System.Drawing.Size(270, 40);
             this.lbl_quanlysinhvien.TabIndex = 5;
             this.lbl_quanlysinhvien.Text = "Quản lý giảng viên";
+            // 
+            // btn_quaylai
+            // 
+            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quaylai.Location = new System.Drawing.Point(821, 376);
+            this.btn_quaylai.Name = "btn_quaylai";
+            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
+            this.btn_quaylai.TabIndex = 4;
+            this.btn_quaylai.Text = "Quay lại";
+            this.btn_quaylai.UseVisualStyleBackColor = true;
+            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
             // 
             // pn_timkiemxoa
             // 
@@ -155,6 +158,8 @@ namespace DangKyHocPhanSV
             // pn_themgiangvien
             // 
             this.pn_themgiangvien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_themgiangvien.Controls.Add(this.txt_email);
+            this.pn_themgiangvien.Controls.Add(this.lbl_email);
             this.pn_themgiangvien.Controls.Add(this.cbb_khoa);
             this.pn_themgiangvien.Controls.Add(this.btn_them);
             this.pn_themgiangvien.Controls.Add(this.lbl_khoa);
@@ -169,6 +174,27 @@ namespace DangKyHocPhanSV
             this.pn_themgiangvien.Name = "pn_themgiangvien";
             this.pn_themgiangvien.Size = new System.Drawing.Size(993, 138);
             this.pn_themgiangvien.TabIndex = 2;
+            // 
+            // txt_email
+            // 
+            this.txt_email.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_email.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Location = new System.Drawing.Point(235, 95);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(241, 28);
+            this.txt_email.TabIndex = 117;
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_email.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Location = new System.Drawing.Point(68, 97);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(61, 24);
+            this.lbl_email.TabIndex = 116;
+            this.lbl_email.Text = "Email:";
             // 
             // cbb_khoa
             // 
@@ -269,55 +295,92 @@ namespace DangKyHocPhanSV
             // pn_giangvien
             // 
             this.pn_giangvien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_giangvien.Controls.Add(this.lblPageNumber);
-            this.pn_giangvien.Controls.Add(this.btnNext);
-            this.pn_giangvien.Controls.Add(this.btnPrevious);
             this.pn_giangvien.Controls.Add(this.dgv_giangvien);
+            this.pn_giangvien.Controls.Add(this.btn_quaylai);
+            this.pn_giangvien.Controls.Add(this.linklbl_next);
+            this.pn_giangvien.Controls.Add(this.linklbl_back);
+            this.pn_giangvien.Controls.Add(this.lblPageNumber);
             this.pn_giangvien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_giangvien.Location = new System.Drawing.Point(0, 262);
             this.pn_giangvien.Name = "pn_giangvien";
             this.pn_giangvien.Size = new System.Drawing.Size(993, 423);
             this.pn_giangvien.TabIndex = 3;
             // 
+            // linklbl_next
+            // 
+            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_next.AutoSize = true;
+            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_next.Location = new System.Drawing.Point(164, 382);
+            this.linklbl_next.Name = "linklbl_next";
+            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_next.TabIndex = 5;
+            this.linklbl_next.TabStop = true;
+            this.linklbl_next.Text = ">";
+            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
+            // 
+            // linklbl_back
+            // 
+            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_back.AutoSize = true;
+            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_back.Location = new System.Drawing.Point(41, 382);
+            this.linklbl_back.Name = "linklbl_back";
+            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_back.TabIndex = 4;
+            this.linklbl_back.TabStop = true;
+            this.linklbl_back.Text = "<";
+            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
+            // 
             // lblPageNumber
             // 
             this.lblPageNumber.AutoSize = true;
-            this.lblPageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPageNumber.Location = new System.Drawing.Point(461, 308);
+            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(85, 385);
             this.lblPageNumber.Name = "lblPageNumber";
-            this.lblPageNumber.Size = new System.Drawing.Size(64, 25);
+            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
             this.lblPageNumber.TabIndex = 3;
-            this.lblPageNumber.Text = "label1";
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(675, 300);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(159, 46);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(150, 300);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(159, 46);
-            this.btnPrevious.TabIndex = 1;
-            this.btnPrevious.Text = "Previous";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.lblPageNumber.Text = "page";
             // 
             // dgv_giangvien
             // 
+            this.dgv_giangvien.AllowUserToAddRows = false;
+            this.dgv_giangvien.AllowUserToDeleteRows = false;
+            this.dgv_giangvien.AllowUserToResizeColumns = false;
+            this.dgv_giangvien.AllowUserToResizeRows = false;
+            this.dgv_giangvien.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_giangvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_giangvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_giangvien.Location = new System.Drawing.Point(150, 16);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_giangvien.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_giangvien.Location = new System.Drawing.Point(0, 5);
+            this.dgv_giangvien.MultiSelect = false;
             this.dgv_giangvien.Name = "dgv_giangvien";
+            this.dgv_giangvien.ReadOnly = true;
+            this.dgv_giangvien.RowHeadersVisible = false;
             this.dgv_giangvien.RowHeadersWidth = 51;
-            this.dgv_giangvien.RowTemplate.Height = 24;
-            this.dgv_giangvien.Size = new System.Drawing.Size(684, 255);
-            this.dgv_giangvien.TabIndex = 0;
+            this.dgv_giangvien.RowTemplate.Height = 35;
+            this.dgv_giangvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_giangvien.Size = new System.Drawing.Size(991, 365);
+            this.dgv_giangvien.TabIndex = 71;
+            this.dgv_giangvien.TabStop = false;
             // 
             // FrmGiangVien
             // 
@@ -366,9 +429,11 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_giangvien;
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Label lbl_quanlysinhvien;
-        private System.Windows.Forms.DataGridView dgv_giangvien;
-        private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblPageNumber;
-        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.Label lbl_email;
+        private System.Windows.Forms.LinkLabel linklbl_next;
+        private System.Windows.Forms.LinkLabel linklbl_back;
+        private System.Windows.Forms.DataGridView dgv_giangvien;
     }
 }

@@ -34,6 +34,7 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.pn_menu = new System.Windows.Forms.Panel();
             this.lbl_menu = new System.Windows.Forms.Label();
+            this.pic_menu = new System.Windows.Forms.PictureBox();
             this.pn_infosinhvien = new System.Windows.Forms.Panel();
             this.btn_doimk = new System.Windows.Forms.Button();
             this.txt_msv = new System.Windows.Forms.TextBox();
@@ -42,23 +43,26 @@ namespace DangKyHocPhanSV
             this.lbl_msv = new System.Windows.Forms.Label();
             this.txt_ten = new System.Windows.Forms.TextBox();
             this.pn_dkhocphan = new System.Windows.Forms.Panel();
+            this.btn_dkhocphan = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_lophoc = new System.Windows.Forms.Button();
             this.pn_tracuuhocphan = new System.Windows.Forms.Panel();
+            this.btn_tracuuhocphan = new System.Windows.Forms.Button();
             this.pn_thoikhoabieu = new System.Windows.Forms.Panel();
+            this.btn_thoikhoabieu = new System.Windows.Forms.Button();
             this.pn_exit = new System.Windows.Forms.Panel();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.pn_container = new System.Windows.Forms.Panel();
             this.pn_content = new System.Windows.Forms.Panel();
             this.dgv_dshocphan = new System.Windows.Forms.DataGridView();
             this.pn_header = new System.Windows.Forms.Panel();
             this.lbl_header = new System.Windows.Forms.Label();
-            this.pic_menu = new System.Windows.Forms.PictureBox();
-            this.btn_dkhocphan = new System.Windows.Forms.Button();
-            this.btn_tracuuhocphan = new System.Windows.Forms.Button();
-            this.btn_thoikhoabieu = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.pn_mainmenu.SuspendLayout();
             this.pn_menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_menu)).BeginInit();
             this.pn_infosinhvien.SuspendLayout();
             this.pn_dkhocphan.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pn_tracuuhocphan.SuspendLayout();
             this.pn_thoikhoabieu.SuspendLayout();
             this.pn_exit.SuspendLayout();
@@ -66,7 +70,6 @@ namespace DangKyHocPhanSV
             this.pn_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshocphan)).BeginInit();
             this.pn_header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_menu)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_mainmenu
@@ -76,6 +79,7 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.Controls.Add(this.pn_menu);
             this.pn_mainmenu.Controls.Add(this.pn_infosinhvien);
             this.pn_mainmenu.Controls.Add(this.pn_dkhocphan);
+            this.pn_mainmenu.Controls.Add(this.panel1);
             this.pn_mainmenu.Controls.Add(this.pn_tracuuhocphan);
             this.pn_mainmenu.Controls.Add(this.pn_thoikhoabieu);
             this.pn_mainmenu.Controls.Add(this.pn_exit);
@@ -108,6 +112,17 @@ namespace DangKyHocPhanSV
             this.lbl_menu.Size = new System.Drawing.Size(68, 28);
             this.lbl_menu.TabIndex = 2;
             this.lbl_menu.Text = "Menu";
+            // 
+            // pic_menu
+            // 
+            this.pic_menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_menu.Image = global::DangKyHocPhanSV.Properties.Resources.menu;
+            this.pic_menu.Location = new System.Drawing.Point(0, 9);
+            this.pic_menu.Name = "pic_menu";
+            this.pic_menu.Size = new System.Drawing.Size(73, 39);
+            this.pic_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_menu.TabIndex = 0;
+            this.pic_menu.TabStop = false;
             // 
             // pn_infosinhvien
             // 
@@ -204,29 +219,142 @@ namespace DangKyHocPhanSV
             this.pn_dkhocphan.Size = new System.Drawing.Size(284, 71);
             this.pn_dkhocphan.TabIndex = 2;
             // 
+            // btn_dkhocphan
+            // 
+            this.btn_dkhocphan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_dkhocphan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_dkhocphan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_dkhocphan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_dkhocphan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dkhocphan.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_dkhocphan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_dkhocphan.Image = global::DangKyHocPhanSV.Properties.Resources.dangky_1_;
+            this.btn_dkhocphan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_dkhocphan.Location = new System.Drawing.Point(-10, -14);
+            this.btn_dkhocphan.Name = "btn_dkhocphan";
+            this.btn_dkhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_dkhocphan.Size = new System.Drawing.Size(315, 100);
+            this.btn_dkhocphan.TabIndex = 0;
+            this.btn_dkhocphan.Text = "               Đăng ký học phần";
+            this.btn_dkhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_dkhocphan.UseVisualStyleBackColor = false;
+            this.btn_dkhocphan.Click += new System.EventHandler(this.btn_dkhocphan_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_lophoc);
+            this.panel1.Location = new System.Drawing.Point(3, 332);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 71);
+            this.panel1.TabIndex = 9;
+            // 
+            // btn_lophoc
+            // 
+            this.btn_lophoc.BackColor = System.Drawing.Color.Transparent;
+            this.btn_lophoc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_lophoc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_lophoc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_lophoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_lophoc.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_lophoc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_lophoc.Image = global::DangKyHocPhanSV.Properties.Resources.dangky_1_;
+            this.btn_lophoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_lophoc.Location = new System.Drawing.Point(-10, -14);
+            this.btn_lophoc.Name = "btn_lophoc";
+            this.btn_lophoc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_lophoc.Size = new System.Drawing.Size(315, 100);
+            this.btn_lophoc.TabIndex = 0;
+            this.btn_lophoc.Text = "               Danh sách lớp học";
+            this.btn_lophoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_lophoc.UseVisualStyleBackColor = false;
+            this.btn_lophoc.Click += new System.EventHandler(this.btn_lophoc_Click);
+            // 
             // pn_tracuuhocphan
             // 
             this.pn_tracuuhocphan.Controls.Add(this.btn_tracuuhocphan);
-            this.pn_tracuuhocphan.Location = new System.Drawing.Point(3, 332);
+            this.pn_tracuuhocphan.Location = new System.Drawing.Point(3, 409);
             this.pn_tracuuhocphan.Name = "pn_tracuuhocphan";
             this.pn_tracuuhocphan.Size = new System.Drawing.Size(284, 71);
             this.pn_tracuuhocphan.TabIndex = 3;
             // 
+            // btn_tracuuhocphan
+            // 
+            this.btn_tracuuhocphan.BackColor = System.Drawing.Color.Transparent;
+            this.btn_tracuuhocphan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_tracuuhocphan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_tracuuhocphan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_tracuuhocphan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_tracuuhocphan.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tracuuhocphan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_tracuuhocphan.Image = global::DangKyHocPhanSV.Properties.Resources.search__2_;
+            this.btn_tracuuhocphan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tracuuhocphan.Location = new System.Drawing.Point(-10, -14);
+            this.btn_tracuuhocphan.Name = "btn_tracuuhocphan";
+            this.btn_tracuuhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_tracuuhocphan.Size = new System.Drawing.Size(315, 100);
+            this.btn_tracuuhocphan.TabIndex = 0;
+            this.btn_tracuuhocphan.Text = "               Tra cứu học phần";
+            this.btn_tracuuhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tracuuhocphan.UseVisualStyleBackColor = false;
+            this.btn_tracuuhocphan.Click += new System.EventHandler(this.btn_tracuuhocphan_Click);
+            // 
             // pn_thoikhoabieu
             // 
             this.pn_thoikhoabieu.Controls.Add(this.btn_thoikhoabieu);
-            this.pn_thoikhoabieu.Location = new System.Drawing.Point(3, 409);
+            this.pn_thoikhoabieu.Location = new System.Drawing.Point(3, 486);
             this.pn_thoikhoabieu.Name = "pn_thoikhoabieu";
             this.pn_thoikhoabieu.Size = new System.Drawing.Size(284, 71);
             this.pn_thoikhoabieu.TabIndex = 7;
             // 
+            // btn_thoikhoabieu
+            // 
+            this.btn_thoikhoabieu.BackColor = System.Drawing.Color.Transparent;
+            this.btn_thoikhoabieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_thoikhoabieu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_thoikhoabieu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_thoikhoabieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_thoikhoabieu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thoikhoabieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_thoikhoabieu.Image = global::DangKyHocPhanSV.Properties.Resources.thoikhoabieu;
+            this.btn_thoikhoabieu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_thoikhoabieu.Location = new System.Drawing.Point(-4, -14);
+            this.btn_thoikhoabieu.Name = "btn_thoikhoabieu";
+            this.btn_thoikhoabieu.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_thoikhoabieu.Size = new System.Drawing.Size(315, 100);
+            this.btn_thoikhoabieu.TabIndex = 0;
+            this.btn_thoikhoabieu.Text = "              Thời khóa biểu";
+            this.btn_thoikhoabieu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_thoikhoabieu.UseVisualStyleBackColor = false;
+            this.btn_thoikhoabieu.Click += new System.EventHandler(this.btn_thoikhoabieu_Click);
+            // 
             // pn_exit
             // 
             this.pn_exit.Controls.Add(this.btn_exit);
-            this.pn_exit.Location = new System.Drawing.Point(3, 486);
+            this.pn_exit.Location = new System.Drawing.Point(3, 563);
             this.pn_exit.Name = "pn_exit";
             this.pn_exit.Size = new System.Drawing.Size(284, 71);
             this.pn_exit.TabIndex = 8;
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exit.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_exit.Image = global::DangKyHocPhanSV.Properties.Resources.exit;
+            this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.Location = new System.Drawing.Point(-5, -14);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_exit.Size = new System.Drawing.Size(315, 100);
+            this.btn_exit.TabIndex = 0;
+            this.btn_exit.Text = "               Thoát";
+            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // pn_container
             // 
@@ -302,101 +430,6 @@ namespace DangKyHocPhanSV
             this.lbl_header.TabIndex = 2;
             this.lbl_header.Text = "DANH SÁCH HỌC PHẦN TRONG CHƯƠNG TRÌNH ĐÀO TẠO";
             // 
-            // pic_menu
-            // 
-            this.pic_menu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_menu.Image = global::DangKyHocPhanSV.Properties.Resources.menu;
-            this.pic_menu.Location = new System.Drawing.Point(0, 9);
-            this.pic_menu.Name = "pic_menu";
-            this.pic_menu.Size = new System.Drawing.Size(73, 39);
-            this.pic_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_menu.TabIndex = 0;
-            this.pic_menu.TabStop = false;
-            // 
-            // btn_dkhocphan
-            // 
-            this.btn_dkhocphan.BackColor = System.Drawing.Color.Transparent;
-            this.btn_dkhocphan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_dkhocphan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_dkhocphan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_dkhocphan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_dkhocphan.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dkhocphan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_dkhocphan.Image = global::DangKyHocPhanSV.Properties.Resources.dangky_1_;
-            this.btn_dkhocphan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_dkhocphan.Location = new System.Drawing.Point(-10, -14);
-            this.btn_dkhocphan.Name = "btn_dkhocphan";
-            this.btn_dkhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_dkhocphan.Size = new System.Drawing.Size(315, 100);
-            this.btn_dkhocphan.TabIndex = 0;
-            this.btn_dkhocphan.Text = "               Đăng ký học phần";
-            this.btn_dkhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_dkhocphan.UseVisualStyleBackColor = false;
-            this.btn_dkhocphan.Click += new System.EventHandler(this.btn_dkhocphan_Click);
-            // 
-            // btn_tracuuhocphan
-            // 
-            this.btn_tracuuhocphan.BackColor = System.Drawing.Color.Transparent;
-            this.btn_tracuuhocphan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_tracuuhocphan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_tracuuhocphan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_tracuuhocphan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_tracuuhocphan.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tracuuhocphan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_tracuuhocphan.Image = global::DangKyHocPhanSV.Properties.Resources.search__2_;
-            this.btn_tracuuhocphan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tracuuhocphan.Location = new System.Drawing.Point(-10, -14);
-            this.btn_tracuuhocphan.Name = "btn_tracuuhocphan";
-            this.btn_tracuuhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_tracuuhocphan.Size = new System.Drawing.Size(315, 100);
-            this.btn_tracuuhocphan.TabIndex = 0;
-            this.btn_tracuuhocphan.Text = "               Tra cứu học phần";
-            this.btn_tracuuhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tracuuhocphan.UseVisualStyleBackColor = false;
-            this.btn_tracuuhocphan.Click += new System.EventHandler(this.btn_tracuuhocphan_Click);
-            // 
-            // btn_thoikhoabieu
-            // 
-            this.btn_thoikhoabieu.BackColor = System.Drawing.Color.Transparent;
-            this.btn_thoikhoabieu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_thoikhoabieu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_thoikhoabieu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_thoikhoabieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_thoikhoabieu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thoikhoabieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_thoikhoabieu.Image = global::DangKyHocPhanSV.Properties.Resources.thoikhoabieu;
-            this.btn_thoikhoabieu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_thoikhoabieu.Location = new System.Drawing.Point(-4, -14);
-            this.btn_thoikhoabieu.Name = "btn_thoikhoabieu";
-            this.btn_thoikhoabieu.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_thoikhoabieu.Size = new System.Drawing.Size(315, 100);
-            this.btn_thoikhoabieu.TabIndex = 0;
-            this.btn_thoikhoabieu.Text = "              Thời khóa biểu";
-            this.btn_thoikhoabieu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_thoikhoabieu.UseVisualStyleBackColor = false;
-            this.btn_thoikhoabieu.Click += new System.EventHandler(this.btn_thoikhoabieu_Click);
-            // 
-            // btn_exit
-            // 
-            this.btn_exit.BackColor = System.Drawing.Color.Transparent;
-            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exit.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_exit.Image = global::DangKyHocPhanSV.Properties.Resources.exit;
-            this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exit.Location = new System.Drawing.Point(-5, -14);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_exit.Size = new System.Drawing.Size(315, 100);
-            this.btn_exit.TabIndex = 0;
-            this.btn_exit.Text = "               Thoát";
-            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exit.UseVisualStyleBackColor = false;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
             // FrmTrangSinhVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -412,9 +445,11 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.ResumeLayout(false);
             this.pn_menu.ResumeLayout(false);
             this.pn_menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_menu)).EndInit();
             this.pn_infosinhvien.ResumeLayout(false);
             this.pn_infosinhvien.PerformLayout();
             this.pn_dkhocphan.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.pn_tracuuhocphan.ResumeLayout(false);
             this.pn_thoikhoabieu.ResumeLayout(false);
             this.pn_exit.ResumeLayout(false);
@@ -423,7 +458,6 @@ namespace DangKyHocPhanSV
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshocphan)).EndInit();
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_menu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,5 +488,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_header;
         private System.Windows.Forms.Label lbl_header;
         private System.Windows.Forms.DataGridView dgv_dshocphan;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_lophoc;
     }
 }

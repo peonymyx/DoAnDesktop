@@ -34,6 +34,7 @@ namespace DangKyHocPhanSV
             this.lbl_makhau = new System.Windows.Forms.Label();
             this.lblThongBao = new System.Windows.Forms.Label();
             this.pn_dangnhap = new System.Windows.Forms.Panel();
+            this.linklbl_quenmatkhau = new System.Windows.Forms.LinkLabel();
             this.chb_showmatkhau = new System.Windows.Forms.CheckBox();
             this.btn_exit = new System.Windows.Forms.Button();
             this.btn_dangnhap = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace DangKyHocPhanSV
             this.pn_slideanh = new System.Windows.Forms.Panel();
             this.pic_slideanh = new System.Windows.Forms.PictureBox();
             this.timer_slideanh = new System.Windows.Forms.Timer(this.components);
-            this.linklbl_quenmatkhau = new System.Windows.Forms.LinkLabel();
             this.pn_dangnhap.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_matkhau)).BeginInit();
@@ -108,6 +108,20 @@ namespace DangKyHocPhanSV
             this.pn_dangnhap.Name = "pn_dangnhap";
             this.pn_dangnhap.Size = new System.Drawing.Size(448, 685);
             this.pn_dangnhap.TabIndex = 40;
+            // 
+            // linklbl_quenmatkhau
+            // 
+            this.linklbl_quenmatkhau.ActiveLinkColor = System.Drawing.Color.White;
+            this.linklbl_quenmatkhau.AutoSize = true;
+            this.linklbl_quenmatkhau.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_quenmatkhau.LinkColor = System.Drawing.SystemColors.Control;
+            this.linklbl_quenmatkhau.Location = new System.Drawing.Point(259, 441);
+            this.linklbl_quenmatkhau.Name = "linklbl_quenmatkhau";
+            this.linklbl_quenmatkhau.Size = new System.Drawing.Size(148, 24);
+            this.linklbl_quenmatkhau.TabIndex = 44;
+            this.linklbl_quenmatkhau.TabStop = true;
+            this.linklbl_quenmatkhau.Text = "Quên mật khẩu?";
+            this.linklbl_quenmatkhau.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_quenmatkhau_LinkClicked);
             // 
             // chb_showmatkhau
             // 
@@ -238,19 +252,6 @@ namespace DangKyHocPhanSV
             // timer_slideanh
             // 
             this.timer_slideanh.Tick += new System.EventHandler(this.timer_slideanh_Tick);
-            // 
-            // linklbl_quenmatkhau
-            // 
-            this.linklbl_quenmatkhau.ActiveLinkColor = System.Drawing.Color.White;
-            this.linklbl_quenmatkhau.AutoSize = true;
-            this.linklbl_quenmatkhau.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklbl_quenmatkhau.LinkColor = System.Drawing.SystemColors.Control;
-            this.linklbl_quenmatkhau.Location = new System.Drawing.Point(259, 441);
-            this.linklbl_quenmatkhau.Name = "linklbl_quenmatkhau";
-            this.linklbl_quenmatkhau.Size = new System.Drawing.Size(148, 24);
-            this.linklbl_quenmatkhau.TabIndex = 44;
-            this.linklbl_quenmatkhau.TabStop = true;
-            this.linklbl_quenmatkhau.Text = "Quên mật khẩu?";
             // 
             // FrmDangNhap
             // 

@@ -57,6 +57,7 @@ namespace DangKyHocPhanSV
             this.btn_monhoc = new System.Windows.Forms.Button();
             this.pn_phonghoc = new System.Windows.Forms.Panel();
             this.btn_phonghoc = new System.Windows.Forms.Button();
+            this.btn_tk = new System.Windows.Forms.Button();
             this.pn_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).BeginInit();
             this.pn_container.SuspendLayout();
@@ -80,40 +81,45 @@ namespace DangKyHocPhanSV
             this.pn_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_content.Location = new System.Drawing.Point(0, 63);
             this.pn_content.Name = "pn_content";
-            this.pn_content.Size = new System.Drawing.Size(993, 622);
+            this.pn_content.Size = new System.Drawing.Size(993, 687);
             this.pn_content.TabIndex = 1;
             // 
             // dgv_dssinhvien
             // 
-            this.dgv_dssinhvien.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_dssinhvien.AllowUserToAddRows = false;
+            this.dgv_dssinhvien.AllowUserToDeleteRows = false;
+            this.dgv_dssinhvien.AllowUserToResizeColumns = false;
+            this.dgv_dssinhvien.AllowUserToResizeRows = false;
+            this.dgv_dssinhvien.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_dssinhvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_dssinhvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_dssinhvien.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_dssinhvien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_dssinhvien.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_dssinhvien.Location = new System.Drawing.Point(0, 0);
-            this.dgv_dssinhvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_dssinhvien.MultiSelect = false;
             this.dgv_dssinhvien.Name = "dgv_dssinhvien";
             this.dgv_dssinhvien.ReadOnly = true;
             this.dgv_dssinhvien.RowHeadersVisible = false;
             this.dgv_dssinhvien.RowHeadersWidth = 51;
-            this.dgv_dssinhvien.RowTemplate.Height = 24;
-            this.dgv_dssinhvien.Size = new System.Drawing.Size(991, 620);
-            this.dgv_dssinhvien.TabIndex = 22;
+            this.dgv_dssinhvien.RowTemplate.Height = 35;
+            this.dgv_dssinhvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_dssinhvien.Size = new System.Drawing.Size(991, 685);
+            this.dgv_dssinhvien.TabIndex = 1;
+            this.dgv_dssinhvien.TabStop = false;
             // 
             // pn_container
             // 
@@ -122,7 +128,7 @@ namespace DangKyHocPhanSV
             this.pn_container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_container.Location = new System.Drawing.Point(287, 0);
             this.pn_container.Name = "pn_container";
-            this.pn_container.Size = new System.Drawing.Size(993, 685);
+            this.pn_container.Size = new System.Drawing.Size(993, 750);
             this.pn_container.TabIndex = 5;
             // 
             // pn_header
@@ -149,7 +155,7 @@ namespace DangKyHocPhanSV
             // 
             // pn_exit
             // 
-            this.pn_exit.Controls.Add(this.btn_exit);
+            this.pn_exit.Controls.Add(this.btn_tk);
             this.pn_exit.Location = new System.Drawing.Point(3, 570);
             this.pn_exit.Name = "pn_exit";
             this.pn_exit.Size = new System.Drawing.Size(284, 57);
@@ -166,7 +172,7 @@ namespace DangKyHocPhanSV
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_exit.Image = global::DangKyHocPhanSV.Properties.Resources.exit;
             this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exit.Location = new System.Drawing.Point(-5, -14);
+            this.btn_exit.Location = new System.Drawing.Point(3, 633);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btn_exit.Size = new System.Drawing.Size(315, 82);
@@ -369,12 +375,13 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.Controls.Add(this.pn_monhoc);
             this.pn_mainmenu.Controls.Add(this.pn_phonghoc);
             this.pn_mainmenu.Controls.Add(this.pn_exit);
+            this.pn_mainmenu.Controls.Add(this.btn_exit);
             this.pn_mainmenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_mainmenu.Location = new System.Drawing.Point(0, 0);
-            this.pn_mainmenu.MaximumSize = new System.Drawing.Size(287, 685);
+            this.pn_mainmenu.MaximumSize = new System.Drawing.Size(287, 750);
             this.pn_mainmenu.MinimumSize = new System.Drawing.Size(78, 685);
             this.pn_mainmenu.Name = "pn_mainmenu";
-            this.pn_mainmenu.Size = new System.Drawing.Size(287, 685);
+            this.pn_mainmenu.Size = new System.Drawing.Size(287, 750);
             this.pn_mainmenu.TabIndex = 4;
             // 
             // pn_monhoc
@@ -435,10 +442,31 @@ namespace DangKyHocPhanSV
             this.btn_phonghoc.UseVisualStyleBackColor = false;
             this.btn_phonghoc.Click += new System.EventHandler(this.btn_phonghoc_Click);
             // 
+            // btn_tk
+            // 
+            this.btn_tk.BackColor = System.Drawing.Color.Transparent;
+            this.btn_tk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_tk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_tk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_tk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_tk.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_tk.Image = global::DangKyHocPhanSV.Properties.Resources.thoikhoabieu;
+            this.btn_tk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tk.Location = new System.Drawing.Point(-4, -11);
+            this.btn_tk.Name = "btn_tk";
+            this.btn_tk.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_tk.Size = new System.Drawing.Size(315, 82);
+            this.btn_tk.TabIndex = 1;
+            this.btn_tk.Text = "              Thống kê";
+            this.btn_tk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tk.UseVisualStyleBackColor = false;
+            this.btn_tk.Click += new System.EventHandler(this.btn_tk_Click);
+            // 
             // FrmTrangAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1280, 685);
+            this.ClientSize = new System.Drawing.Size(1280, 750);
             this.Controls.Add(this.pn_container);
             this.Controls.Add(this.pn_mainmenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -470,7 +498,6 @@ namespace DangKyHocPhanSV
 
         #endregion
         private System.Windows.Forms.Panel pn_content;
-        private System.Windows.Forms.DataGridView dgv_dssinhvien;
         private System.Windows.Forms.Panel pn_container;
         private System.Windows.Forms.Panel pn_header;
         private System.Windows.Forms.Button btn_exit;
@@ -495,5 +522,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_phonghoc;
         private System.Windows.Forms.Button btn_phonghoc;
         private System.Windows.Forms.Label lbl_header;
+        private System.Windows.Forms.DataGridView dgv_dssinhvien;
+        private System.Windows.Forms.Button btn_tk;
     }
 }

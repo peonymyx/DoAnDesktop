@@ -91,7 +91,7 @@ namespace DangKyHocPhanSV
             this.Controls.Add(this.txt_mkmoi);
             this.Controls.Add(this.lbl_mkmoi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDoiMatKhauGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
