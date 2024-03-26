@@ -61,11 +61,6 @@ namespace DangKyHocPhanSV
             _panel.Show();
             m_menuStrip.Show();
         }
-
-        private void btn_taobaitap_Click_1(object sender, EventArgs e)
-        {
-
-        }
         private void FrmChinhSuaBaiTapGV_Load(object sender, EventArgs e)
         {
             loadBaiTap();
@@ -83,6 +78,20 @@ namespace DangKyHocPhanSV
             //dgv_baitap.Columns[0].Width = 90;
             //dgv_chuong.Columns[1].Width = 300;
             //dgv_chuong.Columns[2].Visible = false;
+        }
+        private void btn_taobaitap_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_capnhatbt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_xoabt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

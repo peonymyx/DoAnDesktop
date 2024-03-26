@@ -33,6 +33,8 @@
             this.pn_content = new System.Windows.Forms.Panel();
             this.pn_uploadfile = new System.Windows.Forms.Panel();
             this.grbox_upload = new System.Windows.Forms.GroupBox();
+            this.cb_chonbt = new System.Windows.Forms.ComboBox();
+            this.lbl_chonbt = new System.Windows.Forms.Label();
             this.dgv_bainop = new System.Windows.Forms.DataGridView();
             this.btn_quaylai = new System.Windows.Forms.Button();
             this.pn_thongtinchung = new System.Windows.Forms.Panel();
@@ -40,8 +42,8 @@
             this.txt_chuong = new System.Windows.Forms.TextBox();
             this.dgv_baitap = new System.Windows.Forms.DataGridView();
             this.pn_setting = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_xoabt = new System.Windows.Forms.Button();
+            this.btn_capnhatbt = new System.Windows.Forms.Button();
             this.btn_taobaitap = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btn_upload = new System.Windows.Forms.Button();
@@ -49,9 +51,9 @@
             this.txt_link = new System.Windows.Forms.TextBox();
             this.pic_type = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_tieude = new System.Windows.Forms.Label();
+            this.lbl_IDBT = new System.Windows.Forms.Label();
+            this.lbl_hannop = new System.Windows.Forms.Label();
             this.pn_content.SuspendLayout();
             this.pn_uploadfile.SuspendLayout();
             this.grbox_upload.SuspendLayout();
@@ -90,6 +92,8 @@
             // 
             // grbox_upload
             // 
+            this.grbox_upload.Controls.Add(this.cb_chonbt);
+            this.grbox_upload.Controls.Add(this.lbl_chonbt);
             this.grbox_upload.Controls.Add(this.dgv_bainop);
             this.grbox_upload.Controls.Add(this.btn_quaylai);
             this.grbox_upload.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -101,14 +105,31 @@
             this.grbox_upload.TabStop = false;
             this.grbox_upload.Text = "Quản Lý Bài Nộp";
             // 
+            // cb_chonbt
+            // 
+            this.cb_chonbt.FormattingEnabled = true;
+            this.cb_chonbt.Location = new System.Drawing.Point(181, 38);
+            this.cb_chonbt.Name = "cb_chonbt";
+            this.cb_chonbt.Size = new System.Drawing.Size(274, 32);
+            this.cb_chonbt.TabIndex = 17;
+            // 
+            // lbl_chonbt
+            // 
+            this.lbl_chonbt.AutoSize = true;
+            this.lbl_chonbt.Location = new System.Drawing.Point(34, 41);
+            this.lbl_chonbt.Name = "lbl_chonbt";
+            this.lbl_chonbt.Size = new System.Drawing.Size(118, 24);
+            this.lbl_chonbt.TabIndex = 16;
+            this.lbl_chonbt.Text = "Chọn bài tập";
+            // 
             // dgv_bainop
             // 
             this.dgv_bainop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_bainop.Location = new System.Drawing.Point(38, 48);
+            this.dgv_bainop.Location = new System.Drawing.Point(38, 88);
             this.dgv_bainop.Name = "dgv_bainop";
             this.dgv_bainop.RowHeadersWidth = 51;
             this.dgv_bainop.RowTemplate.Height = 24;
-            this.dgv_bainop.Size = new System.Drawing.Size(418, 491);
+            this.dgv_bainop.Size = new System.Drawing.Size(418, 451);
             this.dgv_bainop.TabIndex = 15;
             // 
             // btn_quaylai
@@ -167,8 +188,8 @@
             // pn_setting
             // 
             this.pn_setting.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pn_setting.Controls.Add(this.button2);
-            this.pn_setting.Controls.Add(this.button1);
+            this.pn_setting.Controls.Add(this.btn_xoabt);
+            this.pn_setting.Controls.Add(this.btn_capnhatbt);
             this.pn_setting.Controls.Add(this.btn_taobaitap);
             this.pn_setting.Controls.Add(this.textBox3);
             this.pn_setting.Controls.Add(this.btn_upload);
@@ -176,31 +197,33 @@
             this.pn_setting.Controls.Add(this.txt_link);
             this.pn_setting.Controls.Add(this.pic_type);
             this.pn_setting.Controls.Add(this.textBox1);
-            this.pn_setting.Controls.Add(this.label3);
-            this.pn_setting.Controls.Add(this.label4);
-            this.pn_setting.Controls.Add(this.label13);
+            this.pn_setting.Controls.Add(this.lbl_tieude);
+            this.pn_setting.Controls.Add(this.lbl_IDBT);
+            this.pn_setting.Controls.Add(this.lbl_hannop);
             this.pn_setting.Location = new System.Drawing.Point(6, 282);
             this.pn_setting.Name = "pn_setting";
             this.pn_setting.Size = new System.Drawing.Size(470, 319);
             this.pn_setting.TabIndex = 12;
             // 
-            // button2
+            // btn_xoabt
             // 
-            this.button2.Location = new System.Drawing.Point(337, 244);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 42);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Xóa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_xoabt.Location = new System.Drawing.Point(337, 244);
+            this.btn_xoabt.Name = "btn_xoabt";
+            this.btn_xoabt.Size = new System.Drawing.Size(101, 42);
+            this.btn_xoabt.TabIndex = 16;
+            this.btn_xoabt.Text = "Xóa";
+            this.btn_xoabt.UseVisualStyleBackColor = true;
+            this.btn_xoabt.Click += new System.EventHandler(this.btn_xoabt_Click);
             // 
-            // button1
+            // btn_capnhatbt
             // 
-            this.button1.Location = new System.Drawing.Point(191, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 42);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Cập nhật";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_capnhatbt.Location = new System.Drawing.Point(191, 244);
+            this.btn_capnhatbt.Name = "btn_capnhatbt";
+            this.btn_capnhatbt.Size = new System.Drawing.Size(101, 42);
+            this.btn_capnhatbt.TabIndex = 15;
+            this.btn_capnhatbt.Text = "Cập nhật";
+            this.btn_capnhatbt.UseVisualStyleBackColor = true;
+            this.btn_capnhatbt.Click += new System.EventHandler(this.btn_capnhatbt_Click);
             // 
             // btn_taobaitap
             // 
@@ -261,35 +284,35 @@
             this.textBox1.Size = new System.Drawing.Size(278, 36);
             this.textBox1.TabIndex = 9;
             // 
-            // label3
+            // lbl_tieude
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 28);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tiêu đề";
+            this.lbl_tieude.AutoSize = true;
+            this.lbl_tieude.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tieude.Location = new System.Drawing.Point(18, 81);
+            this.lbl_tieude.Name = "lbl_tieude";
+            this.lbl_tieude.Size = new System.Drawing.Size(72, 24);
+            this.lbl_tieude.TabIndex = 2;
+            this.lbl_tieude.Text = "Tiêu đề";
             // 
-            // label4
+            // lbl_IDBT
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 28);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "ID Bài Tập";
+            this.lbl_IDBT.AutoSize = true;
+            this.lbl_IDBT.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_IDBT.Location = new System.Drawing.Point(20, 34);
+            this.lbl_IDBT.Name = "lbl_IDBT";
+            this.lbl_IDBT.Size = new System.Drawing.Size(92, 24);
+            this.lbl_IDBT.TabIndex = 3;
+            this.lbl_IDBT.Text = "ID Bài Tập";
             // 
-            // label13
+            // lbl_hannop
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(20, 127);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 28);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Hạn nộp";
+            this.lbl_hannop.AutoSize = true;
+            this.lbl_hannop.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_hannop.Location = new System.Drawing.Point(20, 130);
+            this.lbl_hannop.Name = "lbl_hannop";
+            this.lbl_hannop.Size = new System.Drawing.Size(81, 24);
+            this.lbl_hannop.TabIndex = 7;
+            this.lbl_hannop.Text = "Hạn nộp";
             // 
             // FrmChinhSuaBaiTapGV
             // 
@@ -303,6 +326,7 @@
             this.pn_content.ResumeLayout(false);
             this.pn_uploadfile.ResumeLayout(false);
             this.grbox_upload.ResumeLayout(false);
+            this.grbox_upload.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bainop)).EndInit();
             this.pn_thongtinchung.ResumeLayout(false);
             this.grbox_noidung.ResumeLayout(false);
@@ -333,13 +357,15 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbl_tieude;
+        private System.Windows.Forms.Label lbl_IDBT;
+        private System.Windows.Forms.Label lbl_hannop;
         private System.Windows.Forms.DataGridView dgv_bainop;
         private System.Windows.Forms.DataGridView dgv_baitap;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_capnhatbt;
+        private System.Windows.Forms.Button btn_xoabt;
         private System.Windows.Forms.TextBox txt_chuong;
+        private System.Windows.Forms.ComboBox cb_chonbt;
+        private System.Windows.Forms.Label lbl_chonbt;
     }
 }
