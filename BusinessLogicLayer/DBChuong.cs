@@ -16,10 +16,6 @@ namespace BusinessLogicLayer
         {
             db = new DAL();
         }
-        /*Re_ThemChuong
-         * 
-          Re_XoaChuong
-          Re_CapNhatChuong*/
         public DataSet DSChuong(string maLH)
         {
             try
@@ -57,6 +53,18 @@ namespace BusinessLogicLayer
                     new MySqlParameter("p_TieuDeChuong", TieuDeChuong)
                 };
                 return db.MyExecuteNonQuery($"CALL Re_CapNhatChuong('{MaChuongHoc}','{TieuDeChuong}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool XoaChuong(ref string err, string MaChuongHoc)
+        {
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("p_MaChuongHoc", MaChuongHoc);
+                return db.MyExecuteNonQuery($"CALL Re_XoaChuong('{MaChuongHoc}')", CommandType.Text, ref err, parameter);
             }
             catch (Exception ex)
             {

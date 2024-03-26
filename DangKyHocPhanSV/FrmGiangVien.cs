@@ -87,7 +87,6 @@ namespace DangKyHocPhanSV
                 kq = gv.XoaGV(ref err, txt_magv.Text);
                 if (kq)
                 {
-                    //loadGiangVien();
                     FrmGiangVien_Load();
                     MessageBox.Show("Đã xóa thành công!");
                 }
@@ -109,7 +108,6 @@ namespace DangKyHocPhanSV
                 kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString(), txt_email.Text);
                 if (kq)
                 {
-                    //loadGiangVien();
                     FrmGiangVien_Load();
                     MessageBox.Show("Đã thêm thành công!");
                 }

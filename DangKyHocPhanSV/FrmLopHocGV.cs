@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace DangKyHocPhanSV
         }
         private void FrmLopHocGV_Load(object sender, EventArgs e)
         {
-            loadDSC();        
+            loadDSC();  
         }
         public void loadDSC()
         {
@@ -89,6 +90,10 @@ namespace DangKyHocPhanSV
                 {
                     loadDSC();
                     MessageBox.Show("Đã thêm thành công!");
+                } 
+                else
+                {
+                    MessageBox.Show("Không thể thêm!");
                 }
 
             }
@@ -98,7 +103,6 @@ namespace DangKyHocPhanSV
                 MessageBox.Show(err);
             }
         }
-
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
             bool kq = false;
@@ -128,5 +132,43 @@ namespace DangKyHocPhanSV
                 MessageBox.Show(err);
             }
         }
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            bool kq = false;
+            string err = "";
+            try
+            {
+                kq = dbChuong.XoaChuong(ref err, txt_maCH.Text);
+                if (kq)
+                {
+                    loadDSC();
+                    MessageBox.Show("Đã xóa thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa!");
+                }
+            }
+            catch (SqlException)
+            {
+                err = "Không thể xóa!";
+                MessageBox.Show(err);
+            }
+        }
+        /*public void loadBaiGiang()
+        {
+            dgv_listbaihoc.DataSource = dbChuong.DSChuong(MaBG).Tables[0];
+            dgv_chuong.Columns[0].HeaderText = "ID";
+            dgv_chuong.Columns[1].HeaderText = "Tiêu đề";
+            dgv_chuong.Columns[2].HeaderText = "Nội dung";
+            dgv_chuong.Columns[0].Width = 50;
+            dgv_chuong.Columns[1].Width = 200;
+            dgv_chuong.Columns[1].Width = 300;
+        }
+        //thembaigiang
+        private void ThemBaiGiang()
+        {
+            //dgv_listbaihoc
+        }*/
     }
 }

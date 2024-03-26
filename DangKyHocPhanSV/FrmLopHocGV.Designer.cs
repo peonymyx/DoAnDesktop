@@ -44,15 +44,16 @@
             this.pn_lophoc = new System.Windows.Forms.Panel();
             this.pn_listtuan = new System.Windows.Forms.Panel();
             this.pn_chinhsuachuong = new System.Windows.Forms.Panel();
+            this.lbl_noidungCH = new System.Windows.Forms.Label();
+            this.lbl_maCH = new System.Windows.Forms.Label();
+            this.txt_maCH = new System.Windows.Forms.TextBox();
             this.btn_capnhat = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.txt_themchuong = new System.Windows.Forms.TextBox();
             this.pn_chuong = new System.Windows.Forms.Panel();
             this.dgv_chuong = new System.Windows.Forms.DataGridView();
             this.treev_baihoc = new System.Windows.Forms.TreeView();
-            this.txt_maCH = new System.Windows.Forms.TextBox();
-            this.lbl_maCH = new System.Windows.Forms.Label();
-            this.lbl_noidungCH = new System.Windows.Forms.Label();
+            this.btn_xoa = new System.Windows.Forms.Button();
             this.pn_header.SuspendLayout();
             this.menuS_chinhsuabaihoc.SuspendLayout();
             this.pn_chitietbaihoc.SuspendLayout();
@@ -219,6 +220,7 @@
             // pn_chinhsuachuong
             // 
             this.pn_chinhsuachuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_chinhsuachuong.Controls.Add(this.btn_xoa);
             this.pn_chinhsuachuong.Controls.Add(this.lbl_noidungCH);
             this.pn_chinhsuachuong.Controls.Add(this.lbl_maCH);
             this.pn_chinhsuachuong.Controls.Add(this.txt_maCH);
@@ -230,6 +232,32 @@
             this.pn_chinhsuachuong.Name = "pn_chinhsuachuong";
             this.pn_chinhsuachuong.Size = new System.Drawing.Size(408, 128);
             this.pn_chinhsuachuong.TabIndex = 2;
+            // 
+            // lbl_noidungCH
+            // 
+            this.lbl_noidungCH.AutoSize = true;
+            this.lbl_noidungCH.Location = new System.Drawing.Point(166, 19);
+            this.lbl_noidungCH.Name = "lbl_noidungCH";
+            this.lbl_noidungCH.Size = new System.Drawing.Size(83, 16);
+            this.lbl_noidungCH.TabIndex = 6;
+            this.lbl_noidungCH.Text = "Nội dung CH";
+            // 
+            // lbl_maCH
+            // 
+            this.lbl_maCH.AutoSize = true;
+            this.lbl_maCH.Location = new System.Drawing.Point(50, 16);
+            this.lbl_maCH.Name = "lbl_maCH";
+            this.lbl_maCH.Size = new System.Drawing.Size(48, 16);
+            this.lbl_maCH.TabIndex = 5;
+            this.lbl_maCH.Text = "Mã CH";
+            // 
+            // txt_maCH
+            // 
+            this.txt_maCH.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maCH.Location = new System.Drawing.Point(51, 52);
+            this.txt_maCH.Name = "txt_maCH";
+            this.txt_maCH.Size = new System.Drawing.Size(71, 36);
+            this.txt_maCH.TabIndex = 4;
             // 
             // btn_capnhat
             // 
@@ -289,31 +317,15 @@
             this.treev_baihoc.Size = new System.Drawing.Size(408, 597);
             this.treev_baihoc.TabIndex = 0;
             // 
-            // txt_maCH
+            // btn_xoa
             // 
-            this.txt_maCH.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_maCH.Location = new System.Drawing.Point(51, 52);
-            this.txt_maCH.Name = "txt_maCH";
-            this.txt_maCH.Size = new System.Drawing.Size(71, 36);
-            this.txt_maCH.TabIndex = 4;
-            // 
-            // lbl_maCH
-            // 
-            this.lbl_maCH.AutoSize = true;
-            this.lbl_maCH.Location = new System.Drawing.Point(50, 16);
-            this.lbl_maCH.Name = "lbl_maCH";
-            this.lbl_maCH.Size = new System.Drawing.Size(48, 16);
-            this.lbl_maCH.TabIndex = 5;
-            this.lbl_maCH.Text = "Mã CH";
-            // 
-            // lbl_noidungCH
-            // 
-            this.lbl_noidungCH.AutoSize = true;
-            this.lbl_noidungCH.Location = new System.Drawing.Point(166, 19);
-            this.lbl_noidungCH.Name = "lbl_noidungCH";
-            this.lbl_noidungCH.Size = new System.Drawing.Size(83, 16);
-            this.lbl_noidungCH.TabIndex = 6;
-            this.lbl_noidungCH.Text = "Nội dung CH";
+            this.btn_xoa.Location = new System.Drawing.Point(161, 99);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.Size = new System.Drawing.Size(87, 27);
+            this.btn_xoa.TabIndex = 7;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // FrmLopHocGV
             // 
@@ -372,5 +384,6 @@
         private System.Windows.Forms.Label lbl_noidungCH;
         private System.Windows.Forms.Label lbl_maCH;
         private System.Windows.Forms.TextBox txt_maCH;
+        private System.Windows.Forms.Button btn_xoa;
     }
 }
