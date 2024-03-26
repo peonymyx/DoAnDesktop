@@ -28,17 +28,18 @@ namespace DangKyHocPhanSV
         {
             dgv_phonghoc.DataSource = lh.DSLopHoc().Tables[0];
             dgv_phonghoc.Columns[0].HeaderText = "Mã lớp học";
-            dgv_phonghoc.Columns[1].HeaderText = "Mã MHDT";
-            dgv_phonghoc.Columns[2].HeaderText = "Mã giảng viên";
-            dgv_phonghoc.Columns[3].HeaderText = "Giới Hạn";
-            dgv_phonghoc.Columns[4].HeaderText = "Tên Phòng";
-            dgv_phonghoc.Columns[5].HeaderText = "Thứ";
-            dgv_phonghoc.Columns[6].HeaderText = "Tiết Bắt Đầu";
-            dgv_phonghoc.Columns[7].HeaderText = "Tiết Kết Thúc";
-            dgv_phonghoc.Columns[8].HeaderText = "Thời Gian Bắt Đầu";
-            dgv_phonghoc.Columns[9].HeaderText = "Thời gian Kết Thúc";
-            dgv_phonghoc.Columns[10].HeaderText = "Học kỳ";
-            dgv_phonghoc.Columns[11].HeaderText = "Năm";
+            dgv_phonghoc.Columns[1].HeaderText = "Tên lớp học";
+            dgv_phonghoc.Columns[2].HeaderText = "Mã MHDT";
+            dgv_phonghoc.Columns[3].HeaderText = "Mã giảng viên";
+            dgv_phonghoc.Columns[4].HeaderText = "Giới Hạn";
+            dgv_phonghoc.Columns[5].HeaderText = "Tên Phòng";
+            dgv_phonghoc.Columns[6].HeaderText = "Thứ";
+            dgv_phonghoc.Columns[7].HeaderText = "Tiết Bắt Đầu";
+            dgv_phonghoc.Columns[8].HeaderText = "Tiết Kết Thúc";
+            dgv_phonghoc.Columns[9].HeaderText = "Thời Gian Bắt Đầu";
+            dgv_phonghoc.Columns[10].HeaderText = "Thời gian Kết Thúc";
+            dgv_phonghoc.Columns[11].HeaderText = "Học kỳ";
+            dgv_phonghoc.Columns[12].HeaderText = "Năm";
         }
 
         private void FrmQuanLyPhongHoc_Load(object sender, EventArgs e)

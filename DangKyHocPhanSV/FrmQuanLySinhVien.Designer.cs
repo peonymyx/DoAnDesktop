@@ -143,6 +143,7 @@ namespace DangKyHocPhanSV
             this.linklbl_next.TabIndex = 66;
             this.linklbl_next.TabStop = true;
             this.linklbl_next.Text = ">";
+            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
             // 
             // linklbl_back
             // 
@@ -157,6 +158,7 @@ namespace DangKyHocPhanSV
             this.linklbl_back.TabIndex = 65;
             this.linklbl_back.TabStop = true;
             this.linklbl_back.Text = "<";
+            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
             // 
             // lblPageNumber
             // 
@@ -179,7 +181,7 @@ namespace DangKyHocPhanSV
             this.btn_quaylai.TabIndex = 63;
             this.btn_quaylai.Text = "Quay lại";
             this.btn_quaylai.UseVisualStyleBackColor = false;
-            this.btn_quaylai.Click += new System.EventHandler(this.button1_Click);
+            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
             // 
             // dgv_sinhvien
             // 
@@ -205,7 +207,7 @@ namespace DangKyHocPhanSV
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_sinhvien.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_sinhvien.Location = new System.Drawing.Point(0, 6);
+            this.dgv_sinhvien.Location = new System.Drawing.Point(-2, 0);
             this.dgv_sinhvien.MultiSelect = false;
             this.dgv_sinhvien.Name = "dgv_sinhvien";
             this.dgv_sinhvien.ReadOnly = true;
@@ -213,7 +215,7 @@ namespace DangKyHocPhanSV
             this.dgv_sinhvien.RowHeadersWidth = 51;
             this.dgv_sinhvien.RowTemplate.Height = 35;
             this.dgv_sinhvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_sinhvien.Size = new System.Drawing.Size(991, 410);
+            this.dgv_sinhvien.Size = new System.Drawing.Size(994, 407);
             this.dgv_sinhvien.TabIndex = 0;
             this.dgv_sinhvien.TabStop = false;
             this.dgv_sinhvien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sinhvien_CellContentClick);

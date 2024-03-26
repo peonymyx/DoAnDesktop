@@ -118,6 +118,12 @@
     <Compile Include="DBQuanLy.cs" />
     <Compile Include="DBSinhVien.cs" />
     <Compile Include="DBTaiKhoan.cs" />
+    <Compile Include="DBTKDK_TinChi.cs" />
+    <Compile Include="DBTKSlLopGV_Nhan.cs" />
+    <Compile Include="DBTKSlSV_Khoa.cs" />
+    <Compile Include="DBTKSlSV_Lop.cs" />
+    <Compile Include="DBTKSlSV_Nganh.cs" />
+    <Compile Include="DBTKSlSV_NopBai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

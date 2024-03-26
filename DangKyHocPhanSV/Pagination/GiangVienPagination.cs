@@ -1,4 +1,5 @@
-﻿using DangKyHocPhanSV.DTO;
+﻿using BusinessLogicLayer;
+using DangKyHocPhanSV.DTO;
 using MySqlConnector;
 using PagedList;
 using System;
@@ -11,12 +12,12 @@ using System.Windows.Forms;
 
 namespace DangKyHocPhanSV.Pagination
 {
-    public class SinhVienPagination
+    public class GiangVienPagination
     {
         private int pageNumber = 1;
-        private IPagedList<SinhVien> list;
+        private IPagedList<GiangVien> list;
 
-        public async Task<IPagedList<SinhVien>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
+        public async Task<IPagedList<GiangVien>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
         {
             string connectionString = "server=103.167.89.145;database=QUANLYSV;uid=team06;password=123456;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -25,11 +26,11 @@ namespace DangKyHocPhanSV.Pagination
                 MySqlCommand command = connection.CreateCommand();
 
                 // Đếm số lượng bản ghi
-                command.CommandText = "SELECT COUNT(*) FROM SINHVIEN";
+                command.CommandText = "SELECT COUNT(*) FROM GIANGVIEN";
                 int totalRecords = Convert.ToInt32(await command.ExecuteScalarAsync());
                 command.Parameters.Clear();
                 // Lấy trang dữ liệu
-                command.CommandText = "SELECT * FROM SINHVIEN ORDER BY MaSV LIMIT @offset, @pageSize";
+                command.CommandText = "SELECT * FROM GIANGVIEN ORDER BY MaGV LIMIT @offset, @pageSize";
                 command.Parameters.AddWithValue("@offset", (pageNumber - 1) * pageSize);
                 command.Parameters.AddWithValue("@pageSize", pageSize);
 
@@ -37,15 +38,13 @@ namespace DangKyHocPhanSV.Pagination
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
 
-                list = new StaticPagedList<SinhVien>(
-                    dataTable.AsEnumerable().Select(row => new SinhVien
+                list = new StaticPagedList<GiangVien>(
+                    dataTable.AsEnumerable().Select(row => new GiangVien
                     {
-                        MaSV = row["MaSV"].ToString(),
-                        HoTenSV = row["HoTenSV"].ToString(),
-                        GioiTinh = row["GioiTinh"].ToString(),
-                        NgaySinh = (DateTime)row["NgaySinh"],
+                        MaGV = row["MaGV"].ToString(),
+                        HoTenGV = row["HoTenGV"].ToString(),
                         Email = row["Email"].ToString(),
-                        MaLop = row["MaLop"].ToString(),
+                        MaKhoa = row["MaKhoa"].ToString(),
                         // Các trường dữ liệu khác
                     }),
                     pageNumber,

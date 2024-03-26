@@ -1,4 +1,6 @@
-﻿namespace DangKyHocPhanSV
+﻿using System.Windows.Forms;
+
+namespace DangKyHocPhanSV
 {
     partial class FrmChinhSuaBaiTapGV
     {
@@ -42,15 +44,14 @@
             this.txt_chuong = new System.Windows.Forms.TextBox();
             this.dgv_baitap = new System.Windows.Forms.DataGridView();
             this.pn_setting = new System.Windows.Forms.Panel();
+            this.dtp_hannop = new System.Windows.Forms.DateTimePicker();
             this.btn_xoabt = new System.Windows.Forms.Button();
             this.btn_capnhatbt = new System.Windows.Forms.Button();
             this.btn_taobaitap = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.btn_upload = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_tieude = new System.Windows.Forms.TextBox();
             this.txt_link = new System.Windows.Forms.TextBox();
-            this.pic_type = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_IDBT = new System.Windows.Forms.TextBox();
             this.lbl_tieude = new System.Windows.Forms.Label();
             this.lbl_IDBT = new System.Windows.Forms.Label();
             this.lbl_hannop = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.grbox_noidung.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_baitap)).BeginInit();
             this.pn_setting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_type)).BeginInit();
             this.SuspendLayout();
             // 
             // openFD_openfile
@@ -112,6 +112,7 @@
             this.cb_chonbt.Name = "cb_chonbt";
             this.cb_chonbt.Size = new System.Drawing.Size(274, 32);
             this.cb_chonbt.TabIndex = 17;
+            this.cb_chonbt.SelectedIndexChanged += new System.EventHandler(this.cb_chonbt_SelectedIndexChanged);
             // 
             // lbl_chonbt
             // 
@@ -188,15 +189,14 @@
             // pn_setting
             // 
             this.pn_setting.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pn_setting.Controls.Add(this.dtp_hannop);
             this.pn_setting.Controls.Add(this.btn_xoabt);
             this.pn_setting.Controls.Add(this.btn_capnhatbt);
             this.pn_setting.Controls.Add(this.btn_taobaitap);
-            this.pn_setting.Controls.Add(this.textBox3);
             this.pn_setting.Controls.Add(this.btn_upload);
-            this.pn_setting.Controls.Add(this.textBox2);
+            this.pn_setting.Controls.Add(this.txt_tieude);
             this.pn_setting.Controls.Add(this.txt_link);
-            this.pn_setting.Controls.Add(this.pic_type);
-            this.pn_setting.Controls.Add(this.textBox1);
+            this.pn_setting.Controls.Add(this.txt_IDBT);
             this.pn_setting.Controls.Add(this.lbl_tieude);
             this.pn_setting.Controls.Add(this.lbl_IDBT);
             this.pn_setting.Controls.Add(this.lbl_hannop);
@@ -204,6 +204,16 @@
             this.pn_setting.Name = "pn_setting";
             this.pn_setting.Size = new System.Drawing.Size(470, 319);
             this.pn_setting.TabIndex = 12;
+            // 
+            // dtp_hannop
+            // 
+            this.dtp_hannop.CustomFormat = "yyyy-MM-dd";
+            this.dtp_hannop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_hannop.Location = new System.Drawing.Point(160, 130);
+            this.dtp_hannop.Name = "dtp_hannop";
+            this.dtp_hannop.Size = new System.Drawing.Size(276, 32);
+            this.dtp_hannop.TabIndex = 17;
+            this.dtp_hannop.Value = new System.DateTime(2024, 3, 26, 0, 0, 0, 0);
             // 
             // btn_xoabt
             // 
@@ -233,62 +243,47 @@
             this.btn_taobaitap.TabIndex = 14;
             this.btn_taobaitap.Text = "Tạo bài tập";
             this.btn_taobaitap.UseVisualStyleBackColor = true;
-            this.btn_taobaitap.Click += new System.EventHandler(this.btn_taobaitap_Click_1);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(160, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(278, 36);
-            this.textBox3.TabIndex = 11;
+            this.btn_taobaitap.Click += new System.EventHandler(this.btn_taobaitap_Click);
             // 
             // btn_upload
             // 
-            this.btn_upload.Location = new System.Drawing.Point(22, 186);
+            this.btn_upload.Location = new System.Drawing.Point(22, 187);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(100, 33);
             this.btn_upload.TabIndex = 0;
-            this.btn_upload.Text = "Upload";
+            this.btn_upload.Text = "Nội dung";
             this.btn_upload.UseVisualStyleBackColor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
-            // textBox2
+            // txt_tieude
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(159, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 36);
-            this.textBox2.TabIndex = 10;
+            this.txt_tieude.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_tieude.Location = new System.Drawing.Point(159, 75);
+            this.txt_tieude.Name = "txt_tieude";
+            this.txt_tieude.Size = new System.Drawing.Size(279, 36);
+            this.txt_tieude.TabIndex = 10;
             // 
             // txt_link
             // 
             this.txt_link.BackColor = System.Drawing.SystemColors.Control;
-            this.txt_link.Location = new System.Drawing.Point(216, 187);
+            this.txt_link.Location = new System.Drawing.Point(160, 187);
             this.txt_link.Name = "txt_link";
-            this.txt_link.Size = new System.Drawing.Size(219, 32);
+            this.txt_link.Size = new System.Drawing.Size(275, 32);
             this.txt_link.TabIndex = 1;
             // 
-            // pic_type
+            // txt_IDBT
             // 
-            this.pic_type.Location = new System.Drawing.Point(157, 187);
-            this.pic_type.Name = "pic_type";
-            this.pic_type.Size = new System.Drawing.Size(35, 32);
-            this.pic_type.TabIndex = 13;
-            this.pic_type.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(160, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 36);
-            this.textBox1.TabIndex = 9;
+            this.txt_IDBT.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_IDBT.Location = new System.Drawing.Point(160, 28);
+            this.txt_IDBT.Name = "txt_IDBT";
+            this.txt_IDBT.Size = new System.Drawing.Size(278, 36);
+            this.txt_IDBT.TabIndex = 9;
             // 
             // lbl_tieude
             // 
             this.lbl_tieude.AutoSize = true;
             this.lbl_tieude.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tieude.Location = new System.Drawing.Point(18, 81);
+            this.lbl_tieude.Location = new System.Drawing.Point(20, 81);
             this.lbl_tieude.Name = "lbl_tieude";
             this.lbl_tieude.Size = new System.Drawing.Size(72, 24);
             this.lbl_tieude.TabIndex = 2;
@@ -308,7 +303,7 @@
             // 
             this.lbl_hannop.AutoSize = true;
             this.lbl_hannop.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_hannop.Location = new System.Drawing.Point(20, 130);
+            this.lbl_hannop.Location = new System.Drawing.Point(20, 136);
             this.lbl_hannop.Name = "lbl_hannop";
             this.lbl_hannop.Size = new System.Drawing.Size(81, 24);
             this.lbl_hannop.TabIndex = 7;
@@ -334,7 +329,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_baitap)).EndInit();
             this.pn_setting.ResumeLayout(false);
             this.pn_setting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_type)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,15 +342,13 @@
         private System.Windows.Forms.GroupBox grbox_upload;
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Button btn_taobaitap;
-        private System.Windows.Forms.PictureBox pic_type;
         private System.Windows.Forms.TextBox txt_link;
         private System.Windows.Forms.Button btn_upload;
         private System.Windows.Forms.Panel pn_thongtinchung;
         private System.Windows.Forms.GroupBox grbox_noidung;
         private System.Windows.Forms.Panel pn_setting;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_tieude;
+        private System.Windows.Forms.TextBox txt_IDBT;
         private System.Windows.Forms.Label lbl_tieude;
         private System.Windows.Forms.Label lbl_IDBT;
         private System.Windows.Forms.Label lbl_hannop;
@@ -367,5 +359,6 @@
         private System.Windows.Forms.TextBox txt_chuong;
         private System.Windows.Forms.ComboBox cb_chonbt;
         private System.Windows.Forms.Label lbl_chonbt;
+        private System.Windows.Forms.DateTimePicker dtp_hannop;
     }
 }

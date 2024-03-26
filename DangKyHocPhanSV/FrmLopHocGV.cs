@@ -75,23 +75,7 @@ namespace DangKyHocPhanSV
             dgv_chuong.Columns[1].Width = 300;
             dgv_chuong.Columns[2].Visible = false;
         }
-        public void loadChuong()
-        {
-            dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
-            List<string> chuong = new List<string>();
-            foreach (DataGridViewRow row in dgv_chuong.Rows)
-            {
-                if (!row.IsNewRow)
-                {
-                    string value = row.Cells[1].Value as string;
-                    if (!string.IsNullOrEmpty(value))
-                    {
-                        chuong.Add(value);
-                    }
-                }
-            }
-            cb_chonchuong.Items.AddRange(chuong.ToArray());
-        }
+        
 
         private void btn_them_Click(object sender, EventArgs e)
         {
@@ -170,7 +154,23 @@ namespace DangKyHocPhanSV
                 MessageBox.Show(err);
             }
         }
-
+        public void loadChuong()
+        {
+            dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
+            List<string> chuong = new List<string>();
+            foreach (DataGridViewRow row in dgv_chuong.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string value = row.Cells[1].Value as string;
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        chuong.Add(value);
+                    }
+                }
+            }
+            cb_chonchuong.Items.AddRange(chuong.ToArray());
+        }
         string IDChuong = "";
         private void cb_chonchuong_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -279,19 +279,23 @@ namespace DangKyHocPhanSV
         }
         private void chinhSuaBaiTapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string err = "";
             try
             {
-                string tenChuong = cb_chonchuong.SelectedItem.ToString();
-                FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(pn_listtuan, IDChuong,tenChuong, menuS_chinhsuabaihoc);
-                OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
-                pn_listtuan.Hide();
-                menuS_chinhsuabaihoc.Hide();
-            } 
+                if (cb_chonchuong.SelectedItem != null)
+                {
+                    string tenChuong = tenChuong = cb_chonchuong.SelectedItem.ToString(); FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(pn_listtuan, IDChuong, tenChuong, menuS_chinhsuabaihoc);
+                    OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
+                    pn_listtuan.Hide();
+                    menuS_chinhsuabaihoc.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn chương!");
+                }
+            }
             catch (Exception ex)
             {
-                err = "Vui lòng chọn chương!";
-                MessageBox.Show(err);
+                MessageBox.Show("Vui lòng chọn chương!");
             }
         }
     }

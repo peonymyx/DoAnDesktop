@@ -178,6 +178,7 @@ namespace DangKyHocPhanSV
             this.txt_matkhau.PasswordChar = '*';
             this.txt_matkhau.Size = new System.Drawing.Size(338, 35);
             this.txt_matkhau.TabIndex = 0;
+            this.txt_matkhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_matkhau_KeyDown);
             // 
             // pic_matkhau
             // 
@@ -208,6 +209,7 @@ namespace DangKyHocPhanSV
             this.txt_dangnhap.Name = "txt_dangnhap";
             this.txt_dangnhap.Size = new System.Drawing.Size(338, 35);
             this.txt_dangnhap.TabIndex = 0;
+            this.txt_dangnhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dangnhap_KeyPress);
             // 
             // pic_taikhoan
             // 

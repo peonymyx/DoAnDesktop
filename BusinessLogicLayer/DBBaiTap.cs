@@ -16,7 +16,7 @@ namespace BusinessLogicLayer
         {
             db = new DAL();
         }
-        public DataSet DSBaiTapTrongChuong(string MaChuong)
+        public DataSet DSBaiTapTrongChuong(int MaChuong)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace BusinessLogicLayer
                 throw ex;
             }
         }
-        public bool ThemBaiTap(ref string err, string TieuDeBaiTap, string NoiDungBaiTap, int MaChuongHoc, DateTime HanNop)
+        public bool ThemBaiTap(ref string err, string TieuDeBaiTap, string NoiDungBaiTap, int MaChuongHoc, string HanNop)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public bool CapNhatBaiTap(ref string err, int BaiTapID, string TieuDeBaiTap, string NoiDungBaiTap, DateTime HanNop)
+        public bool CapNhatBaiTap(ref string err, int BaiTapID, string TieuDeBaiTap, string NoiDungBaiTap, string HanNop)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace BusinessLogicLayer
                     new MySqlParameter("p_NoiDungBaiTap", NoiDungBaiTap),
                     new MySqlParameter("p_HanNop", HanNop)
                 };
-                return db.MyExecuteNonQuery($"CALL Re_CapNhatBaiTap('{BaiTapID}','{TieuDeBaiTap}','{NoiDungBaiTap}','{HanNop}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatBaiTapByGV('{BaiTapID}','{TieuDeBaiTap}','{NoiDungBaiTap}','{HanNop}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

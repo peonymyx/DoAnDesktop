@@ -119,5 +119,59 @@ namespace DataAccessLayer
             adp.Fill(ds);
             return ds.GetXml();
         }
+        public DataTable GetChartDataSLSV_Khoa()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVMoiKhoa;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_Lop()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVLop;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_Nganh()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongSVMoiNganh;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLSV_NopBai()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_ThongKeBaiTapCuaCacSV;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLTC_DangKy()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_TongSoChi;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable GetChartDataSLGVday_Lop()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM View_SoLuongLopGVDaNhan;";
+            cmd = new MySqlCommand(query, cnn);
+            adp = new MySqlDataAdapter(cmd);
+            adp.Fill(dataTable);
+            return dataTable;
+        }
     }
 }

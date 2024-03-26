@@ -517,7 +517,7 @@ namespace DangKyHocPhanSV
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_phonghoc.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_phonghoc.Location = new System.Drawing.Point(1, 6);
+            this.dgv_phonghoc.Location = new System.Drawing.Point(1, -1);
             this.dgv_phonghoc.MultiSelect = false;
             this.dgv_phonghoc.Name = "dgv_phonghoc";
             this.dgv_phonghoc.ReadOnly = true;
@@ -525,7 +525,7 @@ namespace DangKyHocPhanSV
             this.dgv_phonghoc.RowHeadersWidth = 51;
             this.dgv_phonghoc.RowTemplate.Height = 35;
             this.dgv_phonghoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_phonghoc.Size = new System.Drawing.Size(991, 333);
+            this.dgv_phonghoc.Size = new System.Drawing.Size(992, 344);
             this.dgv_phonghoc.TabIndex = 70;
             this.dgv_phonghoc.TabStop = false;
             // 

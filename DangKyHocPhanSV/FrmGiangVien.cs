@@ -22,14 +22,14 @@ namespace DangKyHocPhanSV
         DBGiangVien gv = new DBGiangVien();
         private Form _parent;
         private Panel _panel;
-        private SinhVienPagination sinhVienPagination;
+        private GiangVienPagination giangVienPagination;
 
         public FrmGiangVien(Form parent, Panel panel)
         {
             InitializeComponent();
             _parent = parent;
             _panel = panel;
-            sinhVienPagination = new SinhVienPagination();
+            giangVienPagination = new GiangVienPagination();
         }
 
         /*public void loadGiangVien()
@@ -46,13 +46,13 @@ namespace DangKyHocPhanSV
         private async void FrmGiangVien_Load(object sender, EventArgs e)
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         private async void FrmGiangVien_Load()
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         public void loadDSKhoa()
@@ -126,12 +126,13 @@ namespace DangKyHocPhanSV
 
         private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await sinhVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await sinhVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
+
     }
 }

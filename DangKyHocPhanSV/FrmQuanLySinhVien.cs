@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
+using DangKyHocPhanSV.Pagination;
 
 namespace DangKyHocPhanSV
 {
@@ -18,6 +19,7 @@ namespace DangKyHocPhanSV
         private Panel _panel;
         private Form _parent;
         private Form currentFormChild;
+        private SinhVienPagination sinhVienPagination;
         public void OpenChildForm(Form childForm, Panel panel)
         {
             if (currentFormChild != null)
@@ -38,15 +40,17 @@ namespace DangKyHocPhanSV
             InitializeComponent();
             _parent = parent;
             _panel = panel;
+            sinhVienPagination = new SinhVienPagination();
         }
+        
 
-
-        private void FrmQuanLySinhVien_Load(object sender, EventArgs e)
+        private async void FrmQuanLySinhVien_Load(object sender, EventArgs e)
         {
             txt_tongsinhvien.Enabled = false;
+            await sinhVienPagination.LoadDataAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
             _panel.Show();
@@ -101,6 +105,16 @@ namespace DangKyHocPhanSV
             FrmLopSV lopsv = new FrmLopSV(menustrip_quanlylopsinhvien);
             OpenChildForm(lopsv, pn_container);
             menustrip_quanlylopsinhvien.Hide();
+        }
+
+        private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.PreviousPageAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
+        }
+
+        private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.NextPageAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
         }
     }
 }

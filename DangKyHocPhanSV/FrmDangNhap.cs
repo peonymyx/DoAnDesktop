@@ -134,5 +134,24 @@ namespace DangKyHocPhanSV
             FrmQuenMatKhau frmQuenMatKhau = new FrmQuenMatKhau();
             frmQuenMatKhau.ShowDialog();
         }
+
+        private void txt_matkhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Thực hiện hành động của nút đăng nhập
+                btn_dangnhap.PerformClick();
+            }
+        }
+
+        private void txt_dangnhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Di chuyển sự kiện đến nút đăng nhập
+                e.Handled = true; // Ngăn chặn ký tự Enter hiển thị trong TextBox
+                txt_matkhau.Focus(); // Di chuyển sự kiện tới nút đăng nhập
+            }
+        }
     }
 }

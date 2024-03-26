@@ -105,5 +105,12 @@ namespace DangKyHocPhanSV
             OpenChildForm(qlsv, pn_container);
             pn_header.Hide();
         }
+
+        private void btn_tk_Click(object sender, EventArgs e)
+        {
+            FrmThongKe tk = new FrmThongKe(this, pn_header);
+            tk.ShowDialog();
+        }
+
     }
 }

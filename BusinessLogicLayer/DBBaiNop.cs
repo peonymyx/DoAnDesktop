@@ -17,11 +17,11 @@ namespace BusinessLogicLayer
             db = new DAL();
         }
         //phân quyền giangvien
-        public DataSet DSSinhVienNopBai(int IDChuong, string MaSV)
+        public DataSet DSSinhVienNopBai(int BaiTapID)
         {
             try
             {
-                return db.ExecuteQueryDataSetParam($"CALL NonP_DSSinhVienNopBai('{IDChuong},{MaSV}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL NonP_DSSinhVienNopBai('{BaiTapID}')", CommandType.Text);
             }
             catch (Exception ex)
             {
