@@ -13,6 +13,7 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmTrangAdmin : Form
     {
+        private Form _parent;
         private string maso;
         DBSinhVien sv = new DBSinhVien();
         DBQuanLy ql = new DBQuanLy();
@@ -37,9 +38,11 @@ namespace DangKyHocPhanSV
             get { return maso; }
             set { maso = value; }
         }
-        public FrmTrangAdmin()
+        public FrmTrangAdmin(Form parent)
         {
             InitializeComponent();
+            _parent = parent;
+
         }
 
         private void FrmTrangAdmin_Load(object sender, EventArgs e)
@@ -58,6 +61,7 @@ namespace DangKyHocPhanSV
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+            _parent.Show();
         }
 
         private void btn_doimk_Click(object sender, EventArgs e)
@@ -71,30 +75,35 @@ namespace DangKyHocPhanSV
         {
             FrmQuanLyMonHoc mh = new FrmQuanLyMonHoc(this, pn_header);
             OpenChildForm(mh, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_phonghoc_Click(object sender, EventArgs e)
         {
             FrmQuanLyPhongHoc ph = new FrmQuanLyPhongHoc(this, pn_header);
             OpenChildForm(ph, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_khoa_Click(object sender, EventArgs e)
         {
             FrmQuanLyKhoaNganh khng = new FrmQuanLyKhoaNganh(this, pn_header);
             OpenChildForm(khng, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_quanlygiangvien_Click(object sender, EventArgs e)
         {
             FrmGiangVien gv = new FrmGiangVien(this, pn_header);
             OpenChildForm(gv, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_quanlysinhvien_Click(object sender, EventArgs e)
         {
             FrmQuanLySinhVien qlsv = new FrmQuanLySinhVien(this, pn_header);
             OpenChildForm(qlsv, pn_container);
+            pn_header.Hide();
         }
     }
 }

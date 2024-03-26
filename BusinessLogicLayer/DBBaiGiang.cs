@@ -16,7 +16,7 @@ namespace BusinessLogicLayer
         {
             db = new DAL();
         }
-        public DataSet DanhSachBaiGiangTrongChuong(string MaChuong)
+        public DataSet DanhSachBaiGiangTrongChuong(int MaChuong)
         {
             try
             {

@@ -76,39 +76,36 @@ namespace DangKyHocPhanSV
             int check = tk.DangNhap(txt_dangnhap.Text.Trim(), txt_matkhau.Text.Trim());
             if (check == 1)
             {
-                FrmTrangAdmin ad = new FrmTrangAdmin();
+                FrmTrangAdmin ad = new FrmTrangAdmin(this);
                 ad.MaSo = txt_dangnhap.Text.Trim();
-                ad.ShowDialog();
+                ad.Show();
                 txt_dangnhap.ResetText();
                 txt_matkhau.ResetText();
                 this.Hide();
-                this.Show();
             }
             else if (check == 2)
             {
-                FrmTrangSinhVien usr = new FrmTrangSinhVien();
+                FrmTrangSinhVien usr = new FrmTrangSinhVien(this);
                 usr.MaSo = txt_dangnhap.Text.Trim();
-                usr.ShowDialog();
+                usr.Show();
                 txt_dangnhap.ResetText();
-                txt_dangnhap.ResetText();
+                txt_matkhau.ResetText();
                 this.Hide();
-                this.Show();
             }
             else if (check == 3)
             {
-                FrmTrangGiangVien usr = new FrmTrangGiangVien();
+                FrmTrangGiangVien usr = new FrmTrangGiangVien(this);
                 usr.MaSo = txt_dangnhap.Text.Trim();
-                usr.ShowDialog();
+                usr.Show();
                 txt_dangnhap.ResetText();
-                txt_dangnhap.ResetText();
+                txt_matkhau.ResetText();
                 this.Hide();
-                this.Show();
             }
             else // không đúng thì xuất ra thông báo!
             {
                 lblThongBao.Text = err;
                 txt_dangnhap.ResetText();
-                txt_dangnhap.ResetText();
+                txt_matkhau.ResetText();
                 txt_dangnhap.Focus();
             }
         }

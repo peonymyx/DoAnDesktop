@@ -56,35 +56,35 @@ namespace DangKyHocPhanSV.Pagination
             }
         }
 
-        public async Task LoadDataAsync(DataGridView dataGridView, Label lblPageNumber, Button btnPrevious, Button btnNext)
+        public async Task LoadDataAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
             list = await GetPagedListAsync(pageNumber);
-            UpdateDataGridView(dataGridView, lblPageNumber, btnPrevious, btnNext);
+            UpdateDataGridView(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
         }
 
-        private void UpdateDataGridView(DataGridView dataGridView, Label lblPageNumber, Button btnPrevious, Button btnNext)
+        private void UpdateDataGridView(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
-            btnPrevious.Enabled = list.HasPreviousPage;
-            btnNext.Enabled = list.HasNextPage;
+            linklblPrevious.Enabled = list.HasPreviousPage;
+            linklblNext.Enabled = list.HasNextPage;
             dataGridView.DataSource = list.ToList();
             lblPageNumber.Text = string.Format("Page {0}/{1}", pageNumber, list.PageCount);
         }
 
-        public async Task PreviousPageAsync(DataGridView dataGridView, Label lblPageNumber, Button btnPrevious, Button btnNext)
+        public async Task PreviousPageAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
             if (list.HasPreviousPage)
             {
                 pageNumber--;
-                await LoadDataAsync(dataGridView, lblPageNumber, btnPrevious, btnNext);
+                await LoadDataAsync(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
             }
         }
 
-        public async Task NextPageAsync(DataGridView dataGridView, Label lblPageNumber, Button btnPrevious, Button btnNext)
+        public async Task NextPageAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
             if (list.HasNextPage)
             {
                 pageNumber++;
-                await LoadDataAsync(dataGridView, lblPageNumber, btnPrevious, btnNext);
+                await LoadDataAsync(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
             }
         }
     }

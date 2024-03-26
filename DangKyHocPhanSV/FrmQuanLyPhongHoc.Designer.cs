@@ -29,10 +29,12 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_header = new System.Windows.Forms.Panel();
-            this.btn_quaylai = new System.Windows.Forms.Button();
             this.lbl_thoikhoabieu = new System.Windows.Forms.Label();
             this.pn_timkiem = new System.Windows.Forms.Panel();
+            this.btn_xoamalop = new System.Windows.Forms.Button();
             this.btn_timkiemma = new System.Windows.Forms.Button();
             this.txt_malophoc = new System.Windows.Forms.TextBox();
             this.lbl_malophoc = new System.Windows.Forms.Label();
@@ -62,9 +64,12 @@ namespace DangKyHocPhanSV
             this.lbl_themmaMHDT = new System.Windows.Forms.Label();
             this.txt_themmalophoc = new System.Windows.Forms.TextBox();
             this.lbl_themmalophoc = new System.Windows.Forms.Label();
+            this.btn_quaylai = new System.Windows.Forms.Button();
+            this.lblPageNumber = new System.Windows.Forms.Label();
+            this.linklbl_back = new System.Windows.Forms.LinkLabel();
+            this.linklbl_next = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgv_phonghoc = new System.Windows.Forms.DataGridView();
-            this.btn_xoamalop = new System.Windows.Forms.Button();
             this.pn_header.SuspendLayout();
             this.pn_timkiem.SuspendLayout();
             this.pn_phonghoc.SuspendLayout();
@@ -74,24 +79,13 @@ namespace DangKyHocPhanSV
             // 
             // pn_header
             // 
-            this.pn_header.Controls.Add(this.btn_quaylai);
+            this.pn_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_header.Controls.Add(this.lbl_thoikhoabieu);
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_header.Location = new System.Drawing.Point(0, 0);
             this.pn_header.Name = "pn_header";
             this.pn_header.Size = new System.Drawing.Size(993, 60);
             this.pn_header.TabIndex = 0;
-            // 
-            // btn_quaylai
-            // 
-            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quaylai.Location = new System.Drawing.Point(797, 12);
-            this.btn_quaylai.Name = "btn_quaylai";
-            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
-            this.btn_quaylai.TabIndex = 6;
-            this.btn_quaylai.Text = "Quay lại";
-            this.btn_quaylai.UseVisualStyleBackColor = true;
-            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
             // 
             // lbl_thoikhoabieu
             // 
@@ -106,6 +100,7 @@ namespace DangKyHocPhanSV
             // 
             // pn_timkiem
             // 
+            this.pn_timkiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_timkiem.Controls.Add(this.btn_xoamalop);
             this.pn_timkiem.Controls.Add(this.btn_timkiemma);
             this.pn_timkiem.Controls.Add(this.txt_malophoc);
@@ -115,6 +110,19 @@ namespace DangKyHocPhanSV
             this.pn_timkiem.Name = "pn_timkiem";
             this.pn_timkiem.Size = new System.Drawing.Size(993, 50);
             this.pn_timkiem.TabIndex = 1;
+            // 
+            // btn_xoamalop
+            // 
+            this.btn_xoamalop.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_xoamalop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoamalop.Location = new System.Drawing.Point(817, 6);
+            this.btn_xoamalop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_xoamalop.Name = "btn_xoamalop";
+            this.btn_xoamalop.Size = new System.Drawing.Size(145, 36);
+            this.btn_xoamalop.TabIndex = 84;
+            this.btn_xoamalop.Text = "Xóa";
+            this.btn_xoamalop.UseVisualStyleBackColor = false;
+            this.btn_xoamalop.Click += new System.EventHandler(this.btn_xoamalop_Click);
             // 
             // btn_timkiemma
             // 
@@ -178,7 +186,7 @@ namespace DangKyHocPhanSV
             this.pn_phonghoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_phonghoc.Location = new System.Drawing.Point(0, 110);
             this.pn_phonghoc.Name = "pn_phonghoc";
-            this.pn_phonghoc.Size = new System.Drawing.Size(993, 194);
+            this.pn_phonghoc.Size = new System.Drawing.Size(993, 174);
             this.pn_phonghoc.TabIndex = 2;
             this.pn_phonghoc.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -186,7 +194,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themhocky.AutoSize = true;
             this.lbl_themhocky.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themhocky.Location = new System.Drawing.Point(34, 117);
+            this.lbl_themhocky.Location = new System.Drawing.Point(34, 105);
             this.lbl_themhocky.Name = "lbl_themhocky";
             this.lbl_themhocky.Size = new System.Drawing.Size(62, 21);
             this.lbl_themhocky.TabIndex = 126;
@@ -195,7 +203,7 @@ namespace DangKyHocPhanSV
             // txt_themTGKT
             // 
             this.txt_themTGKT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themTGKT.Location = new System.Drawing.Point(793, 113);
+            this.txt_themTGKT.Location = new System.Drawing.Point(793, 101);
             this.txt_themTGKT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themTGKT.Name = "txt_themTGKT";
             this.txt_themTGKT.Size = new System.Drawing.Size(163, 28);
@@ -205,7 +213,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themTGKT.AutoSize = true;
             this.lbl_themTGKT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themTGKT.Location = new System.Drawing.Point(699, 117);
+            this.lbl_themTGKT.Location = new System.Drawing.Point(699, 105);
             this.lbl_themTGKT.Name = "lbl_themTGKT";
             this.lbl_themTGKT.Size = new System.Drawing.Size(94, 21);
             this.lbl_themTGKT.TabIndex = 124;
@@ -214,7 +222,7 @@ namespace DangKyHocPhanSV
             // txt_themnam
             // 
             this.txt_themnam.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themnam.Location = new System.Drawing.Point(460, 113);
+            this.txt_themnam.Location = new System.Drawing.Point(460, 101);
             this.txt_themnam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themnam.Name = "txt_themnam";
             this.txt_themnam.Size = new System.Drawing.Size(203, 28);
@@ -224,7 +232,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themnam.AutoSize = true;
             this.lbl_themnam.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themnam.Location = new System.Drawing.Point(358, 117);
+            this.lbl_themnam.Location = new System.Drawing.Point(358, 105);
             this.lbl_themnam.Name = "lbl_themnam";
             this.lbl_themnam.Size = new System.Drawing.Size(48, 21);
             this.lbl_themnam.TabIndex = 122;
@@ -234,7 +242,7 @@ namespace DangKyHocPhanSV
             // 
             this.btn_them.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_them.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_them.Location = new System.Drawing.Point(800, 147);
+            this.btn_them.Location = new System.Drawing.Point(800, 131);
             this.btn_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(135, 37);
@@ -246,7 +254,7 @@ namespace DangKyHocPhanSV
             // txt_themhocky
             // 
             this.txt_themhocky.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themhocky.Location = new System.Drawing.Point(140, 113);
+            this.txt_themhocky.Location = new System.Drawing.Point(140, 101);
             this.txt_themhocky.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themhocky.Name = "txt_themhocky";
             this.txt_themhocky.Size = new System.Drawing.Size(190, 28);
@@ -255,7 +263,7 @@ namespace DangKyHocPhanSV
             // txt_themTGBD
             // 
             this.txt_themTGBD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themTGBD.Location = new System.Drawing.Point(793, 78);
+            this.txt_themTGBD.Location = new System.Drawing.Point(793, 70);
             this.txt_themTGBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themTGBD.Name = "txt_themTGBD";
             this.txt_themTGBD.Size = new System.Drawing.Size(163, 28);
@@ -265,7 +273,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themTGBD.AutoSize = true;
             this.lbl_themTGBD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themTGBD.Location = new System.Drawing.Point(699, 82);
+            this.lbl_themTGBD.Location = new System.Drawing.Point(699, 74);
             this.lbl_themTGBD.Name = "lbl_themTGBD";
             this.lbl_themTGBD.Size = new System.Drawing.Size(91, 21);
             this.lbl_themTGBD.TabIndex = 119;
@@ -274,7 +282,7 @@ namespace DangKyHocPhanSV
             // txt_themtietketthuc
             // 
             this.txt_themtietketthuc.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themtietketthuc.Location = new System.Drawing.Point(460, 78);
+            this.txt_themtietketthuc.Location = new System.Drawing.Point(460, 70);
             this.txt_themtietketthuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themtietketthuc.Name = "txt_themtietketthuc";
             this.txt_themtietketthuc.Size = new System.Drawing.Size(203, 28);
@@ -284,7 +292,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themtietketthuc.AutoSize = true;
             this.lbl_themtietketthuc.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themtietketthuc.Location = new System.Drawing.Point(358, 82);
+            this.lbl_themtietketthuc.Location = new System.Drawing.Point(358, 74);
             this.lbl_themtietketthuc.Name = "lbl_themtietketthuc";
             this.lbl_themtietketthuc.Size = new System.Drawing.Size(101, 21);
             this.lbl_themtietketthuc.TabIndex = 117;
@@ -293,7 +301,7 @@ namespace DangKyHocPhanSV
             // txt_themtietbandau
             // 
             this.txt_themtietbandau.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themtietbandau.Location = new System.Drawing.Point(140, 78);
+            this.txt_themtietbandau.Location = new System.Drawing.Point(140, 70);
             this.txt_themtietbandau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themtietbandau.Name = "txt_themtietbandau";
             this.txt_themtietbandau.Size = new System.Drawing.Size(190, 28);
@@ -303,7 +311,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themtietbandau.AutoSize = true;
             this.lbl_themtietbandau.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themtietbandau.Location = new System.Drawing.Point(34, 82);
+            this.lbl_themtietbandau.Location = new System.Drawing.Point(34, 74);
             this.lbl_themtietbandau.Name = "lbl_themtietbandau";
             this.lbl_themtietbandau.Size = new System.Drawing.Size(98, 21);
             this.lbl_themtietbandau.TabIndex = 115;
@@ -312,7 +320,7 @@ namespace DangKyHocPhanSV
             // txt_themthu
             // 
             this.txt_themthu.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themthu.Location = new System.Drawing.Point(793, 45);
+            this.txt_themthu.Location = new System.Drawing.Point(793, 41);
             this.txt_themthu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themthu.Name = "txt_themthu";
             this.txt_themthu.Size = new System.Drawing.Size(163, 28);
@@ -322,7 +330,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themthu.AutoSize = true;
             this.lbl_themthu.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themthu.Location = new System.Drawing.Point(699, 49);
+            this.lbl_themthu.Location = new System.Drawing.Point(699, 45);
             this.lbl_themthu.Name = "lbl_themthu";
             this.lbl_themthu.Size = new System.Drawing.Size(42, 21);
             this.lbl_themthu.TabIndex = 113;
@@ -350,7 +358,7 @@ namespace DangKyHocPhanSV
             // txt_themgioihan
             // 
             this.txt_themgioihan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themgioihan.Location = new System.Drawing.Point(460, 45);
+            this.txt_themgioihan.Location = new System.Drawing.Point(460, 41);
             this.txt_themgioihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themgioihan.Name = "txt_themgioihan";
             this.txt_themgioihan.Size = new System.Drawing.Size(203, 28);
@@ -360,7 +368,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themgioihan.AutoSize = true;
             this.lbl_themgioihan.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themgioihan.Location = new System.Drawing.Point(358, 49);
+            this.lbl_themgioihan.Location = new System.Drawing.Point(358, 45);
             this.lbl_themgioihan.Name = "lbl_themgioihan";
             this.lbl_themgioihan.Size = new System.Drawing.Size(74, 21);
             this.lbl_themgioihan.TabIndex = 109;
@@ -369,7 +377,7 @@ namespace DangKyHocPhanSV
             // txt_themmagiaovien
             // 
             this.txt_themmagiaovien.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themmagiaovien.Location = new System.Drawing.Point(140, 45);
+            this.txt_themmagiaovien.Location = new System.Drawing.Point(140, 41);
             this.txt_themmagiaovien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themmagiaovien.Name = "txt_themmagiaovien";
             this.txt_themmagiaovien.Size = new System.Drawing.Size(190, 28);
@@ -379,7 +387,7 @@ namespace DangKyHocPhanSV
             // 
             this.lbl_themmagiaovien.AutoSize = true;
             this.lbl_themmagiaovien.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_themmagiaovien.Location = new System.Drawing.Point(34, 49);
+            this.lbl_themmagiaovien.Location = new System.Drawing.Point(34, 45);
             this.lbl_themmagiaovien.Name = "lbl_themmagiaovien";
             this.lbl_themmagiaovien.Size = new System.Drawing.Size(104, 21);
             this.lbl_themmagiaovien.TabIndex = 107;
@@ -423,38 +431,103 @@ namespace DangKyHocPhanSV
             this.lbl_themmalophoc.TabIndex = 102;
             this.lbl_themmalophoc.Text = "Mã lớp học:";
             // 
+            // btn_quaylai
+            // 
+            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quaylai.Location = new System.Drawing.Point(857, 349);
+            this.btn_quaylai.Name = "btn_quaylai";
+            this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
+            this.btn_quaylai.TabIndex = 6;
+            this.btn_quaylai.Text = "Quay lại";
+            this.btn_quaylai.UseVisualStyleBackColor = true;
+            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
+            // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(77, 355);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
+            this.lblPageNumber.TabIndex = 67;
+            this.lblPageNumber.Text = "page";
+            // 
+            // linklbl_back
+            // 
+            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_back.AutoSize = true;
+            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_back.Location = new System.Drawing.Point(33, 352);
+            this.linklbl_back.Name = "linklbl_back";
+            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_back.TabIndex = 68;
+            this.linklbl_back.TabStop = true;
+            this.linklbl_back.Text = "<";
+            // 
+            // linklbl_next
+            // 
+            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_next.AutoSize = true;
+            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_next.Location = new System.Drawing.Point(156, 352);
+            this.linklbl_next.Name = "linklbl_next";
+            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_next.TabIndex = 69;
+            this.linklbl_next.TabStop = true;
+            this.linklbl_next.Text = ">";
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dgv_phonghoc);
+            this.panel4.Controls.Add(this.linklbl_next);
+            this.panel4.Controls.Add(this.linklbl_back);
+            this.panel4.Controls.Add(this.lblPageNumber);
+            this.panel4.Controls.Add(this.btn_quaylai);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 304);
+            this.panel4.Location = new System.Drawing.Point(0, 284);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(993, 381);
+            this.panel4.Size = new System.Drawing.Size(993, 401);
             this.panel4.TabIndex = 3;
             // 
             // dgv_phonghoc
             // 
+            this.dgv_phonghoc.AllowUserToAddRows = false;
+            this.dgv_phonghoc.AllowUserToDeleteRows = false;
+            this.dgv_phonghoc.AllowUserToResizeColumns = false;
+            this.dgv_phonghoc.AllowUserToResizeRows = false;
+            this.dgv_phonghoc.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_phonghoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_phonghoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_phonghoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_phonghoc.Location = new System.Drawing.Point(0, 0);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_phonghoc.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_phonghoc.Location = new System.Drawing.Point(1, 6);
+            this.dgv_phonghoc.MultiSelect = false;
             this.dgv_phonghoc.Name = "dgv_phonghoc";
+            this.dgv_phonghoc.ReadOnly = true;
+            this.dgv_phonghoc.RowHeadersVisible = false;
             this.dgv_phonghoc.RowHeadersWidth = 51;
-            this.dgv_phonghoc.RowTemplate.Height = 24;
-            this.dgv_phonghoc.Size = new System.Drawing.Size(993, 381);
-            this.dgv_phonghoc.TabIndex = 0;
-            // 
-            // btn_xoamalop
-            // 
-            this.btn_xoamalop.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_xoamalop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoamalop.Location = new System.Drawing.Point(817, 6);
-            this.btn_xoamalop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_xoamalop.Name = "btn_xoamalop";
-            this.btn_xoamalop.Size = new System.Drawing.Size(145, 36);
-            this.btn_xoamalop.TabIndex = 84;
-            this.btn_xoamalop.Text = "Xóa";
-            this.btn_xoamalop.UseVisualStyleBackColor = false;
-            this.btn_xoamalop.Click += new System.EventHandler(this.btn_xoamalop_Click);
+            this.dgv_phonghoc.RowTemplate.Height = 35;
+            this.dgv_phonghoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_phonghoc.Size = new System.Drawing.Size(991, 333);
+            this.dgv_phonghoc.TabIndex = 70;
+            this.dgv_phonghoc.TabStop = false;
             // 
             // FrmQuanLyPhongHoc
             // 
@@ -476,6 +549,7 @@ namespace DangKyHocPhanSV
             this.pn_phonghoc.ResumeLayout(false);
             this.pn_phonghoc.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phonghoc)).EndInit();
             this.ResumeLayout(false);
 
@@ -486,7 +560,6 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_header;
         private System.Windows.Forms.Panel pn_timkiem;
         private System.Windows.Forms.Panel pn_phonghoc;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btn_timkiemma;
         private System.Windows.Forms.TextBox txt_malophoc;
         private System.Windows.Forms.Label lbl_malophoc;
@@ -515,9 +588,13 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Label lbl_themmaMHDT;
         private System.Windows.Forms.TextBox txt_themmalophoc;
         private System.Windows.Forms.Label lbl_themmalophoc;
-        private System.Windows.Forms.DataGridView dgv_phonghoc;
-        private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Label lbl_thoikhoabieu;
         private System.Windows.Forms.Button btn_xoamalop;
+        private System.Windows.Forms.Button btn_quaylai;
+        private System.Windows.Forms.Label lblPageNumber;
+        private System.Windows.Forms.LinkLabel linklbl_back;
+        private System.Windows.Forms.LinkLabel linklbl_next;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dgv_phonghoc;
     }
 }

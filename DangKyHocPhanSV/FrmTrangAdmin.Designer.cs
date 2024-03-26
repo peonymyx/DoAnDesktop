@@ -32,7 +32,6 @@ namespace DangKyHocPhanSV
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_content = new System.Windows.Forms.Panel();
-            this.dgv_dssinhvien = new System.Windows.Forms.DataGridView();
             this.pn_container = new System.Windows.Forms.Panel();
             this.pn_header = new System.Windows.Forms.Panel();
             this.lbl_header = new System.Windows.Forms.Label();
@@ -57,8 +56,8 @@ namespace DangKyHocPhanSV
             this.btn_monhoc = new System.Windows.Forms.Button();
             this.pn_phonghoc = new System.Windows.Forms.Panel();
             this.btn_phonghoc = new System.Windows.Forms.Button();
+            this.dgv_dssinhvien = new System.Windows.Forms.DataGridView();
             this.pn_content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).BeginInit();
             this.pn_container.SuspendLayout();
             this.pn_header.SuspendLayout();
             this.pn_exit.SuspendLayout();
@@ -71,6 +70,7 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.SuspendLayout();
             this.pn_monhoc.SuspendLayout();
             this.pn_phonghoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_content
@@ -82,38 +82,6 @@ namespace DangKyHocPhanSV
             this.pn_content.Name = "pn_content";
             this.pn_content.Size = new System.Drawing.Size(993, 622);
             this.pn_content.TabIndex = 1;
-            // 
-            // dgv_dssinhvien
-            // 
-            this.dgv_dssinhvien.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_dssinhvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_dssinhvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_dssinhvien.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_dssinhvien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_dssinhvien.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_dssinhvien.Location = new System.Drawing.Point(0, 0);
-            this.dgv_dssinhvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_dssinhvien.Name = "dgv_dssinhvien";
-            this.dgv_dssinhvien.ReadOnly = true;
-            this.dgv_dssinhvien.RowHeadersVisible = false;
-            this.dgv_dssinhvien.RowHeadersWidth = 51;
-            this.dgv_dssinhvien.RowTemplate.Height = 24;
-            this.dgv_dssinhvien.Size = new System.Drawing.Size(991, 620);
-            this.dgv_dssinhvien.TabIndex = 22;
             // 
             // pn_container
             // 
@@ -435,6 +403,43 @@ namespace DangKyHocPhanSV
             this.btn_phonghoc.UseVisualStyleBackColor = false;
             this.btn_phonghoc.Click += new System.EventHandler(this.btn_phonghoc_Click);
             // 
+            // dgv_dssinhvien
+            // 
+            this.dgv_dssinhvien.AllowUserToAddRows = false;
+            this.dgv_dssinhvien.AllowUserToDeleteRows = false;
+            this.dgv_dssinhvien.AllowUserToResizeColumns = false;
+            this.dgv_dssinhvien.AllowUserToResizeRows = false;
+            this.dgv_dssinhvien.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_dssinhvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_dssinhvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_dssinhvien.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_dssinhvien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_dssinhvien.Location = new System.Drawing.Point(0, 0);
+            this.dgv_dssinhvien.MultiSelect = false;
+            this.dgv_dssinhvien.Name = "dgv_dssinhvien";
+            this.dgv_dssinhvien.ReadOnly = true;
+            this.dgv_dssinhvien.RowHeadersVisible = false;
+            this.dgv_dssinhvien.RowHeadersWidth = 51;
+            this.dgv_dssinhvien.RowTemplate.Height = 35;
+            this.dgv_dssinhvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_dssinhvien.Size = new System.Drawing.Size(991, 620);
+            this.dgv_dssinhvien.TabIndex = 1;
+            this.dgv_dssinhvien.TabStop = false;
+            // 
             // FrmTrangAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -448,7 +453,6 @@ namespace DangKyHocPhanSV
             this.Text = "Trang Quản lý";
             this.Load += new System.EventHandler(this.FrmTrangAdmin_Load);
             this.pn_content.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).EndInit();
             this.pn_container.ResumeLayout(false);
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
@@ -464,13 +468,13 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.ResumeLayout(false);
             this.pn_monhoc.ResumeLayout(false);
             this.pn_phonghoc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel pn_content;
-        private System.Windows.Forms.DataGridView dgv_dssinhvien;
         private System.Windows.Forms.Panel pn_container;
         private System.Windows.Forms.Panel pn_header;
         private System.Windows.Forms.Button btn_exit;
@@ -495,5 +499,6 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_phonghoc;
         private System.Windows.Forms.Button btn_phonghoc;
         private System.Windows.Forms.Label lbl_header;
+        private System.Windows.Forms.DataGridView dgv_dssinhvien;
     }
 }

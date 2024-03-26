@@ -16,11 +16,6 @@ namespace BusinessLogicLayer
         {
             db = new DAL();
         }
-        /*
-         *  
-            NonP_DSSinhVienNopBai (Phân quyền ở giangvien)
-            NonP_HienThiBaiTapDaNopBySV (Phân quyền ở sinhvien)
-         */
         //phân quyền giangvien
         public DataSet DSSinhVienNopBai(int IDChuong, string MaSV)
         {

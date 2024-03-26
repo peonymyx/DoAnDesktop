@@ -13,6 +13,7 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmTrangSinhVien : Form
     {
+        private Form _parent;
         private string maso;
         DBSinhVien sv = new DBSinhVien();
         private Form currentFormChild;
@@ -37,9 +38,11 @@ namespace DangKyHocPhanSV
             get { return maso; }
             set { maso = value; }
         }
-        public FrmTrangSinhVien()
+        public FrmTrangSinhVien(Form parent)
         {
             InitializeComponent();
+            _parent = parent;
+
         }
         private void FrmTrangSinhVien_Load(object sender, EventArgs e)
         {
@@ -92,6 +95,7 @@ namespace DangKyHocPhanSV
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+            _parent.Show();
         }
 
         private void txt_ten_TextChanged(object sender, EventArgs e)

@@ -17,6 +17,22 @@ namespace DangKyHocPhanSV
         DBNganh nganh = new DBNganh();
         private Panel _panel;
         private Form _parent;
+        private Form currentFormChild;
+        public void OpenChildForm(Form childForm, Panel panel)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel.Controls.Add(childForm);
+            panel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         public FrmQuanLySinhVien(Form parent, Panel panel)
         {
             InitializeComponent();
@@ -82,8 +98,9 @@ namespace DangKyHocPhanSV
 
         private void tooltripmenu_quanlylopsinhvien_Click(object sender, EventArgs e)
         {
-            FrmLopSV lopsv = new FrmLopSV();
-            lopsv.Show();
+            FrmLopSV lopsv = new FrmLopSV(menustrip_quanlylopsinhvien);
+            OpenChildForm(lopsv, pn_container);
+            menustrip_quanlylopsinhvien.Hide();
         }
     }
 }

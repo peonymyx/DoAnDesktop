@@ -31,6 +31,8 @@ namespace DangKyHocPhanSV
         {
             this.pn_them = new System.Windows.Forms.Panel();
             this.pn_themsv = new System.Windows.Forms.Panel();
+            this.txt_thememail = new System.Windows.Forms.TextBox();
+            this.lbl_email = new System.Windows.Forms.Label();
             this.btn_capnhat = new System.Windows.Forms.Button();
             this.txt_themhoten = new System.Windows.Forms.TextBox();
             this.lbl_themhoten = new System.Windows.Forms.Label();
@@ -75,8 +77,10 @@ namespace DangKyHocPhanSV
             this.lbl_quanlysinhvien = new System.Windows.Forms.Label();
             this.pn_quanlylop = new System.Windows.Forms.Panel();
             this.lbl_quanlylop = new System.Windows.Forms.Label();
-            this.txt_thememail = new System.Windows.Forms.TextBox();
-            this.lbl_email = new System.Windows.Forms.Label();
+            this.btn_quaylai = new System.Windows.Forms.Button();
+            this.linklbl_next = new System.Windows.Forms.LinkLabel();
+            this.linklbl_back = new System.Windows.Forms.LinkLabel();
+            this.lblPageNumber = new System.Windows.Forms.Label();
             this.pn_them.SuspendLayout();
             this.pn_themsv.SuspendLayout();
             this.pn_themlop.SuspendLayout();
@@ -127,6 +131,27 @@ namespace DangKyHocPhanSV
             this.pn_themsv.Name = "pn_themsv";
             this.pn_themsv.Size = new System.Drawing.Size(497, 232);
             this.pn_themsv.TabIndex = 1;
+            // 
+            // txt_thememail
+            // 
+            this.txt_thememail.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt_thememail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_thememail.Location = new System.Drawing.Point(76, 38);
+            this.txt_thememail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_thememail.Name = "txt_thememail";
+            this.txt_thememail.Size = new System.Drawing.Size(403, 30);
+            this.txt_thememail.TabIndex = 138;
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.BackColor = System.Drawing.SystemColors.Control;
+            this.lbl_email.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Location = new System.Drawing.Point(9, 39);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(61, 24);
+            this.lbl_email.TabIndex = 137;
+            this.lbl_email.Text = "Email:";
             // 
             // btn_capnhat
             // 
@@ -418,17 +443,20 @@ namespace DangKyHocPhanSV
             // dgv_danhsach
             // 
             this.dgv_danhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_danhsach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_danhsach.Location = new System.Drawing.Point(0, 232);
             this.dgv_danhsach.Name = "dgv_danhsach";
             this.dgv_danhsach.RowHeadersWidth = 51;
             this.dgv_danhsach.RowTemplate.Height = 24;
-            this.dgv_danhsach.Size = new System.Drawing.Size(991, 340);
+            this.dgv_danhsach.Size = new System.Drawing.Size(991, 281);
             this.dgv_danhsach.TabIndex = 1;
             // 
             // pn_container
             // 
             this.pn_container.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_container.Controls.Add(this.linklbl_next);
+            this.pn_container.Controls.Add(this.linklbl_back);
+            this.pn_container.Controls.Add(this.lblPageNumber);
+            this.pn_container.Controls.Add(this.btn_quaylai);
             this.pn_container.Controls.Add(this.dgv_danhsach);
             this.pn_container.Controls.Add(this.pn_them);
             this.pn_container.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -617,26 +645,56 @@ namespace DangKyHocPhanSV
             this.lbl_quanlylop.TabIndex = 9;
             this.lbl_quanlylop.Text = "Quản lý lớp";
             // 
-            // txt_thememail
+            // btn_quaylai
             // 
-            this.txt_thememail.BackColor = System.Drawing.SystemColors.Menu;
-            this.txt_thememail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_thememail.Location = new System.Drawing.Point(76, 38);
-            this.txt_thememail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_thememail.Name = "txt_thememail";
-            this.txt_thememail.Size = new System.Drawing.Size(403, 30);
-            this.txt_thememail.TabIndex = 138;
+            this.btn_quaylai.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quaylai.Location = new System.Drawing.Point(874, 521);
+            this.btn_quaylai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_quaylai.Name = "btn_quaylai";
+            this.btn_quaylai.Size = new System.Drawing.Size(106, 41);
+            this.btn_quaylai.TabIndex = 64;
+            this.btn_quaylai.Text = "Quay lại";
+            this.btn_quaylai.UseVisualStyleBackColor = false;
+            this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
             // 
-            // lbl_email
+            // linklbl_next
             // 
-            this.lbl_email.AutoSize = true;
-            this.lbl_email.BackColor = System.Drawing.SystemColors.Control;
-            this.lbl_email.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_email.Location = new System.Drawing.Point(9, 39);
-            this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(61, 24);
-            this.lbl_email.TabIndex = 137;
-            this.lbl_email.Text = "Email:";
+            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_next.AutoSize = true;
+            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_next.Location = new System.Drawing.Point(161, 528);
+            this.linklbl_next.Name = "linklbl_next";
+            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_next.TabIndex = 69;
+            this.linklbl_next.TabStop = true;
+            this.linklbl_next.Text = ">";
+            // 
+            // linklbl_back
+            // 
+            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_back.AutoSize = true;
+            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_back.Location = new System.Drawing.Point(38, 528);
+            this.linklbl_back.Name = "linklbl_back";
+            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_back.TabIndex = 68;
+            this.linklbl_back.TabStop = true;
+            this.linklbl_back.Text = "<";
+            // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(82, 531);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
+            this.lblPageNumber.TabIndex = 67;
+            this.lblPageNumber.Text = "page";
             // 
             // FrmLopSV
             // 
@@ -657,6 +715,7 @@ namespace DangKyHocPhanSV
             this.pn_themlop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsach)).EndInit();
             this.pn_container.ResumeLayout(false);
+            this.pn_container.PerformLayout();
             this.pn_quanlymonhoc.ResumeLayout(false);
             this.pn_quanlymonhoc.PerformLayout();
             this.pn_quanlymonhocdt.ResumeLayout(false);
@@ -721,5 +780,9 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Button btn_capnhat;
         private System.Windows.Forms.TextBox txt_thememail;
         private System.Windows.Forms.Label lbl_email;
+        private System.Windows.Forms.Button btn_quaylai;
+        private System.Windows.Forms.LinkLabel linklbl_next;
+        private System.Windows.Forms.LinkLabel linklbl_back;
+        private System.Windows.Forms.Label lblPageNumber;
     }
 }
