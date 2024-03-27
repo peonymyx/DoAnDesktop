@@ -60,7 +60,7 @@ namespace DangKyHocPhanSV
 
         private void btn_doimk_Click(object sender, EventArgs e)
         {
-            FrmDoiMatKhauAdmin dmk = new FrmDoiMatKhauAdmin();
+            FrmDoiMatKhauSV dmk = new FrmDoiMatKhauSV();
             dmk.MaSo = maso;
             dmk.ShowDialog();
         }

@@ -88,15 +88,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbChuong.ThemChuong(ref err, txt_themchuong.Text, MaLH);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_themchuong.Text))
                 {
-                    loadDSC();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể thêm!");
+                    kq = dbChuong.ThemChuong(ref err, txt_themchuong.Text, MaLH);
+                    if (kq)
+                    {
+                        loadDSC();
+                        MessageBox.Show("Đã thêm thành công!");
+                        loadChuong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm!");
+                    }
                 }
 
             }
@@ -113,17 +121,25 @@ namespace DangKyHocPhanSV
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_chuong.Rows)
+                if (string.IsNullOrWhiteSpace(txt_themchuong.Text) || string.IsNullOrWhiteSpace(txt_maCH.Text))
                 {
-                    if (row.Cells["MaChuongHoc"].Value != null && row.Cells["MaChuongHoc"].Value.ToString() == txt_maCH.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_chuong.Rows)
                     {
-
-                        kq = dbChuong.CapNhatChuong(ref err, int.Parse(txt_maCH.Text), txt_themchuong.Text);
-                        if (kq)
+                        if (row.Cells["MaChuongHoc"].Value != null && row.Cells["MaChuongHoc"].Value.ToString() == txt_maCH.Text)
                         {
-                            loadDSC();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
+
+                            kq = dbChuong.CapNhatChuong(ref err, int.Parse(txt_maCH.Text), txt_themchuong.Text);
+                            if (kq)
+                            {
+                                loadDSC();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                                loadChuong();
+                            }
                         }
                     }
                 }
@@ -142,15 +158,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbChuong.XoaChuong(ref err, txt_maCH.Text);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_maCH.Text))
                 {
-                    loadDSC();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbChuong.XoaChuong(ref err, txt_maCH.Text);
+                    if (kq)
+                    {
+                        loadDSC();
+                        MessageBox.Show("Đã xóa thành công!");
+                        loadChuong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -161,6 +185,7 @@ namespace DangKyHocPhanSV
         }
         public void loadChuong()
         {
+            cb_chonchuong.Items.Clear();
             dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
             List<string> chuong = new List<string>();
             foreach (DataGridViewRow row in dgv_chuong.Rows)
@@ -211,15 +236,26 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbBaiGiang.ThemBaiGiang(ref err, txt_tieude.Text, txt_file.Text, int.Parse(IDChuong));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_file.Text))
                 {
-                    loadBaiGiang();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể thêm!");
+                    kq = dbBaiGiang.ThemBaiGiang(ref err, txt_tieude.Text, txt_file.Text, int.Parse(IDChuong));
+                    if (kq)
+                    {
+                        loadBaiGiang();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm!");
+                    }
                 }
             }
             catch (SqlException)
@@ -236,17 +272,28 @@ namespace DangKyHocPhanSV
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_listbaihoc.Rows)
+                if (string.IsNullOrWhiteSpace(txt_IDBG.Text)  || string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_file.Text))
                 {
-                    if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_IDBG.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if(cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_listbaihoc.Rows)
                     {
-
-                        kq = dbBaiGiang.CapNhatBaiGiang(ref err, int.Parse(txt_IDBG.Text), txt_tieude.Text, txt_file.Text);
-                        if (kq)
+                        if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_IDBG.Text)
                         {
-                            loadBaiGiang();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
+
+                            kq = dbBaiGiang.CapNhatBaiGiang(ref err, int.Parse(txt_IDBG.Text), txt_tieude.Text, txt_file.Text);
+                            if (kq)
+                            {
+                                loadBaiGiang();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                            }
                         }
                     }
                 }
@@ -265,15 +312,26 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbBaiGiang.XoaBaiGiang(ref err, int.Parse(txt_IDBG.Text));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_IDBG.Text))
                 {
-                    loadBaiGiang();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbBaiGiang.XoaBaiGiang(ref err, int.Parse(txt_IDBG.Text));
+                    if (kq)
+                    {
+                        loadBaiGiang();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -301,11 +359,6 @@ namespace DangKyHocPhanSV
             {
                 MessageBox.Show("Vui lòng chọn chương!");
             }
-        }
-
-        private void dgv_chuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

@@ -39,8 +39,6 @@ namespace DangKyHocPhanSV
             dgv_baitap.Columns[4].HeaderText = "Hạn Nộp";
             dgv_baitap.Columns[0].Width = 50;
             dgv_baitap.Update();
-            //dgv_chuong.Columns[1].Width = 300;
-            //dgv_chuong.Columns[2].Visible = false;
         }
 
         public void loadListBaiTap()
@@ -77,6 +75,7 @@ namespace DangKyHocPhanSV
             }
         }
 
+
         private void btn_quaylai_Click_1(object sender, EventArgs e)
         {
 
@@ -104,7 +103,8 @@ namespace DangKyHocPhanSV
             dgv_bainop.Columns[5].HeaderText = "Thời Gian Nộp Bài";
             dgv_bainop.Columns[0].Width = 50;
             dgv_bainop.Columns[1].Width = 50;
-            dgv_bainop.Columns[2].Width = 200;
+            dgv_bainop.Columns[2].Width = 100;
+            dgv_bainop.Columns[3].Width = 200;
             dgv_bainop.Update();
         }
         private void btn_nopbai_Click(object sender, EventArgs e)
@@ -113,18 +113,27 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                //id-tieude-link-masv
-                kq = dbNopBai.ThemBaiNop(ref err, IDBaiTap, txt_ten.Text, txt_duongdan.Text, _mssv);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_ten.Text) || string.IsNullOrWhiteSpace(txt_duongdan.Text))
                 {
-                    loadBaiNop();
-                    MessageBox.Show("Đã tạo thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } 
+                else if(cb_chonbt.SelectedItem == null)
+                {                
+                   MessageBox.Show("Vui lòng chọn bài tập!");
                 }
                 else
                 {
-                    MessageBox.Show("Không thể tạo!");
+                    kq = dbNopBai.ThemBaiNop(ref err, IDBaiTap, txt_ten.Text, txt_duongdan.Text, _mssv);
+                    if (kq)
+                    {
+                        loadBaiNop();
+                        MessageBox.Show("Đã tạo thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể tạo!");
+                    }
                 }
-
             }
             catch (SqlException)
             {
@@ -140,16 +149,27 @@ namespace DangKyHocPhanSV
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_bainop.Rows)
+                if (string.IsNullOrWhiteSpace(txt_idbainop.Text) || string.IsNullOrWhiteSpace(txt_ten.Text) || string.IsNullOrWhiteSpace(txt_duongdan.Text))
                 {
-                    if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_idbainop.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonbt.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn bài tập!");
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_bainop.Rows)
                     {
-                        kq = dbNopBai.CapNhatBaiNopBySV(ref err, int.Parse(txt_idbainop.Text), txt_ten.Text, txt_duongdan.Text);
-                        if (kq)
+                        if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_idbainop.Text)
                         {
-                            loadBaiNop();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
+                            kq = dbNopBai.CapNhatBaiNopBySV(ref err, int.Parse(txt_idbainop.Text), txt_ten.Text, txt_duongdan.Text);
+                            if (kq)
+                            {
+                                loadBaiNop();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                            }
                         }
                     }
                 }
@@ -168,15 +188,26 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbNopBai.XoaBaiNop(ref err, int.Parse(txt_idbainop.Text));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_idbainop.Text))
                 {
-                    loadBaiNop();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonbt.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn bài tập!");
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbNopBai.XoaBaiNop(ref err, int.Parse(txt_idbainop.Text));
+                    if (kq)
+                    {
+                        loadBaiNop();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -191,5 +222,7 @@ namespace DangKyHocPhanSV
             this.Close();
             m_menuStrip.Show();
         }
+
+        
     }
 }

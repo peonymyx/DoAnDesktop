@@ -369,9 +369,9 @@
             this.btn_upload.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_upload.Location = new System.Drawing.Point(3, 168);
             this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(165, 36);
+            this.btn_upload.Size = new System.Drawing.Size(208, 36);
             this.btn_upload.TabIndex = 11;
-            this.btn_upload.Text = "Upload";
+            this.btn_upload.Text = "Upload/Đường dẫn";
             this.btn_upload.UseVisualStyleBackColor = true;
             this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
@@ -483,7 +483,6 @@
             this.dgv_chuong.Size = new System.Drawing.Size(416, 301);
             this.dgv_chuong.TabIndex = 1;
             this.dgv_chuong.TabStop = false;
-            this.dgv_chuong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_chuong_CellContentClick);
             // 
             // dgv_listbaihoc
             // 

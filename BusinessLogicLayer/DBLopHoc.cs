@@ -81,7 +81,7 @@ namespace BusinessLogicLayer
 
 
         // Phương thức để thêm một lớp học mới vào cơ sở dữ liệu
-        public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string Phong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
+        public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string TenPhong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace BusinessLogicLayer
             new MySqlParameter("p_MaMHDT", MaMHDT),
             new MySqlParameter("p_MaGV", MaGV),
             new MySqlParameter("p_GioiHan", GioiHan),
-            new MySqlParameter("p_Phong", Phong),
+            new MySqlParameter("p_TenPhong", TenPhong),
             new MySqlParameter("p_Thu", Thu),
             new MySqlParameter("p_TietBatDau", TietBatDau),
             new MySqlParameter("p_TietKetThuc", TietKetThuc),
@@ -102,7 +102,7 @@ namespace BusinessLogicLayer
         };
 
                 // Thực thi stored procedure Re_ThemLopHoc để thêm một lớp học mới vào cơ sở dữ liệu
-                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{Phong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{TenPhong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
 
             }
             catch (Exception ex)
@@ -134,15 +134,15 @@ namespace BusinessLogicLayer
 
 
         // Phương thức để tìm kiếm lớp học theo mã môn học
-        public DataSet TimKiemLopHocTheoMH(string mamh)
+        public DataSet TimKiemLopHocTheoMH(string MaMH)
         {
             try
             {
                 // Tạo tham số cho mã môn học
-                MySqlParameter parameter = new MySqlParameter("p_mamh", mamh);
+                MySqlParameter parameter = new MySqlParameter("p_MaMH", MaMH);
 
                 // Thực thi stored procedure RTM_TimKiemLopHocTheoMon để tìm kiếm lớp học theo mã môn học
-                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLopHocTheoMon('{mamh}')", CommandType.Text, parameter);
+                return db.ExecuteQueryDataSetParam($"CALL RTM_TimKiemLopHocTheoMon('{MaMH}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {

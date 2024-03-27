@@ -68,7 +68,6 @@ namespace DangKyHocPhanSV
             this.txt_mkmoi.PasswordChar = '*';
             this.txt_mkmoi.Size = new System.Drawing.Size(219, 32);
             this.txt_mkmoi.TabIndex = 9;
-            this.txt_mkmoi.TextChanged += new System.EventHandler(this.txtMatKhauMoi_TextChanged);
             // 
             // lbl_mkmoi
             // 

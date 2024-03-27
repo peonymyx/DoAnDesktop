@@ -58,11 +58,10 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiemmanganh_Click(object sender, EventArgs e)
         {
-            txt_manganh.Clear();
-            int n = khoa.TongSVKhoa(txt_makhoa.Text);
+            int n = nganh.TongSVNganh(txt_manganh.Text);
             txt_tongsinhvien.Text = n.ToString();
 
-            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
+            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
             dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
             dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
@@ -74,15 +73,15 @@ namespace DangKyHocPhanSV
             dgv_sinhvien.Columns[2].Width = 100;
             dgv_sinhvien.Columns[3].Width = 100;
             dgv_sinhvien.Columns[4].Width = 100;
+
         }
 
         private void btn_timkiemmakhoa_Click(object sender, EventArgs e)
         {
-            txt_makhoa.Clear();
-            int n = nganh.TongSVNganh(txt_manganh.Text);
+            int n = khoa.TongSVKhoa(txt_makhoa.Text);
             txt_tongsinhvien.Text = n.ToString();
 
-            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
+            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
             dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
             dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";

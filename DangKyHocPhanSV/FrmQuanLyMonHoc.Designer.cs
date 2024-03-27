@@ -371,10 +371,10 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themmamh.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themmamh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themmamh.Location = new System.Drawing.Point(135, 25);
+            this.txt_themmamh.Location = new System.Drawing.Point(136, 25);
             this.txt_themmamh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themmamh.Name = "txt_themmamh";
-            this.txt_themmamh.Size = new System.Drawing.Size(241, 32);
+            this.txt_themmamh.Size = new System.Drawing.Size(240, 32);
             this.txt_themmamh.TabIndex = 67;
             // 
             // lbl_themtenmh
@@ -392,7 +392,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themtenmh.BackColor = System.Drawing.SystemColors.Menu;
             this.txt_themtenmh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themtenmh.Location = new System.Drawing.Point(134, 61);
+            this.txt_themtenmh.Location = new System.Drawing.Point(136, 61);
             this.txt_themtenmh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themtenmh.Name = "txt_themtenmh";
             this.txt_themtenmh.Size = new System.Drawing.Size(241, 32);

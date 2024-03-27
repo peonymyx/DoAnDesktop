@@ -56,10 +56,5 @@ namespace DangKyHocPhanSV
             }
             this.Close();
         }
-
-        private void txtMatKhauMoi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

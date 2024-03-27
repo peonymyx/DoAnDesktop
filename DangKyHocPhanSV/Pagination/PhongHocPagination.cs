@@ -12,61 +12,65 @@ using System.Windows.Forms;
 
 namespace DangKyHocPhanSV.Pagination
 {
-    public class GiangVienPagination
+    public class PhongHocPagination
     {
-        // Khai báo biến pageNumber mặc định là 1 và biến list
+        // Số trang hiện tại, mặc định là trang đầu tiên
         private int pageNumber = 1;
-        private IPagedList<GiangVien> list;
+        // Danh sách phân trang của các đối tượng MonHoc
+        private IPagedList<PhongHoc> list;
+        // Đối tượng quản lý dữ liệu về môn học
+        DBLopHoc lop = new DBLopHoc();
 
-        // Phương thức để lấy danh sách Giảng viên theo trang
-        public async Task<IPagedList<GiangVien>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
+        // Phương thức GetPagedListAsync: Lấy danh sách môn học được phân trang
+        public async Task<IPagedList<PhongHoc>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
         {
             // Chuỗi kết nối đến cơ sở dữ liệu
             string connectionString = "server=103.167.89.145;database=QUANLYSV;uid=team06;password=123456;";
-            // Mở kết nối đến cơ sở dữ liệu
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 await connection.OpenAsync();
-                MySqlCommand command = connection.CreateCommand();
 
-                // Đếm số lượng bản ghi trong bảng GIANGVIEN
-                command.CommandText = "SELECT COUNT(*) FROM GIANGVIEN";
-                int totalRecords = Convert.ToInt32(await command.ExecuteScalarAsync());
-                command.Parameters.Clear();
+                // Lấy dữ liệu từ nguồn dữ liệu dgv_monhoc.DataSource
+                DataTable dataTable = lop.DSLopHoc().Tables[0];
 
-                // Lấy dữ liệu theo trang từ bảng GIANGVIEN
-                command.CommandText = "SELECT * FROM GIANGVIEN ORDER BY MaGV LIMIT @offset, @pageSize";
-                command.Parameters.AddWithValue("@offset", (pageNumber - 1) * pageSize);
-                command.Parameters.AddWithValue("@pageSize", pageSize);
+                // Tính tổng số bản ghi trong danh sách
+                int totalRecords = dataTable.Rows.Count;
 
-                // Tạo adapter để lấy dữ liệu từ cơ sở dữ liệu
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                // Phân trang dữ liệu từ danh sách dữ liệu
+                List<DataRow> rows = dataTable.AsEnumerable()
+                                              .Skip((pageNumber - 1) * pageSize)
+                                              .Take(pageSize)
+                                              .ToList();
 
-                // Tạo danh sách giảng viên dùng cho phân trang
-                list = new StaticPagedList<GiangVien>(
-                    // Chuyển đổi dữ liệu từ DataTable thành danh sách các đối tượng GiangVien
-                    dataTable.AsEnumerable().Select(row => new GiangVien
-                    {
-                        MaGV = row["MaGV"].ToString(),
-                        HoTenGV = row["HoTenGV"].ToString(),
-                        Email = row["Email"].ToString(),
-                        MaKhoa = row["MaKhoa"].ToString(),
-                        // Các trường dữ liệu khác
-                    }),
-                    pageNumber, // Số trang hiện tại
-                    pageSize,   // Số lượng bản ghi trên mỗi trang
-                    totalRecords   // Tổng số bản ghi
-                );
+                // Tạo danh sách môn học từ dữ liệu đã phân trang
+                List<PhongHoc> phonghoc = rows.Select(row => new PhongHoc
+                {
+                    MaLopHoc = row["MaLopHoc"].ToString(),
+                    MaMHDT = row["MaMHDT"].ToString(),
+                    MaGV = row["MaGV"].ToString(),
+                    GioiHan = (int)row["GioiHan"],
+                    TenPhong = row["TenPhong"].ToString(),
+                    Thu = row["Thu"].ToString(),
+                    TietBatDau =(int)row["TietBatDau"],
+                    TietKetThuc = (int)row["TietKetThuc"],
+                    ThoiGianBatDau = (DateTime)row["ThoiGianBatDau"],
+                    ThoiGianKetThuc = (DateTime)row["ThoiGianKetThuc"],
+                    HocKy = row["HocKy"].ToString(),
+                    Nam = (int)row["Nam"]
+                }).ToList();
 
-                return list; // Trả về danh sách giảng viên phân trang
+                // Tạo đối tượng IPagedList từ danh sách đã tạo
+                list = new StaticPagedList<PhongHoc>(
+                    phonghoc, pageNumber, pageSize, totalRecords);
+
+                return list;
             }
         }
+
         // Phương thức LoadDataAsync: Tải dữ liệu vào DataGridView và cập nhật trang hiện tại
         public async Task LoadDataAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
-            // Lấy danh sách giảng viên từ phương thức GetPagedListAsync
+            // Lấy danh sách môn học từ phương thức GetPagedListAsync
             list = await GetPagedListAsync(pageNumber);
             // Cập nhật DataGridView và thông tin trang
             UpdateDataGridView(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
@@ -78,7 +82,7 @@ namespace DangKyHocPhanSV.Pagination
             // Cập nhật trạng thái của các nút điều hướng trang
             linklblPrevious.Enabled = list.HasPreviousPage;
             linklblNext.Enabled = list.HasNextPage;
-            // Gán dữ liệu từ danh sách giảng viên vào DataGridView
+            // Gán dữ liệu từ danh sách môn học vào DataGridView
             dataGridView.DataSource = list.ToList();
             // Hiển thị thông tin về trang hiện tại
             lblPageNumber.Text = string.Format("Page {0}/{1}", pageNumber, list.PageCount);
@@ -107,6 +111,5 @@ namespace DangKyHocPhanSV.Pagination
                 await LoadDataAsync(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
             }
         }
-
     }
 }

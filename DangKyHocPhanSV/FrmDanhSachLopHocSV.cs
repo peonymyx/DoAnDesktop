@@ -22,6 +22,7 @@ namespace DangKyHocPhanSV
         private Panel _panel1;
         private int numClass;
         private Form currentFormChild;
+        DataTable dataTableSV;
         private void OpenChildForm(Form childForm, Panel panel)
         {
             if (currentFormChild != null)
@@ -102,7 +103,10 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
-
+            dataTableSV = lh.DanhSachSVLH(MaLH).Tables[0];
+            FrmDanhSachSinhVien frmDanhSachSinhVien = new FrmDanhSachSinhVien(dataTableSV, txt_timkiem.Text);
+            OpenChildForm(frmDanhSachSinhVien, pn_lophoc);
+            
         }
     }
 }

@@ -32,9 +32,8 @@ namespace DangKyHocPhanSV
             this.dgv_monhoc = new System.Windows.Forms.DataGridView();
             this.pn_monhoc = new System.Windows.Forms.Panel();
             this.pn_timkiem = new System.Windows.Forms.Panel();
-            this.btn_timkiem = new System.Windows.Forms.Button();
-            this.pn_container = new System.Windows.Forms.Panel();
             this.btn_quaylai = new System.Windows.Forms.Button();
+            this.pn_container = new System.Windows.Forms.Panel();
             this.lbl_dangkymonhoc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_monhoc)).BeginInit();
             this.pn_monhoc.SuspendLayout();
@@ -63,6 +62,7 @@ namespace DangKyHocPhanSV
             this.dgv_monhoc.Size = new System.Drawing.Size(991, 548);
             this.dgv_monhoc.TabIndex = 0;
             this.dgv_monhoc.TabStop = false;
+            this.dgv_monhoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_monhoc_CellClick);
             // 
             // pn_monhoc
             // 
@@ -79,35 +79,11 @@ namespace DangKyHocPhanSV
             // 
             this.pn_timkiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_timkiem.Controls.Add(this.btn_quaylai);
-            this.pn_timkiem.Controls.Add(this.btn_timkiem);
             this.pn_timkiem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pn_timkiem.Location = new System.Drawing.Point(0, 490);
             this.pn_timkiem.Name = "pn_timkiem";
             this.pn_timkiem.Size = new System.Drawing.Size(991, 58);
             this.pn_timkiem.TabIndex = 1;
-            // 
-            // btn_timkiem
-            // 
-            this.btn_timkiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_timkiem.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_timkiem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiem.Location = new System.Drawing.Point(640, 6);
-            this.btn_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_timkiem.Name = "btn_timkiem";
-            this.btn_timkiem.Size = new System.Drawing.Size(189, 43);
-            this.btn_timkiem.TabIndex = 64;
-            this.btn_timkiem.Text = "Tìm kiếm";
-            this.btn_timkiem.UseVisualStyleBackColor = false;
-            this.btn_timkiem.Click += new System.EventHandler(this.btn_timkiem_Click);
-            // 
-            // pn_container
-            // 
-            this.pn_container.Controls.Add(this.lbl_dangkymonhoc);
-            this.pn_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_container.Location = new System.Drawing.Point(0, 0);
-            this.pn_container.Name = "pn_container";
-            this.pn_container.Size = new System.Drawing.Size(993, 685);
-            this.pn_container.TabIndex = 5;
             // 
             // btn_quaylai
             // 
@@ -120,6 +96,15 @@ namespace DangKyHocPhanSV
             this.btn_quaylai.Text = "Quay lại";
             this.btn_quaylai.UseVisualStyleBackColor = true;
             this.btn_quaylai.Click += new System.EventHandler(this.btn_quaylai_Click);
+            // 
+            // pn_container
+            // 
+            this.pn_container.Controls.Add(this.lbl_dangkymonhoc);
+            this.pn_container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_container.Location = new System.Drawing.Point(0, 0);
+            this.pn_container.Name = "pn_container";
+            this.pn_container.Size = new System.Drawing.Size(993, 685);
+            this.pn_container.TabIndex = 5;
             // 
             // lbl_dangkymonhoc
             // 
@@ -159,7 +144,6 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_monhoc;
         private System.Windows.Forms.Panel pn_container;
         private System.Windows.Forms.Panel pn_timkiem;
-        private System.Windows.Forms.Button btn_timkiem;
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Label lbl_dangkymonhoc;
     }

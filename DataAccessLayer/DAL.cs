@@ -78,6 +78,7 @@ namespace DataAccessLayer
             cnn.Open();
             cmd.CommandText = strSQL;
             cmd.CommandType = ct;
+            cmd.Parameters.Clear();
             // Thêm các tham số vào lệnh
             foreach (MySqlParameter p in param)
                 cmd.Parameters.Add(p);

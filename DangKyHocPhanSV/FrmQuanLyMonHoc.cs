@@ -39,7 +39,6 @@ namespace DangKyHocPhanSV
             loadcbbCTDT();
         }
         
-
         public void loadMHDT()
         {
             dgv_monhoc.DataSource = mhdt.DSMHDT().Tables[0];
@@ -55,8 +54,6 @@ namespace DangKyHocPhanSV
             dgv_monhoc.Columns[5].Width = 200;
 
         }
-
-
         public void loadMonHoc()
         {
             dgv_monhoc.DataSource = mh.DSMonHoc().Tables[0];
@@ -64,28 +61,24 @@ namespace DangKyHocPhanSV
             dgv_monhoc.Columns[1].HeaderText = "Tên Môn Học";
             dgv_monhoc.Columns[2].HeaderText = "Số tín chỉ";
         }
-
         public void loadcbbMonHoc()
         {
             cbb_themmonhoc.DataSource = mh.DSMonHoc().Tables[0];
             cbb_themmonhoc.DisplayMember = "TenMH";
             cbb_themmonhoc.ValueMember = "MaMH";
         }
-
         public void loadcbbNganh()
         {
             cbb_themnganh.DataSource = nganh.DanhSachNganh().Tables[0];
             cbb_themnganh.DisplayMember = "TenNganh";
             cbb_themnganh.ValueMember = "MaNganh";
         }
-
         public void loadcbbCTDT()
         {
             cbb_themCTDT.DataSource = ctdt.DanhSachCTDT().Tables[0];
             cbb_themCTDT.DisplayMember = "MaCTDT";
             cbb_themCTDT.ValueMember = "MaCTDT";
         }
-
         private void btn_timkiemmonhoc_Click(object sender, EventArgs e)
         {
             try
@@ -115,12 +108,19 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = mh.XoaMonHoc(ref err, txt_mamonhoc.Text);
-                if (kq)
+                if (txt_mamonhoc.Text == "")
                 {
-                    loadMonHoc();
-                    dgv_monhoc.Refresh();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập mã môn học cần xóa");
+                }
+                else
+                {
+                    kq = mh.XoaMonHoc(ref err, txt_mamonhoc.Text);
+                    if (kq)
+                    {
+                        loadMonHoc();
+                        dgv_monhoc.Refresh();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
                 }
             }
             catch (SqlException error)
@@ -135,16 +135,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = mh.ThemMonHoc(ref err, txt_themmamh.Text, txt_themtenmh.Text, int.Parse(txt_themsotinchi.Text));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_mamonhoc.Text) || string.IsNullOrWhiteSpace(txt_themtenmh.Text) || string.IsNullOrWhiteSpace(txt_themsotinchi.Text))
                 {
-                    loadMonHoc();
-                    dgv_monhoc.Refresh();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    kq = mh.ThemMonHoc(ref err, txt_themmamh.Text, txt_themtenmh.Text, int.Parse(txt_themsotinchi.Text));
+                    if (kq)
+                    {
+                        loadMonHoc();
+                        dgv_monhoc.Refresh();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (SqlException error)
@@ -189,17 +196,24 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = mhdt.ThemMHDT(ref err, txt_themMaMHDT.Text, cbb_themmonhoc.SelectedValue.ToString(), cbb_themCTDT.SelectedValue.ToString(), cbb_themnganh.SelectedValue.ToString());
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_maMHDT.Text))
                 {
-                    loadMHDT();
-                    dgv_monhoc.Refresh();
-                    
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    kq = mhdt.ThemMHDT(ref err, txt_themMaMHDT.Text, cbb_themmonhoc.SelectedValue.ToString(), cbb_themCTDT.SelectedValue.ToString(), cbb_themnganh.SelectedValue.ToString());
+                    if (kq)
+                    {
+                        loadMHDT();
+                        dgv_monhoc.Refresh();
+
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (SqlException error)
@@ -214,12 +228,19 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = mhdt.XoaMHDT(ref err, txt_maMHDT.Text);
-                if (kq)
+                if (txt_maMHDT.Text == "")
                 {
-                    loadMHDT();
-                    dgv_monhoc.Refresh();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập mã môn học đào tạo cần xóa");
+                }
+                else
+                {
+                    kq = mhdt.XoaMHDT(ref err, txt_maMHDT.Text);
+                    if (kq)
+                    {
+                        loadMHDT();
+                        dgv_monhoc.Refresh();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
                 }
             }
             catch (SqlException error)

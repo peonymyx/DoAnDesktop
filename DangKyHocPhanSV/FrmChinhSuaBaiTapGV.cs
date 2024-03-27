@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DangKyHocPhanSV
 {
@@ -18,9 +17,7 @@ namespace DangKyHocPhanSV
         private string uploadedFilePath;
         DBBaiTap dbBaiTap = new DBBaiTap();
         DBNopBai dbNopBai = new DBNopBai();
-        DBChuong dbChuong = new DBChuong();
         string IDChuong = "";
-        string TenChuong = "";
         private MenuStrip m_menuStrip;
         public FrmChinhSuaBaiTapGV(string idChuong,string tenChuong, MenuStrip menuStrip)
         {
@@ -51,28 +48,38 @@ namespace DangKyHocPhanSV
             dgv_baitap.Columns[4].HeaderText = "Hạn Nộp";
             dgv_baitap.Columns[0].Width = 50;
             dgv_baitap.Update();
-            //dgv_chuong.Columns[1].Width = 300;
-            //dgv_chuong.Columns[2].Visible = false;
         }
         private void btn_taobaitap_Click(object sender, EventArgs e)
         {
             bool kq = false;
             string err = "";
+            DateTime selectedDate = dtp_hannop.Value.Date;
+            DateTime currentDate = DateTime.Today;
             try
             {
-                string timeParse = dtp_hannop.Value.ToString("dd/MM/yyyy");
-                kq = dbBaiTap.ThemBaiTap(ref err, txt_tieude.Text, txt_link.Text, int.Parse(IDChuong), timeParse);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_link.Text))
                 {
-                    loadBaiTap();
-                    MessageBox.Show("Đã tạo thành công!");
-                    loadListBaiTap();
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (selectedDate < currentDate)
+                {
+                    MessageBox.Show("Ngày đã chọn nhỏ hơn ngày hiện tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể tạo!");
+                    string timeParse = dtp_hannop.Value.ToString("dd/MM/yyyy");
+                    kq = dbBaiTap.ThemBaiTap(ref err, txt_tieude.Text, txt_link.Text, int.Parse(IDChuong), timeParse);
+                    if (kq)
+                    {
+                        loadBaiTap();
+                        MessageBox.Show("Đã tạo thành công!");
+                        loadListBaiTap();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể tạo!");
+                    }
                 }
-
             }
             catch (SqlException)
             {
@@ -84,21 +91,34 @@ namespace DangKyHocPhanSV
         {
             bool kq = false;
             string err = "";
+            DateTime selectedDate = dtp_hannop.Value.Date;
+            DateTime currentDate = DateTime.Today;
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_baitap.Rows)
+                if (string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_link.Text) || string.IsNullOrWhiteSpace(txt_IDBT.Text))
                 {
-                    if (row.Cells["BaiTapID"].Value != null && row.Cells["BaiTapID"].Value.ToString() == txt_IDBT.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (selectedDate < currentDate)
+                {
+                    MessageBox.Show("Ngày đã chọn nhỏ hơn ngày hiện tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_baitap.Rows)
                     {
-                        string timeParse = dtp_hannop.Value.ToString("dd/MM/yyyy");
-                        kq = dbBaiTap.CapNhatBaiTap(ref err, int.Parse(txt_IDBT.Text), txt_tieude.Text, txt_link.Text, timeParse);
-                        if (kq)
+                        if (row.Cells["BaiTapID"].Value != null && row.Cells["BaiTapID"].Value.ToString() == txt_IDBT.Text)
                         {
-                            loadBaiTap();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
-                            loadListBaiTap();
+                            string timeParse = dtp_hannop.Value.ToString("dd/MM/yyyy");
+                            kq = dbBaiTap.CapNhatBaiTap(ref err, int.Parse(txt_IDBT.Text), txt_tieude.Text, txt_link.Text, timeParse);
+                            if (kq)
+                            {
+                                loadBaiTap();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                                loadListBaiTap();
+                            }
                         }
                     }
                 }
@@ -117,16 +137,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbBaiTap.XoaBaiTap(ref err, int.Parse(txt_IDBT.Text));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_IDBT.Text))
                 {
-                    loadBaiTap();
-                    MessageBox.Show("Đã xóa thành công!");
-                    loadListBaiTap();
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbBaiTap.XoaBaiTap(ref err, int.Parse(txt_IDBT.Text));
+                    if (kq)
+                    {
+                        loadBaiTap();
+                        MessageBox.Show("Đã xóa thành công!");
+                        loadListBaiTap();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -189,12 +216,12 @@ namespace DangKyHocPhanSV
         {
             dgv_bainop.DataSource = dbNopBai.DSSinhVienNopBai(int.Parse(IDBaiTap)).Tables[0];
             dgv_bainop.Columns[0].HeaderText = "Họ Tên Sinh Viên";
-            dgv_bainop.Columns[1].HeaderText = "Tiêu Đề Bài Tập";
-            dgv_bainop.Columns[2].HeaderText = "Nội Dung Bài Tập";
+            dgv_bainop.Columns[1].HeaderText = "Tiêu Đề Bài Nộp";
+            dgv_bainop.Columns[2].HeaderText = "Nội Dung Bài Nộp";
             dgv_bainop.Columns[0].Width = 150;
             dgv_bainop.Columns[1].Width = 150;
             dgv_bainop.Columns[2].Width = 100;
-            dgv_bainop.Columns[3].Visible = false;
+            dgv_bainop.Columns[3].HeaderText = "Thời Gian Nộp Bài";
             dgv_bainop.Update();
         }
     }

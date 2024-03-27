@@ -264,8 +264,8 @@ namespace DangKyHocPhanSV
             this.tableLayoutPanel3.Controls.Add(this.txt_IDBT, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.txt_tieude, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbl_hannop, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.btn_upload, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.txt_link, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.btn_upload, 0, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 372);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -345,9 +345,9 @@ namespace DangKyHocPhanSV
             this.btn_upload.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_upload.Location = new System.Drawing.Point(3, 135);
             this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(136, 41);
+            this.btn_upload.Size = new System.Drawing.Size(208, 41);
             this.btn_upload.TabIndex = 0;
-            this.btn_upload.Text = "Nội dung";
+            this.btn_upload.Text = "Upload/Đường dẫn";
             this.btn_upload.UseVisualStyleBackColor = true;
             this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 

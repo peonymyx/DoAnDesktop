@@ -45,7 +45,6 @@ namespace DangKyHocPhanSV
             _parent = parent;
 
         }
-
         private void FrmTrangGiangVien_Load(object sender, EventArgs e)
         {
             this.txt_ten.Text = gv.ThongTinGV(maso).Tables[0].Rows[0].Field<string>("HoTenGV");
@@ -60,7 +59,7 @@ namespace DangKyHocPhanSV
 
         private void btn_doimk_Click(object sender, EventArgs e)
         {
-            FrmDoiMatKhauGV dmk = new FrmDoiMatKhauGV();
+            FrmDoiMatKhauSV dmk = new FrmDoiMatKhauSV();
             dmk.MaSo = maso;
             dmk.ShowDialog();
         }

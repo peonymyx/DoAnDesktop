@@ -97,7 +97,7 @@ namespace BusinessLogicLayer
         }
 
         // Phương thức để thay đổi mật khẩu
-        public bool DoiMatKhau(ref string err, string Mssv, string MatKhau)
+        public bool DoiMatKhau(ref string err, string MaSo, string MatKhau)
         {
             try
             {
@@ -126,22 +126,21 @@ namespace BusinessLogicLayer
                 {
                     throw new Exception("Mật khẩu phải chứa ít nhất một ký tự đặc biệt");
                 }
-
                 // Mã hóa mật khẩu mới
                 string newPassWord = HashPassword(MatKhau);
-
-                // Thực hiện cập nhật mật khẩu trong cơ sở dữ liệu bằng cách gọi stored procedure Re_DoiMatKhau
-                return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
-                    ref err,
-                    new MySqlParameter("p_MatKhau", newPassWord),
-                    new MySqlParameter("p_TenDangNhap", Mssv));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MatKhau", newPassWord),
+                    new MySqlParameter("@TenDangNhap", MaSo)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_DoiMatKhau('{newPassWord}','{MaSo}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
-                throw ex; // Ném lại exception nếu có lỗi xảy ra
+                Console.WriteLine(ex.Message);
+                throw; // Ném lại exception nếu có lỗi xảy ra
             }
         }
 
-
     }
+    
 }

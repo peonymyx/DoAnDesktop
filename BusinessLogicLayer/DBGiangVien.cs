@@ -24,12 +24,12 @@ namespace BusinessLogicLayer
             try
             {
                 // Thay đổi chuỗi kết nối để kết nối với tài khoản sinh viên
-                db.changeStrConnectToSinhVien(); 
+                db.changeStrConnectToSinhVien();
             }
             catch (Exception ex)
             {
                 // In ra thông báo lỗi nếu có lỗi xảy ra
-                Console.WriteLine(ex.Message); 
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -39,12 +39,12 @@ namespace BusinessLogicLayer
             try
             {
                 // Thay đổi chuỗi kết nối để kết nối với tài khoản giảng viên
-                db.changeStrConnectToGiangVien(); 
+                db.changeStrConnectToGiangVien();
             }
             catch (Exception ex)
             {
                 // In ra thông báo lỗi nếu có lỗi xảy ra
-                Console.WriteLine(ex.Message); 
+                Console.WriteLine(ex.Message);
             }
         }
 
