@@ -14,32 +14,24 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmChinhSuaBaiTapGV : Form
     {
-        private MenuStrip m_menuStrip;
-        private Panel _panel;
         private string uploadedFilePath;
         DBBaiTap dbBaiTap = new DBBaiTap();
-        DBChuong dbChuong = new DBChuong();
         DBNopBai dbNopBai = new DBNopBai();
+        DBChuong dbChuong = new DBChuong();
         string IDChuong = "";
         string TenChuong = "";
-        public FrmChinhSuaBaiTapGV(Panel panel, string idChuong,string tenChuong, MenuStrip menuStrip)
+        private MenuStrip m_menuStrip;
+        public FrmChinhSuaBaiTapGV(string idChuong,string tenChuong, MenuStrip menuStrip)
         {
             InitializeComponent();
-            _panel = panel;
             IDChuong = idChuong;
             m_menuStrip = menuStrip;
             txt_chuong.Text = tenChuong;
         }
 
-        private void btn_quaylai_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btn_quaylai_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            _panel.Show();
             m_menuStrip.Show();
         }
         private void FrmChinhSuaBaiTapGV_Load(object sender, EventArgs e)
@@ -55,7 +47,7 @@ namespace DangKyHocPhanSV
             dgv_baitap.Columns[1].HeaderText = "Tiêu Đề";
             dgv_baitap.Columns[2].HeaderText = "Nội Dung";
             dgv_baitap.Columns[3].Visible = false;
-            dgv_baitap.Columns[2].HeaderText = "Hạn Nộp";
+            dgv_baitap.Columns[4].HeaderText = "Hạn Nộp";
             dgv_baitap.Columns[0].Width = 50;
             dgv_baitap.Update();
             //dgv_chuong.Columns[1].Width = 300;

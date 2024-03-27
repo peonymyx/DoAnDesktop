@@ -216,7 +216,7 @@ namespace DangKyHocPhanSV
             this.pn_dkhocphan.Controls.Add(this.btn_dkhocphan);
             this.pn_dkhocphan.Location = new System.Drawing.Point(3, 255);
             this.pn_dkhocphan.Name = "pn_dkhocphan";
-            this.pn_dkhocphan.Size = new System.Drawing.Size(284, 71);
+            this.pn_dkhocphan.Size = new System.Drawing.Size(284, 56);
             this.pn_dkhocphan.TabIndex = 2;
             // 
             // btn_dkhocphan
@@ -233,7 +233,7 @@ namespace DangKyHocPhanSV
             this.btn_dkhocphan.Location = new System.Drawing.Point(-10, -14);
             this.btn_dkhocphan.Name = "btn_dkhocphan";
             this.btn_dkhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_dkhocphan.Size = new System.Drawing.Size(315, 100);
+            this.btn_dkhocphan.Size = new System.Drawing.Size(315, 83);
             this.btn_dkhocphan.TabIndex = 0;
             this.btn_dkhocphan.Text = "               Đăng ký học phần";
             this.btn_dkhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,9 +243,9 @@ namespace DangKyHocPhanSV
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_lophoc);
-            this.panel1.Location = new System.Drawing.Point(3, 332);
+            this.panel1.Location = new System.Drawing.Point(3, 317);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 71);
+            this.panel1.Size = new System.Drawing.Size(284, 56);
             this.panel1.TabIndex = 9;
             // 
             // btn_lophoc
@@ -262,7 +262,7 @@ namespace DangKyHocPhanSV
             this.btn_lophoc.Location = new System.Drawing.Point(-10, -14);
             this.btn_lophoc.Name = "btn_lophoc";
             this.btn_lophoc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_lophoc.Size = new System.Drawing.Size(315, 100);
+            this.btn_lophoc.Size = new System.Drawing.Size(315, 83);
             this.btn_lophoc.TabIndex = 0;
             this.btn_lophoc.Text = "               Danh sách lớp học";
             this.btn_lophoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -272,9 +272,9 @@ namespace DangKyHocPhanSV
             // pn_tracuuhocphan
             // 
             this.pn_tracuuhocphan.Controls.Add(this.btn_tracuuhocphan);
-            this.pn_tracuuhocphan.Location = new System.Drawing.Point(3, 409);
+            this.pn_tracuuhocphan.Location = new System.Drawing.Point(3, 379);
             this.pn_tracuuhocphan.Name = "pn_tracuuhocphan";
-            this.pn_tracuuhocphan.Size = new System.Drawing.Size(284, 71);
+            this.pn_tracuuhocphan.Size = new System.Drawing.Size(284, 56);
             this.pn_tracuuhocphan.TabIndex = 3;
             // 
             // btn_tracuuhocphan
@@ -291,7 +291,7 @@ namespace DangKyHocPhanSV
             this.btn_tracuuhocphan.Location = new System.Drawing.Point(-10, -14);
             this.btn_tracuuhocphan.Name = "btn_tracuuhocphan";
             this.btn_tracuuhocphan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_tracuuhocphan.Size = new System.Drawing.Size(315, 100);
+            this.btn_tracuuhocphan.Size = new System.Drawing.Size(315, 83);
             this.btn_tracuuhocphan.TabIndex = 0;
             this.btn_tracuuhocphan.Text = "               Tra cứu học phần";
             this.btn_tracuuhocphan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -301,9 +301,9 @@ namespace DangKyHocPhanSV
             // pn_thoikhoabieu
             // 
             this.pn_thoikhoabieu.Controls.Add(this.btn_thoikhoabieu);
-            this.pn_thoikhoabieu.Location = new System.Drawing.Point(3, 486);
+            this.pn_thoikhoabieu.Location = new System.Drawing.Point(3, 441);
             this.pn_thoikhoabieu.Name = "pn_thoikhoabieu";
-            this.pn_thoikhoabieu.Size = new System.Drawing.Size(284, 71);
+            this.pn_thoikhoabieu.Size = new System.Drawing.Size(284, 56);
             this.pn_thoikhoabieu.TabIndex = 7;
             // 
             // btn_thoikhoabieu
@@ -320,7 +320,7 @@ namespace DangKyHocPhanSV
             this.btn_thoikhoabieu.Location = new System.Drawing.Point(-4, -14);
             this.btn_thoikhoabieu.Name = "btn_thoikhoabieu";
             this.btn_thoikhoabieu.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_thoikhoabieu.Size = new System.Drawing.Size(315, 100);
+            this.btn_thoikhoabieu.Size = new System.Drawing.Size(315, 83);
             this.btn_thoikhoabieu.TabIndex = 0;
             this.btn_thoikhoabieu.Text = "              Thời khóa biểu";
             this.btn_thoikhoabieu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,9 +330,9 @@ namespace DangKyHocPhanSV
             // pn_exit
             // 
             this.pn_exit.Controls.Add(this.btn_exit);
-            this.pn_exit.Location = new System.Drawing.Point(3, 563);
+            this.pn_exit.Location = new System.Drawing.Point(3, 503);
             this.pn_exit.Name = "pn_exit";
-            this.pn_exit.Size = new System.Drawing.Size(284, 71);
+            this.pn_exit.Size = new System.Drawing.Size(284, 56);
             this.pn_exit.TabIndex = 8;
             // 
             // btn_exit
@@ -349,7 +349,7 @@ namespace DangKyHocPhanSV
             this.btn_exit.Location = new System.Drawing.Point(-5, -14);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_exit.Size = new System.Drawing.Size(315, 100);
+            this.btn_exit.Size = new System.Drawing.Size(315, 83);
             this.btn_exit.TabIndex = 0;
             this.btn_exit.Text = "               Thoát";
             this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -363,7 +363,7 @@ namespace DangKyHocPhanSV
             this.pn_container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_container.Location = new System.Drawing.Point(287, 0);
             this.pn_container.Name = "pn_container";
-            this.pn_container.Size = new System.Drawing.Size(993, 685);
+            this.pn_container.Size = new System.Drawing.Size(993, 638);
             this.pn_container.TabIndex = 3;
             // 
             // pn_content
@@ -373,24 +373,29 @@ namespace DangKyHocPhanSV
             this.pn_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_content.Location = new System.Drawing.Point(0, 63);
             this.pn_content.Name = "pn_content";
-            this.pn_content.Size = new System.Drawing.Size(993, 622);
+            this.pn_content.Size = new System.Drawing.Size(993, 575);
             this.pn_content.TabIndex = 1;
             // 
             // dgv_dshocphan
             // 
+            this.dgv_dshocphan.AllowUserToAddRows = false;
+            this.dgv_dshocphan.AllowUserToDeleteRows = false;
+            this.dgv_dshocphan.AllowUserToResizeColumns = false;
+            this.dgv_dshocphan.AllowUserToResizeRows = false;
+            this.dgv_dshocphan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_dshocphan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_dshocphan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_dshocphan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -400,12 +405,14 @@ namespace DangKyHocPhanSV
             this.dgv_dshocphan.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_dshocphan.Location = new System.Drawing.Point(0, 0);
             this.dgv_dshocphan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_dshocphan.MultiSelect = false;
             this.dgv_dshocphan.Name = "dgv_dshocphan";
             this.dgv_dshocphan.ReadOnly = true;
             this.dgv_dshocphan.RowHeadersVisible = false;
             this.dgv_dshocphan.RowHeadersWidth = 51;
-            this.dgv_dshocphan.RowTemplate.Height = 24;
-            this.dgv_dshocphan.Size = new System.Drawing.Size(991, 620);
+            this.dgv_dshocphan.RowTemplate.Height = 35;
+            this.dgv_dshocphan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_dshocphan.Size = new System.Drawing.Size(991, 573);
             this.dgv_dshocphan.TabIndex = 22;
             // 
             // pn_header
@@ -424,7 +431,7 @@ namespace DangKyHocPhanSV
             this.lbl_header.AutoSize = true;
             this.lbl_header.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_header.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_header.Location = new System.Drawing.Point(95, 9);
+            this.lbl_header.Location = new System.Drawing.Point(34, 9);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(805, 40);
             this.lbl_header.TabIndex = 2;
@@ -433,11 +440,12 @@ namespace DangKyHocPhanSV
             // FrmTrangSinhVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1280, 685);
+            this.ClientSize = new System.Drawing.Size(1280, 638);
             this.Controls.Add(this.pn_container);
             this.Controls.Add(this.pn_mainmenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1320, 685);
+            this.MinimumSize = new System.Drawing.Size(1100, 590);
             this.Name = "FrmTrangSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang Sinh Viên";

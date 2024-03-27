@@ -39,7 +39,7 @@ namespace DangKyHocPhanSV
             this.btn_quaylai = new System.Windows.Forms.Button();
             this.pn_them = new System.Windows.Forms.Panel();
             this.pn_themMHDT = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_themMHDT = new System.Windows.Forms.Button();
             this.cbb_themnganh = new System.Windows.Forms.ComboBox();
             this.lbl_themMaMHDT = new System.Windows.Forms.Label();
             this.lbl_themmonhoc = new System.Windows.Forms.Label();
@@ -146,6 +146,7 @@ namespace DangKyHocPhanSV
             this.linklbl_next.TabIndex = 72;
             this.linklbl_next.TabStop = true;
             this.linklbl_next.Text = ">";
+            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
             // 
             // linklbl_back
             // 
@@ -160,6 +161,7 @@ namespace DangKyHocPhanSV
             this.linklbl_back.TabIndex = 71;
             this.linklbl_back.TabStop = true;
             this.linklbl_back.Text = "<";
+            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
             // 
             // lblPageNumber
             // 
@@ -195,7 +197,7 @@ namespace DangKyHocPhanSV
             // pn_themMHDT
             // 
             this.pn_themMHDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_themMHDT.Controls.Add(this.button1);
+            this.pn_themMHDT.Controls.Add(this.btn_themMHDT);
             this.pn_themMHDT.Controls.Add(this.cbb_themnganh);
             this.pn_themMHDT.Controls.Add(this.lbl_themMaMHDT);
             this.pn_themMHDT.Controls.Add(this.lbl_themmonhoc);
@@ -210,18 +212,18 @@ namespace DangKyHocPhanSV
             this.pn_themMHDT.Size = new System.Drawing.Size(497, 149);
             this.pn_themMHDT.TabIndex = 1;
             // 
-            // button1
+            // btn_themMHDT
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(401, 42);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 54);
-            this.button1.TabIndex = 120;
-            this.button1.Text = "Thêm ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_themMHDT.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btn_themMHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_themMHDT.Location = new System.Drawing.Point(401, 42);
+            this.btn_themMHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_themMHDT.Name = "btn_themMHDT";
+            this.btn_themMHDT.Size = new System.Drawing.Size(82, 54);
+            this.btn_themMHDT.TabIndex = 120;
+            this.btn_themMHDT.Text = "Thêm ";
+            this.btn_themMHDT.UseVisualStyleBackColor = false;
+            this.btn_themMHDT.Click += new System.EventHandler(this.btn_themMHDT_Click);
             // 
             // cbb_themnganh
             // 
@@ -619,7 +621,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_them;
         private System.Windows.Forms.Panel pn_themMHDT;
         private System.Windows.Forms.Panel pn_themMonhoc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_themMHDT;
         private System.Windows.Forms.ComboBox cbb_themnganh;
         private System.Windows.Forms.Label lbl_themMaMHDT;
         private System.Windows.Forms.Label lbl_themmonhoc;

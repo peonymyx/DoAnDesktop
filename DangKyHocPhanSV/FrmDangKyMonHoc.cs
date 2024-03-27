@@ -17,6 +17,22 @@ namespace DangKyHocPhanSV
         DBSinhVien sv = new DBSinhVien();
         private Form _parent;
         private Panel _panel;
+        private Form currentFormChild;
+        public void OpenChildForm(Form childForm, Panel panel)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel.Controls.Add(childForm);
+            panel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         public string MaSo
         {
@@ -59,7 +75,9 @@ namespace DangKyHocPhanSV
         {
             int index = dgv_monhoc.CurrentCell.RowIndex;
             string mamh = dgv_monhoc.Rows[index].Cells[0].Value.ToString();
-            FrmDangKy dk = new FrmDangKy();
+            FrmDangKy dk = new FrmDangKy(pn_monhoc);
+            OpenChildForm(dk, pn_container);
+            pn_monhoc.Hide();
             dk.Mamh = mamh;
             dk.MaSo = maso;
             dk.Show();

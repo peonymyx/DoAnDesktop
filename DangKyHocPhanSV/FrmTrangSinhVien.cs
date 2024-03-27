@@ -76,6 +76,7 @@ namespace DangKyHocPhanSV
             FrmDangKyMonHoc dk = new FrmDangKyMonHoc(this, pn_header);
             dk.MaSo = maso;
             OpenChildForm(dk, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_thoikhoabieu_Click(object sender, EventArgs e)
@@ -83,13 +84,14 @@ namespace DangKyHocPhanSV
             FrmThoiKhoaBieuSV tkb = new FrmThoiKhoaBieuSV(this, pn_header);
             tkb.MaSo = maso;
             OpenChildForm(tkb, pn_container);
-
+            pn_header.Hide();
         }
 
         private void btn_tracuuhocphan_Click(object sender, EventArgs e)
         {
             FrmTraCuuMonHoc tcmh = new FrmTraCuuMonHoc(this, pn_header);
             OpenChildForm(tcmh, pn_container);
+            pn_header.Hide();
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -105,8 +107,10 @@ namespace DangKyHocPhanSV
 
         private void btn_lophoc_Click(object sender, EventArgs e)
         {
-            FrmDanhSachLopHocSV ds = new FrmDanhSachLopHocSV(this, pn_header);
+            FrmDanhSachLopHocSV ds = new FrmDanhSachLopHocSV(this, pn_container, pn_header);
+            ds.MaSo = maso;
             OpenChildForm(ds, pn_container);
+            pn_header.Hide();
         }
     }
 }

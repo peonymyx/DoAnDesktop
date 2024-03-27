@@ -56,8 +56,6 @@ namespace DangKyHocPhanSV
             dgv_thoikhoabieu.Columns[2].HeaderText = "Tiết Kết Thúc";
             dgv_thoikhoabieu.Columns[3].HeaderText = "Tên Phòng";
             dgv_thoikhoabieu.Columns[4].HeaderText = "Tên Môn Học";
-
-            dgv_thoikhoabieu.Columns[4].Width = 270;
         }
 
         private void btn_doimk_Click(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace DangKyHocPhanSV
 
         private void btn_dslophoc_Click(object sender, EventArgs e)
         {
-            FrmDanhSachLopHocGV ds = new FrmDanhSachLopHocGV(this, pn_container);
+            FrmDanhSachLopHocGV ds = new FrmDanhSachLopHocGV(this, pn_container, pn_header);
             ds.MaSo = maso;
             OpenChildForm(ds, pn_container);
             pn_header.Hide();

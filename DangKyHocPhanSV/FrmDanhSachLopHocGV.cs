@@ -18,6 +18,7 @@ namespace DangKyHocPhanSV
         DBGiangVien gv = new DBGiangVien();
         private Form _parent;
         private Panel _panel;
+        private Panel _panel1;
         private int numClass;
         private string MaLH;
         private Form currentFormChild;
@@ -41,13 +42,15 @@ namespace DangKyHocPhanSV
             get { return maso; }
             set { maso = value; }
         }
-        public FrmDanhSachLopHocGV(Form parent, Panel panel)
+        public FrmDanhSachLopHocGV(Form parent, Panel panel, Panel panel1)
         {
             InitializeComponent();
             lh.GiangVienConnect();
             gv.GiangVienConnect();
             _parent = parent;
             _panel = panel;
+            _panel1 = panel1;
+
         }
 
         public void loadChiTiet()
@@ -86,7 +89,7 @@ namespace DangKyHocPhanSV
 
         private void btn_vaohoc_Click(object sender, EventArgs e)
         {
-            ((FrmTrangGiangVien)this.ParentForm).OpenChildForm(new FrmLopHocGV(MaLH), _panel);
+            ((FrmTrangGiangVien)this.ParentForm).OpenChildForm(new FrmLopHocGV(MaLH, _panel, _panel1), _panel);
         }
 
         private void FrmDanhSachLopHocGV_Load(object sender, EventArgs e)
@@ -105,8 +108,7 @@ namespace DangKyHocPhanSV
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
-            _panel.Show();
-
+            _panel1.Show();
         }
     }
 }

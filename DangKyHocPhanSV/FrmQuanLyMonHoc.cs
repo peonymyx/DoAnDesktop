@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using System.Data.SqlClient;
+using DangKyHocPhanSV.Pagination;
 
 
 namespace DangKyHocPhanSV
@@ -21,13 +22,24 @@ namespace DangKyHocPhanSV
         DBChuongTrinhDT ctdt = new DBChuongTrinhDT();
         private Form _parent;
         private Panel _panel;
+        private MonHocPagination monHocPagination;
         public FrmQuanLyMonHoc(Form parent, Panel panel)
         {
             InitializeComponent();
             _parent = parent;
             _panel = panel;
+            monHocPagination = new MonHocPagination();
+        }
+        private async void FrmQuanLyMonHoc_Load(object sender, EventArgs e)
+        {
+            await monHocPagination.LoadDataAsync(dgv_monhoc, lblPageNumber, linklbl_back, linklbl_next);
+            loadMHDT();
+            loadcbbMonHoc();
+            loadcbbNganh();
+            loadcbbCTDT();
         }
         
+
         public void loadMHDT()
         {
             dgv_monhoc.DataSource = mhdt.DSMHDT().Tables[0];
@@ -43,6 +55,7 @@ namespace DangKyHocPhanSV
             dgv_monhoc.Columns[5].Width = 200;
 
         }
+
 
         public void loadMonHoc()
         {
@@ -73,14 +86,6 @@ namespace DangKyHocPhanSV
             cbb_themCTDT.ValueMember = "MaCTDT";
         }
 
-        private void FrmQuanLyMonHoc_Load(object sender, EventArgs e)
-        {
-            loadMHDT();
-            loadcbbMonHoc();
-            loadcbbNganh();
-            loadcbbCTDT();
-        }
-
         private void btn_timkiemmonhoc_Click(object sender, EventArgs e)
         {
             try
@@ -88,6 +93,7 @@ namespace DangKyHocPhanSV
                 if (txt_mamonhoc.Text == "")
                 {
                     loadMonHoc();
+                    dgv_monhoc.Refresh();
                 }
                 else
                 {
@@ -113,6 +119,7 @@ namespace DangKyHocPhanSV
                 if (kq)
                 {
                     loadMonHoc();
+                    dgv_monhoc.Refresh();
                     MessageBox.Show("Đã xóa thành công!");
                 }
             }
@@ -132,6 +139,7 @@ namespace DangKyHocPhanSV
                 if (kq)
                 {
                     loadMonHoc();
+                    dgv_monhoc.Refresh();
                     MessageBox.Show("Đã thêm thành công!");
                 }
                 else
@@ -152,6 +160,7 @@ namespace DangKyHocPhanSV
                 if (txt_maMHDT.Text == "")
                 {
                     loadMHDT();
+                    dgv_monhoc.Refresh();
                 }
                 else
                 {
@@ -174,7 +183,7 @@ namespace DangKyHocPhanSV
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_themMHDT_Click(object sender, EventArgs e)
         {
             bool kq = false;
             string err = "";
@@ -184,6 +193,8 @@ namespace DangKyHocPhanSV
                 if (kq)
                 {
                     loadMHDT();
+                    dgv_monhoc.Refresh();
+                    
                     MessageBox.Show("Đã thêm thành công!");
                 }
                 else
@@ -207,6 +218,7 @@ namespace DangKyHocPhanSV
                 if (kq)
                 {
                     loadMHDT();
+                    dgv_monhoc.Refresh();
                     MessageBox.Show("Đã xóa thành công!");
                 }
             }
@@ -221,6 +233,16 @@ namespace DangKyHocPhanSV
             this.Close();
             _panel.Show();
 
+        }
+
+        private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await monHocPagination.PreviousPageAsync(dgv_monhoc, lblPageNumber, linklbl_back, linklbl_next);
+        }
+
+        private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await monHocPagination.NextPageAsync(dgv_monhoc, lblPageNumber, linklbl_back, linklbl_next);
         }
     }
 }

@@ -163,6 +163,20 @@ namespace BusinessLogicLayer
             }
         }
 
+        public DataSet ChiTietLopHocSV(string masv)
+        {
+            try
+            {
+                MySqlParameter parameter = new MySqlParameter("p_masv", masv);
+                return db.ExecuteQueryDataSet($"CALL RTM_ChiTietLHSV('{masv}')", CommandType.Text, parameter);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataSet DanhSachSVLH(string malh)
         {
             try

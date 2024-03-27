@@ -14,6 +14,7 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmDangKy : Form
     {
+        private Panel _panel;
         private string maso;
         private string mamh;
         DBSinhVien sv = new DBSinhVien();
@@ -30,12 +31,13 @@ namespace DangKyHocPhanSV
             get { return mamh; }
             set { mamh = value; }
         }
-        public FrmDangKy()
+        public FrmDangKy(Panel panel)
         {
             InitializeComponent();
             sv.SinhVienConnect();
             lh.SinhVienConnect();
             dk.SinhVienConnect();
+            _panel = panel;
         }
 
         public void loadLopHoc()
@@ -62,6 +64,7 @@ namespace DangKyHocPhanSV
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
+            _panel.Show();
         }
 
         private void btn_dangky_Click(object sender, EventArgs e)

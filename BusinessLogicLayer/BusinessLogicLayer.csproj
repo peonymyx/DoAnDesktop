@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBBaiGiang.cs" />
-    <Compile Include="DBBaiNop.cs" />
+    <Compile Include="DBNopBai.cs" />
     <Compile Include="DBBaiTap.cs" />
     <Compile Include="DBChuong.cs" />
     <Compile Include="DBDangKy.cs" />

@@ -17,6 +17,8 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmLopHocGV : Form
     {
+        private Panel _panel;
+        private Panel _panel1;
         private Form currentFormChild;
         private string MaLH;
         DBChuong dbChuong = new DBChuong();
@@ -37,10 +39,12 @@ namespace DangKyHocPhanSV
             childForm.Show();
         }
         private string uploadedFilePath;
-        public FrmLopHocGV(string maLH)
+        public FrmLopHocGV(string maLH, Panel panel, Panel panel1)
         {
             InitializeComponent();
             MaLH = maLH;
+            _panel = panel;
+            _panel1 = panel1;
         }
 
         private void btn_upload_Click(object sender, EventArgs e)
@@ -60,6 +64,7 @@ namespace DangKyHocPhanSV
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
+            _panel1.Show();
         }
         private void FrmLopHocGV_Load(object sender, EventArgs e)
         {
@@ -71,8 +76,8 @@ namespace DangKyHocPhanSV
             dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
             dgv_chuong.Columns[0].HeaderText = "Mã Chương Học";
             dgv_chuong.Columns[1].HeaderText = "Tiêu Đề Chương";
-            dgv_chuong.Columns[0].Width = 90;
-            dgv_chuong.Columns[1].Width = 300;
+            dgv_chuong.Columns[0].Width = 55;
+            dgv_chuong.Columns[1].Width = 383;
             dgv_chuong.Columns[2].Visible = false;
         }
         
@@ -283,9 +288,8 @@ namespace DangKyHocPhanSV
             {
                 if (cb_chonchuong.SelectedItem != null)
                 {
-                    string tenChuong = tenChuong = cb_chonchuong.SelectedItem.ToString(); FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(pn_listtuan, IDChuong, tenChuong, menuS_chinhsuabaihoc);
+                    string tenChuong = tenChuong = cb_chonchuong.SelectedItem.ToString(); FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(IDChuong, tenChuong, menuS_chinhsuabaihoc);
                     OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
-                    pn_listtuan.Hide();
                     menuS_chinhsuabaihoc.Hide();
                 }
                 else
@@ -297,6 +301,11 @@ namespace DangKyHocPhanSV
             {
                 MessageBox.Show("Vui lòng chọn chương!");
             }
+        }
+
+        private void dgv_chuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

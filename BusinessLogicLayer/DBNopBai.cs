@@ -16,7 +16,7 @@ namespace BusinessLogicLayer
         {
             db = new DAL();
         }
-        //phân quyền giangvien
+        
         public DataSet DSSinhVienNopBai(int BaiTapID)
         {
             try
@@ -28,7 +28,18 @@ namespace BusinessLogicLayer
                 throw ex;
             }
         }
-        public bool ThemBaiNop(ref string err, string BaiTapID, string TenTapTin, string DuongDan, int MaSV)
+        public DataSet LayBaiNopByMSSV(int BaiTapID, string MaSV)
+        {
+            try
+            {
+                return db.ExecuteQueryDataSetParam($"CALL Re_LayBaiNopByMSSV('{BaiTapID}','{MaSV}')", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool ThemBaiNop(ref string err, string BaiTapID, string TenTapTin, string DuongDan, string MaSV)
         {
             try
             {
@@ -47,29 +58,29 @@ namespace BusinessLogicLayer
             }
         }
 
-        public bool CapNhatBaiNopBySV(ref string err, int BaiTapID, string TenTapTin, string DuongDan)
+        public bool CapNhatBaiNopBySV(ref string err, int IDBaiNop, string TenTapTin, string DuongDan)
         {
             try
             {
                 MySqlParameter[] parameters =
                 {
-                    new MySqlParameter("p_BaiTapID", BaiTapID),
-                    new MySqlParameter("p_DuongDan", TenTapTin),
-                    new MySqlParameter("p_NoiDung", DuongDan),
+                    new MySqlParameter("p_ID", IDBaiNop),
+                    new MySqlParameter("p_TenTapTin", TenTapTin),
+                    new MySqlParameter("p_DuongDan", DuongDan),
                 };
-                return db.MyExecuteNonQuery($"CALL Re_CapNhatBaiNopBySV('{BaiTapID}','{TenTapTin}','{DuongDan}')", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatBaiNopBySV('{IDBaiNop}','{TenTapTin}','{DuongDan}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public bool XoaBaiNop(ref string err, int ID)
+        public bool XoaBaiNop(ref string err, int IDBaiNop)
         {
             try
             {
-                MySqlParameter parameter = new MySqlParameter("p_ID", ID);
-                return db.MyExecuteNonQuery($"CALL Re_XoaBaiNop('{ID}')", CommandType.Text, ref err, parameter);
+                MySqlParameter parameter = new MySqlParameter("p_ID", IDBaiNop);
+                return db.MyExecuteNonQuery($"CALL Re_XoaBaiNop('{IDBaiNop}')", CommandType.Text, ref err, parameter);
             }
             catch (Exception ex)
             {

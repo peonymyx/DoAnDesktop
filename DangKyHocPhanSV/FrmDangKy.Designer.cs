@@ -29,6 +29,8 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_monhoc = new System.Windows.Forms.DataGridView();
             this.pn_monhoc = new System.Windows.Forms.Panel();
             this.pn_dangky = new System.Windows.Forms.Panel();
@@ -44,14 +46,41 @@ namespace DangKyHocPhanSV
             // 
             // dgv_monhoc
             // 
+            this.dgv_monhoc.AllowUserToAddRows = false;
+            this.dgv_monhoc.AllowUserToDeleteRows = false;
+            this.dgv_monhoc.AllowUserToResizeColumns = false;
+            this.dgv_monhoc.AllowUserToResizeRows = false;
+            this.dgv_monhoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_monhoc.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_monhoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_monhoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_monhoc.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_monhoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_monhoc.Location = new System.Drawing.Point(0, 0);
+            this.dgv_monhoc.MultiSelect = false;
             this.dgv_monhoc.Name = "dgv_monhoc";
+            this.dgv_monhoc.ReadOnly = true;
+            this.dgv_monhoc.RowHeadersVisible = false;
             this.dgv_monhoc.RowHeadersWidth = 51;
             this.dgv_monhoc.RowTemplate.Height = 24;
-            this.dgv_monhoc.Size = new System.Drawing.Size(991, 571);
+            this.dgv_monhoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_monhoc.Size = new System.Drawing.Size(991, 510);
             this.dgv_monhoc.TabIndex = 0;
+            this.dgv_monhoc.TabStop = false;
             // 
             // pn_monhoc
             // 
@@ -59,16 +88,16 @@ namespace DangKyHocPhanSV
             this.pn_monhoc.Controls.Add(this.pn_dangky);
             this.pn_monhoc.Controls.Add(this.dgv_monhoc);
             this.pn_monhoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_monhoc.Location = new System.Drawing.Point(0, 57);
+            this.pn_monhoc.Location = new System.Drawing.Point(0, 118);
             this.pn_monhoc.Name = "pn_monhoc";
-            this.pn_monhoc.Size = new System.Drawing.Size(993, 628);
+            this.pn_monhoc.Size = new System.Drawing.Size(993, 567);
             this.pn_monhoc.TabIndex = 4;
             // 
             // pn_dangky
             // 
             this.pn_dangky.Controls.Add(this.btn_dangky);
             this.pn_dangky.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_dangky.Location = new System.Drawing.Point(0, 571);
+            this.pn_dangky.Location = new System.Drawing.Point(0, 510);
             this.pn_dangky.Name = "pn_dangky";
             this.pn_dangky.Size = new System.Drawing.Size(991, 55);
             this.pn_dangky.TabIndex = 1;
@@ -115,7 +144,7 @@ namespace DangKyHocPhanSV
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_header.Location = new System.Drawing.Point(0, 0);
             this.pn_header.Name = "pn_header";
-            this.pn_header.Size = new System.Drawing.Size(993, 57);
+            this.pn_header.Size = new System.Drawing.Size(993, 118);
             this.pn_header.TabIndex = 3;
             // 
             // FrmDangKy

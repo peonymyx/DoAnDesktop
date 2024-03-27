@@ -25,7 +25,7 @@ namespace DangKyHocPhanSV
             lbl_tenphongInfo.Text = tenphong;
             lbl_thuInfo.Text = thu;
             _panel = panel;
-            lhgv = new FrmLopHocGV(malophoc);
+            /*lhgv = new FrmLopHocGV(malophoc);*/
         }
 
         public Button GetButton()

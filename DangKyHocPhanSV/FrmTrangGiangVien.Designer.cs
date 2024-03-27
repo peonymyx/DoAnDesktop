@@ -29,8 +29,8 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_header = new System.Windows.Forms.Label();
             this.pn_content = new System.Windows.Forms.Panel();
             this.dgv_thoikhoabieu = new System.Windows.Forms.DataGridView();
@@ -66,7 +66,7 @@ namespace DangKyHocPhanSV
             this.lbl_header.AutoSize = true;
             this.lbl_header.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_header.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_header.Location = new System.Drawing.Point(246, 9);
+            this.lbl_header.Location = new System.Drawing.Point(34, 12);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(486, 40);
             this.lbl_header.TabIndex = 2;
@@ -79,40 +79,50 @@ namespace DangKyHocPhanSV
             this.pn_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_content.Location = new System.Drawing.Point(0, 63);
             this.pn_content.Name = "pn_content";
-            this.pn_content.Size = new System.Drawing.Size(993, 622);
+            this.pn_content.Size = new System.Drawing.Size(975, 575);
             this.pn_content.TabIndex = 1;
             // 
             // dgv_thoikhoabieu
             // 
+            this.dgv_thoikhoabieu.AllowUserToAddRows = false;
+            this.dgv_thoikhoabieu.AllowUserToDeleteRows = false;
+            this.dgv_thoikhoabieu.AllowUserToResizeColumns = false;
+            this.dgv_thoikhoabieu.AllowUserToResizeRows = false;
+            this.dgv_thoikhoabieu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_thoikhoabieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_thoikhoabieu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_thoikhoabieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_thoikhoabieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_thoikhoabieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_thoikhoabieu.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_thoikhoabieu.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_thoikhoabieu.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_thoikhoabieu.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_thoikhoabieu.Location = new System.Drawing.Point(0, 0);
             this.dgv_thoikhoabieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_thoikhoabieu.MultiSelect = false;
             this.dgv_thoikhoabieu.Name = "dgv_thoikhoabieu";
             this.dgv_thoikhoabieu.ReadOnly = true;
             this.dgv_thoikhoabieu.RowHeadersVisible = false;
             this.dgv_thoikhoabieu.RowHeadersWidth = 51;
-            this.dgv_thoikhoabieu.RowTemplate.Height = 24;
-            this.dgv_thoikhoabieu.Size = new System.Drawing.Size(991, 620);
+            this.dgv_thoikhoabieu.RowTemplate.Height = 35;
+            this.dgv_thoikhoabieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_thoikhoabieu.Size = new System.Drawing.Size(973, 573);
             this.dgv_thoikhoabieu.TabIndex = 22;
+            this.dgv_thoikhoabieu.TabStop = false;
             // 
             // pn_container
             // 
@@ -121,7 +131,7 @@ namespace DangKyHocPhanSV
             this.pn_container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_container.Location = new System.Drawing.Point(287, 0);
             this.pn_container.Name = "pn_container";
-            this.pn_container.Size = new System.Drawing.Size(993, 685);
+            this.pn_container.Size = new System.Drawing.Size(975, 638);
             this.pn_container.TabIndex = 5;
             // 
             // pn_header
@@ -132,7 +142,7 @@ namespace DangKyHocPhanSV
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_header.Location = new System.Drawing.Point(0, 0);
             this.pn_header.Name = "pn_header";
-            this.pn_header.Size = new System.Drawing.Size(993, 63);
+            this.pn_header.Size = new System.Drawing.Size(975, 63);
             this.pn_header.TabIndex = 0;
             // 
             // btn_exit
@@ -306,11 +316,12 @@ namespace DangKyHocPhanSV
             // FrmTrangGiangVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1280, 685);
+            this.ClientSize = new System.Drawing.Size(1262, 638);
             this.Controls.Add(this.pn_container);
             this.Controls.Add(this.pn_mainmenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1320, 685);
+            this.MinimumSize = new System.Drawing.Size(1100, 590);
             this.Name = "FrmTrangGiangVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTrangGiangVien";
