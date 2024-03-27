@@ -29,15 +29,16 @@ namespace DangKyHocPhanSV
         public void loadDSLopHoc()
         {
             this.dgv_monhoc.DataSource = lh.TimKiemLopHocTheoMH(txt_timkiem.Text).Tables[0];
-            dgv_monhoc.Columns[0].HeaderText = "Mã Lớp Học";
-            dgv_monhoc.Columns[1].HeaderText = "Tên Giảng Viên";
-            dgv_monhoc.Columns[2].HeaderText = "Giới Hạn";
-            dgv_monhoc.Columns[3].HeaderText = "Tên Phòng";
-            dgv_monhoc.Columns[4].HeaderText = "Thứ";
-            dgv_monhoc.Columns[5].HeaderText = "Tiết Bắt Đầu";
-            dgv_monhoc.Columns[6].HeaderText = "Tiết Kết Thúc";
-            dgv_monhoc.Columns[7].HeaderText = "Thời Gian Bắt Đầu";
-            dgv_monhoc.Columns[8].HeaderText = "Thời gian Kết Thúc";
+            dgv_monhoc.Columns[0].HeaderText = "Mã Môn Học";
+            dgv_monhoc.Columns[1].HeaderText = "Mã Lớp Học";
+            dgv_monhoc.Columns[2].HeaderText = "Tên Giảng Viên";
+            dgv_monhoc.Columns[3].HeaderText = "Giới Hạn";
+            dgv_monhoc.Columns[4].HeaderText = "Tên Phòng";
+            dgv_monhoc.Columns[5].HeaderText = "Thứ";
+            dgv_monhoc.Columns[6].HeaderText = "Tiết Bắt Đầu";
+            dgv_monhoc.Columns[7].HeaderText = "Tiết Kết Thúc";
+            dgv_monhoc.Columns[8].HeaderText = "Thời Gian Bắt Đầu";
+            dgv_monhoc.Columns[9].HeaderText = "Thời gian Kết Thúc";
         }
 
         private void FrmTraCuuMonHoc_Load(object sender, EventArgs e)
@@ -54,17 +55,16 @@ namespace DangKyHocPhanSV
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
             this.dgv_monhoc.DataSource = lh.TimKiemLopHocTheoMH(txt_timkiem.Text).Tables[0];
-            dgv_monhoc.Columns[0].HeaderText = "Mã Lớp Học";
-            dgv_monhoc.Columns[1].HeaderText = "Tên Giảng Viên";
-            dgv_monhoc.Columns[2].HeaderText = "Giới Hạn";
-            dgv_monhoc.Columns[3].HeaderText = "Tên Phòng";
-            dgv_monhoc.Columns[4].HeaderText = "Thứ";
-            dgv_monhoc.Columns[5].HeaderText = "Tiết Bắt Đầu";
-            dgv_monhoc.Columns[6].HeaderText = "Tiết Kết Thúc";
-            dgv_monhoc.Columns[7].HeaderText = "Thời Gian Bắt Đầu";
-            dgv_monhoc.Columns[8].HeaderText = "Thời gian Kết Thúc";
-
-            dgv_monhoc.Columns[1].Width = 150;
+            dgv_monhoc.Columns[0].HeaderText = "Mã Môn Học";
+            dgv_monhoc.Columns[1].HeaderText = "Mã Lớp Học";
+            dgv_monhoc.Columns[2].HeaderText = "Tên Giảng Viên";
+            dgv_monhoc.Columns[3].HeaderText = "Giới Hạn";
+            dgv_monhoc.Columns[4].HeaderText = "Tên Phòng";
+            dgv_monhoc.Columns[5].HeaderText = "Thứ";
+            dgv_monhoc.Columns[6].HeaderText = "Tiết Bắt Đầu";
+            dgv_monhoc.Columns[7].HeaderText = "Tiết Kết Thúc";
+            dgv_monhoc.Columns[8].HeaderText = "Thời Gian Bắt Đầu";
+            dgv_monhoc.Columns[9].HeaderText = "Thời gian Kết Thúc";
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BusinessLogicLayer
             db = new DAL();
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của sinh viên
         public void SinhVienConnect()
         {
             try
@@ -28,6 +29,7 @@ namespace BusinessLogicLayer
             }
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của giảng viên
         public void GiangVienConnect()
         {
             try
@@ -40,14 +42,17 @@ namespace BusinessLogicLayer
             }
         }
 
+        // Lấy danh sách chương trình đào tạo từ cơ sở dữ liệu
         public DataSet DanhSachCTDT()
         {
             try
             {
+                // Thực thi stored procedure NonP_DanhSachCTDT để lấy danh sách chương trình đào tạo
                 return db.ExecuteQueryDataSetParam($"CALL NonP_DanhSachCTDT()", CommandType.Text);
             }
             catch (Exception ex)
             {
+                // Ném lại exception nếu có lỗi xảy ra
                 throw ex;
             }
         }

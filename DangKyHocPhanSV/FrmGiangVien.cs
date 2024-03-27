@@ -22,14 +22,14 @@ namespace DangKyHocPhanSV
         DBGiangVien gv = new DBGiangVien();
         private Form _parent;
         private Panel _panel;
-        private SinhVienPagination sinhVienPagination;
+        private GiangVienPagination giangVienPagination;
 
         public FrmGiangVien(Form parent, Panel panel)
         {
             InitializeComponent();
             _parent = parent;
             _panel = panel;
-            sinhVienPagination = new SinhVienPagination();
+            giangVienPagination = new GiangVienPagination();
         }
 
         /*public void loadGiangVien()
@@ -46,13 +46,13 @@ namespace DangKyHocPhanSV
         private async void FrmGiangVien_Load(object sender, EventArgs e)
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         private async void FrmGiangVien_Load()
         {
             loadDSKhoa();
-            await sinhVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.LoadDataAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         public void loadDSKhoa()
@@ -74,12 +74,18 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = gv.XoaGV(ref err, txt_magv.Text);
-                if (kq)
+                if (txt_magv.Text == "")
                 {
-                    //loadGiangVien();
-                    FrmGiangVien_Load();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập mã giảng viên cần xóa");
+                }
+                else
+                {
+                    kq = gv.XoaGV(ref err, txt_magv.Text);
+                    if (kq)
+                    {
+                        FrmGiangVien_Load();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
                 }
 
             }
@@ -96,13 +102,24 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString(), txt_email.Text);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_matkhau.Text) || string.IsNullOrWhiteSpace(txt_hoten.Text)|| string.IsNullOrWhiteSpace(txt_email.Text) || string.IsNullOrWhiteSpace(txt_tendangnhap.Text))
                 {
-                    //loadGiangVien();
-                    FrmGiangVien_Load();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else if (cbb_khoa.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn khoa!");
+                }
+                else
+                {
+                    kq = gv.ThemGV(ref err, txt_tendangnhap.Text, txt_matkhau.Text, txt_hoten.Text, cbb_khoa.SelectedValue.ToString(), txt_email.Text);
+                    if (kq)
+                    {
+                        FrmGiangVien_Load();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                }
+
 
             }
             catch (SqlException)
@@ -114,24 +131,32 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiem_Click(object sender, EventArgs e)
         {
-            dgv_giangvien.DataSource = gv.ThongTinGV(txt_magv.Text).Tables[0];
-            dgv_giangvien.Columns[0].HeaderText = "Mã giảng viên";
-            dgv_giangvien.Columns[1].HeaderText = "Họ và tên giảng viên";
-            dgv_giangvien.Columns[2].HeaderText = "Khoa";
+            if(txt_magv.Text==null || txt_magv.Text=="")
+            {
+                FrmGiangVien_Load();
+            } 
+            else
+            {
+                dgv_giangvien.DataSource = gv.ThongTinGV(txt_magv.Text).Tables[0];
+                dgv_giangvien.Columns[0].HeaderText = "Mã giảng viên";
+                dgv_giangvien.Columns[1].HeaderText = "Họ và tên giảng viên";
+                dgv_giangvien.Columns[2].HeaderText = "Khoa";
 
-            dgv_giangvien.Columns[0].Width = 50;
-            dgv_giangvien.Columns[1].Width = 70;
-            dgv_giangvien.Columns[2].Width = 250;
+                dgv_giangvien.Columns[0].Width = 50;
+                dgv_giangvien.Columns[1].Width = 70;
+                dgv_giangvien.Columns[2].Width = 250;
+            }
+            
         }
-
         private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await sinhVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.PreviousPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
         private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            await sinhVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
+            await giangVienPagination.NextPageAsync(dgv_giangvien, lblPageNumber, linklbl_back, linklbl_next);
         }
+
     }
 }

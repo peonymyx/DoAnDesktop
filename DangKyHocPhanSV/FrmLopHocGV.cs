@@ -17,6 +17,8 @@ namespace DangKyHocPhanSV
 {
     public partial class FrmLopHocGV : Form
     {
+        private Panel _panel;
+        private Panel _panel1;
         private Form currentFormChild;
         private string MaLH;
         DBChuong dbChuong = new DBChuong();
@@ -37,10 +39,12 @@ namespace DangKyHocPhanSV
             childForm.Show();
         }
         private string uploadedFilePath;
-        public FrmLopHocGV(string maLH)
+        public FrmLopHocGV(string maLH, Panel panel, Panel panel1)
         {
             InitializeComponent();
             MaLH = maLH;
+            _panel = panel;
+            _panel1 = panel1;
         }
 
         private void btn_upload_Click(object sender, EventArgs e)
@@ -60,6 +64,7 @@ namespace DangKyHocPhanSV
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
+            _panel1.Show();
         }
         private void FrmLopHocGV_Load(object sender, EventArgs e)
         {
@@ -71,27 +76,11 @@ namespace DangKyHocPhanSV
             dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
             dgv_chuong.Columns[0].HeaderText = "Mã Chương Học";
             dgv_chuong.Columns[1].HeaderText = "Tiêu Đề Chương";
-            dgv_chuong.Columns[0].Width = 90;
-            dgv_chuong.Columns[1].Width = 300;
+            dgv_chuong.Columns[0].Width = 55;
+            dgv_chuong.Columns[1].Width = 383;
             dgv_chuong.Columns[2].Visible = false;
         }
-        public void loadChuong()
-        {
-            dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
-            List<string> chuong = new List<string>();
-            foreach (DataGridViewRow row in dgv_chuong.Rows)
-            {
-                if (!row.IsNewRow)
-                {
-                    string value = row.Cells[1].Value as string;
-                    if (!string.IsNullOrEmpty(value))
-                    {
-                        chuong.Add(value);
-                    }
-                }
-            }
-            cb_chonchuong.Items.AddRange(chuong.ToArray());
-        }
+        
 
         private void btn_them_Click(object sender, EventArgs e)
         {
@@ -99,15 +88,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbChuong.ThemChuong(ref err, txt_themchuong.Text, MaLH);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_themchuong.Text))
                 {
-                    loadDSC();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể thêm!");
+                    kq = dbChuong.ThemChuong(ref err, txt_themchuong.Text, MaLH);
+                    if (kq)
+                    {
+                        loadDSC();
+                        MessageBox.Show("Đã thêm thành công!");
+                        loadChuong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm!");
+                    }
                 }
 
             }
@@ -124,17 +121,25 @@ namespace DangKyHocPhanSV
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_chuong.Rows)
+                if (string.IsNullOrWhiteSpace(txt_themchuong.Text) || string.IsNullOrWhiteSpace(txt_maCH.Text))
                 {
-                    if (row.Cells["MaChuongHoc"].Value != null && row.Cells["MaChuongHoc"].Value.ToString() == txt_maCH.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_chuong.Rows)
                     {
-
-                        kq = dbChuong.CapNhatChuong(ref err, int.Parse(txt_maCH.Text), txt_themchuong.Text);
-                        if (kq)
+                        if (row.Cells["MaChuongHoc"].Value != null && row.Cells["MaChuongHoc"].Value.ToString() == txt_maCH.Text)
                         {
-                            loadDSC();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
+
+                            kq = dbChuong.CapNhatChuong(ref err, int.Parse(txt_maCH.Text), txt_themchuong.Text);
+                            if (kq)
+                            {
+                                loadDSC();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                                loadChuong();
+                            }
                         }
                     }
                 }
@@ -153,15 +158,23 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbChuong.XoaChuong(ref err, txt_maCH.Text);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_maCH.Text))
                 {
-                    loadDSC();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbChuong.XoaChuong(ref err, txt_maCH.Text);
+                    if (kq)
+                    {
+                        loadDSC();
+                        MessageBox.Show("Đã xóa thành công!");
+                        loadChuong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -170,7 +183,24 @@ namespace DangKyHocPhanSV
                 MessageBox.Show(err);
             }
         }
-
+        public void loadChuong()
+        {
+            cb_chonchuong.Items.Clear();
+            dgv_chuong.DataSource = dbChuong.DSChuong(MaLH).Tables[0];
+            List<string> chuong = new List<string>();
+            foreach (DataGridViewRow row in dgv_chuong.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string value = row.Cells[1].Value as string;
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        chuong.Add(value);
+                    }
+                }
+            }
+            cb_chonchuong.Items.AddRange(chuong.ToArray());
+        }
         string IDChuong = "";
         private void cb_chonchuong_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -206,15 +236,26 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbBaiGiang.ThemBaiGiang(ref err, txt_tieude.Text, txt_file.Text, int.Parse(IDChuong));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_file.Text))
                 {
-                    loadBaiGiang();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể thêm!");
+                    kq = dbBaiGiang.ThemBaiGiang(ref err, txt_tieude.Text, txt_file.Text, int.Parse(IDChuong));
+                    if (kq)
+                    {
+                        loadBaiGiang();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm!");
+                    }
                 }
             }
             catch (SqlException)
@@ -231,17 +272,28 @@ namespace DangKyHocPhanSV
             int ok = 0;
             try
             {
-                foreach (DataGridViewRow row in dgv_listbaihoc.Rows)
+                if (string.IsNullOrWhiteSpace(txt_IDBG.Text)  || string.IsNullOrWhiteSpace(txt_tieude.Text) || string.IsNullOrWhiteSpace(txt_file.Text))
                 {
-                    if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_IDBG.Text)
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if(cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgv_listbaihoc.Rows)
                     {
-
-                        kq = dbBaiGiang.CapNhatBaiGiang(ref err, int.Parse(txt_IDBG.Text), txt_tieude.Text, txt_file.Text);
-                        if (kq)
+                        if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString() == txt_IDBG.Text)
                         {
-                            loadBaiGiang();
-                            MessageBox.Show("Đã cập nhật thành công!");
-                            ok = 1;
+
+                            kq = dbBaiGiang.CapNhatBaiGiang(ref err, int.Parse(txt_IDBG.Text), txt_tieude.Text, txt_file.Text);
+                            if (kq)
+                            {
+                                loadBaiGiang();
+                                MessageBox.Show("Đã cập nhật thành công!");
+                                ok = 1;
+                            }
                         }
                     }
                 }
@@ -260,15 +312,26 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = dbBaiGiang.XoaBaiGiang(ref err, int.Parse(txt_IDBG.Text));
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_IDBG.Text))
                 {
-                    loadBaiGiang();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cb_chonchuong.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn chương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa!");
+                    kq = dbBaiGiang.XoaBaiGiang(ref err, int.Parse(txt_IDBG.Text));
+                    if (kq)
+                    {
+                        loadBaiGiang();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
             }
             catch (SqlException)
@@ -279,19 +342,22 @@ namespace DangKyHocPhanSV
         }
         private void chinhSuaBaiTapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string err = "";
             try
             {
-                string tenChuong = cb_chonchuong.SelectedItem.ToString();
-                FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(pn_listtuan, IDChuong,tenChuong, menuS_chinhsuabaihoc);
-                OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
-                pn_listtuan.Hide();
-                menuS_chinhsuabaihoc.Hide();
-            } 
+                if (cb_chonchuong.SelectedItem != null)
+                {
+                    string tenChuong = tenChuong = cb_chonchuong.SelectedItem.ToString(); FrmChinhSuaBaiTapGV frmChinhSuaBaiTapGV = new FrmChinhSuaBaiTapGV(IDChuong, tenChuong, menuS_chinhsuabaihoc);
+                    OpenChildForm(frmChinhSuaBaiTapGV, pn_lophoc);
+                    menuS_chinhsuabaihoc.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn chương!");
+                }
+            }
             catch (Exception ex)
             {
-                err = "Vui lòng chọn chương!";
-                MessageBox.Show(err);
+                MessageBox.Show("Vui lòng chọn chương!");
             }
         }
     }

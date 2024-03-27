@@ -52,10 +52,10 @@ namespace DangKyHocPhanSV
             this.lbl_matkhau = new System.Windows.Forms.Label();
             this.lbl_tendangnhap = new System.Windows.Forms.Label();
             this.pn_giangvien = new System.Windows.Forms.Panel();
+            this.dgv_giangvien = new System.Windows.Forms.DataGridView();
             this.linklbl_next = new System.Windows.Forms.LinkLabel();
             this.linklbl_back = new System.Windows.Forms.LinkLabel();
             this.lblPageNumber = new System.Windows.Forms.Label();
-            this.dgv_giangvien = new System.Windows.Forms.DataGridView();
             this.pn_header.SuspendLayout();
             this.pn_timkiemxoa.SuspendLayout();
             this.pn_themgiangvien.SuspendLayout();
@@ -87,7 +87,7 @@ namespace DangKyHocPhanSV
             // btn_quaylai
             // 
             this.btn_quaylai.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quaylai.Location = new System.Drawing.Point(821, 376);
+            this.btn_quaylai.Location = new System.Drawing.Point(830, 402);
             this.btn_quaylai.Name = "btn_quaylai";
             this.btn_quaylai.Size = new System.Drawing.Size(124, 41);
             this.btn_quaylai.TabIndex = 4;
@@ -300,51 +300,11 @@ namespace DangKyHocPhanSV
             this.pn_giangvien.Controls.Add(this.linklbl_next);
             this.pn_giangvien.Controls.Add(this.linklbl_back);
             this.pn_giangvien.Controls.Add(this.lblPageNumber);
-            this.pn_giangvien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_giangvien.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pn_giangvien.Location = new System.Drawing.Point(0, 262);
             this.pn_giangvien.Name = "pn_giangvien";
-            this.pn_giangvien.Size = new System.Drawing.Size(993, 423);
+            this.pn_giangvien.Size = new System.Drawing.Size(993, 456);
             this.pn_giangvien.TabIndex = 3;
-            // 
-            // linklbl_next
-            // 
-            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linklbl_next.AutoSize = true;
-            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
-            this.linklbl_next.Location = new System.Drawing.Point(164, 382);
-            this.linklbl_next.Name = "linklbl_next";
-            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
-            this.linklbl_next.TabIndex = 5;
-            this.linklbl_next.TabStop = true;
-            this.linklbl_next.Text = ">";
-            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
-            // 
-            // linklbl_back
-            // 
-            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.linklbl_back.AutoSize = true;
-            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
-            this.linklbl_back.Location = new System.Drawing.Point(41, 382);
-            this.linklbl_back.Name = "linklbl_back";
-            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
-            this.linklbl_back.TabIndex = 4;
-            this.linklbl_back.TabStop = true;
-            this.linklbl_back.Text = "<";
-            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
-            // 
-            // lblPageNumber
-            // 
-            this.lblPageNumber.AutoSize = true;
-            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPageNumber.Location = new System.Drawing.Point(85, 385);
-            this.lblPageNumber.Name = "lblPageNumber";
-            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
-            this.lblPageNumber.TabIndex = 3;
-            this.lblPageNumber.Text = "page";
             // 
             // dgv_giangvien
             // 
@@ -378,14 +338,54 @@ namespace DangKyHocPhanSV
             this.dgv_giangvien.RowHeadersWidth = 51;
             this.dgv_giangvien.RowTemplate.Height = 35;
             this.dgv_giangvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_giangvien.Size = new System.Drawing.Size(991, 365);
+            this.dgv_giangvien.Size = new System.Drawing.Size(991, 361);
             this.dgv_giangvien.TabIndex = 71;
             this.dgv_giangvien.TabStop = false;
+            // 
+            // linklbl_next
+            // 
+            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_next.AutoSize = true;
+            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_next.Location = new System.Drawing.Point(159, 402);
+            this.linklbl_next.Name = "linklbl_next";
+            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_next.TabIndex = 5;
+            this.linklbl_next.TabStop = true;
+            this.linklbl_next.Text = ">";
+            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
+            // 
+            // linklbl_back
+            // 
+            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_back.AutoSize = true;
+            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_back.Location = new System.Drawing.Point(36, 402);
+            this.linklbl_back.Name = "linklbl_back";
+            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_back.TabIndex = 4;
+            this.linklbl_back.TabStop = true;
+            this.linklbl_back.Text = "<";
+            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
+            // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(80, 405);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
+            this.lblPageNumber.TabIndex = 3;
+            this.lblPageNumber.Text = "page";
             // 
             // FrmGiangVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(993, 685);
+            this.ClientSize = new System.Drawing.Size(993, 718);
             this.Controls.Add(this.pn_giangvien);
             this.Controls.Add(this.pn_themgiangvien);
             this.Controls.Add(this.pn_timkiemxoa);

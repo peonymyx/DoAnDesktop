@@ -16,39 +16,46 @@ namespace BusinessLogicLayer
             db = new DAL();
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của sinh viên
         public void SinhVienConnect()
         {
             try
             {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản sinh viên
                 db.changeStrConnectToSinhVien();
             }
             catch (Exception ex)
             {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
                 Console.WriteLine(ex.Message);
             }
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của giảng viên
         public void GiangVienConnect()
         {
             try
             {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản giảng viên
                 db.changeStrConnectToGiangVien();
             }
             catch (Exception ex)
             {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
                 Console.WriteLine(ex.Message);
             }
         }
-
-        //Hiển thị thông tin sinh viên
+        // Phương thức để lấy thông tin quản lý bằng mã số
         public DataSet ThongTin(string maso)
         {
             try
             {
+                // Thực thi stored procedure RTO_ThongTinQL để lấy thông tin quản lý bằng mã số
                 return db.ExecuteQueryDataSetParam($"CALL RTO_ThongTinQL('{maso}')", CommandType.Text);
             }
             catch (Exception ex)
             {
+                // Ném lại exception nếu có lỗi xảy ra
                 throw ex;
             }
         }

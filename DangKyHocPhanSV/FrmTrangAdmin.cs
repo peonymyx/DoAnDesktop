@@ -58,15 +58,9 @@ namespace DangKyHocPhanSV
             dgv_dssinhvien.Columns[2].Width = 200;
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            _parent.Show();
-        }
-
         private void btn_doimk_Click(object sender, EventArgs e)
         {
-            FrmDoiMatKhauAdmin dmk = new FrmDoiMatKhauAdmin();
+            FrmDoiMatKhauSV dmk = new FrmDoiMatKhauSV();
             dmk.MaSo = maso;
             dmk.ShowDialog();
         }
@@ -110,6 +104,12 @@ namespace DangKyHocPhanSV
         {
             FrmThongKe tk = new FrmThongKe(this, pn_header);
             tk.ShowDialog();
+        }
+
+        private void btn_exit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            _parent.Show();
         }
     }
 }

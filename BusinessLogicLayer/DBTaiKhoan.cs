@@ -22,29 +22,36 @@ namespace BusinessLogicLayer
             db = new DAL();
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của sinh viên
         public void SinhVienConnect()
         {
             try
             {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản sinh viên
                 db.changeStrConnectToSinhVien();
             }
             catch (Exception ex)
             {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
                 Console.WriteLine(ex.Message);
             }
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của giảng viên
         public void GiangVienConnect()
         {
             try
             {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản giảng viên
                 db.changeStrConnectToGiangVien();
             }
             catch (Exception ex)
             {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
                 Console.WriteLine(ex.Message);
             }
         }
+        // Phương thức để mã hóa mật khẩu bằng thuật toán SHA256
         static string HashPassword(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())
@@ -58,72 +65,82 @@ namespace BusinessLogicLayer
                 {
                     builder.Append(bytes[i].ToString("x2"));
                 }
-                return builder.ToString();
+                return builder.ToString(); // Trả về chuỗi mã hóa
             }
         }
-        //Thực hiện đăng nhập
+
+        // Phương thức để thực hiện đăng nhập
         public int DangNhap(string Mssv, string MatKhau)
         {
             try
             {
-                string newPassWord = HashPassword(MatKhau);
-                DataSet tk = db.ExecuteQueryDataSetParam($"Call RTO_DangNhap('{Mssv}', '{newPassWord}')", CommandType.Text);
+                // Mã hóa mật khẩu
+                string hashedPassword = HashPassword(MatKhau);
+
+                // Thực hiện truy vấn đăng nhập
+                DataSet tk = db.ExecuteQueryDataSetParam($"Call RTO_DangNhap('{Mssv}', '{hashedPassword}')", CommandType.Text);
+
+                // Kiểm tra kết quả trả về từ truy vấn
                 if (tk.Tables[0].Rows.Count == 0)
-                    return 0; // Sai
+                    return 0; // Sai thông tin đăng nhập
                 else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "QUẢN LÝ")
-                    return 1; // Trả về quản lý
+                    return 1; // Đăng nhập thành công với vai trò quản lý
                 else if (tk.Tables[0].Rows[0].Field<string>("VaiTro") == "Sinh Viên")
-                {
-                    return 2; // Trả về sinh viên
-                }
+                    return 2; // Đăng nhập thành công với vai trò sinh viên
                 else
-                    return 3; // Trả về giảng viên
+                    return 3; // Đăng nhập thành công với vai trò giảng viên
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw ex; // Ném lại exception nếu có lỗi xảy ra
             }
         }
 
-        //Đổi mật khẩu
-        public bool DoiMatKhau(ref string err, string Mssv, string MatKhau)
+        // Phương thức để thay đổi mật khẩu
+        public bool DoiMatKhau(ref string err, string MaSo, string MatKhau)
         {
             try
             {
+                // Kiểm tra xem mật khẩu có rỗng hoặc chỉ chứa khoảng trắng không
                 if (string.IsNullOrWhiteSpace(MatKhau))
                 {
                     throw new Exception("Mật khẩu không được để trống");
                 }
-                // Kiểm tra độ dài mật khẩu
+                // Kiểm tra độ dài của mật khẩu
                 if (MatKhau.Length < 8)
                 {
                     throw new Exception("Mật khẩu phải chứa ít nhất 8 ký tự");
                 }
-                // Kiểm tra có ít nhất một ký tự in hoa
+                // Kiểm tra xem mật khẩu có chứa ít nhất một ký tự in hoa không
                 if (!MatKhau.Any(char.IsUpper))
                 {
                     throw new Exception("Mật khẩu phải chứa ít nhất một ký tự in hoa");
                 }
-                // Kiểm tra có ít nhất một chữ số
+                // Kiểm tra xem mật khẩu có chứa ít nhất một chữ số không
                 if (!MatKhau.Any(char.IsDigit))
                 {
                     throw new Exception("Mật khẩu phải chứa ít nhất một chữ số");
                 }
-                // Kiểm tra có ít nhất một ký tự đặc biệt
+                // Kiểm tra xem mật khẩu có chứa ít nhất một ký tự đặc biệt không
                 if (!MatKhau.Any(ch => !char.IsLetterOrDigit(ch)))
                 {
                     throw new Exception("Mật khẩu phải chứa ít nhất một ký tự đặc biệt");
                 }
+                // Mã hóa mật khẩu mới
                 string newPassWord = HashPassword(MatKhau);
-                return db.MyExecuteNonQuery("Re_DoiMatKhau", CommandType.StoredProcedure,
-                    ref err, new MySqlParameter("p_MatKhau", newPassWord),
-                    new MySqlParameter("p_TenDangNhap", Mssv));
+                MySqlParameter[] parameters = {
+                    new MySqlParameter("@MatKhau", newPassWord),
+                    new MySqlParameter("@TenDangNhap", MaSo)
+                };
+                return db.MyExecuteNonQuery($"CALL Re_DoiMatKhau('{newPassWord}','{MaSo}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine(ex.Message);
+                throw; // Ném lại exception nếu có lỗi xảy ra
             }
         }
 
     }
+    
 }

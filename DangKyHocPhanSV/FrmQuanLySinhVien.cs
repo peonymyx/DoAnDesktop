@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
+using DangKyHocPhanSV.Pagination;
 
 namespace DangKyHocPhanSV
 {
@@ -18,6 +19,7 @@ namespace DangKyHocPhanSV
         private Panel _panel;
         private Form _parent;
         private Form currentFormChild;
+        private SinhVienPagination sinhVienPagination;
         public void OpenChildForm(Form childForm, Panel panel)
         {
             if (currentFormChild != null)
@@ -38,15 +40,17 @@ namespace DangKyHocPhanSV
             InitializeComponent();
             _parent = parent;
             _panel = panel;
+            sinhVienPagination = new SinhVienPagination();
         }
+        
 
-
-        private void FrmQuanLySinhVien_Load(object sender, EventArgs e)
+        private async void FrmQuanLySinhVien_Load(object sender, EventArgs e)
         {
             txt_tongsinhvien.Enabled = false;
+            await sinhVienPagination.LoadDataAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
             _panel.Show();
@@ -54,11 +58,10 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiemmanganh_Click(object sender, EventArgs e)
         {
-            txt_manganh.Clear();
-            int n = khoa.TongSVKhoa(txt_makhoa.Text);
+            int n = nganh.TongSVNganh(txt_manganh.Text);
             txt_tongsinhvien.Text = n.ToString();
 
-            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
+            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
             dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
             dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
@@ -70,15 +73,15 @@ namespace DangKyHocPhanSV
             dgv_sinhvien.Columns[2].Width = 100;
             dgv_sinhvien.Columns[3].Width = 100;
             dgv_sinhvien.Columns[4].Width = 100;
+
         }
 
         private void btn_timkiemmakhoa_Click(object sender, EventArgs e)
         {
-            txt_makhoa.Clear();
-            int n = nganh.TongSVNganh(txt_manganh.Text);
+            int n = khoa.TongSVKhoa(txt_makhoa.Text);
             txt_tongsinhvien.Text = n.ToString();
 
-            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
+            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
             dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
             dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
             dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
@@ -101,6 +104,16 @@ namespace DangKyHocPhanSV
             FrmLopSV lopsv = new FrmLopSV(menustrip_quanlylopsinhvien);
             OpenChildForm(lopsv, pn_container);
             menustrip_quanlylopsinhvien.Hide();
+        }
+
+        private async void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.PreviousPageAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
+        }
+
+        private async void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await sinhVienPagination.NextPageAsync(dgv_sinhvien, lblPageNumber, linklbl_back, linklbl_next);
         }
     }
 }

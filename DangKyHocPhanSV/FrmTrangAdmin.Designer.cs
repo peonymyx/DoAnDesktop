@@ -32,12 +32,15 @@ namespace DangKyHocPhanSV
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_content = new System.Windows.Forms.Panel();
+            this.linklbl_next = new System.Windows.Forms.LinkLabel();
+            this.linklbl_back = new System.Windows.Forms.LinkLabel();
+            this.lblPageNumber = new System.Windows.Forms.Label();
             this.dgv_dssinhvien = new System.Windows.Forms.DataGridView();
             this.pn_container = new System.Windows.Forms.Panel();
             this.pn_header = new System.Windows.Forms.Panel();
             this.lbl_header = new System.Windows.Forms.Label();
             this.pn_exit = new System.Windows.Forms.Panel();
-            this.btn_exit = new System.Windows.Forms.Button();
+            this.btn_tk = new System.Windows.Forms.Button();
             this.btn_doimk = new System.Windows.Forms.Button();
             this.lbl_info = new System.Windows.Forms.Label();
             this.lbl_quantri = new System.Windows.Forms.Label();
@@ -57,7 +60,8 @@ namespace DangKyHocPhanSV
             this.btn_monhoc = new System.Windows.Forms.Button();
             this.pn_phonghoc = new System.Windows.Forms.Panel();
             this.btn_phonghoc = new System.Windows.Forms.Button();
-            this.btn_tk = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.pn_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).BeginInit();
             this.pn_container.SuspendLayout();
@@ -72,11 +76,15 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.SuspendLayout();
             this.pn_monhoc.SuspendLayout();
             this.pn_phonghoc.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_content
             // 
             this.pn_content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_content.Controls.Add(this.linklbl_next);
+            this.pn_content.Controls.Add(this.linklbl_back);
+            this.pn_content.Controls.Add(this.lblPageNumber);
             this.pn_content.Controls.Add(this.dgv_dssinhvien);
             this.pn_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_content.Location = new System.Drawing.Point(0, 63);
@@ -84,12 +92,51 @@ namespace DangKyHocPhanSV
             this.pn_content.Size = new System.Drawing.Size(993, 687);
             this.pn_content.TabIndex = 1;
             // 
+            // linklbl_next
+            // 
+            this.linklbl_next.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_next.AutoSize = true;
+            this.linklbl_next.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_next.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_next.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_next.Location = new System.Drawing.Point(519, 631);
+            this.linklbl_next.Name = "linklbl_next";
+            this.linklbl_next.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_next.TabIndex = 70;
+            this.linklbl_next.TabStop = true;
+            this.linklbl_next.Text = ">";
+            // 
+            // linklbl_back
+            // 
+            this.linklbl_back.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.linklbl_back.AutoSize = true;
+            this.linklbl_back.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklbl_back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linklbl_back.LinkColor = System.Drawing.Color.Black;
+            this.linklbl_back.Location = new System.Drawing.Point(384, 630);
+            this.linklbl_back.Name = "linklbl_back";
+            this.linklbl_back.Size = new System.Drawing.Size(23, 28);
+            this.linklbl_back.TabIndex = 69;
+            this.linklbl_back.TabStop = true;
+            this.linklbl_back.Text = "<";
+            // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.AutoSize = true;
+            this.lblPageNumber.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNumber.Location = new System.Drawing.Point(446, 637);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(44, 21);
+            this.lblPageNumber.TabIndex = 68;
+            this.lblPageNumber.Text = "page";
+            // 
             // dgv_dssinhvien
             // 
             this.dgv_dssinhvien.AllowUserToAddRows = false;
             this.dgv_dssinhvien.AllowUserToDeleteRows = false;
             this.dgv_dssinhvien.AllowUserToResizeColumns = false;
             this.dgv_dssinhvien.AllowUserToResizeRows = false;
+            this.dgv_dssinhvien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_dssinhvien.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -156,31 +203,31 @@ namespace DangKyHocPhanSV
             // pn_exit
             // 
             this.pn_exit.Controls.Add(this.btn_tk);
-            this.pn_exit.Location = new System.Drawing.Point(3, 570);
+            this.pn_exit.Location = new System.Drawing.Point(3, 555);
             this.pn_exit.Name = "pn_exit";
-            this.pn_exit.Size = new System.Drawing.Size(284, 57);
+            this.pn_exit.Size = new System.Drawing.Size(284, 54);
             this.pn_exit.TabIndex = 8;
             // 
-            // btn_exit
+            // btn_tk
             // 
-            this.btn_exit.BackColor = System.Drawing.Color.Transparent;
-            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exit.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_exit.Image = global::DangKyHocPhanSV.Properties.Resources.exit;
-            this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exit.Location = new System.Drawing.Point(3, 633);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_exit.Size = new System.Drawing.Size(315, 82);
-            this.btn_exit.TabIndex = 0;
-            this.btn_exit.Text = "               Thoát";
-            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exit.UseVisualStyleBackColor = false;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            this.btn_tk.BackColor = System.Drawing.Color.Transparent;
+            this.btn_tk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_tk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_tk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_tk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_tk.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_tk.Image = global::DangKyHocPhanSV.Properties.Resources.thoikhoabieu;
+            this.btn_tk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tk.Location = new System.Drawing.Point(-4, -15);
+            this.btn_tk.Name = "btn_tk";
+            this.btn_tk.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_tk.Size = new System.Drawing.Size(315, 82);
+            this.btn_tk.TabIndex = 1;
+            this.btn_tk.Text = "              Thống kê";
+            this.btn_tk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tk.UseVisualStyleBackColor = false;
+            this.btn_tk.Click += new System.EventHandler(this.btn_tk_Click);
             // 
             // btn_doimk
             // 
@@ -220,9 +267,9 @@ namespace DangKyHocPhanSV
             // pn_khoa
             // 
             this.pn_khoa.Controls.Add(this.btn_khoa);
-            this.pn_khoa.Location = new System.Drawing.Point(3, 381);
+            this.pn_khoa.Location = new System.Drawing.Point(3, 375);
             this.pn_khoa.Name = "pn_khoa";
-            this.pn_khoa.Size = new System.Drawing.Size(284, 57);
+            this.pn_khoa.Size = new System.Drawing.Size(284, 54);
             this.pn_khoa.TabIndex = 7;
             // 
             // btn_khoa
@@ -249,9 +296,9 @@ namespace DangKyHocPhanSV
             // pn_quanlygiangvien
             // 
             this.pn_quanlygiangvien.Controls.Add(this.btn_quanlygiangvien);
-            this.pn_quanlygiangvien.Location = new System.Drawing.Point(3, 318);
+            this.pn_quanlygiangvien.Location = new System.Drawing.Point(3, 315);
             this.pn_quanlygiangvien.Name = "pn_quanlygiangvien";
-            this.pn_quanlygiangvien.Size = new System.Drawing.Size(284, 57);
+            this.pn_quanlygiangvien.Size = new System.Drawing.Size(284, 54);
             this.pn_quanlygiangvien.TabIndex = 3;
             // 
             // btn_quanlygiangvien
@@ -292,7 +339,7 @@ namespace DangKyHocPhanSV
             this.pn_quanlysinhvien.Controls.Add(this.btn_quanlysinhvien);
             this.pn_quanlysinhvien.Location = new System.Drawing.Point(3, 255);
             this.pn_quanlysinhvien.Name = "pn_quanlysinhvien";
-            this.pn_quanlysinhvien.Size = new System.Drawing.Size(284, 57);
+            this.pn_quanlysinhvien.Size = new System.Drawing.Size(284, 54);
             this.pn_quanlysinhvien.TabIndex = 2;
             // 
             // btn_quanlysinhvien
@@ -375,7 +422,7 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.Controls.Add(this.pn_monhoc);
             this.pn_mainmenu.Controls.Add(this.pn_phonghoc);
             this.pn_mainmenu.Controls.Add(this.pn_exit);
-            this.pn_mainmenu.Controls.Add(this.btn_exit);
+            this.pn_mainmenu.Controls.Add(this.panel1);
             this.pn_mainmenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_mainmenu.Location = new System.Drawing.Point(0, 0);
             this.pn_mainmenu.MaximumSize = new System.Drawing.Size(287, 750);
@@ -387,9 +434,9 @@ namespace DangKyHocPhanSV
             // pn_monhoc
             // 
             this.pn_monhoc.Controls.Add(this.btn_monhoc);
-            this.pn_monhoc.Location = new System.Drawing.Point(3, 444);
+            this.pn_monhoc.Location = new System.Drawing.Point(3, 435);
             this.pn_monhoc.Name = "pn_monhoc";
-            this.pn_monhoc.Size = new System.Drawing.Size(284, 57);
+            this.pn_monhoc.Size = new System.Drawing.Size(284, 54);
             this.pn_monhoc.TabIndex = 9;
             // 
             // btn_monhoc
@@ -416,9 +463,9 @@ namespace DangKyHocPhanSV
             // pn_phonghoc
             // 
             this.pn_phonghoc.Controls.Add(this.btn_phonghoc);
-            this.pn_phonghoc.Location = new System.Drawing.Point(3, 507);
+            this.pn_phonghoc.Location = new System.Drawing.Point(3, 495);
             this.pn_phonghoc.Name = "pn_phonghoc";
-            this.pn_phonghoc.Size = new System.Drawing.Size(284, 57);
+            this.pn_phonghoc.Size = new System.Drawing.Size(284, 54);
             this.pn_phonghoc.TabIndex = 10;
             // 
             // btn_phonghoc
@@ -442,26 +489,35 @@ namespace DangKyHocPhanSV
             this.btn_phonghoc.UseVisualStyleBackColor = false;
             this.btn_phonghoc.Click += new System.EventHandler(this.btn_phonghoc_Click);
             // 
-            // btn_tk
+            // panel1
             // 
-            this.btn_tk.BackColor = System.Drawing.Color.Transparent;
-            this.btn_tk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_tk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_tk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btn_tk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_tk.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_tk.Image = global::DangKyHocPhanSV.Properties.Resources.thoikhoabieu;
-            this.btn_tk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tk.Location = new System.Drawing.Point(-4, -11);
-            this.btn_tk.Name = "btn_tk";
-            this.btn_tk.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btn_tk.Size = new System.Drawing.Size(315, 82);
-            this.btn_tk.TabIndex = 1;
-            this.btn_tk.Text = "              Thống kê";
-            this.btn_tk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tk.UseVisualStyleBackColor = false;
-            this.btn_tk.Click += new System.EventHandler(this.btn_tk_Click);
+            this.panel1.Controls.Add(this.btn_exit);
+            this.panel1.Location = new System.Drawing.Point(3, 615);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 54);
+            this.panel1.TabIndex = 11;
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.BackColor = System.Drawing.Color.Transparent;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exit.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_exit.Image = global::DangKyHocPhanSV.Properties.Resources.exit;
+            this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.Location = new System.Drawing.Point(-4, -19);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_exit.Size = new System.Drawing.Size(320, 92);
+            this.btn_exit.TabIndex = 1;
+            this.btn_exit.Text = "               Thoát";
+            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click_1);
             // 
             // FrmTrangAdmin
             // 
@@ -469,13 +525,15 @@ namespace DangKyHocPhanSV
             this.ClientSize = new System.Drawing.Size(1280, 750);
             this.Controls.Add(this.pn_container);
             this.Controls.Add(this.pn_mainmenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1298, 797);
+            this.MinimumSize = new System.Drawing.Size(1170, 700);
             this.Name = "FrmTrangAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang Quản lý";
             this.Load += new System.EventHandler(this.FrmTrangAdmin_Load);
             this.pn_content.ResumeLayout(false);
+            this.pn_content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dssinhvien)).EndInit();
             this.pn_container.ResumeLayout(false);
             this.pn_header.ResumeLayout(false);
@@ -492,6 +550,7 @@ namespace DangKyHocPhanSV
             this.pn_mainmenu.ResumeLayout(false);
             this.pn_monhoc.ResumeLayout(false);
             this.pn_phonghoc.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -500,7 +559,6 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Panel pn_content;
         private System.Windows.Forms.Panel pn_container;
         private System.Windows.Forms.Panel pn_header;
-        private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Panel pn_exit;
         private System.Windows.Forms.Button btn_khoa;
         private System.Windows.Forms.Button btn_doimk;
@@ -524,5 +582,10 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.Label lbl_header;
         private System.Windows.Forms.DataGridView dgv_dssinhvien;
         private System.Windows.Forms.Button btn_tk;
+        private System.Windows.Forms.LinkLabel linklbl_next;
+        private System.Windows.Forms.LinkLabel linklbl_back;
+        private System.Windows.Forms.Label lblPageNumber;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_exit;
     }
 }

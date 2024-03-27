@@ -109,6 +109,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\GiangVien.cs" />
+    <Compile Include="DTO\Khoa.cs" />
+    <Compile Include="DTO\MonHoc.cs" />
+    <Compile Include="DTO\Nganh.cs" />
+    <Compile Include="DTO\PhongHoc.cs" />
+    <Compile Include="DTO\SinhVien.cs" />
     <Compile Include="FrmDanhSachBaiTapSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +306,11 @@
     <Compile Include="FrmTrangSinhVien.Designer.cs">
       <DependentUpon>FrmTrangSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pagination\GiangVienPagination.cs" />
+    <Compile Include="Pagination\KhoaPagination.cs" />
+    <Compile Include="Pagination\MonHocPagination.cs" />
+    <Compile Include="Pagination\NganhPagination.cs" />
+    <Compile Include="Pagination\PhongHocPagination.cs" />
     <Compile Include="Pagination\SinhVienPagination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

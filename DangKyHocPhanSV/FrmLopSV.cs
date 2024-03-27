@@ -261,6 +261,62 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiemlop_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btn_quaylai_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_xoalop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_capnhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_themqlsinhvien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_timkiemsv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_quaylai_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            this.menuStrip.Show();
+        }
+
+        private void linklbl_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void lblPageNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linklbl_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void btn_themquanlylop_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_timkiemlop_Click_1(object sender, EventArgs e)
+        {
             txt_masv.Clear();
             txt_themhoten.Clear();
             txt_themgioitinh.Clear();
@@ -275,16 +331,6 @@ namespace DangKyHocPhanSV
             dgv_danhsach.Columns[1].HeaderText = "Họ tên Sinh Viên";
             dgv_danhsach.Columns[2].HeaderText = "Giới Tính";
             dgv_danhsach.Columns[3].HeaderText = "Ngày Sinh";
-            dgv_danhsach.Columns[0].Width = 150;
-            dgv_danhsach.Columns[1].Width = 200;
-            dgv_danhsach.Columns[2].Width = 200;
-            dgv_danhsach.Columns[3].Width = 150;
-        }
-
-        private void btn_quaylai_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.menuStrip.Show();
         }
     }
 }

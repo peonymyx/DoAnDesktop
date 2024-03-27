@@ -40,13 +40,11 @@ namespace DangKyHocPhanSV
             this.lbl_malophoc = new System.Windows.Forms.Label();
             this.pn_phonghoc = new System.Windows.Forms.Panel();
             this.lbl_themhocky = new System.Windows.Forms.Label();
-            this.txt_themTGKT = new System.Windows.Forms.TextBox();
             this.lbl_themTGKT = new System.Windows.Forms.Label();
             this.txt_themnam = new System.Windows.Forms.TextBox();
             this.lbl_themnam = new System.Windows.Forms.Label();
             this.btn_them = new System.Windows.Forms.Button();
             this.txt_themhocky = new System.Windows.Forms.TextBox();
-            this.txt_themTGBD = new System.Windows.Forms.TextBox();
             this.lbl_themTGBD = new System.Windows.Forms.Label();
             this.txt_themtietketthuc = new System.Windows.Forms.TextBox();
             this.lbl_themtietketthuc = new System.Windows.Forms.Label();
@@ -70,6 +68,8 @@ namespace DangKyHocPhanSV
             this.linklbl_next = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgv_phonghoc = new System.Windows.Forms.DataGridView();
+            this.dtp_batdau = new System.Windows.Forms.DateTimePicker();
+            this.dtp_ketthuc = new System.Windows.Forms.DateTimePicker();
             this.pn_header.SuspendLayout();
             this.pn_timkiem.SuspendLayout();
             this.pn_phonghoc.SuspendLayout();
@@ -158,14 +158,14 @@ namespace DangKyHocPhanSV
             // 
             // pn_phonghoc
             // 
+            this.pn_phonghoc.Controls.Add(this.dtp_ketthuc);
+            this.pn_phonghoc.Controls.Add(this.dtp_batdau);
             this.pn_phonghoc.Controls.Add(this.lbl_themhocky);
-            this.pn_phonghoc.Controls.Add(this.txt_themTGKT);
             this.pn_phonghoc.Controls.Add(this.lbl_themTGKT);
             this.pn_phonghoc.Controls.Add(this.txt_themnam);
             this.pn_phonghoc.Controls.Add(this.lbl_themnam);
             this.pn_phonghoc.Controls.Add(this.btn_them);
             this.pn_phonghoc.Controls.Add(this.txt_themhocky);
-            this.pn_phonghoc.Controls.Add(this.txt_themTGBD);
             this.pn_phonghoc.Controls.Add(this.lbl_themTGBD);
             this.pn_phonghoc.Controls.Add(this.txt_themtietketthuc);
             this.pn_phonghoc.Controls.Add(this.lbl_themtietketthuc);
@@ -188,7 +188,6 @@ namespace DangKyHocPhanSV
             this.pn_phonghoc.Name = "pn_phonghoc";
             this.pn_phonghoc.Size = new System.Drawing.Size(993, 174);
             this.pn_phonghoc.TabIndex = 2;
-            this.pn_phonghoc.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // lbl_themhocky
             // 
@@ -199,15 +198,6 @@ namespace DangKyHocPhanSV
             this.lbl_themhocky.Size = new System.Drawing.Size(62, 21);
             this.lbl_themhocky.TabIndex = 126;
             this.lbl_themhocky.Text = "Học kỳ:";
-            // 
-            // txt_themTGKT
-            // 
-            this.txt_themTGKT.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themTGKT.Location = new System.Drawing.Point(793, 101);
-            this.txt_themTGKT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_themTGKT.Name = "txt_themTGKT";
-            this.txt_themTGKT.Size = new System.Drawing.Size(163, 28);
-            this.txt_themTGKT.TabIndex = 125;
             // 
             // lbl_themTGKT
             // 
@@ -259,15 +249,6 @@ namespace DangKyHocPhanSV
             this.txt_themhocky.Name = "txt_themhocky";
             this.txt_themhocky.Size = new System.Drawing.Size(190, 28);
             this.txt_themhocky.TabIndex = 121;
-            // 
-            // txt_themTGBD
-            // 
-            this.txt_themTGBD.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themTGBD.Location = new System.Drawing.Point(793, 70);
-            this.txt_themTGBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_themTGBD.Name = "txt_themTGBD";
-            this.txt_themTGBD.Size = new System.Drawing.Size(163, 28);
-            this.txt_themTGBD.TabIndex = 120;
             // 
             // lbl_themTGBD
             // 
@@ -465,6 +446,7 @@ namespace DangKyHocPhanSV
             this.linklbl_back.TabIndex = 68;
             this.linklbl_back.TabStop = true;
             this.linklbl_back.Text = "<";
+            this.linklbl_back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_back_LinkClicked);
             // 
             // linklbl_next
             // 
@@ -479,6 +461,7 @@ namespace DangKyHocPhanSV
             this.linklbl_next.TabIndex = 69;
             this.linklbl_next.TabStop = true;
             this.linklbl_next.Text = ">";
+            this.linklbl_next.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_next_LinkClicked);
             // 
             // panel4
             // 
@@ -517,7 +500,7 @@ namespace DangKyHocPhanSV
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_phonghoc.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_phonghoc.Location = new System.Drawing.Point(1, 6);
+            this.dgv_phonghoc.Location = new System.Drawing.Point(1, -1);
             this.dgv_phonghoc.MultiSelect = false;
             this.dgv_phonghoc.Name = "dgv_phonghoc";
             this.dgv_phonghoc.ReadOnly = true;
@@ -525,9 +508,25 @@ namespace DangKyHocPhanSV
             this.dgv_phonghoc.RowHeadersWidth = 51;
             this.dgv_phonghoc.RowTemplate.Height = 35;
             this.dgv_phonghoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_phonghoc.Size = new System.Drawing.Size(991, 333);
+            this.dgv_phonghoc.Size = new System.Drawing.Size(992, 344);
             this.dgv_phonghoc.TabIndex = 70;
             this.dgv_phonghoc.TabStop = false;
+            // 
+            // dtp_batdau
+            // 
+            this.dtp_batdau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_batdau.Location = new System.Drawing.Point(793, 74);
+            this.dtp_batdau.Name = "dtp_batdau";
+            this.dtp_batdau.Size = new System.Drawing.Size(163, 22);
+            this.dtp_batdau.TabIndex = 127;
+            // 
+            // dtp_ketthuc
+            // 
+            this.dtp_ketthuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_ketthuc.Location = new System.Drawing.Point(793, 103);
+            this.dtp_ketthuc.Name = "dtp_ketthuc";
+            this.dtp_ketthuc.Size = new System.Drawing.Size(163, 22);
+            this.dtp_ketthuc.TabIndex = 128;
             // 
             // FrmQuanLyPhongHoc
             // 
@@ -564,13 +563,11 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.TextBox txt_malophoc;
         private System.Windows.Forms.Label lbl_malophoc;
         private System.Windows.Forms.Label lbl_themhocky;
-        private System.Windows.Forms.TextBox txt_themTGKT;
         private System.Windows.Forms.Label lbl_themTGKT;
         private System.Windows.Forms.TextBox txt_themnam;
         private System.Windows.Forms.Label lbl_themnam;
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.TextBox txt_themhocky;
-        private System.Windows.Forms.TextBox txt_themTGBD;
         private System.Windows.Forms.Label lbl_themTGBD;
         private System.Windows.Forms.TextBox txt_themtietketthuc;
         private System.Windows.Forms.Label lbl_themtietketthuc;
@@ -596,5 +593,7 @@ namespace DangKyHocPhanSV
         private System.Windows.Forms.LinkLabel linklbl_next;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgv_phonghoc;
+        private System.Windows.Forms.DateTimePicker dtp_ketthuc;
+        private System.Windows.Forms.DateTimePicker dtp_batdau;
     }
 }

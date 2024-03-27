@@ -29,46 +29,36 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_monhoc = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_monhoc = new System.Windows.Forms.Panel();
             this.pn_dangky = new System.Windows.Forms.Panel();
             this.btn_dangky = new System.Windows.Forms.Button();
             this.lbl_dangkymonhoc = new System.Windows.Forms.Label();
             this.btn_quaylai = new System.Windows.Forms.Button();
             this.pn_header = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_monhoc)).BeginInit();
+            this.dgv_dangkymonhoc = new System.Windows.Forms.DataGridView();
             this.pn_monhoc.SuspendLayout();
             this.pn_dangky.SuspendLayout();
             this.pn_header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_dangkymonhoc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgv_monhoc
-            // 
-            this.dgv_monhoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_monhoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgv_monhoc.Location = new System.Drawing.Point(0, 0);
-            this.dgv_monhoc.Name = "dgv_monhoc";
-            this.dgv_monhoc.RowHeadersWidth = 51;
-            this.dgv_monhoc.RowTemplate.Height = 24;
-            this.dgv_monhoc.Size = new System.Drawing.Size(991, 571);
-            this.dgv_monhoc.TabIndex = 0;
             // 
             // pn_monhoc
             // 
             this.pn_monhoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_monhoc.Controls.Add(this.pn_dangky);
-            this.pn_monhoc.Controls.Add(this.dgv_monhoc);
+            this.pn_monhoc.Controls.Add(this.dgv_dangkymonhoc);
             this.pn_monhoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_monhoc.Location = new System.Drawing.Point(0, 57);
+            this.pn_monhoc.Location = new System.Drawing.Point(0, 118);
             this.pn_monhoc.Name = "pn_monhoc";
-            this.pn_monhoc.Size = new System.Drawing.Size(993, 628);
+            this.pn_monhoc.Size = new System.Drawing.Size(993, 567);
             this.pn_monhoc.TabIndex = 4;
             // 
             // pn_dangky
             // 
             this.pn_dangky.Controls.Add(this.btn_dangky);
-            this.pn_dangky.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_dangky.Location = new System.Drawing.Point(0, 571);
+            this.pn_dangky.Location = new System.Drawing.Point(0, 510);
             this.pn_dangky.Name = "pn_dangky";
             this.pn_dangky.Size = new System.Drawing.Size(991, 55);
             this.pn_dangky.TabIndex = 1;
@@ -115,8 +105,46 @@ namespace DangKyHocPhanSV
             this.pn_header.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_header.Location = new System.Drawing.Point(0, 0);
             this.pn_header.Name = "pn_header";
-            this.pn_header.Size = new System.Drawing.Size(993, 57);
+            this.pn_header.Size = new System.Drawing.Size(993, 118);
             this.pn_header.TabIndex = 3;
+            // 
+            // dgv_dangkymonhoc
+            // 
+            this.dgv_dangkymonhoc.AllowUserToAddRows = false;
+            this.dgv_dangkymonhoc.AllowUserToDeleteRows = false;
+            this.dgv_dangkymonhoc.AllowUserToResizeColumns = false;
+            this.dgv_dangkymonhoc.AllowUserToResizeRows = false;
+            this.dgv_dangkymonhoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_dangkymonhoc.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_dangkymonhoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_dangkymonhoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_dangkymonhoc.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_dangkymonhoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_dangkymonhoc.Location = new System.Drawing.Point(0, 0);
+            this.dgv_dangkymonhoc.MultiSelect = false;
+            this.dgv_dangkymonhoc.Name = "dgv_dangkymonhoc";
+            this.dgv_dangkymonhoc.ReadOnly = true;
+            this.dgv_dangkymonhoc.RowHeadersVisible = false;
+            this.dgv_dangkymonhoc.RowHeadersWidth = 51;
+            this.dgv_dangkymonhoc.RowTemplate.Height = 24;
+            this.dgv_dangkymonhoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_dangkymonhoc.Size = new System.Drawing.Size(991, 510);
+            this.dgv_dangkymonhoc.TabIndex = 0;
+            this.dgv_dangkymonhoc.TabStop = false;
             // 
             // FrmDangKy
             // 
@@ -130,23 +158,22 @@ namespace DangKyHocPhanSV
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDangKy";
             this.Load += new System.EventHandler(this.FrmDangKy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_monhoc)).EndInit();
             this.pn_monhoc.ResumeLayout(false);
             this.pn_dangky.ResumeLayout(false);
             this.pn_header.ResumeLayout(false);
             this.pn_header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_dangkymonhoc)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgv_monhoc;
         private System.Windows.Forms.Panel pn_monhoc;
         private System.Windows.Forms.Panel pn_dangky;
         private System.Windows.Forms.Label lbl_dangkymonhoc;
         private System.Windows.Forms.Button btn_quaylai;
         private System.Windows.Forms.Panel pn_header;
         private System.Windows.Forms.Button btn_dangky;
+        private System.Windows.Forms.DataGridView dgv_dangkymonhoc;
     }
 }

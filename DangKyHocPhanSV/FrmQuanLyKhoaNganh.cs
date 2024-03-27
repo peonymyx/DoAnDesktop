@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
 using System.Data.SqlClient;
+using DangKyHocPhanSV.Pagination;
 
 namespace DangKyHocPhanSV
 {
@@ -18,12 +19,16 @@ namespace DangKyHocPhanSV
         private Form _parent;
         DBKhoa khoa = new DBKhoa();
         DBNganh nganh = new DBNganh();
+        private KhoaPagination khoaPagination;
+        private NganhPagination nganhPagination;
         
         public FrmQuanLyKhoaNganh(Form parent, Panel panel)
         {
             InitializeComponent();
             _parent = parent;
             _panel = panel;
+            khoaPagination = new KhoaPagination();
+            nganhPagination = new NganhPagination();
         }
         public void loadDSKhoa()
         {
@@ -33,22 +38,29 @@ namespace DangKyHocPhanSV
         }
         public void loadDSNganh()
         {
-            dgv_khoanganh.DataSource = nganh.DanhSachNganh().Tables[0];
-            dgv_khoanganh.Columns[0].HeaderText = "Mã Ngành";
-            dgv_khoanganh.Columns[1].HeaderText = "Tên Ngành";
-            dgv_khoanganh.Columns[2].HeaderText = "Tên Khoa";
+            dgv_nganh.DataSource = nganh.DanhSachNganh().Tables[0];
+            dgv_nganh.Columns[0].HeaderText = "Mã Ngành";
+            dgv_nganh.Columns[1].HeaderText = "Tên Ngành";
+            dgv_nganh.Columns[2].HeaderText = "Tên Khoa";
 
         }
-
         public void showDSKhoa()
         {
-            dgv_khoanganh.DataSource = khoa.DanhSachKhoa().Tables[0];
-            dgv_khoanganh.Columns[0].HeaderText = "Mã Khoa";
-            dgv_khoanganh.Columns[1].HeaderText = "Tên Khoa";
+            dgv_khoa.DataSource = khoa.DanhSachKhoa().Tables[0];
+            dgv_khoa.Columns[0].HeaderText = "Mã Khoa";
+            dgv_khoa.Columns[1].HeaderText = "Tên Khoa";
         }
-        private void FrmQuanLyKhoaNganh_Load(object sender, EventArgs e)
+        private async void FrmQuanLyKhoaNganh_Load()
         {
             loadDSKhoa();
+            await khoaPagination.LoadDataAsync(dgv_khoa, lblPageNumberkhoa, linklbl_backkhoa, linklbl_nextkhoa);
+            await nganhPagination.LoadDataAsync(dgv_nganh, lblPageNumbernganh, linklbl_backnganh, linklbl_nextnganh);
+        }
+        private async void FrmQuanLyKhoaNganh_Load(object sender, EventArgs e)
+        {
+            loadDSKhoa();
+            await khoaPagination.LoadDataAsync(dgv_khoa, lblPageNumberkhoa, linklbl_backkhoa, linklbl_nextkhoa);
+            await nganhPagination.LoadDataAsync(dgv_nganh, lblPageNumbernganh, linklbl_backnganh, linklbl_nextnganh);
         }
 
         private void btn_timkiemkhoa_Click(object sender, EventArgs e)
@@ -57,13 +69,13 @@ namespace DangKyHocPhanSV
             {
                 if (txt_makhoa.Text == "")
                 {
-                    showDSKhoa();
+                    FrmQuanLyKhoaNganh_Load();
                 }
                 else
                 {
-                    dgv_khoanganh.DataSource = khoa.TimKiemKhoa(txt_makhoa.Text).Tables[0];
-                    dgv_khoanganh.Columns[0].HeaderText = "Mã Khoa";
-                    dgv_khoanganh.Columns[1].HeaderText = "Tên Khoa";
+                    dgv_khoa.DataSource = khoa.TimKiemKhoa(txt_makhoa.Text).Tables[0];
+                    dgv_khoa.Columns[0].HeaderText = "Mã Khoa";
+                    dgv_khoa.Columns[1].HeaderText = "Tên Khoa";
                 }
             }
             catch (SqlException error)
@@ -78,12 +90,19 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = khoa.XoaKhoa(ref err, txt_makhoa.Text);
-                if (kq)
+                if (txt_makhoa.Text == "")
                 {
-                    showDSKhoa();
-                    loadDSKhoa();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập mã khoa cần xóa");
+                }
+                else
+                {
+                    kq = khoa.XoaKhoa(ref err, txt_makhoa.Text);
+                    if (kq)
+                    {
+                        showDSKhoa();
+                        loadDSKhoa();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
                 }
             }
             catch (SqlException error)
@@ -98,12 +117,19 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = khoa.ThemKhoa(ref err, txt_themmakhoa.Text, txt_themtenkhoa.Text);
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_themmakhoa.Text) || string.IsNullOrWhiteSpace(txt_themtenkhoa.Text))
                 {
-                    showDSKhoa();
-                    loadDSKhoa();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    kq = khoa.ThemKhoa(ref err, txt_themmakhoa.Text, txt_themtenkhoa.Text);
+                    if (kq)
+                    {
+                        showDSKhoa();
+                        loadDSKhoa();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
                 }
             }
             catch (SqlException error)
@@ -118,14 +144,14 @@ namespace DangKyHocPhanSV
             {
                 if (txt_manganh.Text == "")
                 {
-                    loadDSNganh();
+                    FrmQuanLyKhoaNganh_Load();
                 }
                 else
                 {
-                    dgv_khoanganh.DataSource = nganh.TimKiemNganh(txt_manganh.Text).Tables[0];
-                    dgv_khoanganh.Columns[0].HeaderText = "Mã Ngành";
-                    dgv_khoanganh.Columns[1].HeaderText = "Tên Ngành";
-                    dgv_khoanganh.Columns[2].HeaderText = "Tên Khoa";
+                    dgv_nganh.DataSource = nganh.TimKiemNganh(txt_manganh.Text).Tables[0];
+                    dgv_nganh.Columns[0].HeaderText = "Mã Ngành";
+                    dgv_nganh.Columns[1].HeaderText = "Tên Ngành";
+                    dgv_nganh.Columns[2].HeaderText = "Tên Khoa";
 
                 }
             }
@@ -141,15 +167,22 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = nganh.ThemNganh(ref err, txt_themmanganh.Text, txt_themmanganh.Text, cbb_makhoa.SelectedValue.ToString());
-                if (kq)
+                if (string.IsNullOrWhiteSpace(txt_themmanganh.Text) || string.IsNullOrWhiteSpace(txt_themtenganh.Text))
                 {
-                    loadDSNganh();
-                    MessageBox.Show("Đã thêm thành công!");
+                    MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    kq = nganh.ThemNganh(ref err, txt_themmanganh.Text, txt_themtenganh.Text, cbb_makhoa.SelectedValue.ToString());
+                    if (kq)
+                    {
+                        loadDSNganh();
+                        MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(err, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (SqlException error)
@@ -164,11 +197,18 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                kq = nganh.XoaNganh(ref err, txt_manganh.Text);
-                if (kq)
+                if (txt_manganh.Text == "")
                 {
-                    loadDSNganh();
-                    MessageBox.Show("Đã xóa thành công!");
+                    MessageBox.Show("Vui lòng nhập mã ngành cần xóa");
+                }
+                else
+                {
+                    kq = nganh.XoaNganh(ref err, txt_manganh.Text);
+                    if (kq)
+                    {
+                        loadDSNganh();
+                        MessageBox.Show("Đã xóa thành công!");
+                    }
                 }
             }
             catch (SqlException error)
@@ -182,5 +222,27 @@ namespace DangKyHocPhanSV
             this.Close();
             _panel.Show();
         }
+
+        private async void linklbl_backkhoa_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await khoaPagination.PreviousPageAsync(dgv_khoa, lblPageNumberkhoa, linklbl_backkhoa, linklbl_nextkhoa);        
+        }
+
+        private async void linklbl_nextkhoa_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await khoaPagination.NextPageAsync(dgv_khoa, lblPageNumberkhoa, linklbl_backkhoa, linklbl_nextkhoa);         
+        }
+
+        private async void linklbl_backnganh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {      
+            await nganhPagination.PreviousPageAsync(dgv_nganh, lblPageNumbernganh, linklbl_backnganh, linklbl_nextnganh);
+        }
+
+        private async void linklbl_nextnganh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            await nganhPagination.NextPageAsync(dgv_nganh, lblPageNumbernganh, linklbl_backnganh, linklbl_nextnganh);
+        }
+
+        
     }
 }
