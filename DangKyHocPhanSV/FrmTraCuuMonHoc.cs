@@ -28,7 +28,7 @@ namespace DangKyHocPhanSV
 
         public void loadDSLopHoc()
         {
-            this.dgv_monhoc.DataSource = lh.TimKiemLopHocTheoMH(txt_timkiem.Text).Tables[0];
+            //this.dgv_monhoc.DataSource = lh.TimKiemLopHocTheoMH(txt_timkiem.Text).Tables[0];
             dgv_monhoc.Columns[0].HeaderText = "Mã Lớp Học";
             dgv_monhoc.Columns[1].HeaderText = "Tên Giảng Viên";
             dgv_monhoc.Columns[2].HeaderText = "Giới Hạn";

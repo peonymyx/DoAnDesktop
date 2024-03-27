@@ -14,28 +14,35 @@ namespace DangKyHocPhanSV.Pagination
 {
     public class MonHocPagination
     {
+        // Số trang hiện tại, mặc định là trang đầu tiên
         private int pageNumber = 1;
+        // Danh sách phân trang của các đối tượng MonHoc
         private IPagedList<MonHoc> list;
+        // Đối tượng quản lý dữ liệu về môn học
         DBMonHoc_DaoTao mhdt = new DBMonHoc_DaoTao();
+
+        // Phương thức GetPagedListAsync: Lấy danh sách môn học được phân trang
         public async Task<IPagedList<MonHoc>> GetPagedListAsync(int pageNumber = 1, int pageSize = 5)
         {
+            // Chuỗi kết nối đến cơ sở dữ liệu
             string connectionString = "server=103.167.89.145;database=QUANLYSV;uid=team06;password=123456;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 await connection.OpenAsync();
 
-                // Lấy dữ liệu từ dgv_monhoc.DataSource
+                // Lấy dữ liệu từ nguồn dữ liệu dgv_monhoc.DataSource
                 DataTable dataTable = mhdt.DSMHDT().Tables[0];
 
+                // Tính tổng số bản ghi trong danh sách
                 int totalRecords = dataTable.Rows.Count;
 
-                // Phân trang dữ liệu
+                // Phân trang dữ liệu từ danh sách dữ liệu
                 List<DataRow> rows = dataTable.AsEnumerable()
                                               .Skip((pageNumber - 1) * pageSize)
                                               .Take(pageSize)
                                               .ToList();
 
-                // Tạo danh sách GiangVien từ dữ liệu đã phân trang
+                // Tạo danh sách môn học từ dữ liệu đã phân trang
                 List<MonHoc> monhoc = rows.Select(row => new MonHoc
                 {
                     MaMHDT = row["MaMHDT"].ToString(),
@@ -53,36 +60,51 @@ namespace DangKyHocPhanSV.Pagination
                 return list;
             }
         }
+
+        // Phương thức LoadDataAsync: Tải dữ liệu vào DataGridView và cập nhật trang hiện tại
         public async Task LoadDataAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
+            // Lấy danh sách môn học từ phương thức GetPagedListAsync
             list = await GetPagedListAsync(pageNumber);
+            // Cập nhật DataGridView và thông tin trang
             UpdateDataGridView(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
         }
 
+        // Phương thức UpdateDataGridView: Cập nhật DataGridView và thông tin trang
         private void UpdateDataGridView(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
+            // Cập nhật trạng thái của các nút điều hướng trang
             linklblPrevious.Enabled = list.HasPreviousPage;
             linklblNext.Enabled = list.HasNextPage;
+            // Gán dữ liệu từ danh sách môn học vào DataGridView
             dataGridView.DataSource = list.ToList();
+            // Hiển thị thông tin về trang hiện tại
             lblPageNumber.Text = string.Format("Page {0}/{1}", pageNumber, list.PageCount);
         }
 
+        // Phương thức PreviousPageAsync: Chuyển đến trang trước đó
         public async Task PreviousPageAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
+            // Kiểm tra nếu danh sách có trang trước đó
             if (list.HasPreviousPage)
             {
-                pageNumber--;
+                pageNumber--; // Giảm số trang
+                              // Tải lại dữ liệu cho trang mới
                 await LoadDataAsync(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
             }
         }
 
+        // Phương thức NextPageAsync: Chuyển đến trang tiếp theo
         public async Task NextPageAsync(DataGridView dataGridView, Label lblPageNumber, LinkLabel linklblPrevious, LinkLabel linklblNext)
         {
+            // Kiểm tra nếu danh sách có trang tiếp theo
             if (list.HasNextPage)
             {
-                pageNumber++;
+                pageNumber++; // Tăng số trang
+                              // Tải lại dữ liệu cho trang mới
                 await LoadDataAsync(dataGridView, lblPageNumber, linklblPrevious, linklblNext);
             }
         }
+
     }
 }

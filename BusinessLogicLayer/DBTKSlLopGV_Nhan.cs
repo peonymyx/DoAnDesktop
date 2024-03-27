@@ -16,18 +16,41 @@ namespace BusinessLogicLayer
             db = new DAL();
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của sinh viên
         public void SinhVienConnect()
         {
-            db.changeStrConnectToSinhVien();
+            try
+            {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản sinh viên
+                db.changeStrConnectToSinhVien();
+            }
+            catch (Exception ex)
+            {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
+                Console.WriteLine(ex.Message);
+            }
         }
 
+        // Kết nối đến cơ sở dữ liệu với quyền của giảng viên
         public void GiangVienConnect()
         {
-            db.changeStrConnectToGiangVien();
+            try
+            {
+                // Thay đổi chuỗi kết nối để kết nối với tài khoản giảng viên
+                db.changeStrConnectToGiangVien();
+            }
+            catch (Exception ex)
+            {
+                // In ra thông báo lỗi nếu có lỗi xảy ra
+                Console.WriteLine(ex.Message);
+            }
         }
+        // Phương thức để lấy dữ liệu biểu đồ số lượng giảng viên dạy theo lớp
         public DataTable GetChartDataSLGVday_Lop()
         {
-            return db.GetChartDataSLGVday_Lop();
+            // Trả về dữ liệu từ cơ sở dữ liệu cho biểu đồ số lượng giảng viên dạy theo lớp
+            return db.GetChartDataSLGVday_Lop(); 
         }
+
     }
 }

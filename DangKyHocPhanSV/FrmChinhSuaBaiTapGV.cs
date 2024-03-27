@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DangKyHocPhanSV
 {
@@ -65,6 +66,7 @@ namespace DangKyHocPhanSV
                 {
                     loadBaiTap();
                     MessageBox.Show("Đã tạo thành công!");
+                    loadListBaiTap();
                 }
                 else
                 {
@@ -96,6 +98,7 @@ namespace DangKyHocPhanSV
                             loadBaiTap();
                             MessageBox.Show("Đã cập nhật thành công!");
                             ok = 1;
+                            loadListBaiTap();
                         }
                     }
                 }
@@ -119,6 +122,7 @@ namespace DangKyHocPhanSV
                 {
                     loadBaiTap();
                     MessageBox.Show("Đã xóa thành công!");
+                    loadListBaiTap();
                 }
                 else
                 {
@@ -149,6 +153,7 @@ namespace DangKyHocPhanSV
         }
         public void loadListBaiTap()
         {
+            cb_chonbt.Items.Clear();
             dgv_baitap.DataSource = dbBaiTap.DSBaiTapTrongChuong(int.Parse(IDChuong)).Tables[0];
             List<string> baitap = new List<string>();
             foreach (DataGridViewRow row in dgv_baitap.Rows)
