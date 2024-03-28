@@ -110,50 +110,51 @@
   <ItemGroup>
     <Compile Include="DTO\GiangVien.cs" />
     <Compile Include="DTO\Khoa.cs" />
+    <Compile Include="DTO\LopHoc.cs" />
     <Compile Include="DTO\MonHoc.cs" />
     <Compile Include="DTO\Nganh.cs" />
     <Compile Include="DTO\PhongHoc.cs" />
     <Compile Include="DTO\SinhVien.cs" />
-    <Compile Include="FrmDanhSachBaiTapSinhVien.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachBaiTapSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDanhSachBaiTapSinhVien.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachBaiTapSinhVien.Designer.cs">
       <DependentUpon>FrmDanhSachBaiTapSinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDanhSachLopHocSV.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachLopHocSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDanhSachLopHocSV.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachLopHocSV.Designer.cs">
       <DependentUpon>FrmDanhSachLopHocSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDanhSachSinhVien.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDanhSachSinhVien.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDanhSachSinhVien.Designer.cs">
       <DependentUpon>FrmDanhSachSinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDoiMatKhauAdmin.cs">
+    <Compile Include="GUI\Admin\FrmDoiMatKhauAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDoiMatKhauAdmin.Designer.cs">
+    <Compile Include="GUI\Admin\FrmDoiMatKhauAdmin.Designer.cs">
       <DependentUpon>FrmDoiMatKhauAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDoiMatKhauGV.cs">
+    <Compile Include="GUI\GiangVien\FrmDoiMatKhauGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDoiMatKhauGV.Designer.cs">
+    <Compile Include="GUI\GiangVien\FrmDoiMatKhauGV.Designer.cs">
       <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDangKy.cs">
+    <Compile Include="GUI\SinhVien\FrmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDangKy.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDangKy.Designer.cs">
       <DependentUpon>FrmDangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDangKyMonHoc.cs">
+    <Compile Include="GUI\SinhVien\FrmDangKyMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDangKyMonHoc.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDangKyMonHoc.Designer.cs">
       <DependentUpon>FrmDangKyMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDangNhap.cs">
@@ -162,22 +163,22 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDanhSachLopHocGV.cs">
+    <Compile Include="GUI\GiangVien\FrmDanhSachLopHocGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDanhSachLopHocGV.Designer.cs">
+    <Compile Include="GUI\GiangVien\FrmDanhSachLopHocGV.Designer.cs">
       <DependentUpon>FrmDanhSachLopHocGV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDoiMatKhauSV.cs">
+    <Compile Include="GUI\SinhVien\FrmDoiMatKhauSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDoiMatKhauSV.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmDoiMatKhauSV.Designer.cs">
       <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGiangVien.cs">
+    <Compile Include="GUI\Admin\FrmGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGiangVien.Designer.cs">
+    <Compile Include="GUI\Admin\FrmGiangVien.Designer.cs">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGiaoDienLopHoc.cs">
@@ -186,52 +187,52 @@
     <Compile Include="FrmGiaoDienLopHoc.Designer.cs">
       <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmChinhSuaBaiTapGV.cs">
+    <Compile Include="GUI\GiangVien\FrmChinhSuaBaiTapGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmChinhSuaBaiTapGV.Designer.cs">
+    <Compile Include="GUI\GiangVien\FrmChinhSuaBaiTapGV.Designer.cs">
       <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLopHocGV.cs">
+    <Compile Include="GUI\GiangVien\FrmLopHocGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLopHocGV.Designer.cs">
+    <Compile Include="GUI\GiangVien\FrmLopHocGV.Designer.cs">
       <DependentUpon>FrmLopHocGV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLopHocSV.cs">
+    <Compile Include="GUI\SinhVien\FrmLopHocSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLopHocSV.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmLopHocSV.Designer.cs">
       <DependentUpon>FrmLopHocSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLopSV.cs">
+    <Compile Include="GUI\Admin\FrmLopSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLopSV.Designer.cs">
+    <Compile Include="GUI\Admin\FrmLopSV.Designer.cs">
       <DependentUpon>FrmLopSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyKhoaNganh.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyKhoaNganh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyKhoaNganh.Designer.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyKhoaNganh.Designer.cs">
       <DependentUpon>FrmQuanLyKhoaNganh.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyMonHoc.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyMonHoc.Designer.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyMonHoc.Designer.cs">
       <DependentUpon>FrmQuanLyMonHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyPhongHoc.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyPhongHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyPhongHoc.Designer.cs">
+    <Compile Include="GUI\Admin\FrmQuanLyPhongHoc.Designer.cs">
       <DependentUpon>FrmQuanLyPhongHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLySinhVien.cs">
+    <Compile Include="GUI\Admin\FrmQuanLySinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLySinhVien.Designer.cs">
+    <Compile Include="GUI\Admin\FrmQuanLySinhVien.Designer.cs">
       <DependentUpon>FrmQuanLySinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmQuenMatKhau.cs">
@@ -240,70 +241,70 @@
     <Compile Include="FrmQuenMatKhau.Designer.cs">
       <DependentUpon>FrmQuenMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmThoiKhoaBieuSV.cs">
+    <Compile Include="GUI\SinhVien\FrmThoiKhoaBieuSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmThoiKhoaBieuSV.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmThoiKhoaBieuSV.Designer.cs">
       <DependentUpon>FrmThoiKhoaBieuSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmThongKe.cs">
+    <Compile Include="GUI\Admin\FrmThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmThongKe.Designer.cs">
+    <Compile Include="GUI\Admin\FrmThongKe.Designer.cs">
       <DependentUpon>FrmThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgBTNop.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgBTNop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgBTNop.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgBTNop.Designer.cs">
       <DependentUpon>FrmTKSoLgBTNop.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgLopGVNhan.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgLopGVNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgLopGVNhan.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgLopGVNhan.Designer.cs">
       <DependentUpon>FrmTKSoLgLopGVNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgSVKhoa.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgSVKhoa.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVKhoa.Designer.cs">
       <DependentUpon>FrmTKSoLgSVKhoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgSVLop.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVLop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgSVLop.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVLop.Designer.cs">
       <DependentUpon>FrmTKSoLgSVLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgSVNganh.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVNganh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgSVNganh.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgSVNganh.Designer.cs">
       <DependentUpon>FrmTKSoLgSVNganh.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTKSoLgTCSVDK.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgTCSVDK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTKSoLgTCSVDK.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTKSoLgTCSVDK.Designer.cs">
       <DependentUpon>FrmTKSoLgTCSVDK.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTrangAdmin.cs">
+    <Compile Include="GUI\Admin\FrmTrangAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTrangAdmin.Designer.cs">
+    <Compile Include="GUI\Admin\FrmTrangAdmin.Designer.cs">
       <DependentUpon>FrmTrangAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTrangGiangVien.cs">
+    <Compile Include="GUI\GiangVien\FrmTrangGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTrangGiangVien.Designer.cs">
+    <Compile Include="GUI\GiangVien\FrmTrangGiangVien.Designer.cs">
       <DependentUpon>FrmTrangGiangVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTrangSinhVien.cs">
+    <Compile Include="GUI\SinhVien\FrmTrangSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTrangSinhVien.Designer.cs">
+    <Compile Include="GUI\SinhVien\FrmTrangSinhVien.Designer.cs">
       <DependentUpon>FrmTrangSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Pagination\GiangVienPagination.cs" />
@@ -314,106 +315,106 @@
     <Compile Include="Pagination\SinhVienPagination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FrmTraCuuMonHoc.cs">
+    <Compile Include="GUI\SinhVien\FrmTraCuuMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTraCuuMonHoc.designer.cs">
+    <Compile Include="GUI\SinhVien\FrmTraCuuMonHoc.designer.cs">
       <DependentUpon>FrmTraCuuMonHoc.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmDanhSachBaiTapSinhVien.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDanhSachBaiTapSinhVien.resx">
       <DependentUpon>FrmDanhSachBaiTapSinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDanhSachLopHocSV.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDanhSachLopHocSV.resx">
       <DependentUpon>FrmDanhSachLopHocSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDanhSachSinhVien.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDanhSachSinhVien.resx">
       <DependentUpon>FrmDanhSachSinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDoiMatKhauAdmin.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmDoiMatKhauAdmin.resx">
       <DependentUpon>FrmDoiMatKhauAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDoiMatKhauGV.resx">
+    <EmbeddedResource Include="GUI\GiangVien\FrmDoiMatKhauGV.resx">
       <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDangKy.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDangKy.resx">
       <DependentUpon>FrmDangKy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDangKyMonHoc.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDangKyMonHoc.resx">
       <DependentUpon>FrmDangKyMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDanhSachLopHocGV.resx">
+    <EmbeddedResource Include="GUI\GiangVien\FrmDanhSachLopHocGV.resx">
       <DependentUpon>FrmDanhSachLopHocGV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDoiMatKhauSV.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmDoiMatKhauSV.resx">
       <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGiangVien.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmGiangVien.resx">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGiaoDienLopHoc.resx">
       <DependentUpon>FrmGiaoDienLopHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmChinhSuaBaiTapGV.resx">
+    <EmbeddedResource Include="GUI\GiangVien\FrmChinhSuaBaiTapGV.resx">
       <DependentUpon>FrmChinhSuaBaiTapGV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLopHocGV.resx">
+    <EmbeddedResource Include="GUI\GiangVien\FrmLopHocGV.resx">
       <DependentUpon>FrmLopHocGV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLopHocSV.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmLopHocSV.resx">
       <DependentUpon>FrmLopHocSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLopSV.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmLopSV.resx">
       <DependentUpon>FrmLopSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyKhoaNganh.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmQuanLyKhoaNganh.resx">
       <DependentUpon>FrmQuanLyKhoaNganh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyMonHoc.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmQuanLyMonHoc.resx">
       <DependentUpon>FrmQuanLyMonHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyPhongHoc.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmQuanLyPhongHoc.resx">
       <DependentUpon>FrmQuanLyPhongHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLySinhVien.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmQuanLySinhVien.resx">
       <DependentUpon>FrmQuanLySinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuenMatKhau.resx">
       <DependentUpon>FrmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmThoiKhoaBieuSV.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmThoiKhoaBieuSV.resx">
       <DependentUpon>FrmThoiKhoaBieuSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmThongKe.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmThongKe.resx">
       <DependentUpon>FrmThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgBTNop.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgBTNop.resx">
       <DependentUpon>FrmTKSoLgBTNop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgLopGVNhan.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgLopGVNhan.resx">
       <DependentUpon>FrmTKSoLgLopGVNhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgSVKhoa.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgSVKhoa.resx">
       <DependentUpon>FrmTKSoLgSVKhoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgSVLop.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgSVLop.resx">
       <DependentUpon>FrmTKSoLgSVLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgSVNganh.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgSVNganh.resx">
       <DependentUpon>FrmTKSoLgSVNganh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTKSoLgTCSVDK.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTKSoLgTCSVDK.resx">
       <DependentUpon>FrmTKSoLgTCSVDK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTrangAdmin.resx">
+    <EmbeddedResource Include="GUI\Admin\FrmTrangAdmin.resx">
       <DependentUpon>FrmTrangAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTrangGiangVien.resx">
+    <EmbeddedResource Include="GUI\GiangVien\FrmTrangGiangVien.resx">
       <DependentUpon>FrmTrangGiangVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTrangSinhVien.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmTrangSinhVien.resx">
       <DependentUpon>FrmTrangSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -426,7 +427,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="FrmTraCuuMonHoc.resx">
+    <EmbeddedResource Include="GUI\SinhVien\FrmTraCuuMonHoc.resx">
       <DependentUpon>FrmTraCuuMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -500,5 +501,6 @@
   <ItemGroup>
     <None Include="Resources\hoat_dong_chao_mung_ueh_3.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

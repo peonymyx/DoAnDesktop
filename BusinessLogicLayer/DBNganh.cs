@@ -88,7 +88,7 @@ namespace BusinessLogicLayer
             try
             {
                 // Thực thi stored procedure RTO_TimKiemNganh để tìm kiếm ngành
-                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemNganh('{nganh}')", CommandType.Text);
+                return db.ExecuteQueryDataSetParam($"CALL RTO_TimKiemNganhTheoTen('{nganh}')", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -144,6 +144,28 @@ namespace BusinessLogicLayer
         };
                 // Thực thi stored procedure Re_XoaNganh để xóa một ngành
                 return db.MyExecuteNonQuery($"CALL Re_XoaNganh('{MaNganh}')", CommandType.Text, ref err, parameters);
+            }
+            catch (Exception ex)
+            {
+                // Ném lại exception nếu có lỗi xảy ra
+                throw ex;
+            }
+        }
+
+        
+        public bool CapNhatNganh(ref string err, string MaNganh, string TenNganh, string MaKhoa)
+        {
+            try
+            {
+                // Tạo mảng các tham số để truyền vào stored procedure Re_ThemNganh
+                MySqlParameter[] parameters =
+                {
+                    new MySqlParameter("p_MaNganh", MaNganh),
+                    new MySqlParameter("p_TenNganh", TenNganh),
+                    new MySqlParameter("p_MaKhoa", MaKhoa)
+                };
+                // Thực thi stored procedure Re_CapNhatNganh để thêm một ngành mới
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatNganh('{MaNganh}','{TenNganh}','{MaKhoa}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {

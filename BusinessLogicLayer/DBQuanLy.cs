@@ -59,5 +59,20 @@ namespace BusinessLogicLayer
                 throw ex;
             }
         }
+
+        // Phương thức để tất cả số lượng record
+        public DataTable GetTongSoLuong()
+        {
+            try
+            {
+                // Thực thi stored procedure RTO_ThongTinQL để lấy thông tin quản lý bằng mã số
+                return db.GetTongSoLuongBanGhi();
+            }
+            catch (Exception ex)
+            {
+                // Ném lại exception nếu có lỗi xảy ra
+                throw ex;
+            }
+        }
     }
 }

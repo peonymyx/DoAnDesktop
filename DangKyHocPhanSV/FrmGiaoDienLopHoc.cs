@@ -14,10 +14,10 @@ namespace DangKyHocPhanSV
     {
         private Panel _panel;
         FrmLopHocGV lhgv;
-        public FrmGiaoDienLopHoc(/*string tenmonhoc, */string malophoc, string tenphong, string thu, string tietbd, string tietkt, string sosinhvien, Panel panel)
+        public FrmGiaoDienLopHoc(string tenmonhoc, string malophoc, string tenphong, string thu, string tietbd, string tietkt, string sosinhvien, Panel panel)
         {
             InitializeComponent();
-            /*lbl_tenlophoc.Text = tenmonhoc;*/
+            lbl_tenlophoc.Text = tenmonhoc;
             lbl_malhInfo.Text = malophoc;
             lbl_sosinhvienInfo.Text = sosinhvien;
             lbl_tietbdInfo.Text = tietbd;

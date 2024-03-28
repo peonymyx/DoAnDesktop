@@ -81,28 +81,29 @@ namespace BusinessLogicLayer
 
 
         // Phương thức để thêm một lớp học mới vào cơ sở dữ liệu
-        public bool ThemLopHoc(ref string err, string MaLopHoc, string MaMHDT, string MaGV, int GioiHan, string TenPhong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
+        public bool ThemLopHoc(ref string err, string MaLopHoc, string tenlop, string MaMHDT, string MaGV, int GioiHan, string TenPhong, string Thu, int TietBatDau, int TietKetThuc, string ThoiGianBatDau, string ThoiGianKetThuc, string HocKy, int Nam)
         {
             try
             {
                 // Tạo mảng các tham số cho stored procedure Re_ThemLopHoc
                 MySqlParameter[] parameters = {
-            new MySqlParameter("p_MaLopHoc", MaLopHoc),
-            new MySqlParameter("p_MaMHDT", MaMHDT),
-            new MySqlParameter("p_MaGV", MaGV),
-            new MySqlParameter("p_GioiHan", GioiHan),
-            new MySqlParameter("p_TenPhong", TenPhong),
-            new MySqlParameter("p_Thu", Thu),
-            new MySqlParameter("p_TietBatDau", TietBatDau),
-            new MySqlParameter("p_TietKetThuc", TietKetThuc),
-            new MySqlParameter("p_ThoiGianBatDau", ThoiGianBatDau),
-            new MySqlParameter("p_ThoiGianKetThuc", ThoiGianKetThuc),
-            new MySqlParameter("p_HocKy", HocKy),
-            new MySqlParameter("p_Nam", Nam)
-        };
+                new MySqlParameter("p_MaLopHoc", MaLopHoc),
+                new MySqlParameter("p_TenLop", tenlop),
+                new MySqlParameter("p_MaMHDT", MaMHDT),
+                new MySqlParameter("p_MaGV", MaGV),
+                new MySqlParameter("p_GioiHan", GioiHan),
+                new MySqlParameter("p_TenPhong", TenPhong),
+                new MySqlParameter("p_Thu", Thu),
+                new MySqlParameter("p_TietBatDau", TietBatDau),
+                new MySqlParameter("p_TietKetThuc", TietKetThuc),
+                new MySqlParameter("p_ThoiGianBatDau", ThoiGianBatDau),
+                new MySqlParameter("p_ThoiGianKetThuc", ThoiGianKetThuc),
+                new MySqlParameter("p_HocKy", HocKy),
+                new MySqlParameter("p_Nam", Nam)
+            };
 
                 // Thực thi stored procedure Re_ThemLopHoc để thêm một lớp học mới vào cơ sở dữ liệu
-                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{TenPhong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
+                return db.MyExecuteNonQuery($"CALL Re_ThemLopHoc('{MaLopHoc}',('{tenlop}'),('{MaMHDT}'),('{MaGV}'),('{GioiHan}'),('{TenPhong}'),('{Thu}'),('{TietBatDau}'),('{TietKetThuc}'),('{ThoiGianBatDau}'),('{ThoiGianKetThuc}'),('{HocKy}'),('{Nam}'))", CommandType.Text, ref err, parameters);
 
             }
             catch (Exception ex)

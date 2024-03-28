@@ -261,5 +261,22 @@ namespace DataAccessLayer
             // Trả về DataTable
             return dataTable;
         }
+
+        // Lấy dữ liệu thông tin tổng số lượng record
+        public DataTable GetTongSoLuongBanGhi()
+        {
+            // Khởi tạo một DataTable mới
+            DataTable dataTable = new DataTable();
+            // Câu truy vấn SQL
+            string query = "SELECT * FROM View_TongSoLuongBanGhi;";
+            // Thiết lập lệnh SQL và kết nối
+            cmd = new MySqlCommand(query, cnn);
+            // Tạo một SqlDataAdapter
+            adp = new MySqlDataAdapter(cmd);
+            // Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            adp.Fill(dataTable);
+            // Trả về DataTable
+            return dataTable;
+        }
     }
 }

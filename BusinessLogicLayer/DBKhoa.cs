@@ -107,7 +107,7 @@ namespace BusinessLogicLayer
                 // Tạo một tham số MySQL
                 MySqlParameter parameter = new MySqlParameter("p_khoa", khoa);
                 // Thực thi stored procedure RTO_TimKiemKhoa để tìm kiếm thông tin khoa dựa trên tên khoa
-                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemKhoa('{khoa}')", CommandType.Text, parameter);
+                return db.ExecuteQueryDataSet($"CALL RTO_TimKiemKhoaTheoTen('{khoa}')", CommandType.Text, parameter);
             }
             catch (Exception ex)
             {
@@ -146,6 +146,26 @@ namespace BusinessLogicLayer
                 MySqlParameter parameter = new MySqlParameter("p_MaKhoa", MaKhoa);
                 // Thực thi stored procedure Re_XoaKhoa để xóa một khoa
                 return db.MyExecuteNonQuery($"CALL Re_XoaKhoa('{MaKhoa}')", CommandType.Text, ref err, parameter);
+            }
+            catch (Exception ex)
+            {
+                // Ném lại exception nếu có lỗi xảy ra
+                throw ex;
+            }
+        }
+        // Cập nhật một khoa mới vào cơ sở dữ liệu
+        public bool CapNhatKhoa(ref string err, string MaKhoa, string TenKhoa)
+        {
+            try
+            {
+                // Tạo một mảng các tham số MySQL
+                MySqlParameter[] parameters =
+                {
+                    new MySqlParameter("p_MaKhoa", MaKhoa),
+                    new MySqlParameter("p_TenKhoa", TenKhoa)
+                };
+                // Thực thi stored procedure Re_CapNhatKhoa để thêm một khoa mới
+                return db.MyExecuteNonQuery($"CALL Re_CapNhatKhoa('{MaKhoa}','{TenKhoa}')", CommandType.Text, ref err, parameters);
             }
             catch (Exception ex)
             {
