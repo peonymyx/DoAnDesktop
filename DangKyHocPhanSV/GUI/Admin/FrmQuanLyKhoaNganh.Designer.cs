@@ -29,25 +29,25 @@ namespace DangKyHocPhanSV
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_header = new System.Windows.Forms.Label();
             this.pn_quanly = new System.Windows.Forms.Panel();
             this.tblopn_ql = new System.Windows.Forms.TableLayoutPanel();
             this.tblopn_qlnganh = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_xoamanganh = new System.Windows.Forms.Button();
             this.lbl_manganh = new System.Windows.Forms.Label();
-            this.btn_timkiemmanganh = new System.Windows.Forms.Button();
             this.txt_manganh = new System.Windows.Forms.TextBox();
+            this.btn_timkiemmanganh = new System.Windows.Forms.Button();
             this.lbl_quanlynganh = new System.Windows.Forms.Label();
             this.tblopn_qlkhoa = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_thoikhoabieu = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_xoakhoa = new System.Windows.Forms.Button();
             this.lbl_makhoa = new System.Windows.Forms.Label();
-            this.btn_timkiemkhoa = new System.Windows.Forms.Button();
             this.txt_makhoa = new System.Windows.Forms.TextBox();
+            this.btn_timkiemkhoa = new System.Windows.Forms.Button();
+            this.btn_xoamanganh = new System.Windows.Forms.Button();
+            this.btn_xoakhoa = new System.Windows.Forms.Button();
             this.pn_header = new System.Windows.Forms.Panel();
             this.btn_quaylai = new System.Windows.Forms.Button();
             this.btn_themnganh = new System.Windows.Forms.Button();
@@ -168,20 +168,6 @@ namespace DangKyHocPhanSV
             this.tableLayoutPanel8.Size = new System.Drawing.Size(479, 40);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
-            // btn_xoamanganh
-            // 
-            this.btn_xoamanganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_xoamanganh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_xoamanganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoamanganh.Location = new System.Drawing.Point(372, 74);
-            this.btn_xoamanganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_xoamanganh.Name = "btn_xoamanganh";
-            this.btn_xoamanganh.Size = new System.Drawing.Size(111, 32);
-            this.btn_xoamanganh.TabIndex = 2;
-            this.btn_xoamanganh.Text = "Xóa ";
-            this.btn_xoamanganh.UseVisualStyleBackColor = false;
-            this.btn_xoamanganh.Click += new System.EventHandler(this.btn_xoamanganh_Click);
-            // 
             // lbl_manganh
             // 
             this.lbl_manganh.AutoSize = true;
@@ -192,6 +178,16 @@ namespace DangKyHocPhanSV
             this.lbl_manganh.Size = new System.Drawing.Size(96, 24);
             this.lbl_manganh.TabIndex = 71;
             this.lbl_manganh.Text = "Tên ngành";
+            // 
+            // txt_manganh
+            // 
+            this.txt_manganh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_manganh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_manganh.Location = new System.Drawing.Point(106, 2);
+            this.txt_manganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_manganh.Name = "txt_manganh";
+            this.txt_manganh.Size = new System.Drawing.Size(129, 32);
+            this.txt_manganh.TabIndex = 0;
             // 
             // btn_timkiemmanganh
             // 
@@ -205,16 +201,6 @@ namespace DangKyHocPhanSV
             this.btn_timkiemmanganh.Text = "Tìm kiếm";
             this.btn_timkiemmanganh.UseVisualStyleBackColor = false;
             this.btn_timkiemmanganh.Click += new System.EventHandler(this.btn_timkiemmanganh_Click);
-            // 
-            // txt_manganh
-            // 
-            this.txt_manganh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_manganh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_manganh.Location = new System.Drawing.Point(106, 2);
-            this.txt_manganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_manganh.Name = "txt_manganh";
-            this.txt_manganh.Size = new System.Drawing.Size(129, 32);
-            this.txt_manganh.TabIndex = 0;
             // 
             // lbl_quanlynganh
             // 
@@ -276,6 +262,54 @@ namespace DangKyHocPhanSV
             this.tableLayoutPanel6.Size = new System.Drawing.Size(478, 40);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
+            // lbl_makhoa
+            // 
+            this.lbl_makhoa.AutoSize = true;
+            this.lbl_makhoa.BackColor = System.Drawing.Color.Silver;
+            this.lbl_makhoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_makhoa.Location = new System.Drawing.Point(3, 0);
+            this.lbl_makhoa.Name = "lbl_makhoa";
+            this.lbl_makhoa.Size = new System.Drawing.Size(79, 40);
+            this.lbl_makhoa.TabIndex = 0;
+            this.lbl_makhoa.Text = "Mã/Tên khoa";
+            // 
+            // txt_makhoa
+            // 
+            this.txt_makhoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_makhoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_makhoa.Location = new System.Drawing.Point(94, 2);
+            this.txt_makhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_makhoa.Name = "txt_makhoa";
+            this.txt_makhoa.Size = new System.Drawing.Size(213, 32);
+            this.txt_makhoa.TabIndex = 0;
+            // 
+            // btn_timkiemkhoa
+            // 
+            this.btn_timkiemkhoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_timkiemkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_timkiemkhoa.Location = new System.Drawing.Point(396, 2);
+            this.btn_timkiemkhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_timkiemkhoa.Name = "btn_timkiemkhoa";
+            this.btn_timkiemkhoa.Size = new System.Drawing.Size(76, 32);
+            this.btn_timkiemkhoa.TabIndex = 1;
+            this.btn_timkiemkhoa.Text = "Tìm kiếm";
+            this.btn_timkiemkhoa.UseVisualStyleBackColor = false;
+            this.btn_timkiemkhoa.Click += new System.EventHandler(this.btn_timkiemkhoa_Click);
+            // 
+            // btn_xoamanganh
+            // 
+            this.btn_xoamanganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_xoamanganh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_xoamanganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoamanganh.Location = new System.Drawing.Point(372, 74);
+            this.btn_xoamanganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_xoamanganh.Name = "btn_xoamanganh";
+            this.btn_xoamanganh.Size = new System.Drawing.Size(111, 32);
+            this.btn_xoamanganh.TabIndex = 2;
+            this.btn_xoamanganh.Text = "Xóa ";
+            this.btn_xoamanganh.UseVisualStyleBackColor = false;
+            this.btn_xoamanganh.Click += new System.EventHandler(this.btn_xoamanganh_Click);
+            // 
             // btn_xoakhoa
             // 
             this.btn_xoakhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -289,40 +323,6 @@ namespace DangKyHocPhanSV
             this.btn_xoakhoa.Text = "Xóa ";
             this.btn_xoakhoa.UseVisualStyleBackColor = false;
             this.btn_xoakhoa.Click += new System.EventHandler(this.btn_xoakhoa_Click);
-            // 
-            // lbl_makhoa
-            // 
-            this.lbl_makhoa.AutoSize = true;
-            this.lbl_makhoa.BackColor = System.Drawing.Color.Silver;
-            this.lbl_makhoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_makhoa.Location = new System.Drawing.Point(3, 0);
-            this.lbl_makhoa.Name = "lbl_makhoa";
-            this.lbl_makhoa.Size = new System.Drawing.Size(79, 40);
-            this.lbl_makhoa.TabIndex = 0;
-            this.lbl_makhoa.Text = "Mã/Tên khoa";
-            // 
-            // btn_timkiemkhoa
-            // 
-            this.btn_timkiemkhoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_timkiemkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiemkhoa.Location = new System.Drawing.Point(397, 2);
-            this.btn_timkiemkhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_timkiemkhoa.Name = "btn_timkiemkhoa";
-            this.btn_timkiemkhoa.Size = new System.Drawing.Size(76, 32);
-            this.btn_timkiemkhoa.TabIndex = 1;
-            this.btn_timkiemkhoa.Text = "Tìm kiếm";
-            this.btn_timkiemkhoa.UseVisualStyleBackColor = false;
-            this.btn_timkiemkhoa.Click += new System.EventHandler(this.btn_timkiemkhoa_Click);
-            // 
-            // txt_makhoa
-            // 
-            this.txt_makhoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_makhoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_makhoa.Location = new System.Drawing.Point(94, 2);
-            this.txt_makhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_makhoa.Name = "txt_makhoa";
-            this.txt_makhoa.Size = new System.Drawing.Size(213, 32);
-            this.txt_makhoa.TabIndex = 0;
             // 
             // pn_header
             // 
@@ -522,23 +522,23 @@ namespace DangKyHocPhanSV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_khoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_khoa.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_khoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_khoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_khoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_khoa.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_khoa.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_khoa.Location = new System.Drawing.Point(-1, 127);
             this.dgv_khoa.MultiSelect = false;
             this.dgv_khoa.Name = "dgv_khoa";

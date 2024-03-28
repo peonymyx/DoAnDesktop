@@ -34,6 +34,20 @@ namespace DangKyHocPhanSV
             this.pn_container = new System.Windows.Forms.Panel();
             this.pn_sinhvien = new System.Windows.Forms.Panel();
             this.pn_tongsosinhvien = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tblopn_timkiemnganh = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_timnganh = new System.Windows.Forms.Label();
+            this.txt_manganh = new System.Windows.Forms.TextBox();
+            this.btn_timnganh = new System.Windows.Forms.Button();
+            this.tblopn_timkiemmakhoa = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_timkhoa = new System.Windows.Forms.Label();
+            this.txt_makhoa = new System.Windows.Forms.TextBox();
+            this.btn_khoa = new System.Windows.Forms.Button();
+            this.tblopn_timkiemmssv = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_timmssv = new System.Windows.Forms.Label();
+            this.txt_mssv = new System.Windows.Forms.TextBox();
+            this.btn_timmssv = new System.Windows.Forms.Button();
             this.tblopn_quanlylopsv = new System.Windows.Forms.TableLayoutPanel();
             this.tblopn_quanlysv = new System.Windows.Forms.TableLayoutPanel();
             this.btn_capnhat = new System.Windows.Forms.Button();
@@ -63,34 +77,20 @@ namespace DangKyHocPhanSV
             this.dgv_sinhvien = new System.Windows.Forms.DataGridView();
             this.menustrip_quanlylopsinhvien = new System.Windows.Forms.MenuStrip();
             this.tooltripmenu_quanlylopsinhvien = new System.Windows.Forms.ToolStripMenuItem();
-            this.tblopn_timkiemmssv = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_timmssv = new System.Windows.Forms.Label();
-            this.tblopn_timkiemmakhoa = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_timkhoa = new System.Windows.Forms.Label();
-            this.tblopn_timkiemnganh = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_timnganh = new System.Windows.Forms.Label();
-            this.txt_mssv = new System.Windows.Forms.TextBox();
-            this.txt_makhoa = new System.Windows.Forms.TextBox();
-            this.txt_manganh = new System.Windows.Forms.TextBox();
-            this.btn_timmssv = new System.Windows.Forms.Button();
-            this.btn_khoa = new System.Windows.Forms.Button();
-            this.btn_timnganh = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pn_container.SuspendLayout();
             this.pn_sinhvien.SuspendLayout();
             this.pn_tongsosinhvien.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tblopn_timkiemnganh.SuspendLayout();
+            this.tblopn_timkiemmakhoa.SuspendLayout();
+            this.tblopn_timkiemmssv.SuspendLayout();
             this.tblopn_quanlylopsv.SuspendLayout();
             this.tblopn_quanlysv.SuspendLayout();
             this.tblopn_qlsinhvien.SuspendLayout();
             this.pn_quanlylopsinhvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sinhvien)).BeginInit();
             this.menustrip_quanlylopsinhvien.SuspendLayout();
-            this.tblopn_timkiemmssv.SuspendLayout();
-            this.tblopn_timkiemmakhoa.SuspendLayout();
-            this.tblopn_timkiemnganh.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_container
@@ -122,6 +122,180 @@ namespace DangKyHocPhanSV
             this.pn_tongsosinhvien.Name = "pn_tongsosinhvien";
             this.pn_tongsosinhvien.Size = new System.Drawing.Size(991, 224);
             this.pn_tongsosinhvien.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tblopn_quanlylopsv, 0, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.94424F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.05576F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(989, 269);
+            this.tableLayoutPanel2.TabIndex = 66;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemnganh, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemmakhoa, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemmssv, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 85);
+            this.tableLayoutPanel1.TabIndex = 65;
+            // 
+            // tblopn_timkiemnganh
+            // 
+            this.tblopn_timkiemnganh.BackColor = System.Drawing.Color.Silver;
+            this.tblopn_timkiemnganh.ColumnCount = 2;
+            this.tblopn_timkiemnganh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.15029F));
+            this.tblopn_timkiemnganh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.84971F));
+            this.tblopn_timkiemnganh.Controls.Add(this.lbl_timnganh, 0, 0);
+            this.tblopn_timkiemnganh.Controls.Add(this.txt_manganh, 1, 0);
+            this.tblopn_timkiemnganh.Controls.Add(this.btn_timnganh, 1, 1);
+            this.tblopn_timkiemnganh.Location = new System.Drawing.Point(657, 3);
+            this.tblopn_timkiemnganh.Name = "tblopn_timkiemnganh";
+            this.tblopn_timkiemnganh.RowCount = 2;
+            this.tblopn_timkiemnganh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemnganh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemnganh.Size = new System.Drawing.Size(323, 79);
+            this.tblopn_timkiemnganh.TabIndex = 70;
+            // 
+            // lbl_timnganh
+            // 
+            this.lbl_timnganh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_timnganh.AutoSize = true;
+            this.lbl_timnganh.Font = new System.Drawing.Font("Calibri", 12F);
+            this.lbl_timnganh.Location = new System.Drawing.Point(3, 7);
+            this.lbl_timnganh.Name = "lbl_timnganh";
+            this.lbl_timnganh.Size = new System.Drawing.Size(99, 24);
+            this.lbl_timnganh.TabIndex = 0;
+            this.lbl_timnganh.Text = "Mã ngành:";
+            // 
+            // txt_manganh
+            // 
+            this.txt_manganh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_manganh.Font = new System.Drawing.Font("Calibri", 12F);
+            this.txt_manganh.Location = new System.Drawing.Point(126, 3);
+            this.txt_manganh.Name = "txt_manganh";
+            this.txt_manganh.Size = new System.Drawing.Size(194, 32);
+            this.txt_manganh.TabIndex = 3;
+            // 
+            // btn_timnganh
+            // 
+            this.btn_timnganh.Font = new System.Drawing.Font("Calibri", 12F);
+            this.btn_timnganh.Location = new System.Drawing.Point(126, 42);
+            this.btn_timnganh.Name = "btn_timnganh";
+            this.btn_timnganh.Size = new System.Drawing.Size(194, 34);
+            this.btn_timnganh.TabIndex = 4;
+            this.btn_timnganh.Text = "Tìm";
+            this.btn_timnganh.UseVisualStyleBackColor = true;
+            this.btn_timnganh.Click += new System.EventHandler(this.btn_timnganh_Click);
+            // 
+            // tblopn_timkiemmakhoa
+            // 
+            this.tblopn_timkiemmakhoa.BackColor = System.Drawing.Color.Silver;
+            this.tblopn_timkiemmakhoa.ColumnCount = 2;
+            this.tblopn_timkiemmakhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.72152F));
+            this.tblopn_timkiemmakhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.27848F));
+            this.tblopn_timkiemmakhoa.Controls.Add(this.lbl_timkhoa, 0, 0);
+            this.tblopn_timkiemmakhoa.Controls.Add(this.txt_makhoa, 1, 0);
+            this.tblopn_timkiemmakhoa.Controls.Add(this.btn_khoa, 1, 1);
+            this.tblopn_timkiemmakhoa.Location = new System.Drawing.Point(330, 3);
+            this.tblopn_timkiemmakhoa.Name = "tblopn_timkiemmakhoa";
+            this.tblopn_timkiemmakhoa.RowCount = 2;
+            this.tblopn_timkiemmakhoa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemmakhoa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemmakhoa.Size = new System.Drawing.Size(316, 79);
+            this.tblopn_timkiemmakhoa.TabIndex = 69;
+            // 
+            // lbl_timkhoa
+            // 
+            this.lbl_timkhoa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_timkhoa.AutoSize = true;
+            this.lbl_timkhoa.Font = new System.Drawing.Font("Calibri", 12F);
+            this.lbl_timkhoa.Location = new System.Drawing.Point(3, 7);
+            this.lbl_timkhoa.Name = "lbl_timkhoa";
+            this.lbl_timkhoa.Size = new System.Drawing.Size(88, 24);
+            this.lbl_timkhoa.TabIndex = 0;
+            this.lbl_timkhoa.Text = "Mã khoa:";
+            // 
+            // txt_makhoa
+            // 
+            this.txt_makhoa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_makhoa.Font = new System.Drawing.Font("Calibri", 12F);
+            this.txt_makhoa.Location = new System.Drawing.Point(138, 3);
+            this.txt_makhoa.Name = "txt_makhoa";
+            this.txt_makhoa.Size = new System.Drawing.Size(175, 32);
+            this.txt_makhoa.TabIndex = 2;
+            // 
+            // btn_khoa
+            // 
+            this.btn_khoa.Font = new System.Drawing.Font("Calibri", 12F);
+            this.btn_khoa.Location = new System.Drawing.Point(138, 42);
+            this.btn_khoa.Name = "btn_khoa";
+            this.btn_khoa.Size = new System.Drawing.Size(175, 34);
+            this.btn_khoa.TabIndex = 3;
+            this.btn_khoa.Text = "Tìm";
+            this.btn_khoa.UseVisualStyleBackColor = true;
+            this.btn_khoa.Click += new System.EventHandler(this.btn_khoa_Click);
+            // 
+            // tblopn_timkiemmssv
+            // 
+            this.tblopn_timkiemmssv.BackColor = System.Drawing.Color.Silver;
+            this.tblopn_timkiemmssv.ColumnCount = 2;
+            this.tblopn_timkiemmssv.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.40506F));
+            this.tblopn_timkiemmssv.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.59494F));
+            this.tblopn_timkiemmssv.Controls.Add(this.lbl_timmssv, 0, 0);
+            this.tblopn_timkiemmssv.Controls.Add(this.txt_mssv, 1, 0);
+            this.tblopn_timkiemmssv.Controls.Add(this.btn_timmssv, 1, 1);
+            this.tblopn_timkiemmssv.Location = new System.Drawing.Point(3, 3);
+            this.tblopn_timkiemmssv.Name = "tblopn_timkiemmssv";
+            this.tblopn_timkiemmssv.RowCount = 2;
+            this.tblopn_timkiemmssv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemmssv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblopn_timkiemmssv.Size = new System.Drawing.Size(316, 79);
+            this.tblopn_timkiemmssv.TabIndex = 68;
+            // 
+            // lbl_timmssv
+            // 
+            this.lbl_timmssv.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_timmssv.AutoSize = true;
+            this.lbl_timmssv.Font = new System.Drawing.Font("Calibri", 12F);
+            this.lbl_timmssv.Location = new System.Drawing.Point(3, 7);
+            this.lbl_timmssv.Name = "lbl_timmssv";
+            this.lbl_timmssv.Size = new System.Drawing.Size(122, 24);
+            this.lbl_timmssv.TabIndex = 0;
+            this.lbl_timmssv.Text = "Mã sinh viên:";
+            // 
+            // txt_mssv
+            // 
+            this.txt_mssv.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_mssv.Font = new System.Drawing.Font("Calibri", 12F);
+            this.txt_mssv.Location = new System.Drawing.Point(136, 3);
+            this.txt_mssv.Name = "txt_mssv";
+            this.txt_mssv.Size = new System.Drawing.Size(176, 32);
+            this.txt_mssv.TabIndex = 1;
+            // 
+            // btn_timmssv
+            // 
+            this.btn_timmssv.Font = new System.Drawing.Font("Calibri", 12F);
+            this.btn_timmssv.Location = new System.Drawing.Point(136, 42);
+            this.btn_timmssv.Name = "btn_timmssv";
+            this.btn_timmssv.Size = new System.Drawing.Size(176, 34);
+            this.btn_timmssv.TabIndex = 2;
+            this.btn_timmssv.Text = "Tìm";
+            this.btn_timmssv.UseVisualStyleBackColor = true;
+            this.btn_timmssv.Click += new System.EventHandler(this.btn_timmssv_Click);
             // 
             // tblopn_quanlylopsv
             // 
@@ -511,180 +685,6 @@ namespace DangKyHocPhanSV
             this.tooltripmenu_quanlylopsinhvien.Text = "Quản lý lớp - sinh viên";
             this.tooltripmenu_quanlylopsinhvien.Click += new System.EventHandler(this.tooltripmenu_quanlylopsinhvien_Click);
             // 
-            // tblopn_timkiemmssv
-            // 
-            this.tblopn_timkiemmssv.BackColor = System.Drawing.Color.Silver;
-            this.tblopn_timkiemmssv.ColumnCount = 2;
-            this.tblopn_timkiemmssv.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.40506F));
-            this.tblopn_timkiemmssv.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.59494F));
-            this.tblopn_timkiemmssv.Controls.Add(this.lbl_timmssv, 0, 0);
-            this.tblopn_timkiemmssv.Controls.Add(this.txt_mssv, 1, 0);
-            this.tblopn_timkiemmssv.Controls.Add(this.btn_timmssv, 1, 1);
-            this.tblopn_timkiemmssv.Location = new System.Drawing.Point(3, 3);
-            this.tblopn_timkiemmssv.Name = "tblopn_timkiemmssv";
-            this.tblopn_timkiemmssv.RowCount = 2;
-            this.tblopn_timkiemmssv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemmssv.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemmssv.Size = new System.Drawing.Size(316, 79);
-            this.tblopn_timkiemmssv.TabIndex = 68;
-            // 
-            // lbl_timmssv
-            // 
-            this.lbl_timmssv.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_timmssv.AutoSize = true;
-            this.lbl_timmssv.Font = new System.Drawing.Font("Calibri", 12F);
-            this.lbl_timmssv.Location = new System.Drawing.Point(3, 7);
-            this.lbl_timmssv.Name = "lbl_timmssv";
-            this.lbl_timmssv.Size = new System.Drawing.Size(122, 24);
-            this.lbl_timmssv.TabIndex = 0;
-            this.lbl_timmssv.Text = "Mã sinh viên:";
-            // 
-            // tblopn_timkiemmakhoa
-            // 
-            this.tblopn_timkiemmakhoa.BackColor = System.Drawing.Color.Silver;
-            this.tblopn_timkiemmakhoa.ColumnCount = 2;
-            this.tblopn_timkiemmakhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.72152F));
-            this.tblopn_timkiemmakhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.27848F));
-            this.tblopn_timkiemmakhoa.Controls.Add(this.lbl_timkhoa, 0, 0);
-            this.tblopn_timkiemmakhoa.Controls.Add(this.txt_makhoa, 1, 0);
-            this.tblopn_timkiemmakhoa.Controls.Add(this.btn_khoa, 1, 1);
-            this.tblopn_timkiemmakhoa.Location = new System.Drawing.Point(330, 3);
-            this.tblopn_timkiemmakhoa.Name = "tblopn_timkiemmakhoa";
-            this.tblopn_timkiemmakhoa.RowCount = 2;
-            this.tblopn_timkiemmakhoa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemmakhoa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemmakhoa.Size = new System.Drawing.Size(316, 79);
-            this.tblopn_timkiemmakhoa.TabIndex = 69;
-            // 
-            // lbl_timkhoa
-            // 
-            this.lbl_timkhoa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_timkhoa.AutoSize = true;
-            this.lbl_timkhoa.Font = new System.Drawing.Font("Calibri", 12F);
-            this.lbl_timkhoa.Location = new System.Drawing.Point(3, 7);
-            this.lbl_timkhoa.Name = "lbl_timkhoa";
-            this.lbl_timkhoa.Size = new System.Drawing.Size(88, 24);
-            this.lbl_timkhoa.TabIndex = 0;
-            this.lbl_timkhoa.Text = "Mã khoa:";
-            // 
-            // tblopn_timkiemnganh
-            // 
-            this.tblopn_timkiemnganh.BackColor = System.Drawing.Color.Silver;
-            this.tblopn_timkiemnganh.ColumnCount = 2;
-            this.tblopn_timkiemnganh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.15029F));
-            this.tblopn_timkiemnganh.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.84971F));
-            this.tblopn_timkiemnganh.Controls.Add(this.lbl_timnganh, 0, 0);
-            this.tblopn_timkiemnganh.Controls.Add(this.txt_manganh, 1, 0);
-            this.tblopn_timkiemnganh.Controls.Add(this.btn_timnganh, 1, 1);
-            this.tblopn_timkiemnganh.Location = new System.Drawing.Point(657, 3);
-            this.tblopn_timkiemnganh.Name = "tblopn_timkiemnganh";
-            this.tblopn_timkiemnganh.RowCount = 2;
-            this.tblopn_timkiemnganh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemnganh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblopn_timkiemnganh.Size = new System.Drawing.Size(323, 79);
-            this.tblopn_timkiemnganh.TabIndex = 70;
-            // 
-            // lbl_timnganh
-            // 
-            this.lbl_timnganh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbl_timnganh.AutoSize = true;
-            this.lbl_timnganh.Font = new System.Drawing.Font("Calibri", 12F);
-            this.lbl_timnganh.Location = new System.Drawing.Point(3, 7);
-            this.lbl_timnganh.Name = "lbl_timnganh";
-            this.lbl_timnganh.Size = new System.Drawing.Size(99, 24);
-            this.lbl_timnganh.TabIndex = 0;
-            this.lbl_timnganh.Text = "Mã ngành:";
-            // 
-            // txt_mssv
-            // 
-            this.txt_mssv.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_mssv.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txt_mssv.Location = new System.Drawing.Point(137, 3);
-            this.txt_mssv.Name = "txt_mssv";
-            this.txt_mssv.Size = new System.Drawing.Size(176, 32);
-            this.txt_mssv.TabIndex = 1;
-            // 
-            // txt_makhoa
-            // 
-            this.txt_makhoa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_makhoa.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txt_makhoa.Location = new System.Drawing.Point(138, 3);
-            this.txt_makhoa.Name = "txt_makhoa";
-            this.txt_makhoa.Size = new System.Drawing.Size(175, 32);
-            this.txt_makhoa.TabIndex = 2;
-            // 
-            // txt_manganh
-            // 
-            this.txt_manganh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_manganh.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txt_manganh.Location = new System.Drawing.Point(126, 3);
-            this.txt_manganh.Name = "txt_manganh";
-            this.txt_manganh.Size = new System.Drawing.Size(194, 32);
-            this.txt_manganh.TabIndex = 3;
-            // 
-            // btn_timmssv
-            // 
-            this.btn_timmssv.Font = new System.Drawing.Font("Calibri", 12F);
-            this.btn_timmssv.Location = new System.Drawing.Point(137, 42);
-            this.btn_timmssv.Name = "btn_timmssv";
-            this.btn_timmssv.Size = new System.Drawing.Size(176, 34);
-            this.btn_timmssv.TabIndex = 2;
-            this.btn_timmssv.Text = "Tìm";
-            this.btn_timmssv.UseVisualStyleBackColor = true;
-            this.btn_timmssv.Click += new System.EventHandler(this.btn_timmssv_Click);
-            // 
-            // btn_khoa
-            // 
-            this.btn_khoa.Font = new System.Drawing.Font("Calibri", 12F);
-            this.btn_khoa.Location = new System.Drawing.Point(138, 42);
-            this.btn_khoa.Name = "btn_khoa";
-            this.btn_khoa.Size = new System.Drawing.Size(175, 34);
-            this.btn_khoa.TabIndex = 3;
-            this.btn_khoa.Text = "Tìm";
-            this.btn_khoa.UseVisualStyleBackColor = true;
-            this.btn_khoa.Click += new System.EventHandler(this.btn_khoa_Click);
-            // 
-            // btn_timnganh
-            // 
-            this.btn_timnganh.Font = new System.Drawing.Font("Calibri", 12F);
-            this.btn_timnganh.Location = new System.Drawing.Point(126, 42);
-            this.btn_timnganh.Name = "btn_timnganh";
-            this.btn_timnganh.Size = new System.Drawing.Size(194, 34);
-            this.btn_timnganh.TabIndex = 4;
-            this.btn_timnganh.Text = "Tìm";
-            this.btn_timnganh.UseVisualStyleBackColor = true;
-            this.btn_timnganh.Click += new System.EventHandler(this.btn_timnganh_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemnganh, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemmakhoa, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tblopn_timkiemmssv, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 85);
-            this.tableLayoutPanel1.TabIndex = 65;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tblopn_quanlylopsv, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.94424F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.05576F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(989, 269);
-            this.tableLayoutPanel2.TabIndex = 66;
-            // 
             // FrmQuanLySinhVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -700,6 +700,14 @@ namespace DangKyHocPhanSV
             this.pn_container.PerformLayout();
             this.pn_sinhvien.ResumeLayout(false);
             this.pn_tongsosinhvien.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tblopn_timkiemnganh.ResumeLayout(false);
+            this.tblopn_timkiemnganh.PerformLayout();
+            this.tblopn_timkiemmakhoa.ResumeLayout(false);
+            this.tblopn_timkiemmakhoa.PerformLayout();
+            this.tblopn_timkiemmssv.ResumeLayout(false);
+            this.tblopn_timkiemmssv.PerformLayout();
             this.tblopn_quanlylopsv.ResumeLayout(false);
             this.tblopn_quanlylopsv.PerformLayout();
             this.tblopn_quanlysv.ResumeLayout(false);
@@ -711,14 +719,6 @@ namespace DangKyHocPhanSV
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sinhvien)).EndInit();
             this.menustrip_quanlylopsinhvien.ResumeLayout(false);
             this.menustrip_quanlylopsinhvien.PerformLayout();
-            this.tblopn_timkiemmssv.ResumeLayout(false);
-            this.tblopn_timkiemmssv.PerformLayout();
-            this.tblopn_timkiemmakhoa.ResumeLayout(false);
-            this.tblopn_timkiemmakhoa.PerformLayout();
-            this.tblopn_timkiemnganh.ResumeLayout(false);
-            this.tblopn_timkiemnganh.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
