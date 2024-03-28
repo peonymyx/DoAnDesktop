@@ -28,7 +28,7 @@ namespace BusinessLogicLayer
             catch (Exception ex)
             {
                 // In ra thông báo lỗi nếu có lỗi xảy ra
-                Console.WriteLine(ex.Message); // In ra thông báo lỗi nếu có lỗi xảy ra
+                Console.WriteLine(ex.Message);
             }
         }
 

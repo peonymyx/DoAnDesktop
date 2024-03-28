@@ -37,12 +37,14 @@ namespace DangKyHocPhanSV.Pagination
                 int totalRecords = dataTable.Rows.Count;
 
                 // Phân trang dữ liệu từ danh sách dữ liệu
+                // Một danh sách các hàng dữ liệu (rows) đại diện cho trang dữ liệu được chỉ định bởi pageNumber và pageSize.
                 List<DataRow> rows = dataTable.AsEnumerable()
                                               .Skip((pageNumber - 1) * pageSize)
                                               .Take(pageSize)
                                               .ToList();
 
                 // Tạo danh sách môn học từ dữ liệu đã phân trang
+                // Chuyển DataRow thành Khoa
                 List<Khoa> khoa = rows.Select(row => new Khoa
                 {
                     MaKhoa = row["MaKhoa"].ToString(),
