@@ -257,7 +257,7 @@ namespace DangKyHocPhanSV
             this.btn_lophoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_lophoc.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_lophoc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_lophoc.Image = global::DangKyHocPhanSV.Properties.Resources.dangky_1_;
+            this.btn_lophoc.Image = global::DangKyHocPhanSV.Properties.Resources.class1;
             this.btn_lophoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_lophoc.Location = new System.Drawing.Point(-10, -14);
             this.btn_lophoc.Name = "btn_lophoc";

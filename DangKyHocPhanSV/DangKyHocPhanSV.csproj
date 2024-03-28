@@ -501,6 +501,8 @@
   <ItemGroup>
     <None Include="Resources\hoat_dong_chao_mung_ueh_3.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\class1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

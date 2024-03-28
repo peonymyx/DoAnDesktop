@@ -84,6 +84,10 @@ namespace DangKyHocPhanSV
                         FrmGiangVien_Load();
                         MessageBox.Show("Đã xóa thành công!");
                     }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa!");
+                    }
                 }
 
             }
@@ -100,7 +104,7 @@ namespace DangKyHocPhanSV
             string err = "";
             try
             {
-                if (string.IsNullOrWhiteSpace(txt_matkhau.Text) || string.IsNullOrWhiteSpace(txt_hoten.Text)|| string.IsNullOrWhiteSpace(txt_email.Text) || string.IsNullOrWhiteSpace(txt_tendangnhap.Text))
+                if (string.IsNullOrWhiteSpace(txt_matkhau.Text) || string.IsNullOrWhiteSpace(txt_hoten.Text) || string.IsNullOrWhiteSpace(txt_email.Text) || string.IsNullOrWhiteSpace(txt_tendangnhap.Text))
                 {
                     MessageBox.Show("Vui lòng nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -115,6 +119,10 @@ namespace DangKyHocPhanSV
                     {
                         FrmGiangVien_Load();
                         MessageBox.Show("Đã thêm thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thể xóa!");
                     }
                 }
 

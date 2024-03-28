@@ -112,10 +112,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_xoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_xoa.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoa.Location = new System.Drawing.Point(753, 11);
+            this.btn_xoa.Location = new System.Drawing.Point(783, 11);
             this.btn_xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(190, 43);
+            this.btn_xoa.Size = new System.Drawing.Size(163, 43);
             this.btn_xoa.TabIndex = 3;
             this.btn_xoa.Text = "Xóa tài khoản";
             this.btn_xoa.UseVisualStyleBackColor = false;
@@ -125,10 +125,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_timkiem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_timkiem.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiem.Location = new System.Drawing.Point(536, 11);
+            this.btn_timkiem.Location = new System.Drawing.Point(581, 11);
             this.btn_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_timkiem.Name = "btn_timkiem";
-            this.btn_timkiem.Size = new System.Drawing.Size(190, 43);
+            this.btn_timkiem.Size = new System.Drawing.Size(175, 43);
             this.btn_timkiem.TabIndex = 2;
             this.btn_timkiem.Text = "Tìm kiếm";
             this.btn_timkiem.UseVisualStyleBackColor = false;
@@ -138,7 +138,7 @@ namespace DangKyHocPhanSV
             // 
             this.txt_magv.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_magv.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_magv.Location = new System.Drawing.Point(195, 8);
+            this.txt_magv.Location = new System.Drawing.Point(265, 8);
             this.txt_magv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_magv.Name = "txt_magv";
             this.txt_magv.Size = new System.Drawing.Size(241, 48);
@@ -149,11 +149,11 @@ namespace DangKyHocPhanSV
             this.lbl_magv.AutoSize = true;
             this.lbl_magv.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_magv.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_magv.Location = new System.Drawing.Point(26, 17);
+            this.lbl_magv.Location = new System.Drawing.Point(46, 17);
             this.lbl_magv.Name = "lbl_magv";
-            this.lbl_magv.Size = new System.Drawing.Size(156, 31);
+            this.lbl_magv.Size = new System.Drawing.Size(214, 31);
             this.lbl_magv.TabIndex = 0;
-            this.lbl_magv.Text = "Mã giảng viên";
+            this.lbl_magv.Text = "Mã/ Tên giảng viên:";
             // 
             // pn_themgiangvien
             // 
@@ -210,10 +210,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_them.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_them.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_them.Location = new System.Drawing.Point(726, 84);
+            this.btn_them.Location = new System.Drawing.Point(783, 84);
             this.btn_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(190, 43);
+            this.btn_them.Size = new System.Drawing.Size(133, 43);
             this.btn_them.TabIndex = 10;
             this.btn_them.Text = "Thêm ";
             this.btn_them.UseVisualStyleBackColor = false;

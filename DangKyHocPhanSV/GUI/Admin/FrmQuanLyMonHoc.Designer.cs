@@ -311,6 +311,7 @@ namespace DangKyHocPhanSV
             // pn_themMonhoc
             // 
             this.pn_themMonhoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_themMonhoc.Controls.Add(this.btn_xoamonhoc);
             this.pn_themMonhoc.Controls.Add(this.btn_themquanlymonhoc);
             this.pn_themMonhoc.Controls.Add(this.txt_themsotinchi);
             this.pn_themMonhoc.Controls.Add(this.lbl_themmamh);
@@ -328,10 +329,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_themquanlymonhoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_themquanlymonhoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_themquanlymonhoc.Location = new System.Drawing.Point(401, 45);
+            this.btn_themquanlymonhoc.Location = new System.Drawing.Point(400, 25);
             this.btn_themquanlymonhoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_themquanlymonhoc.Name = "btn_themquanlymonhoc";
-            this.btn_themquanlymonhoc.Size = new System.Drawing.Size(82, 54);
+            this.btn_themquanlymonhoc.Size = new System.Drawing.Size(82, 50);
             this.btn_themquanlymonhoc.TabIndex = 3;
             this.btn_themquanlymonhoc.Text = "Thêm ";
             this.btn_themquanlymonhoc.UseVisualStyleBackColor = false;
@@ -354,9 +355,9 @@ namespace DangKyHocPhanSV
             this.lbl_themmamh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_themmamh.Location = new System.Drawing.Point(12, 29);
             this.lbl_themmamh.Name = "lbl_themmamh";
-            this.lbl_themmamh.Size = new System.Drawing.Size(122, 24);
+            this.lbl_themmamh.Size = new System.Drawing.Size(159, 24);
             this.lbl_themmamh.TabIndex = 66;
-            this.lbl_themmamh.Text = "Mã Môn Học:";
+            this.lbl_themmamh.Text = "Tên/Mã Môn Học:";
             // 
             // lbl_themsotinchi
             // 
@@ -373,10 +374,10 @@ namespace DangKyHocPhanSV
             // 
             this.txt_themmamh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_themmamh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_themmamh.Location = new System.Drawing.Point(136, 25);
+            this.txt_themmamh.Location = new System.Drawing.Point(169, 25);
             this.txt_themmamh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_themmamh.Name = "txt_themmamh";
-            this.txt_themmamh.Size = new System.Drawing.Size(240, 32);
+            this.txt_themmamh.Size = new System.Drawing.Size(207, 32);
             this.txt_themmamh.TabIndex = 0;
             // 
             // lbl_themtenmh
@@ -403,7 +404,6 @@ namespace DangKyHocPhanSV
             // pn_quanlymonhoc
             // 
             this.pn_quanlymonhoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_quanlymonhoc.Controls.Add(this.btn_xoamonhoc);
             this.pn_quanlymonhoc.Controls.Add(this.btn_timkiemmonhoc);
             this.pn_quanlymonhoc.Controls.Add(this.txt_mamonhoc);
             this.pn_quanlymonhoc.Controls.Add(this.lbl_mamonhoc);
@@ -418,10 +418,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_xoamonhoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_xoamonhoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoamonhoc.Location = new System.Drawing.Point(377, 39);
+            this.btn_xoamonhoc.Location = new System.Drawing.Point(400, 80);
             this.btn_xoamonhoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_xoamonhoc.Name = "btn_xoamonhoc";
-            this.btn_xoamonhoc.Size = new System.Drawing.Size(106, 43);
+            this.btn_xoamonhoc.Size = new System.Drawing.Size(82, 46);
             this.btn_xoamonhoc.TabIndex = 2;
             this.btn_xoamonhoc.Text = "Xóa ";
             this.btn_xoamonhoc.UseVisualStyleBackColor = false;
@@ -431,7 +431,7 @@ namespace DangKyHocPhanSV
             // 
             this.btn_timkiemmonhoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_timkiemmonhoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiemmonhoc.Location = new System.Drawing.Point(268, 39);
+            this.btn_timkiemmonhoc.Location = new System.Drawing.Point(380, 40);
             this.btn_timkiemmonhoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_timkiemmonhoc.Name = "btn_timkiemmonhoc";
             this.btn_timkiemmonhoc.Size = new System.Drawing.Size(103, 43);
@@ -444,10 +444,10 @@ namespace DangKyHocPhanSV
             // 
             this.txt_mamonhoc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_mamonhoc.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mamonhoc.Location = new System.Drawing.Point(133, 45);
+            this.txt_mamonhoc.Location = new System.Drawing.Point(170, 45);
             this.txt_mamonhoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_mamonhoc.Name = "txt_mamonhoc";
-            this.txt_mamonhoc.Size = new System.Drawing.Size(129, 32);
+            this.txt_mamonhoc.Size = new System.Drawing.Size(204, 32);
             this.txt_mamonhoc.TabIndex = 0;
             // 
             // lbl_mamonhoc
@@ -457,9 +457,9 @@ namespace DangKyHocPhanSV
             this.lbl_mamonhoc.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_mamonhoc.Location = new System.Drawing.Point(12, 48);
             this.lbl_mamonhoc.Name = "lbl_mamonhoc";
-            this.lbl_mamonhoc.Size = new System.Drawing.Size(115, 24);
+            this.lbl_mamonhoc.Size = new System.Drawing.Size(157, 24);
             this.lbl_mamonhoc.TabIndex = 71;
-            this.lbl_mamonhoc.Text = "Mã môn học";
+            this.lbl_mamonhoc.Text = "Tên/Mã môn học:";
             // 
             // lbl_quanlymonhoc
             // 
@@ -503,10 +503,10 @@ namespace DangKyHocPhanSV
             // 
             this.btn_timkiemMHDT.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_timkiemMHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timkiemMHDT.Location = new System.Drawing.Point(284, 41);
+            this.btn_timkiemMHDT.Location = new System.Drawing.Point(301, 41);
             this.btn_timkiemMHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_timkiemMHDT.Name = "btn_timkiemMHDT";
-            this.btn_timkiemMHDT.Size = new System.Drawing.Size(112, 43);
+            this.btn_timkiemMHDT.Size = new System.Drawing.Size(95, 43);
             this.btn_timkiemMHDT.TabIndex = 1;
             this.btn_timkiemMHDT.Text = "Tìm kiếm";
             this.btn_timkiemMHDT.UseVisualStyleBackColor = false;
@@ -519,7 +519,7 @@ namespace DangKyHocPhanSV
             this.txt_maMHDT.Location = new System.Drawing.Point(132, 47);
             this.txt_maMHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_maMHDT.Name = "txt_maMHDT";
-            this.txt_maMHDT.Size = new System.Drawing.Size(145, 32);
+            this.txt_maMHDT.Size = new System.Drawing.Size(163, 32);
             this.txt_maMHDT.TabIndex = 0;
             // 
             // lbl_maMHDT

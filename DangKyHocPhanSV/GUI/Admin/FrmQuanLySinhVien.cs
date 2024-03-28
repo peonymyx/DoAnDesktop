@@ -68,40 +68,13 @@ namespace DangKyHocPhanSV
 
         private void btn_timkiemmanganh_Click(object sender, EventArgs e)
         {
-            int n = nganh.TongSVNganh(txt_manganh.Text);
-            txt_tongsinhvien.Text = n.ToString();
-
-            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
-            dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
-            dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
-            dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
-            dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
-            dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
-
-            dgv_sinhvien.Columns[0].Width = 150;
-            dgv_sinhvien.Columns[1].Width = 200;
-            dgv_sinhvien.Columns[2].Width = 100;
-            dgv_sinhvien.Columns[3].Width = 100;
-            dgv_sinhvien.Columns[4].Width = 100;
+            
 
         }
 
         private void btn_timkiemmakhoa_Click(object sender, EventArgs e)
         {
-            int n = khoa.TongSVKhoa(txt_makhoa.Text);
-            txt_tongsinhvien.Text = n.ToString();
-
-            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
-            dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
-            dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
-            dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
-            dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
-            dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
-            dgv_sinhvien.Columns[0].Width = 150;
-            dgv_sinhvien.Columns[1].Width = 200;
-            dgv_sinhvien.Columns[2].Width = 100;
-            dgv_sinhvien.Columns[3].Width = 100;
-            dgv_sinhvien.Columns[4].Width = 100;
+            
         }
 
 
@@ -248,6 +221,61 @@ namespace DangKyHocPhanSV
                 err = "Không thể cập nhật!";
                 MessageBox.Show(err);
             }
+        }
+
+        private void btn_timmssv_Click(object sender, EventArgs e)
+        {
+            dgv_sinhvien.DataSource = sv.ThongTin(txt_mssv.Text).Tables[0];
+            dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
+            dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
+            dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
+            dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
+            dgv_sinhvien.Columns[0].Width = 150;
+            dgv_sinhvien.Columns[1].Width = 200;
+            dgv_sinhvien.Columns[2].Width = 100;
+            dgv_sinhvien.Columns[3].Width = 100;
+        }
+
+        private void btn_khoa_Click(object sender, EventArgs e)
+        {
+            int n = khoa.TongSVKhoa(txt_makhoa.Text);
+            txt_tongsinhvien.Text = n.ToString();
+
+            dgv_sinhvien.DataSource = khoa.DanhSachSVKhoa(txt_makhoa.Text).Tables[0];
+            dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
+            dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
+            dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
+            dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
+            dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
+            dgv_sinhvien.Columns[0].Width = 150;
+            dgv_sinhvien.Columns[1].Width = 200;
+            dgv_sinhvien.Columns[2].Width = 100;
+            dgv_sinhvien.Columns[3].Width = 100;
+            dgv_sinhvien.Columns[4].Width = 100;
+        }
+
+        private void btn_timnganh_Click(object sender, EventArgs e)
+        {
+            int n = nganh.TongSVNganh(txt_manganh.Text);
+            txt_tongsinhvien.Text = n.ToString();
+
+            dgv_sinhvien.DataSource = nganh.DanhSachSVNganh(txt_manganh.Text).Tables[0];
+            dgv_sinhvien.Columns[0].HeaderText = "Mã số sinh viên";
+            dgv_sinhvien.Columns[1].HeaderText = "Họ và tên";
+            dgv_sinhvien.Columns[2].HeaderText = "Giới tính";
+            dgv_sinhvien.Columns[3].HeaderText = "Ngày Sinh";
+            dgv_sinhvien.Columns[4].HeaderText = "Mã Lớp";
+
+            dgv_sinhvien.Columns[0].Width = 150;
+            dgv_sinhvien.Columns[1].Width = 200;
+            dgv_sinhvien.Columns[2].Width = 100;
+            dgv_sinhvien.Columns[3].Width = 100;
+            dgv_sinhvien.Columns[4].Width = 100;
+        }
+
+        private void dgv_sinhvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
